@@ -14,11 +14,14 @@
             <%= f.simple_fields_for :answers do |answer| %>
                 <tr>
                     <td style="width: 50%;"><%= Part.get_name(answer.object.part_id) %></td>
-                    <td style="width: 50%;"><%= answer.input :content, 
-                                    as: Part.get_format(answer.object.part_id).to_sym, label: false %>
+                    <td style="width: 50%;"><%= answer.input :content, label: false %>
                     </td>
                 </tr>
             <% end %>
         </tbody>
     </table>
+
+    <div class="form-actions">
+        <%= f.button :submit %>
+    </div>
 <% end %>

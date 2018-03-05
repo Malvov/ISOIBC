@@ -28,29 +28,22 @@ class CompletionsController < ApplicationController
   # POST /completions.json
   def create
     @completion = @indicator.completions.new(completion_params)
-
-    respond_to do |format|
-      if @completion.save
-        format.html { redirect_to @completion, notice: 'Completion was successfully created.' }
-        format.json { render :show, status: :created, location: @completion }
-      else
-        format.html { render :new }
-        format.json { render json: @completion.errors, status: :unprocessable_entity }
-      end
+    if @completion.save
+      flash[:success] = 'Guardado correctamente'
+      redirect_to indicator_completions_path
+    else
+      render 'new'
     end
   end
 
   # PATCH/PUT /completions/1
   # PATCH/PUT /completions/1.json
   def update
-    respond_to do |format|
-      if @completion.update(completion_params)
-        format.html { redirect_to @completion, notice: 'Completion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @completion }
-      else
-        format.html { render :edit }
-        format.json { render json: @completion.errors, status: :unprocessable_entity }
-      end
+    if @completion.update(completion_params)
+      flash[:success] = 'Actualizado correctamente'
+      redirect_to indicator_completions_path
+    else
+      render 'edit'
     end
   end
 
@@ -58,10 +51,8 @@ class CompletionsController < ApplicationController
   # DELETE /completions/1.json
   def destroy
     @completion.destroy
-    respond_to do |format|
-      format.html { redirect_to completions_url, notice: 'Completion was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Eliminado correctamente'
+    redirect_to indicator_completions_path
   end
 
   private

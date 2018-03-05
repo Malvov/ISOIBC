@@ -2,7 +2,7 @@
 
 <p>
   <strong>Indicator:</strong>
-  <%= @completion.indicator %>
+  <%= @completion.indicator.name %>
 </p>
 
 <p>
@@ -10,5 +10,22 @@
   <%= @completion.date %>
 </p>
 
-<%= link_to 'Edit', edit_completion_path(@completion) %> |
-<%= link_to 'Back', completions_path %>
+<table style="table">
+  <thead>
+    <tr>
+      <td>Evaluación</td>
+      <td>Resultado</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% parts_with_answers(@completion).each do |part, answer| %>
+      <tr>
+        <td><%= part %></td>
+        <td><%= answer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_indicator_completion_path(@completion) %> |
+<%= link_to 'Back', indicator_completions_path %>
