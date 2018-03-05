@@ -1,0 +1,24 @@
+<h1>Editing completion</h1>
+
+<%= simple_form_for [@indicator, @completion] do |f| %>
+    <%= f.error_notification %>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Puntos a evaluar</th>
+                <th>Resultados</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%= f.simple_fields_for :answers do |answer| %>
+                <tr>
+                    <td style="width: 50%;"><%= Part.get_name(answer.object.part_id) %></td>
+                    <td style="width: 50%;"><%= answer.input :content, 
+                                    as: Part.get_format(answer.object.part_id).to_sym, label: false %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>

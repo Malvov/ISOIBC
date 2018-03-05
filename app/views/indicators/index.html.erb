@@ -14,7 +14,7 @@
     <% @indicators.each do |indicator| %>
       <tr>
         <td><%= indicator.name %></td>
-        <td><%= link_to 'Show', indicator, class: 'btn btn-info' %></td>
+        <td><%= link_to 'Show', indicator_completions_path(indicator), class: 'btn btn-info' %></td>
         <td><%= link_to 'Edit', edit_indicator_path(indicator), class: 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', indicator, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>

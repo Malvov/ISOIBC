@@ -13,6 +13,16 @@ AnswerType.create!([
     { name: 'Cantidad', format: 'decimal' },
     { name: 'Checkboxes', format: 'boolean' },
     { name: 'Entero', format: 'integer' },
-    { name: 'Botones de opciones', format: 'radio_buttons' },
-    { name: 'Menú/dropdown', format: 'collection' }
+   # { name: 'Botones de opciones', format: 'radio_buttons' },
+    #{ name: 'Menú/dropdown', format: 'collection' }
                    ])
+
+(1 + rand(15)).times do |n|
+    id = n + 1
+    indicador = Indicator.create!(name: "Indicador número #{id}")
+    (1 + rand(15)).times do |i|
+        Part.create!(indicator: indicador, answer_type: AnswerType.order('RANDOM()').limit(5).first,
+                        name: "Respuesta prueba #{i + 1} para indicador #{id}" )
+    end
+    print '.'
+end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Indicator:</strong>
+  <%= @completion.indicator %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @completion.date %>
+</p>
+
+<%= link_to 'Edit', edit_completion_path(@completion) %> |
+<%= link_to 'Back', completions_path %>
