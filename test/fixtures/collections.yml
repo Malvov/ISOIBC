@@ -1,22 +1,20 @@
 # == Schema Information
 #
-# Table name: parts
+# Table name: collections
 #
 #  id             :integer          not null, primary key
-#  name           :string
-#  indicator_id   :integer
+#  string_array   :string
+#  answer_type_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  answer_type_id :integer
-#  collection_id  :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  indicator: one
+  string_array: MyString
+  answer_type: one
 
 two:
-  name: MyString
-  indicator: two
+  string_array: MyString
+  answer_type: two

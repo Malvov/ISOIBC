@@ -11,4 +11,6 @@
 
 class AnswerType < ApplicationRecord
     has_many :parts, dependent: :destroy
+    has_many :collections, dependent: :destroy
+    accepts_nested_attributes_for :collections, reject_if: :all_blank, allow_destroy: true
 end

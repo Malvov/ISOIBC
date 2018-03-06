@@ -69,6 +69,6 @@ class AnswerTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_type_params
-      params.require(:answer_type).permit(:name, :format)
+      params.require(:answer_type).permit(:name, :format, collections_attributes: Collection.attribute_names.map(&:to_sym).push(:_destroy))
     end
 end

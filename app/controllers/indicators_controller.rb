@@ -28,7 +28,7 @@ class IndicatorsController < ApplicationController
 
     if @indicator.save
       flash[:success] = 'Creado correctamente'
-      redirect_to @indicator
+      redirect_to indicators_url
     else
       flash[:warning] = 'Algo salió mal'
       render :new
@@ -40,7 +40,7 @@ class IndicatorsController < ApplicationController
   def update
     if @indicator.update(indicator_params)
       flash[:success] = 'Editado correctamente'
-      redirect_to @indicator
+      redirect_to edit_indicator_path(@indicator)
     else
       flash[:warning] = 'Algo salió mal'
       render :edit

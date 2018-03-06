@@ -8,6 +8,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  answer_type_id :integer
+#  collection_id  :integer
 #
 
 class Part < ApplicationRecord

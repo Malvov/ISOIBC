@@ -9,6 +9,13 @@
                   label_method: :name,
                   prompt: 'Seleccionar el tipo de respuesta' %>
         </div>
+        <% if f.object.answer_type_id == 7 or f.object.answer_type_id == 8 %>
+            <div class="col-lg-3">
+                <%= f.input :collection_id, label: false, collection: Collection.all, 
+                value_method: :id, label_method: :string_array, 
+                prompt: 'Seleccionar items a mostrar' %>
+            </div>
+        <% end %>
         <div class="col-lg-3">
             <%= link_to_remove_association 'Borrar', f, class: 'btn btn-danger' %>
         </div>

@@ -1,0 +1,26 @@
+
+<%= simple_form_for(@zone) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Actividades</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= f.simple_fields_for :tasks do |task| %>
+        <%= render 'task_fields', f: task  %>
+      <% end %> 
+    </tbody>
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Nueva', f,:tasks, class: 'btn btn-info' %>
+  </div>
+<% end %>

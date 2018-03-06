@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305182407) do
+ActiveRecord::Schema.define(version: 20180306164131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20180305182407) do
     t.index ["part_id"], name: "index_answers_on_part_id"
   end
 
+  create_table "collections", force: :cascade do |t|
+    t.string "string_array"
+    t.bigint "answer_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_type_id"], name: "index_collections_on_answer_type_id"
+  end
+
   create_table "completions", force: :cascade do |t|
     t.bigint "indicator_id"
     t.date "date"
@@ -55,13 +63,32 @@ ActiveRecord::Schema.define(version: 20180305182407) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "answer_type_id"
+    t.bigint "collection_id"
     t.index ["answer_type_id"], name: "index_parts_on_answer_type_id"
+    t.index ["collection_id"], name: "index_parts_on_collection_id"
     t.index ["indicator_id"], name: "index_parts_on_indicator_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.bigint "zone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["zone_id"], name: "index_tasks_on_zone_id"
+  end
+
+  create_table "zones", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "answers", "completions"
   add_foreign_key "answers", "parts"
+  add_foreign_key "collections", "answer_types"
   add_foreign_key "completions", "indicators"
   add_foreign_key "parts", "answer_types"
+  add_foreign_key "parts", "collections"
   add_foreign_key "parts", "indicators"
+  add_foreign_key "tasks", "zones"
 end

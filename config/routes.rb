@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :zones
+  
   resources :answer_types
   
   resources :indicators do
