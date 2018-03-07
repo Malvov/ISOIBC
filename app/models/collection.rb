@@ -11,4 +11,5 @@
 
 class Collection < ApplicationRecord
   belongs_to :answer_type
+  has_many :parts
 end

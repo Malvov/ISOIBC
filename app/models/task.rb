@@ -11,4 +11,5 @@
 
 class Task < ApplicationRecord
   belongs_to :zone
+  has_many :evaluations, dependent: :destroy
 end

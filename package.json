@@ -1,5 +1,7 @@
 {
   "name": "iso-ibc",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "highcharts": "^6.0.7"
+  }
 }

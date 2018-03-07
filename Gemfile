@@ -60,3 +60,5 @@ gem 'bootstrap-sass'
 gem 'cocoon'
 
 gem 'simple_form'
+
+gem 'chartkick'

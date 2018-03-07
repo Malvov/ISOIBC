@@ -20,7 +20,13 @@
                         <td style="width: 50%;"><%= part.name %></td>
                         <td style="width: 50%;">
                             <%= answer.hidden_field :part_id, value: part.id %>
-                            <%= answer.input :content, as: Part.get_format(part.id).to_sym, label: false %>
+                            <% if accepts_array?(part.answer_type) %>
+                                <% unless part.collection == nil %>
+                                    <% if part.collection.string_array == 'Actividades' %>
+                                         
+                                    <% end %>
+                                <% end %>
+                            <% end %>
                         </td>
                     </tr>
                 <% end %>

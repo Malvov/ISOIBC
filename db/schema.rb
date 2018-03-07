@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306164131) do
+ActiveRecord::Schema.define(version: 20180306202408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,22 @@ ActiveRecord::Schema.define(version: 20180306164131) do
     t.index ["indicator_id"], name: "index_completions_on_indicator_id"
   end
 
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.bigint "employee_id"
+    t.bigint "task_id"
+    t.string "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_evaluations_on_employee_id"
+    t.index ["task_id"], name: "index_evaluations_on_task_id"
+  end
+
   create_table "indicators", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -87,6 +103,8 @@ ActiveRecord::Schema.define(version: 20180306164131) do
   add_foreign_key "answers", "parts"
   add_foreign_key "collections", "answer_types"
   add_foreign_key "completions", "indicators"
+  add_foreign_key "evaluations", "employees"
+  add_foreign_key "evaluations", "tasks"
   add_foreign_key "parts", "answer_types"
   add_foreign_key "parts", "collections"
   add_foreign_key "parts", "indicators"
