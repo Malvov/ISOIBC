@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :evaluations
+  resources :evaluations 
   resources :employees
   resources :zones
   

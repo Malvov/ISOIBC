@@ -66,7 +66,7 @@ zones.each do |zone|
             { name: 'Recorte de grama', zone_id: sector.id },
             { name: 'Retiro de maleza de malla', zone_id: sector.id }
         ])
-    when 'Sec1-T3'
+    when 'Sec1_T3'
         Task.create!([
             { name: 'Mant Caceta este', zone_id: sector.id },
             { name: 'Mant Portón este', zone_id: sector.id },
@@ -74,7 +74,7 @@ zones.each do |zone|
             { name: 'Recorte de Plantas', zone_id: sector.id },
             { name: 'Reparación de acera', zone_id: sector.id }
         ])
-    when 'Sec2-IAT'
+    when 'Sec2_IAT'
         Task.create!([
             { name: 'Cambio adoquines', zone_id: sector.id },
             { name: 'Cambio reductores de velocidad', zone_id: sector.id },
@@ -86,7 +86,7 @@ zones.each do |zone|
             { name: 'Recorte de grama', zone_id: sector.id },
             { name: 'Reparación Topes de Parqueo', zone_id: sector.id }
         ])
-    when 'Sec2-T2'
+    when 'Sec2_T2'
         Task.create!([
             { name: 'Cambio adoquines', zone_id: sector.id },
             { name: 'Cambio de piso', zone_id: sector.id },
@@ -102,7 +102,7 @@ zones.each do |zone|
             { name: 'Recorte Plantas Ornamentales', zone_id: sector.id },
             { name: 'Reparación Topes de Parqueo', zone_id: sector.id }
         ])
-    when 'Sec2-T3'
+    when 'Sec2_T3'
         Task.create!([
             { name: 'Cambio adoquines', zone_id: sector.id },
             { name: 'Cambio de piso', zone_id: sector.id },
@@ -118,7 +118,7 @@ zones.each do |zone|
             { name: 'Recorte Plantas Ornamentales', zone_id: sector.id },
             { name: 'Reparación Topes de Parqueo', zone_id: sector.id }
         ])
-    when 'Sec3-T2'
+    when 'Sec3_T2'
         Task.create!([
             { name: 'Accesorios Baños_Mujeres', zone_id: sector.id },
             { name: 'Accesorios Baños_Varones', zone_id: sector.id },
@@ -136,7 +136,7 @@ zones.each do |zone|
             { name: 'Sanitización Baños_Mujeres', zone_id: sector.id },
             { name: 'Sanitización Baños_Varones', zone_id: sector.id }
         ])
-    when 'Sec3-T3'
+    when 'Sec3_T3'
         Task.create!([
             { name: 'Limpieza ascensor Nor-este', zone_id: sector.id },
             { name: 'Limpieza ascensor Nor-oeste', zone_id: sector.id },
