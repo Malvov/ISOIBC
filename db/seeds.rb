@@ -159,3 +159,11 @@ employees =  [ 'LUISA GONZALEZ', 'FERNANDO PEREZ', 'ELISABETH GONZALEZ', 'HAMING
 employees.each do |employee|
     Employee.create!(name: employee)
 end
+
+calificaciones = ['Bueno', 'Deficiente']
+
+500.times do |n|
+    Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
+        calificaciones.sample, comment: Faker::Lorem.paragraph)
+    print n
+end

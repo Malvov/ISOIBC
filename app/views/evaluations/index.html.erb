@@ -1,11 +1,18 @@
-<h1>Evaluations</h1>
+<div>
+  <h1>Supervisión</h1>
+  <%= link_to 'Nueva', new_evaluation_path, class: 'btn btn-success' %>
+</div>
 
+
+
+
+<%= will_paginate @evaluations, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>
     <tr>
       <th>Operaria/o</th>
       <th>Actividad</th>
-      <th>Result</th>
+      <th>Calificación</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,17 +20,15 @@
   <tbody>
     <% @evaluations.each do |evaluation| %>
       <tr>
-        <td><%= evaluation.employee.name %></td>
+        <td><%= link_to evaluation.employee.name, evaluation.employee %></td>
         <td><%= evaluation.task.name %></td>
         <td><%= evaluation.result %></td>
-        <td><%= link_to 'Show', evaluation %></td>
-        <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-        <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', evaluation %></td>
+        <td><%= link_to 'Editar', edit_evaluation_path(evaluation) %></td>
+        <td><%= link_to 'Eliminar', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Nueva', new_evaluation_path, class: 'btn btn-success' %>

@@ -1,9 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
+<h3>
+  <strong>Nombre:</strong>
   <%= @zone.name %>
-</p>
+</h3>
 
-<%= link_to 'Edit', edit_zone_path(@zone) %> |
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Actividades correspondientes
+      </th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @zone.tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= link_to 'Editar', edit_zone_path(@zone) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Editar', edit_zone_path(@zone) %> |
 <%= link_to 'Back', zones_path %>

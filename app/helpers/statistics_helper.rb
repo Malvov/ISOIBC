@@ -1,7 +1,21 @@
 module StatisticsHelper
     def employee_evaluations
-        column_chart @employee.evaluations.group(:result).count,  library: {
-            title: { text: 'Evaluación de actividades' }
+        bar_chart @employee.evaluations.group(:result).count,  library: {
+            title: { text: "Rendimiento de #{@employee.name}" },
+            yAxis: {
+                allowDecimals: false
+            },
+            xAxis: {
+                title: {
+                    text: 'Calificaciones obtenidas'
+                }
+            }
         }
+    end
+
+    def employees_evaluations
+         pie_chart Evaluation.group(:result).count, library: {
+             title: { text: 'Rendimiento general' }
+         }
     end
 end
