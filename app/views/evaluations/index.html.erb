@@ -1,12 +1,24 @@
-<div>
-  <h1>Supervisión</h1>
-  <%= link_to 'Nueva', new_evaluation_path, class: 'btn btn-success' %>
+<div class="row">
+  <div class="text-center"><h1>Supervisión</h1></div>
 </div>
 
-
-
+<div class="row">
+  <%= form_tag evaluations_path, method: :get do %>
+      <div class="col-md-4">
+        <%= text_field_tag :query, params[:query], class: 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= submit_tag 'Buscar', name: nil, class: 'btn btn-info' %>
+      </div>
+      <div class="col-md-4">
+        <%= link_to 'Nueva', new_evaluation_path, class: 'btn btn-success' %>
+      </div>
+  <% end %>
+</div>
 
 <%= will_paginate @evaluations, renderer: BootstrapPagination::Rails %>
+
+
 <table class="table">
   <thead>
     <tr>

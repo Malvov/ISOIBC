@@ -4,7 +4,11 @@ class EvaluationsController < ApplicationController
   # GET /evaluations
   # GET /evaluations.json
   def index
-    @evaluations = Evaluation.paginate(page: params[:page])
+    if params[:query]
+      @evaluations = Evaluation.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+    else
+      @evaluations = Evaluation.paginate(page: params[:page]).per_page(10)
+    end
   end
 
   # GET /evaluations/1
