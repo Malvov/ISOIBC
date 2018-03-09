@@ -32,7 +32,7 @@ class EvaluationsController < ApplicationController
 
     if @evaluation.save
       flash[:success] = 'Guardado correctamente'
-      redirect_to @evaluation
+      redirect_to evaluations_url
     else
       flash[:danger] = 'Ocurrió un error'
       render :new
@@ -44,7 +44,7 @@ class EvaluationsController < ApplicationController
   def update
     if @evaluation.update(evaluation_params)
       flash[:success] = 'Actualizado correctamente'
-      redirect_to @evaluation
+      redirect_to evaluations_url
     else
       flash[:danger] = 'Ocurrió un error'
       render :edit

@@ -15,7 +15,10 @@ module StatisticsHelper
 
     def employees_evaluations
          pie_chart Evaluation.group(:result).count, library: {
-             title: { text: 'Rendimiento general' }
-         }
+             title: { text: 'Rendimiento general' },
+             yAxis: {
+                 allowDecimals: false
+             }
+            }
     end
 end

@@ -153,17 +153,18 @@ end
 
 employees =  [ 'LUISA GONZALEZ', 'FERNANDO PEREZ', 'ELISABETH GONZALEZ', 'HAMINGTON ARROLIGA', 
     'EVELING CANALES', 'CARLOS OROSCO', 'TERESA VALLECILLO', 'REYNALDO SANCHEZ', 'JENNIFER CHAVEZ',
-    'CRISTOPHER MEZA',  'SOYLA CHAVARRIA', 'RICARDO LOPEZ', 'KENIA JEREZ', 'DIMAS ESTRADA', 'ANABEL ZUNIGA',
+    'CRISTOPHER MEZA',  'SOYLA CHAVARRIA', 'RICARDO LOPEZ', 
+    'KENIA JEREZ', 'DIMAS ESTRADA', 'ANABEL ZUNIGA',
  'PEDRO VELASQUEZ', 'MIGUEL GAITAN', 'ABEL JUAREZ' ]
 
 employees.each do |employee|
     Employee.create!(name: employee)
 end
 
-calificaciones = ['Bueno', 'Deficiente']
+# calificaciones = ['Bueno', 'Deficiente']
 
-500.times do |n|
-    Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
-        calificaciones.sample, comment: Faker::Lorem.paragraph)
-    print n
-end
+# 500.times do |n|
+#     Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
+#         calificaciones.sample, comment: Faker::Lorem.paragraph)
+#     print n
+# end

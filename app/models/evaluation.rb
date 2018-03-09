@@ -15,6 +15,8 @@ class Evaluation < ApplicationRecord
   belongs_to :employee
   belongs_to :task
 
+  validates_presence_of :result
+
   include PgSearch
   pg_search_scope :search, associated_against: { employee: :name, task: :name }
 

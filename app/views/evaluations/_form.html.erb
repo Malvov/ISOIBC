@@ -8,8 +8,8 @@
     <%# select_tag 'zone_id', options_from_collection_for_select(Zone.all, 'id', 'name'), class: 'form-control form-group'  %>
     <%= label_tag 'Actividades' %>
     <%= f.grouped_collection_select :task_id, Zone.all, :tasks, :name, :id, :name, { include_blank: 'Escoger actividad' }, 
-    { class: 'form-control form-group' } %>
-    <%= f.input :result, label: false, collection: ['Bueno', 'Deficiente'], prompt: 'Calificación' %>
+    { class: 'form-control form-group', required: true } %>
+    <%= f.input :result, label: false, collection: ['Bueno', 'Regular', 'Deficiente'], prompt: 'Calificación' %>
     <%= f.input :comment, label: 'Observaciones' %>
   </div>
 
