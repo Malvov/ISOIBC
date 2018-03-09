@@ -17,6 +17,8 @@ class Evaluation < ApplicationRecord
 
   validates_presence_of :result
 
+  mount_uploader :image, ImageUploader
+
   include PgSearch
   pg_search_scope :search, associated_against: { employee: :name, task: :name }
 

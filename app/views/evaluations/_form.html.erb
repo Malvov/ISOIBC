@@ -10,6 +10,12 @@
     <%= f.grouped_collection_select :task_id, Zone.all, :tasks, :name, :id, :name, { include_blank: 'Escoger actividad' }, 
     { class: 'form-control form-group', required: true } %>
     <%= f.input :result, label: false, collection: ['Bueno', 'Regular', 'Deficiente'], prompt: 'Calificación' %>
+    <%= f.file_field :image %>
+    <% if f.object.image? %>
+      <%= image_tag f.object.image.url %>
+      <%= label_tag "Quitar imagen" %>
+      <%= f.input :remove_image, as: :boolean, label: false %>
+    <% end %>
     <%= f.input :comment, label: 'Observaciones' %>
   </div>
 

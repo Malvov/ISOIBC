@@ -19,6 +19,6 @@ module StatisticsHelper
              yAxis: {
                  allowDecimals: false
              }
-            }
+        }
     end
 end

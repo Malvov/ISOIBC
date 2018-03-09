@@ -13,6 +13,9 @@
   <%= @evaluation.result %>
 </p>
 
+<p>
+  <%= image_tag @evaluation.image.url if @evaluation.image? %>
+</p>
 <p><%= @evaluation.comment %></p>
 
 <%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |
