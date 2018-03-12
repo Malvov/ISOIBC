@@ -145,7 +145,7 @@ end
 
 calificaciones = ['Bueno', 'Regular', 'Deficiente']
 
-500.times do |n|
+2500.times do |n|
     Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
         calificaciones.sample, comment: Faker::Lorem.paragraph)
     print n
