@@ -6,18 +6,12 @@
     <%= f.input :name %>
   </div>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Actividades</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= f.simple_fields_for :tasks do |task| %>
-        <%= render 'task_fields', f: task  %>
-      <% end %> 
-    </tbody>
-  </table>
+  <div class="form-inputs">
+    <h3>Actividades</h3>
+    <%= f.simple_fields_for :tasks do |task| %>
+      <%= render 'task_fields', f: task %>
+    <% end %>
+  </div>
 
   <div class="form-actions">
     <%= f.button :submit, 'Guardar' %>
