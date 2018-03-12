@@ -10,46 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309211251) do
+ActiveRecord::Schema.define(version: 20180312143933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "answer_types", force: :cascade do |t|
-    t.string "name"
-    t.string "format"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["format"], name: "index_answer_types_on_format"
-    t.index ["name"], name: "index_answer_types_on_name"
-  end
-
-  create_table "answers", force: :cascade do |t|
-    t.bigint "part_id"
-    t.bigint "completion_id"
-    t.string "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["completion_id"], name: "index_answers_on_completion_id"
-    t.index ["content"], name: "index_answers_on_content"
-    t.index ["part_id"], name: "index_answers_on_part_id"
-  end
-
-  create_table "collections", force: :cascade do |t|
-    t.string "string_array"
-    t.bigint "answer_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["answer_type_id"], name: "index_collections_on_answer_type_id"
-  end
-
-  create_table "completions", force: :cascade do |t|
-    t.bigint "indicator_id"
-    t.date "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["indicator_id"], name: "index_completions_on_indicator_id"
-  end
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
@@ -70,24 +34,6 @@ ActiveRecord::Schema.define(version: 20180309211251) do
     t.index ["task_id"], name: "index_evaluations_on_task_id"
   end
 
-  create_table "indicators", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "parts", force: :cascade do |t|
-    t.string "name"
-    t.bigint "indicator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "answer_type_id"
-    t.bigint "collection_id"
-    t.index ["answer_type_id"], name: "index_parts_on_answer_type_id"
-    t.index ["collection_id"], name: "index_parts_on_collection_id"
-    t.index ["indicator_id"], name: "index_parts_on_indicator_id"
-  end
-
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.bigint "zone_id"
@@ -97,20 +43,31 @@ ActiveRecord::Schema.define(version: 20180309211251) do
     t.index ["zone_id"], name: "index_tasks_on_zone_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   create_table "zones", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "answers", "completions"
-  add_foreign_key "answers", "parts"
-  add_foreign_key "collections", "answer_types"
-  add_foreign_key "completions", "indicators"
   add_foreign_key "evaluations", "employees"
   add_foreign_key "evaluations", "tasks"
-  add_foreign_key "parts", "answer_types"
-  add_foreign_key "parts", "collections"
-  add_foreign_key "parts", "indicators"
   add_foreign_key "tasks", "zones"
 end

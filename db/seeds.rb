@@ -6,24 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-AnswerType.create!([
-    { name: 'Fecha', format: 'date' },
-    { name: 'Texto', format: 'text' },
-    { name: 'Horas', format: 'time' },
-    { name: 'Cantidad', format: 'decimal' },
-    { name: 'Checkboxes', format: 'boolean' },
-    { name: 'Entero', format: 'integer' },
-    { name: 'Botones de opciones', format: 'radio_buttons' },
-    { name: 'Menú/dropdown', format: 'collection' }
-                   ])
-
-                   
-Collection.create!([
-    { string_array: 'Sí, No, N/A', answer_type_id: 7 },
-    { string_array: 'Bueno, Deficiente', answer_type_id: 7 },
-    { string_array: 'Actividades', answer_type_id: 8 }
-])
-
 zones = [ 'Sec1_IAT', 
     'Sec1_T2', 
     'Sec1_T3', 
@@ -161,10 +143,10 @@ employees.each do |employee|
     Employee.create!(name: employee)
 end
 
-# calificaciones = ['Bueno', 'Deficiente']
+calificaciones = ['Bueno', 'Regular', 'Deficiente']
 
-# 500.times do |n|
-#     Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
-#         calificaciones.sample, comment: Faker::Lorem.paragraph)
-#     print n
-# end
+500.times do |n|
+    Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
+        calificaciones.sample, comment: Faker::Lorem.paragraph)
+    print n
+end

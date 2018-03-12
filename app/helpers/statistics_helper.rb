@@ -1,6 +1,6 @@
 module StatisticsHelper
-    def employee_evaluations
-        bar_chart @employee.evaluations.group(:result).count,  library: {
+    def employee_evaluations(employee)
+        pie_chart employee.evaluations.group(:result).count,  library: {
             title: { text: "Rendimiento de #{@employee.name}" },
             yAxis: {
                 allowDecimals: false

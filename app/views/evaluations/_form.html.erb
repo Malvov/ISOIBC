@@ -1,4 +1,3 @@
-
 <%= simple_form_for(@evaluation) do |f| %>
   <%= f.error_notification %>
 
@@ -7,9 +6,10 @@
     <%# label_tag 'Sectores' %>
     <%# select_tag 'zone_id', options_from_collection_for_select(Zone.all, 'id', 'name'), class: 'form-control form-group'  %>
     <%= label_tag 'Actividades' %>
-    <%= f.grouped_collection_select :task_id, Zone.all, :tasks, :name, :id, :name, { include_blank: 'Escoger actividad' }, 
-    { class: 'form-control form-group', required: true } %>
-    <%= f.input :result, label: false, collection: ['Bueno', 'Regular', 'Deficiente'], prompt: 'Calificación' %>
+    <%= f.grouped_collection_select :task_id, Zone.all, :tasks, 
+    :name, :id, :name, { include_blank: 'Escoger actividad' }, 
+    { class: 'form-control form-group' } %>
+    <%= f.input :result, label: false, collection: %w[Bueno Regular Deficiente], prompt: 'Calificación' %>
     <%= f.file_field :image %>
     <% if f.object.image? %>
       <%= image_tag f.object.image.url %>
@@ -18,7 +18,7 @@
     <% end %>
     <%= f.input :comment, label: 'Observaciones' %>
   </div>
-
+  
   <div class="form-actions">
     <%= f.button :submit, 'Calificar', class: 'btn btn-success' %>
   </div>

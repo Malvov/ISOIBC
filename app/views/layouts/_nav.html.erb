@@ -8,14 +8,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button> %>
-      <a class="navbar-brand" href="#">INVERCASA</a>
+      <%= link_to 'INVERCASA', root_url, class: 'navbar-brand' %>
     </div>
 
+    <% if user_signed_in? %>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Supervisión', evaluations_path %></li>
-        <li><%= link_to 'Operaria/o', employees_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Limpieza y jardinería <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Supervisión', evaluations_path %></li>
+            <li><%= link_to 'Operaria/o', employees_path %></li>
+          </ul>
+        </li>
       </ul>
        <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -24,7 +31,17 @@
             <li><%= link_to 'Sectores y tareas', zones_path %></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuario<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Perfil', edit_user_registration_path %></li>
+            <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
       </ul>
+    
     </div><!-- /.navbar-collapse -->
+
+    <% end %>
   </div><!-- /.container-fluid -->
 </nav>

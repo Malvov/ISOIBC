@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <h3>
   <strong>Nombre:</strong>
   <%= @employee.name %>
 </h3>
 
-<%= employee_evaluations %>
+<%= employee_evaluations(@employee) %>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
