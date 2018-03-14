@@ -19,7 +19,7 @@ zones = [ 'Sec1_IAT',
     'Subsector 3', 
     'Subsector 4', 
     'Subsector 5' ]
-
+puts 'zones and tasks'
 zones.each do |zone|
     sector = Zone.create!(name: zone)
     case zone
@@ -139,14 +139,17 @@ employees =  [ 'LUISA GONZALEZ', 'FERNANDO PEREZ', 'ELISABETH GONZALEZ', 'HAMING
     'KENIA JEREZ', 'DIMAS ESTRADA', 'ANABEL ZUNIGA',
  'PEDRO VELASQUEZ', 'MIGUEL GAITAN', 'ABEL JUAREZ' ]
 
+puts "employees"
 employees.each do |employee|
     Employee.create!(name: employee)
+    print '.'
 end
 
 calificaciones = ['Bueno', 'Regular', 'Deficiente']
 
-2500.times do |n|
+puts 'evaluations'
+100.times do |n|
     Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
         calificaciones.sample, comment: Faker::Lorem.paragraph)
-    print n
+    print '.'
 end
