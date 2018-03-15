@@ -1,2 +1,9 @@
 <h1>Sistema de seguimiento ISO</h1>
 <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-lg btn-primary' unless user_signed_in? %>
+<% if user_signed_in? %>
+    <h1 class="text-center">
+        Dashboard
+    </h1>
+    <%= employees_evaluations %>
+    <%= evaluation_results_per_month %>
+<% end %>

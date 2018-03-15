@@ -84,3 +84,5 @@ gem 'mini_magick'
 gem 'devise'
 
 gem 'cancancan'
+
+gem 'groupdate'

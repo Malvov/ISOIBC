@@ -19,6 +19,7 @@
       <%= f.input :remove_image, as: :boolean, label: false %>
     <% end %>
     <%= f.input :comment, label: 'Observaciones' %>
+    <%= f.input :date, label: 'Fecha de supervisión', order: [:day, :month, :year],  use_month_numbers: true %>
   </div>
   
   <div class="form-actions">

@@ -21,4 +21,10 @@ module StatisticsHelper
              }
         }
     end
+
+    def evaluation_results_per_month
+      bar_chart Evaluation.group(:result).group_by_month(:date, format: '%b').count, stacked: true, library: {
+          title: { text: 'Rendimiento por mes' }
+      }
+    end
 end

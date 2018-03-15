@@ -81,7 +81,8 @@ CREATE TABLE evaluations (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     comment text,
-    image character varying
+    image character varying,
+    date date
 );
 
 
@@ -397,6 +398,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180308181334'),
 ('20180309211251'),
 ('20180312143933'),
-('20180312163057');
+('20180312163057'),
+('20180315213425');
 
 
