@@ -10,7 +10,7 @@ zones = [ 'Sec1_IAT',
     'Sec1_T2', 
     'Sec1_T3', 
     'Sec2_IAT', 
-    'Sec2_T2', 
+    'Sec2_T2',
     'Sec2_T3', 
     'Sec3_T2', 
     'Sec3_T3', 
@@ -145,11 +145,11 @@ employees.each do |employee|
     print '.'
 end
 
-calificaciones = ['Bueno', 'Regular', 'Deficiente']
+# calificaciones = ['Bueno', 'Regular', 'Deficiente']
 
-puts 'evaluations'
-100.times do |n|
-    Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
-        calificaciones.sample, comment: Faker::Lorem.paragraph)
-    print '.'
-end
+# puts 'evaluations'
+# 100.times do |n|
+#     Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
+#         calificaciones.sample, comment: Faker::Lorem.paragraph)
+#     print '.'
+# end

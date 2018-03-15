@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
+  
   tasks = $('#evaluation_task_id').html()
   $('#zone_id').change ->
     zone = $('#zone_id :selected').text()

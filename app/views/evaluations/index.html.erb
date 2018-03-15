@@ -23,6 +23,7 @@
     <tr>
       <th>Operaria/o</th>
       <th>Actividad</th>
+      <th>Sector</th>
       <th>Calificación</th>
       <th colspan="2"></th>
     </tr>
@@ -32,6 +33,7 @@
       <tr>
         <td><%= link_to evaluation.employee.name, evaluation.employee %></td>
         <td><%= evaluation.task.name %></td>
+        <td><%= evaluation.task.zone.name %></td>
         <td><%= evaluation.result %></td>
         <td><%= link_to 'Mostrar', evaluation %></td>
         <td><%= link_to 'Editar', edit_evaluation_path(evaluation) %></td>

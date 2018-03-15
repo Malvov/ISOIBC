@@ -3,8 +3,8 @@
 
   <div class="form-inputs">
     <%= f.association :employee, label: 'Operario/a', prompt: 'Escoger operario/a' %>
-    <%# label_tag 'Sectores' %>
-    <%# select_tag 'zone_id',
+    <%= label_tag 'Sectores' %>
+    <%= select_tag 'zone_id',
     options_from_collection_for_select(Zone.all, 'id', 'name'), class: 'form-control form-group'  %>
     <%= label_tag 'Actividades' %>
     <%= f.grouped_collection_select :task_id, Zone.all, :tasks, 
