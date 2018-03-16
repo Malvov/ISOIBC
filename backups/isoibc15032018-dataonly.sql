@@ -19,7 +19,7 @@ SET search_path = public, pg_catalog;
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
-INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-03-14 20:06:23.660568', '2018-03-14 20:06:23.660568');
+--INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-03-14 20:06:23.660568', '2018-03-14 20:06:23.660568');
 
 
 --
@@ -541,15 +541,15 @@ SELECT pg_catalog.setval('evaluations_id_seq', 327, true);
 -- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
-INSERT INTO schema_migrations (version) VALUES ('20180306155809');
-INSERT INTO schema_migrations (version) VALUES ('20180306161208');
-INSERT INTO schema_migrations (version) VALUES ('20180306201154');
-INSERT INTO schema_migrations (version) VALUES ('20180306202408');
-INSERT INTO schema_migrations (version) VALUES ('20180307211341');
-INSERT INTO schema_migrations (version) VALUES ('20180308181334');
-INSERT INTO schema_migrations (version) VALUES ('20180309211251');
-INSERT INTO schema_migrations (version) VALUES ('20180312143933');
-INSERT INTO schema_migrations (version) VALUES ('20180312163057');
+-- INSERT INTO schema_migrations (version) VALUES ('20180306155809');
+-- INSERT INTO schema_migrations (version) VALUES ('20180306161208');
+-- INSERT INTO schema_migrations (version) VALUES ('20180306201154');
+-- INSERT INTO schema_migrations (version) VALUES ('20180306202408');
+-- INSERT INTO schema_migrations (version) VALUES ('20180307211341');
+-- INSERT INTO schema_migrations (version) VALUES ('20180308181334');
+-- INSERT INTO schema_migrations (version) VALUES ('20180309211251');
+-- INSERT INTO schema_migrations (version) VALUES ('20180312143933');
+-- INSERT INTO schema_migrations (version) VALUES ('20180312163057');
 
 
 --

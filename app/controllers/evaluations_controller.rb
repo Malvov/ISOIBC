@@ -6,9 +6,10 @@ class EvaluationsController < ApplicationController
   # GET /evaluations.json
   def index
     if params[:query]
-      @evaluations = Evaluation.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+      @evaluations = Evaluation.text_search(params[:query]).paginate(page: params[:page]).per_page(10).
+        order(date: :desc)
     else
-      @evaluations = Evaluation.paginate(page: params[:page]).per_page(10)
+      @evaluations = Evaluation.paginate(page: params[:page]).per_page(10).order(date: :desc)
     end
   end
 
@@ -33,7 +34,7 @@ class EvaluationsController < ApplicationController
 
     if @evaluation.save
       flash[:success] = 'Guardado correctamente'
-      redirect_to evaluations_url
+      redirect_to new_evaluation_path
     else
       flash[:danger] = 'Ocurrió un error'
       render :new
