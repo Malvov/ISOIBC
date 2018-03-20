@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #  comment     :text
 #  image       :string
+#  date        :date
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

@@ -10,12 +10,13 @@
 #  updated_at  :datetime         not null
 #  comment     :text
 #  image       :string
+#  date        :date
 #
 
 class Evaluation < ApplicationRecord
   belongs_to :employee
   belongs_to :task
-
+  
   validates_presence_of :result
 
   mount_uploader :image, ImageUploader
@@ -30,5 +31,5 @@ class Evaluation < ApplicationRecord
       scoped
     end
   end
-
+  
 end

@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #  comment     :text
 #  image       :string
+#  date        :date
 #
 
 require 'test_helper'
