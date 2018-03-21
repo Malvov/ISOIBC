@@ -83,3 +83,5 @@ production:
   database: isoibc_production
   username: isoibc
   password: <%= ENV['ISOIBC_DATABASE_PASSWORD'] %>
+  
+  
