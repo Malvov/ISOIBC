@@ -13,9 +13,18 @@
     <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.name %></td>
-        <td><%= link_to 'Mostrar', employee %></td>
-        <td><%= link_to 'Editar', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Eliminar', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to employee, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_employee_path(employee), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to employee,  'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar', method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

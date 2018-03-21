@@ -86,3 +86,6 @@ gem 'devise'
 gem 'cancancan'
 
 gem 'groupdate'
+
+#font awesome
+gem 'font-awesome-rails'
