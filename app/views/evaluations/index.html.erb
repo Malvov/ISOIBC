@@ -33,9 +33,17 @@
         <td><%= link_to evaluation.employee.name, evaluation.employee %></td>
         <td><%= evaluation.task.name %></td>
         <td><%= evaluation.task.zone.name %></td>
-        <td><%= evaluation.result %></td>
-        <td><%= link_to 'Mostrar', evaluation %></td>
-        <td><%= link_to 'Editar', edit_evaluation_path(evaluation) %></td>
+        <td>
+          <%= evaluation.result %>
+        </td>
+        <td><%= link_to evaluation, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_evaluation_path(evaluation), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
         <td><%# link_to 'Eliminar', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
