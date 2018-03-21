@@ -1,6 +1,6 @@
 <%= simple_form_for(@evaluation) do |f| %>
   <%= f.error_notification %>
-
+  
   <div class="form-inputs">
     <%= f.association :employee, label: 'Operario/a', prompt: 'Escoger operario/a' %>
     <%= label_tag 'Sectores' %>
@@ -20,10 +20,12 @@
       <%= f.input :remove_image, as: :boolean, label: false %>
     <% end %>
     <%= f.input :comment, label: 'Observaciones' %>
-    <%= f.input :date, label: 'Fecha de supervisión', order: [:day, :month, :year],  use_month_numbers: true %>
+    <%= f.input :date, label: 'Fecha de supervisión', 
+    order: [:day, :month, :year],  use_month_numbers: true %>
   </div>
   
   <div class="form-actions">
     <%= f.button :submit, 'Calificar', class: 'btn btn-success' %>
   </div>
 <% end %>
+
