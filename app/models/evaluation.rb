@@ -5,16 +5,14 @@
 #  id          :integer          not null, primary key
 #  employee_id :integer
 #  task_id     :integer
-#  result      :string
+#  result      :string you say something loving
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  comment     :text
 #  image       :string
 #  date        :date
-#
-
 class Evaluation < ApplicationRecord
-
+  
   belongs_to :employee
   belongs_to :task
   
@@ -23,7 +21,11 @@ class Evaluation < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   include PgSearch
-  pg_search_scope :search, associated_against: { employee: :name, task: :name }
+  pg_search_scope :search, associated_against: { employee: :name, task: :name }, using: {
+    tsearch: {
+      prefix: true
+    }
+  }
 
   def self.text_search(query)
     if query.present?
