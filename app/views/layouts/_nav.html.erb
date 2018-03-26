@@ -8,7 +8,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button> %>
-      <%= link_to 'IBC', root_url, class: 'navbar-brand' %>
+      <a class="navbar-brand" href="#">
+        <%= link_to root_path do %>
+          <%# fa_icon 'book 3x', style: 'margin-top: 5px;' %>
+          <%= image_tag('ibc.png', size: '66x57', alt: 'Brand', style: 'margin-top: 8px;') %>
+        <% end %>
+      </a>
+
     </div>
 
     <% if user_signed_in? %>

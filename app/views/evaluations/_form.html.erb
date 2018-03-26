@@ -13,7 +13,12 @@
     { class: 'form-control form-group' } %>
     <%= f.input :result, label: false, collection: %w[Bueno Regular Deficiente], 
     prompt: 'Calificación' %>
-    <%= f.file_field :image %>
+    <label class="btn btn-info">
+      Imagen
+      <span style="display:none;">
+        <%= f.input :image, as: :file %>
+      </span>
+    </label>
     <% if f.object.image? %>
       <%= image_tag f.object.image.url %>
       <%= label_tag "Quitar imagen" %>
