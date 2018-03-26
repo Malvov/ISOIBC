@@ -88,6 +88,7 @@ gem 'devise'
 #authorization
 gem 'cancancan'
 
+# groupdate
 gem 'groupdate'
 
 #font awesome

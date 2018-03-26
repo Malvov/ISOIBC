@@ -11,6 +11,7 @@ threads threads_count, threads_count
 #
 port        ENV.fetch("PORT") { 3000 }
 
+
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
@@ -20,7 +21,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # the concurrency of the application would be max `threads` * `workers`.
 # Workers do not work on JRuby or Windows (both of which do not support
 # processes).
-#
+
 # workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 
 # Use the `preload_app!` method when specifying a `workers` number.
