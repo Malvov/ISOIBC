@@ -89,6 +89,5 @@ Cada equipo tendría asociado estos "tipos"
 Equipment name location description
 MasurementType name equipment_id parameter_id
 Parameter name equal min_value max_value
-Masure content measurement_type_id
-
-
+Measurement content measurement_type_id
+MeasureUnit?

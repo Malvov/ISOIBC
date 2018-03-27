@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :parameters
   resources :equipment
   devise_for :users
   root 'static_pages#home'

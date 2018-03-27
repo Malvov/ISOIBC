@@ -139,6 +139,40 @@ ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
 
 
 --
+-- Name: parameters; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE parameters (
+    id bigint NOT NULL,
+    name character varying,
+    equal character varying,
+    min_value double precision,
+    max_value double precision,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: parameters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE parameters_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: parameters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE parameters_id_seq OWNED BY parameters.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -278,6 +312,13 @@ ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
 
 
@@ -325,6 +366,14 @@ ALTER TABLE ONLY equipment
 
 ALTER TABLE ONLY evaluations
     ADD CONSTRAINT evaluations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: parameters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY parameters
+    ADD CONSTRAINT parameters_pkey PRIMARY KEY (id);
 
 
 --
@@ -450,6 +499,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180312163057'),
 ('20180315213425'),
 ('20180320153956'),
-('20180327203924');
+('20180327203924'),
+('20180327211407');
 
 
