@@ -19,7 +19,7 @@ SET search_path = public, pg_catalog;
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
---INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-03-20 22:32:53.407641', '2018-03-20 22:32:53.407641');
+--INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-03-27 20:40:57.593906', '2018-03-27 20:40:57.593906');
 
 
 --
@@ -51,6 +51,31 @@ INSERT INTO employees (id, name, created_at, updated_at) VALUES (18, 'ABEL JUARE
 --
 
 SELECT pg_catalog.setval('employees_id_seq', 18, true);
+
+
+--
+-- Data for Name: equipment; Type: TABLE DATA; Schema: public; Owner: manuel
+--
+
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (1, 'GE Switchboard T2', 'IT2', NULL, '2018-03-27 20:55:53.401204', '2018-03-27 20:55:53.401204');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (2, 'Protecciones y alarmas T2', 'IT2', NULL, '2018-03-27 20:55:53.503585', '2018-03-27 20:55:53.503585');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (3, 'Transferencia automática GE 2500 Torre 2', 'IT2', '', '2018-03-27 20:57:13.29014', '2018-03-27 20:57:13.29014');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (6, 'Transferencia automática GE 2500 Torre 3', 'IT3', '', '2018-03-27 20:58:44.474668', '2018-03-27 20:58:44.474668');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (9, 'Generadores eléctricos IAT', 'IAT', '', '2018-03-27 21:00:54.831314', '2018-03-27 21:00:54.831314');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (10, 'Generadores eléctricos T2', 'IT2', '', '2018-03-27 21:01:06.985667', '2018-03-27 21:01:06.985667');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (11, 'Generadores eléctricos T3', 'IT3', '', '2018-03-27 21:01:19.570197', '2018-03-27 21:01:19.570197');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (12, 'Bombas de agua potable T2', 'IT2', '', '2018-03-27 21:01:41.185909', '2018-03-27 21:01:41.185909');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (13, 'Bombas de agua potable T3', 'IT3', '', '2018-03-27 21:02:37.413845', '2018-03-27 21:02:37.413845');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (14, 'Sistema contra incendios T2', 'IT2', '', '2018-03-27 21:02:52.605915', '2018-03-27 21:02:52.605915');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (15, 'Sistema contra incendios T3', 'IT3', '', '2018-03-27 21:03:02.598512', '2018-03-27 21:03:02.598512');
+INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (16, 'Combustión T3', 'IT3', '', '2018-03-27 21:03:26.121626', '2018-03-27 21:03:26.121626');
+
+
+--
+-- Name: equipment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
+--
+
+SELECT pg_catalog.setval('equipment_id_seq', 16, true);
 
 
 --
@@ -556,6 +581,7 @@ SELECT pg_catalog.setval('evaluations_id_seq', 328, true);
 -- INSERT INTO schema_migrations (version) VALUES ('20180312163057');
 -- INSERT INTO schema_migrations (version) VALUES ('20180315213425');
 -- INSERT INTO schema_migrations (version) VALUES ('20180320153956');
+-- INSERT INTO schema_migrations (version) VALUES ('20180327203924');
 
 
 --

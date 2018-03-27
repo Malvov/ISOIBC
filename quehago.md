@@ -85,3 +85,10 @@ UV 	    OV	    UF	    OF	    UV   	OV	    UF	    OF
 TOdos estos serían "tipo" de algo jaja
 Cada equipo tendría asociado estos "tipos"
 "tipo de medida" y a cada tipo le asociaría el parámetro
+
+Equipment name location description
+MasurementType name equipment_id parameter_id
+Parameter name equal min_value max_value
+Masure content measurement_type_id
+
+

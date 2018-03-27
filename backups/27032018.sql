@@ -77,6 +77,39 @@ ALTER SEQUENCE employees_id_seq OWNED BY employees.id;
 
 
 --
+-- Name: equipment; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE equipment (
+    id bigint NOT NULL,
+    name character varying,
+    location character varying,
+    description text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: equipment_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE equipment_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: equipment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE equipment_id_seq OWNED BY equipment.id;
+
+
+--
 -- Name: evaluations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -172,6 +205,7 @@ CREATE TABLE users (
     last_sign_in_ip inet,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
+    name character varying,
     CONSTRAINT email_must_have_email_format CHECK (((email)::text ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'::text))
 );
 
@@ -237,6 +271,13 @@ ALTER TABLE ONLY employees ALTER COLUMN id SET DEFAULT nextval('employees_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY equipment ALTER COLUMN id SET DEFAULT nextval('equipment_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id_seq'::regclass);
 
 
@@ -265,7 +306,7 @@ ALTER TABLE ONLY zones ALTER COLUMN id SET DEFAULT nextval('zones_id_seq'::regcl
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO ar_internal_metadata VALUES ('environment', 'development', '2018-03-16 15:36:52.794709', '2018-03-16 15:36:52.794709');
+INSERT INTO ar_internal_metadata VALUES ('environment', 'development', '2018-03-27 20:40:57.593906', '2018-03-27 20:40:57.593906');
 
 
 --
@@ -297,6 +338,31 @@ INSERT INTO employees VALUES (18, 'ABEL JUAREZ', '2018-03-14 20:07:12.6615', '20
 --
 
 SELECT pg_catalog.setval('employees_id_seq', 18, true);
+
+
+--
+-- Data for Name: equipment; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+INSERT INTO equipment VALUES (1, 'GE Switchboard T2', 'IT2', NULL, '2018-03-27 20:55:53.401204', '2018-03-27 20:55:53.401204');
+INSERT INTO equipment VALUES (2, 'Protecciones y alarmas T2', 'IT2', NULL, '2018-03-27 20:55:53.503585', '2018-03-27 20:55:53.503585');
+INSERT INTO equipment VALUES (3, 'Transferencia automática GE 2500 Torre 2', 'IT2', '', '2018-03-27 20:57:13.29014', '2018-03-27 20:57:13.29014');
+INSERT INTO equipment VALUES (6, 'Transferencia automática GE 2500 Torre 3', 'IT3', '', '2018-03-27 20:58:44.474668', '2018-03-27 20:58:44.474668');
+INSERT INTO equipment VALUES (9, 'Generadores eléctricos IAT', 'IAT', '', '2018-03-27 21:00:54.831314', '2018-03-27 21:00:54.831314');
+INSERT INTO equipment VALUES (10, 'Generadores eléctricos T2', 'IT2', '', '2018-03-27 21:01:06.985667', '2018-03-27 21:01:06.985667');
+INSERT INTO equipment VALUES (11, 'Generadores eléctricos T3', 'IT3', '', '2018-03-27 21:01:19.570197', '2018-03-27 21:01:19.570197');
+INSERT INTO equipment VALUES (12, 'Bombas de agua potable T2', 'IT2', '', '2018-03-27 21:01:41.185909', '2018-03-27 21:01:41.185909');
+INSERT INTO equipment VALUES (13, 'Bombas de agua potable T3', 'IT3', '', '2018-03-27 21:02:37.413845', '2018-03-27 21:02:37.413845');
+INSERT INTO equipment VALUES (14, 'Sistema contra incendios T2', 'IT2', '', '2018-03-27 21:02:52.605915', '2018-03-27 21:02:52.605915');
+INSERT INTO equipment VALUES (15, 'Sistema contra incendios T3', 'IT3', '', '2018-03-27 21:03:02.598512', '2018-03-27 21:03:02.598512');
+INSERT INTO equipment VALUES (16, 'Combustión T3', 'IT3', '', '2018-03-27 21:03:26.121626', '2018-03-27 21:03:26.121626');
+
+
+--
+-- Name: equipment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('equipment_id_seq', 16, true);
 
 
 --
@@ -653,6 +719,8 @@ INSERT INTO schema_migrations VALUES ('20180309211251');
 INSERT INTO schema_migrations VALUES ('20180312143933');
 INSERT INTO schema_migrations VALUES ('20180312163057');
 INSERT INTO schema_migrations VALUES ('20180315213425');
+INSERT INTO schema_migrations VALUES ('20180320153956');
+INSERT INTO schema_migrations VALUES ('20180327203924');
 
 
 --
@@ -782,20 +850,23 @@ INSERT INTO tasks VALUES (124, 'Limpieza de pasillo 2do piso', 7, '2018-03-15 18
 INSERT INTO tasks VALUES (67, 'Limpieza Pasillo 1er piso', 7, '2018-03-14 20:07:12.221832', '2018-03-15 18:57:13.082627');
 INSERT INTO tasks VALUES (125, 'Limpieza pasillo sótano', 7, '2018-03-15 19:01:11.92332', '2018-03-15 19:01:11.92332');
 INSERT INTO tasks VALUES (126, 'Limpieza oficina monitoreo', 7, '2018-03-15 19:02:44.455153', '2018-03-15 19:02:44.455153');
+INSERT INTO tasks VALUES (127, 'Cortesía', 15, '2018-03-21 14:58:03.417527', '2018-03-21 14:58:03.417527');
+INSERT INTO tasks VALUES (128, 'Puntualidad', 15, '2018-03-21 14:58:03.506036', '2018-03-21 14:58:03.506036');
+INSERT INTO tasks VALUES (129, 'Vestimenta', 15, '2018-03-21 14:58:03.509585', '2018-03-21 14:58:03.509585');
 
 
 --
 -- Name: tasks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('tasks_id_seq', 126, true);
+SELECT pg_catalog.setval('tasks_id_seq', 129, true);
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO users VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 2, '2018-03-15 14:39:34.035211', '2018-03-14 20:08:02.001039', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-03-15 14:39:34.09763');
+INSERT INTO users VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 3, '2018-03-21 14:55:40.509491', '2018-03-15 14:39:34.035211', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-03-21 14:55:40.57659', NULL);
 
 
 --
@@ -818,13 +889,14 @@ INSERT INTO zones VALUES (6, 'Sec2_T3', '2018-03-14 20:07:11.978142', '2018-03-1
 INSERT INTO zones VALUES (7, 'Sec3_T2', '2018-03-14 20:07:12.128069', '2018-03-14 20:07:12.128069');
 INSERT INTO zones VALUES (8, 'Sec3_T3', '2018-03-14 20:07:12.30302', '2018-03-14 20:07:12.30302');
 INSERT INTO zones VALUES (14, 'Sec3_IAT', '2018-03-15 15:35:29.0334', '2018-03-15 15:35:29.0334');
+INSERT INTO zones VALUES (15, 'General', '2018-03-21 14:58:03.374206', '2018-03-21 14:58:03.374206');
 
 
 --
 -- Name: zones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('zones_id_seq', 14, true);
+SELECT pg_catalog.setval('zones_id_seq', 15, true);
 
 
 --
@@ -841,6 +913,14 @@ ALTER TABLE ONLY ar_internal_metadata
 
 ALTER TABLE ONLY employees
     ADD CONSTRAINT employees_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: equipment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY equipment
+    ADD CONSTRAINT equipment_pkey PRIMARY KEY (id);
 
 
 --
