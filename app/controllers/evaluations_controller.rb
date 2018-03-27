@@ -8,6 +8,7 @@ class EvaluationsController < ApplicationController
     if params[:query]
       @evaluations = Evaluation.text_search(params[:query]).paginate(page: params[:page]).per_page(10).
         order(date: :desc)
+      flash[:notice] = 'Ningún resultado' if @evaluations.empty?
     else
       @evaluations = Evaluation.paginate(page: params[:page]).per_page(10).order(date: :desc)
     end
