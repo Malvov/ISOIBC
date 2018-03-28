@@ -1,0 +1,29 @@
+<h1>Measurement Types</h1>
+<%= will_paginate @measurement_types, renderer: BootstrapPagination::Rails %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Equipment</th>
+      <th>Parameter</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measurement_types.each do |measurement_type| %>
+      <tr>
+        <td class="text-center"><%= measurement_type.name %></td>
+        <td class="text-center"><%= measurement_type.equipment.name %></td>
+        <td class="text-center"><%= measurement_type.parameter.name %></td>
+        <td><%= link_to 'Show', measurement_type %></td>
+        <td><%= link_to 'Edit', edit_measurement_type_path(measurement_type) %></td>
+        <td><%= link_to 'Destroy', measurement_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Measurement Type', new_measurement_type_path %>

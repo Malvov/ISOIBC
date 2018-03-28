@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Parameters</h1>
-
-<table>
+<%= will_paginate @parameters, renderer: BootstrapPagination::Rails %>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>

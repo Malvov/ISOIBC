@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :measurement_types
   resources :parameters
   resources :equipment
   devise_for :users

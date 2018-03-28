@@ -12,9 +12,9 @@
   <tbody>
     <% @equipment.each do |equipment| %>
       <tr>
-        <td><%= equipment.name %></td>
-        <td><%= equipment.location %></td>
-        <td><%= equipment.description %></td>
+        <td class="text-center"><%= equipment.name %></td>
+        <td class="text-center"><%= equipment.location %></td>
+        <td class="text-center"><%= equipment.description %></td>
         <td><%= link_to 'Show', equipment %></td>
         <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
         <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

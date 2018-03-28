@@ -146,6 +146,73 @@ ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
 
 
 --
+-- Name: measurement_types; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE measurement_types (
+    id bigint NOT NULL,
+    name character varying,
+    equipment_id bigint,
+    parameter_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: measurement_types_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE measurement_types_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: measurement_types_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE measurement_types_id_seq OWNED BY measurement_types.id;
+
+
+--
+-- Name: parameters; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE parameters (
+    id bigint NOT NULL,
+    name character varying,
+    equal character varying,
+    min_value double precision,
+    max_value double precision,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: parameters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE parameters_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: parameters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE parameters_id_seq OWNED BY parameters.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -285,6 +352,20 @@ ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY measurement_types ALTER COLUMN id SET DEFAULT nextval('measurement_types_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
 
 
@@ -362,7 +443,7 @@ INSERT INTO equipment VALUES (16, 'Combustión T3', 'IT3', '', '2018-03-27 21:03
 -- Name: equipment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('equipment_id_seq', 16, true);
+SELECT pg_catalog.setval('equipment_id_seq', 18, true);
 
 
 --
@@ -706,6 +787,134 @@ SELECT pg_catalog.setval('evaluations_id_seq', 328, true);
 
 
 --
+-- Data for Name: measurement_types; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+INSERT INTO measurement_types VALUES (1, 'Voltaje L1-L2', 1, 2, '2018-03-28 15:06:45.594068', '2018-03-28 15:06:45.594068');
+INSERT INTO measurement_types VALUES (2, 'Voltaje L2-L3', 1, 2, '2018-03-28 15:07:57.584352', '2018-03-28 15:07:57.584352');
+INSERT INTO measurement_types VALUES (3, 'Voltaje L1-L3', 1, 2, '2018-03-28 15:09:01.247203', '2018-03-28 15:09:01.247203');
+INSERT INTO measurement_types VALUES (4, 'Voltaje L1-N', 1, 3, '2018-03-28 15:09:57.531565', '2018-03-28 15:09:57.531565');
+INSERT INTO measurement_types VALUES (5, 'Voltaje L2-N', 1, 3, '2018-03-28 15:10:19.98483', '2018-03-28 15:10:19.98483');
+INSERT INTO measurement_types VALUES (6, 'Voltaje L3-N', 1, 3, '2018-03-28 15:10:34.970745', '2018-03-28 15:10:34.970745');
+INSERT INTO measurement_types VALUES (7, 'A L1', 1, 4, '2018-03-28 15:48:25.904987', '2018-03-28 15:48:25.904987');
+INSERT INTO measurement_types VALUES (8, 'A L2', 1, 4, '2018-03-28 15:48:45.6592', '2018-03-28 15:48:45.6592');
+INSERT INTO measurement_types VALUES (9, 'A L3', 1, 4, '2018-03-28 15:48:58.896388', '2018-03-28 15:48:58.896388');
+INSERT INTO measurement_types VALUES (10, 'Potencia KW L1', 1, 5, '2018-03-28 15:50:57.07802', '2018-03-28 15:50:57.07802');
+INSERT INTO measurement_types VALUES (11, 'Potencia KW L2', 1, 6, '2018-03-28 15:51:09.37836', '2018-03-28 15:51:09.37836');
+INSERT INTO measurement_types VALUES (12, 'Potencia KW L3', 1, 7, '2018-03-28 15:51:35.412491', '2018-03-28 15:51:35.412491');
+INSERT INTO measurement_types VALUES (13, 'Frecuencia GE Switchboard', 1, 8, '2018-03-28 15:53:18.956542', '2018-03-28 15:53:18.956542');
+INSERT INTO measurement_types VALUES (14, 'TRIP UV 177V', 2, 15, '2018-03-28 16:21:04.112755', '2018-03-28 16:21:04.112755');
+INSERT INTO measurement_types VALUES (15, 'TRIP OV 239V', 2, 15, '2018-03-28 16:45:50.998923', '2018-03-28 16:45:50.998923');
+INSERT INTO measurement_types VALUES (16, 'TRIP UF 57HZ', 2, 15, '2018-03-28 16:46:17.80423', '2018-03-28 16:46:17.80423');
+INSERT INTO measurement_types VALUES (17, 'TRIP OF 63Hz', 2, 15, '2018-03-28 16:46:43.092435', '2018-03-28 16:46:56.727622');
+INSERT INTO measurement_types VALUES (19, 'ALARMA OV 228V', 2, 15, '2018-03-28 16:49:12.143575', '2018-03-28 16:49:12.143575');
+INSERT INTO measurement_types VALUES (18, 'ALARMA UV 187V', 2, 15, '2018-03-28 16:47:33.514169', '2018-03-28 16:49:27.632965');
+INSERT INTO measurement_types VALUES (20, 'ALARMA UF 58.2Hz', 2, 15, '2018-03-28 16:49:58.172405', '2018-03-28 16:49:58.172405');
+INSERT INTO measurement_types VALUES (21, 'ALARMA OF 61.2Hz', 2, 15, '2018-03-28 16:50:21.492538', '2018-03-28 16:50:21.492538');
+INSERT INTO measurement_types VALUES (22, 'FUENTE', 3, 17, '2018-03-28 16:52:02.139843', '2018-03-28 16:52:02.139843');
+INSERT INTO measurement_types VALUES (24, 'SELECTOR', 3, 20, '2018-03-28 16:53:06.746993', '2018-03-28 16:53:06.746993');
+INSERT INTO measurement_types VALUES (25, 'RESORTE', 3, 19, '2018-03-28 16:53:30.084046', '2018-03-28 16:53:30.084046');
+INSERT INTO measurement_types VALUES (26, 'FUENTE', 6, 17, '2018-03-28 16:53:47.630282', '2018-03-28 16:53:47.630282');
+INSERT INTO measurement_types VALUES (23, 'PLC', 3, 21, '2018-03-28 16:52:21.063151', '2018-03-28 16:54:00.455803');
+INSERT INTO measurement_types VALUES (27, 'PLC', 6, 21, '2018-03-28 16:54:12.838076', '2018-03-28 16:54:12.838076');
+INSERT INTO measurement_types VALUES (28, 'SELECTOR', 6, 20, '2018-03-28 16:54:26.62862', '2018-03-28 16:54:26.62862');
+INSERT INTO measurement_types VALUES (29, 'RESORTE', 6, 19, '2018-03-28 16:55:03.61336', '2018-03-28 16:55:03.61336');
+INSERT INTO measurement_types VALUES (30, 'Tiempo acumulado', 9, 9, '2018-03-28 17:14:15.037071', '2018-03-28 17:14:15.037071');
+INSERT INTO measurement_types VALUES (31, 'Nivel de combustible', 9, 16, '2018-03-28 17:14:43.573423', '2018-03-28 17:14:43.573423');
+INSERT INTO measurement_types VALUES (32, 'Nivel de aceite', 9, 16, '2018-03-28 17:15:23.222969', '2018-03-28 17:15:23.222969');
+INSERT INTO measurement_types VALUES (33, 'Nivel de refrigerante', 9, 16, '2018-03-28 17:15:46.342997', '2018-03-28 17:15:46.342997');
+INSERT INTO measurement_types VALUES (34, 'Voltaje de baterías', 9, 14, '2018-03-28 17:16:19.255595', '2018-03-28 17:16:19.255595');
+INSERT INTO measurement_types VALUES (35, 'Paro de emergencia', 9, 23, '2018-03-28 17:17:39.396703', '2018-03-28 17:17:39.396703');
+INSERT INTO measurement_types VALUES (36, 'Modo de arranque', 9, 20, '2018-03-28 17:18:12.072569', '2018-03-28 17:18:12.072569');
+INSERT INTO measurement_types VALUES (37, 'Limpieza externa', 9, 22, '2018-03-28 17:18:31.571777', '2018-03-28 17:18:31.571777');
+INSERT INTO measurement_types VALUES (38, 'Posición de Main', 9, 17, '2018-03-28 17:18:56.55765', '2018-03-28 17:18:56.55765');
+INSERT INTO measurement_types VALUES (39, 'Temperatura del calentador', 9, 12, '2018-03-28 17:19:17.095845', '2018-03-28 17:19:17.095845');
+INSERT INTO measurement_types VALUES (40, 'Tiempo acumulado', 10, 9, '2018-03-28 17:20:15.659846', '2018-03-28 17:20:15.659846');
+INSERT INTO measurement_types VALUES (41, 'Nivel de combustible', 10, 16, '2018-03-28 17:20:39.724689', '2018-03-28 17:20:39.724689');
+INSERT INTO measurement_types VALUES (42, 'Nivel de aceite', 10, 16, '2018-03-28 17:21:15.300026', '2018-03-28 17:21:15.300026');
+INSERT INTO measurement_types VALUES (43, 'Nivel de refrigerante', 10, 16, '2018-03-28 17:22:23.917729', '2018-03-28 17:22:23.917729');
+INSERT INTO measurement_types VALUES (44, 'Voltaje de baterías', 10, 10, '2018-03-28 17:23:06.116482', '2018-03-28 17:23:06.116482');
+INSERT INTO measurement_types VALUES (45, 'Paro de emergencia', 10, 23, '2018-03-28 17:23:43.511447', '2018-03-28 17:23:43.511447');
+INSERT INTO measurement_types VALUES (46, 'Modo de arranque', 10, 20, '2018-03-28 17:24:03.51515', '2018-03-28 17:24:03.51515');
+INSERT INTO measurement_types VALUES (47, 'Limpieza externa', 10, 22, '2018-03-28 17:24:34.944459', '2018-03-28 17:24:34.944459');
+INSERT INTO measurement_types VALUES (48, 'Posición de Main', 10, 17, '2018-03-28 17:25:00.665428', '2018-03-28 17:25:00.665428');
+INSERT INTO measurement_types VALUES (49, 'Temperatura del calentador', 10, 11, '2018-03-28 17:25:16.786074', '2018-03-28 17:25:16.786074');
+INSERT INTO measurement_types VALUES (50, 'Tiempo acumulado', 11, 9, '2018-03-28 17:25:57.858566', '2018-03-28 17:25:57.858566');
+INSERT INTO measurement_types VALUES (51, 'Nivel de combustible', 11, 16, '2018-03-28 17:26:31.051158', '2018-03-28 17:26:31.051158');
+INSERT INTO measurement_types VALUES (52, 'Nivel de aceite', 11, 16, '2018-03-28 17:28:01.277739', '2018-03-28 17:28:01.277739');
+INSERT INTO measurement_types VALUES (53, 'Nivel de refrigerante', 11, 16, '2018-03-28 17:28:18.068753', '2018-03-28 17:28:18.068753');
+INSERT INTO measurement_types VALUES (54, 'Voltaje de baterías', 11, 10, '2018-03-28 17:28:42.917687', '2018-03-28 17:28:42.917687');
+INSERT INTO measurement_types VALUES (55, 'Paro de emergencia', 11, 23, '2018-03-28 17:29:06.452465', '2018-03-28 17:29:06.452465');
+INSERT INTO measurement_types VALUES (56, 'Modo de arranque', 11, 20, '2018-03-28 17:29:47.024146', '2018-03-28 17:29:47.024146');
+INSERT INTO measurement_types VALUES (57, 'Limpieza externa', 11, 22, '2018-03-28 17:30:48.075722', '2018-03-28 17:30:48.075722');
+INSERT INTO measurement_types VALUES (58, 'Posición de Main', 11, 17, '2018-03-28 17:31:16.936727', '2018-03-28 17:31:16.936727');
+INSERT INTO measurement_types VALUES (59, 'Temperatura del calentador', 11, 13, '2018-03-28 17:31:44.756553', '2018-03-28 17:31:44.756553');
+INSERT INTO measurement_types VALUES (60, 'Presión de arranque', 12, 24, '2018-03-28 17:38:41.04136', '2018-03-28 17:38:41.04136');
+INSERT INTO measurement_types VALUES (61, 'Presión de operación', 12, 25, '2018-03-28 17:41:06.454195', '2018-03-28 17:41:06.454195');
+INSERT INTO measurement_types VALUES (62, 'Vibración y ruido', 12, 18, '2018-03-28 17:41:28.816484', '2018-03-28 17:41:28.816484');
+INSERT INTO measurement_types VALUES (63, 'Alarmas', 12, 18, '2018-03-28 17:41:45.913166', '2018-03-28 17:41:45.913166');
+INSERT INTO measurement_types VALUES (64, 'Presión de arranque', 14, 26, '2018-03-28 17:42:14.479289', '2018-03-28 17:42:14.479289');
+INSERT INTO measurement_types VALUES (65, 'Presión de operación', 14, 27, '2018-03-28 17:43:17.511342', '2018-03-28 17:43:17.511342');
+INSERT INTO measurement_types VALUES (66, 'Presión de arranque', 16, 24, '2018-03-28 17:45:33.848816', '2018-03-28 17:45:33.848816');
+INSERT INTO measurement_types VALUES (67, 'Presión de operación', 16, 28, '2018-03-28 17:46:18.435203', '2018-03-28 17:46:18.435203');
+INSERT INTO measurement_types VALUES (68, 'Carga de batería 1', 16, 19, '2018-03-28 17:47:43.381044', '2018-03-28 17:47:43.381044');
+INSERT INTO measurement_types VALUES (69, 'Carga de batería 2', 16, 19, '2018-03-28 17:48:02.166709', '2018-03-28 17:48:02.166709');
+INSERT INTO measurement_types VALUES (70, 'Voltaje de fuente BAT', 16, 29, '2018-03-28 17:48:27.326028', '2018-03-28 17:48:27.326028');
+INSERT INTO measurement_types VALUES (71, 'Nivel de aceite bomba', 16, 16, '2018-03-28 17:48:43.416762', '2018-03-28 17:48:43.416762');
+INSERT INTO measurement_types VALUES (72, 'Temperatura de motor C', 16, 30, '2018-03-28 17:49:01.100568', '2018-03-28 17:49:01.100568');
+INSERT INTO measurement_types VALUES (73, 'Nivel de aceite del motor', 16, 16, '2018-03-28 17:49:16.802156', '2018-03-28 17:49:16.802156');
+
+
+--
+-- Name: measurement_types_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('measurement_types_id_seq', 73, true);
+
+
+--
+-- Data for Name: parameters; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+INSERT INTO parameters VALUES (2, 'Voltaje GE Switchboard', '', 207, 226, '2018-03-28 15:06:16.259091', '2018-03-28 15:06:16.259091');
+INSERT INTO parameters VALUES (3, 'Voltaje GE Switchboar Ln-N', '', 119, 126, '2018-03-28 15:09:37.251188', '2018-03-28 15:09:37.251188');
+INSERT INTO parameters VALUES (4, 'Amperaje GE Switchboard', '', 0, 2000, '2018-03-28 15:11:27.348546', '2018-03-28 15:11:27.348546');
+INSERT INTO parameters VALUES (5, 'Potencia KW L1', '', 0, 201, '2018-03-28 15:50:01.868971', '2018-03-28 15:50:01.868971');
+INSERT INTO parameters VALUES (6, 'Potencia KW L2', '', 0, 190, '2018-03-28 15:50:17.955167', '2018-03-28 15:50:17.955167');
+INSERT INTO parameters VALUES (7, 'Potencia KW L3', '', 0, 170, '2018-03-28 15:50:35.655303', '2018-03-28 15:50:35.655303');
+INSERT INTO parameters VALUES (8, 'Frecuencia GE Switchboard', '', 59, 60.5, '2018-03-28 15:52:55.167559', '2018-03-28 15:53:30.040865');
+INSERT INTO parameters VALUES (9, 'Tiempo acumulado de los generadores', '', 0, 552.600000000000023, '2018-03-28 15:55:04.89367', '2018-03-28 15:55:04.89367');
+INSERT INTO parameters VALUES (10, 'Voltaje de baterías de los generadores eléctricos', '', 24, 26.5, '2018-03-28 15:55:34.176768', '2018-03-28 15:55:34.176768');
+INSERT INTO parameters VALUES (11, 'Torre 2_Temp Cal', '', 0, 90, '2018-03-28 15:56:34.692487', '2018-03-28 15:57:06.417595');
+INSERT INTO parameters VALUES (12, 'IAT_Temp Cal', '', 0, 85, '2018-03-28 15:57:54.380265', '2018-03-28 15:57:54.380265');
+INSERT INTO parameters VALUES (13, 'Torre 3_Temp Cal', '', 25, 80, '2018-03-28 15:58:31.55689', '2018-03-28 15:58:31.55689');
+INSERT INTO parameters VALUES (14, 'Voltaje de baterías de los generadores eléctricos IAT', '', 12, 12.8000000000000007, '2018-03-28 15:59:24.599557', '2018-03-28 15:59:24.599557');
+INSERT INTO parameters VALUES (16, 'FULL/BAJO', 'FULL', NULL, NULL, '2018-03-28 16:01:43.871443', '2018-03-28 16:01:43.871443');
+INSERT INTO parameters VALUES (15, 'En parámetro/Fuera de parámetro', 'En parámetro', NULL, NULL, '2018-03-28 16:00:58.572011', '2018-03-28 16:02:07.884486');
+INSERT INTO parameters VALUES (17, 'ON/OFF', 'ON', NULL, NULL, '2018-03-28 16:02:38.476776', '2018-03-28 16:02:38.476776');
+INSERT INTO parameters VALUES (18, 'SÍ/NO', 'SÍ', NULL, NULL, '2018-03-28 16:03:20.789222', '2018-03-28 16:03:20.789222');
+INSERT INTO parameters VALUES (19, 'CARGADO/NO CARGADO', 'CARGADO', NULL, NULL, '2018-03-28 16:04:05.213144', '2018-03-28 16:04:05.213144');
+INSERT INTO parameters VALUES (20, 'AUTO/MANUAL', 'AUTO', NULL, NULL, '2018-03-28 16:04:27.636161', '2018-03-28 16:04:27.636161');
+INSERT INTO parameters VALUES (21, 'RUN/STOP', 'RUN', NULL, NULL, '2018-03-28 16:08:07.202708', '2018-03-28 16:08:07.202708');
+INSERT INTO parameters VALUES (22, 'LIMPIO/SUCIO', 'LIMPIO', NULL, NULL, '2018-03-28 16:08:49.815629', '2018-03-28 16:08:49.815629');
+INSERT INTO parameters VALUES (23, 'FUNCIONA/NO FUNCIONA', 'FUNCIONA', NULL, NULL, '2018-03-28 17:17:12.616175', '2018-03-28 17:17:12.616175');
+INSERT INTO parameters VALUES (24, 'Presión de arranque', '', 54, 56, '2018-03-28 17:32:27.86166', '2018-03-28 17:32:27.86166');
+INSERT INTO parameters VALUES (25, 'Presión de operación', '', 79, 85, '2018-03-28 17:32:57.700322', '2018-03-28 17:32:57.700322');
+INSERT INTO parameters VALUES (26, 'Presión de arranque CI', '', 79, 81, '2018-03-28 17:34:57.522606', '2018-03-28 17:34:57.522606');
+INSERT INTO parameters VALUES (27, 'Presión de operación CI', '', 119, 121, '2018-03-28 17:35:34.76807', '2018-03-28 17:35:34.76807');
+INSERT INTO parameters VALUES (28, 'Presión de operación CB', '', 119, 122, '2018-03-28 17:36:18.916204', '2018-03-28 17:36:18.916204');
+INSERT INTO parameters VALUES (29, 'Voltaje de fuente BAT', '', 119, 125, '2018-03-28 17:36:39.845714', '2018-03-28 17:36:39.845714');
+INSERT INTO parameters VALUES (30, 'Temperatura de Motor C', '', 0, 80, '2018-03-28 17:37:44.581394', '2018-03-28 17:37:44.581394');
+
+
+--
+-- Name: parameters_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('parameters_id_seq', 31, true);
+
+
+--
 -- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -721,6 +930,8 @@ INSERT INTO schema_migrations VALUES ('20180312163057');
 INSERT INTO schema_migrations VALUES ('20180315213425');
 INSERT INTO schema_migrations VALUES ('20180320153956');
 INSERT INTO schema_migrations VALUES ('20180327203924');
+INSERT INTO schema_migrations VALUES ('20180327211407');
+INSERT INTO schema_migrations VALUES ('20180328144145');
 
 
 --
@@ -866,7 +1077,7 @@ SELECT pg_catalog.setval('tasks_id_seq', 129, true);
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO users VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 3, '2018-03-21 14:55:40.509491', '2018-03-15 14:39:34.035211', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-03-21 14:55:40.57659', NULL);
+INSERT INTO users VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 4, '2018-03-28 15:42:10.650834', '2018-03-21 14:55:40.509491', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-03-28 15:42:10.741452', NULL);
 
 
 --
@@ -932,6 +1143,22 @@ ALTER TABLE ONLY evaluations
 
 
 --
+-- Name: measurement_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT measurement_types_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: parameters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY parameters
+    ADD CONSTRAINT parameters_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -985,6 +1212,20 @@ CREATE INDEX index_evaluations_on_task_id ON evaluations USING btree (task_id);
 
 
 --
+-- Name: index_measurement_types_on_equipment_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_measurement_types_on_equipment_id ON measurement_types USING btree (equipment_id);
+
+
+--
+-- Name: index_measurement_types_on_parameter_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_measurement_types_on_parameter_id ON measurement_types USING btree (parameter_id);
+
+
+--
 -- Name: index_tasks_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1010,6 +1251,22 @@ CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+
+
+--
+-- Name: fk_rails_1c04c91aeb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT fk_rails_1c04c91aeb FOREIGN KEY (equipment_id) REFERENCES equipment(id);
+
+
+--
+-- Name: fk_rails_261a78d10f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT fk_rails_261a78d10f FOREIGN KEY (parameter_id) REFERENCES parameters(id);
 
 
 --

@@ -139,6 +139,39 @@ ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
 
 
 --
+-- Name: measurement_types; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE measurement_types (
+    id bigint NOT NULL,
+    name character varying,
+    equipment_id bigint,
+    parameter_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: measurement_types_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE measurement_types_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: measurement_types_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE measurement_types_id_seq OWNED BY measurement_types.id;
+
+
+--
 -- Name: parameters; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -312,6 +345,13 @@ ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY measurement_types ALTER COLUMN id SET DEFAULT nextval('measurement_types_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_seq'::regclass);
 
 
@@ -366,6 +406,14 @@ ALTER TABLE ONLY equipment
 
 ALTER TABLE ONLY evaluations
     ADD CONSTRAINT evaluations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: measurement_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT measurement_types_pkey PRIMARY KEY (id);
 
 
 --
@@ -430,6 +478,20 @@ CREATE INDEX index_evaluations_on_task_id ON evaluations USING btree (task_id);
 
 
 --
+-- Name: index_measurement_types_on_equipment_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_measurement_types_on_equipment_id ON measurement_types USING btree (equipment_id);
+
+
+--
+-- Name: index_measurement_types_on_parameter_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_measurement_types_on_parameter_id ON measurement_types USING btree (parameter_id);
+
+
+--
 -- Name: index_tasks_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -455,6 +517,22 @@ CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+
+
+--
+-- Name: fk_rails_1c04c91aeb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT fk_rails_1c04c91aeb FOREIGN KEY (equipment_id) REFERENCES equipment(id);
+
+
+--
+-- Name: fk_rails_261a78d10f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT fk_rails_261a78d10f FOREIGN KEY (parameter_id) REFERENCES parameters(id);
 
 
 --
@@ -500,6 +578,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180315213425'),
 ('20180320153956'),
 ('20180327203924'),
-('20180327211407');
+('20180327211407'),
+('20180328144145');
 
 
