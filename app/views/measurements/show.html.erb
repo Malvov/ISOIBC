@@ -1,0 +1,17 @@
+<p>
+  <strong>Value:</strong>
+  <%= @measurement.value %>
+</p>
+
+<p>
+  <strong>Measurement type:</strong>
+  <%= @measurement.measurement_type %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @measurement.comment %>
+</p>
+
+<%= link_to 'Edit', edit_measurement_path(@measurement) %> |
+<%= link_to 'Back', measurements_path %>

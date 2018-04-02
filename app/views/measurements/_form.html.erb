@@ -1,0 +1,16 @@
+
+<%= simple_form_for(@measurement) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :value %>
+    <%= f.input :measurement_type_id, collection: @measurement_types, 
+    label_method: :name, value_method: :id,
+     include_blank: 'Cuestión a medir' %>
+    <%= f.input :comment %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

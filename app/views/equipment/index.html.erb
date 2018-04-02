@@ -3,18 +3,18 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Description</th>
+      <th>Nombre</th>
+      <th>Locación</th>
+      <th>Descripción</th>
       <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
     <% @equipment.each do |equipment| %>
       <tr>
-        <td class="text-center"><%= equipment.name %></td>
-        <td class="text-center"><%= equipment.location %></td>
-        <td class="text-center"><%= equipment.description %></td>
+        <td><%= equipment.name %></td>
+        <td><%= equipment.location %></td>
+        <td><%= equipment.description %></td>
         <td><%= link_to 'Show', equipment %></td>
         <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
         <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

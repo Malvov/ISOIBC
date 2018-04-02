@@ -1,0 +1,31 @@
+<h1>Mediciones</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Measurement type</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measurements.each do |measurement| %>
+      <tr>
+        <td><%= measurement.value %></td>
+        <td><%= measurement.measurement_type.name %></td>
+        <td><%= measurement.comment %></td>
+        <td><%= link_to 'Show', measurement_path(@equipment, measurement) %></td>
+        <td><%= link_to 'Edit', edit_measurement_path(@equipment, measurement) %></td>
+        <td><%= link_to 'Destroy', measurement_path(@equipment, measurement), method: :delete,
+            data: { confirm: 'U sure?' } %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Measurement', new_measurement_path %>
