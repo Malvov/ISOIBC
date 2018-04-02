@@ -1,6 +1,6 @@
 class MeasurementsController < ApplicationController
   before_action :set_equipment, except: :equipos
-  before_action :set_measurement_types, only: [:new, :edit, :index]
+  before_action :set_measurement_types, only: [:new, :edit, :update, :index]
   before_action :set_measurement, only: [:show, :edit, :update, :destroy]
 
   # GET /measurements

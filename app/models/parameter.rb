@@ -12,6 +12,7 @@
 #
 
 class Parameter < ApplicationRecord
+    before_save :put_zeroes
     validates_presence_of :name
     validates_numericality_of :min_value, allow_nil: true, less_than: :max_value, unless: :max_value_is_nil?
     validates_numericality_of :max_value, allow_nil: true
@@ -26,7 +27,12 @@ class Parameter < ApplicationRecord
     #         errors.add(:base, 'especificar')
     #     end
     # end
-    
+    def put_zeroes
+        unless equal.empty?
+            self.max_value =  self.min_value = 0.0
+        end
+    end
+
     def max_value_is_nil?
         max_value.nil?
     end
