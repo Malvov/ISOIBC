@@ -17,7 +17,7 @@
         <td><%= measurement.measurement_type.name %></td>
         <td><%= measurement.comment %></td>
         <td><%= link_to 'Show', measurement_path(@equipment, measurement) %></td>
-        <td><%= link_to 'Edit', edit_measurement_path(@equipment, measurement) %></td>
+        <td><%# link_to 'Edit', edit_measurement_path(@equipment, measurement) %></td>
         <td><%= link_to 'Destroy', measurement_path(@equipment, measurement), method: :delete,
             data: { confirm: 'U sure?' } %></td>
         <td></td>

@@ -39,7 +39,7 @@ class MeasurementsController < ApplicationController
 
     respond_to do |format|
       if @measurement.save
-        format.html { redirect_to @measurement, notice: 'Measurement was successfully created.' }
+        format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully created.' }
         format.json { render :show, status: :created, location: @measurement }
       else
         format.html { render :new }
@@ -51,15 +51,15 @@ class MeasurementsController < ApplicationController
   # PATCH/PUT /measurements/1
   # PATCH/PUT /measurements/1.json
   def update
-    respond_to do |format|
+   # respond_to do |format|
       if @measurement.update(measurement_params)
-        format.html { redirect_to @measurement, notice: 'Measurement was successfully updated.' }
-        format.json { render :show, status: :ok, location: @measurement }
+        # format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @measurement }
+        redirect_to equipos_path
       else
-        format.html { render :edit }
-        format.json { render json: @measurement.errors, status: :unprocessable_entity }
+        render :edit 
       end
-    end
+   # end
   end
 
   # DELETE /measurements/1
