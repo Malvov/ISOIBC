@@ -155,7 +155,7 @@
 #     print '.'
 # end
 
-100.times do
+10.times do
     measurement_type = MeasurementType.all.sample
     if measurement_type.parameter.equal.empty?
         Measurement.create!(value:

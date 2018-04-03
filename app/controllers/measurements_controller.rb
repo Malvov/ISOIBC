@@ -1,6 +1,7 @@
 class MeasurementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_equipment, except: :equipos
-  before_action :set_measurement_types, only: [:new, :edit, :update, :index]
+  before_action :set_measurement_types, only: [:new, :create, :edit, :update, :index]
   before_action :set_measurement, only: [:show, :edit, :update, :destroy]
 
   # GET /measurements
@@ -36,7 +37,7 @@ class MeasurementsController < ApplicationController
   # POST /measurements.json
   def create
     @measurement = Measurement.new(measurement_params)
-
+    @measurement.user_id = current_user.id
     respond_to do |format|
       if @measurement.save
         format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully created.' }
@@ -55,9 +56,11 @@ class MeasurementsController < ApplicationController
       if @measurement.update(measurement_params)
         # format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully updated.' }
         # format.json { render :show, status: :ok, location: @measurement }
-        redirect_to equipos_path
+        flash[:notice] = 'Measurement was succesfully updated.'
+        redirect_to measurement_path(@equipment, @measurement)
       else
-        render :edit 
+        flash[:notice] = 'Something bad happened.'
+        redirect_to edit_measurement_path(@equipment, @measurement)
       end
    # end
   end
@@ -88,6 +91,6 @@ class MeasurementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def measurement_params
-      params.require(:measurement).permit(:value, :measurement_type_id, :comment)
+      params.require(:measurement).permit(:value, :measurement_type_id, :comment, :date)
     end
 end

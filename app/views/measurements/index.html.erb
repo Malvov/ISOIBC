@@ -3,21 +3,31 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Value</th>
+      
       <th>Measurement type</th>
+      <th colspan="2">Value</th>
+      
       <th>Comment</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @measurements.each do |measurement| %>
       <tr>
-        <td><%= measurement.value %></td>
+        
         <td><%= measurement.measurement_type.name %></td>
+        <td><%= measurement.value %></td>
+        <td>
+          <% if measurement.is_ok? %>
+            <i class="fa fa-thumbs-up fa-2x"></i>
+          <% else %>
+            <i class="fa fa-thumbs-down fa-2x"></i>
+          <% end %>
+        </td>
         <td><%= measurement.comment %></td>
         <td><%= link_to 'Show', measurement_path(@equipment, measurement) %></td>
-        <td><%# link_to 'Edit', edit_measurement_path(@equipment, measurement) %></td>
+        <!--<td><%# link_to 'Edit', edit_measurement_path(@equipment, measurement) %></td>-->
         <td><%= link_to 'Destroy', measurement_path(@equipment, measurement), method: :delete,
             data: { confirm: 'U sure?' } %></td>
         <td></td>

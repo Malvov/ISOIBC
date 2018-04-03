@@ -1,4 +1,5 @@
 class MeasurementTypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_measurement_type, only: [:show, :edit, :update, :destroy]
 
   # GET /measurement_types

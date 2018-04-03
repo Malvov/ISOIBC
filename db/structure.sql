@@ -181,7 +181,9 @@ CREATE TABLE measurements (
     measurement_type_id bigint,
     comment text,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer,
+    date date
 );
 
 
@@ -643,6 +645,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180327203924'),
 ('20180327211407'),
 ('20180328144145'),
-('20180402145520');
+('20180402145520'),
+('20180403143038'),
+('20180403145022');
 
 

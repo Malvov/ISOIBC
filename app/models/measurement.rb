@@ -14,7 +14,22 @@ class Measurement < ApplicationRecord
   end
 
   def is_ok?
-    
+    unless accepts_equal?
+        return true if range_or_equal === value.to_f
+        false
+    else
+        return true if value == range_or_equal
+        false
+    end
+  end
+
+  def range_or_equal
+    unless accepts_equal?
+      (measurement_type.parameter.min_value..measurement_type.parameter.max_value)
+    else
+      measurement_type.parameter.equal
+    end
   end
   
 end
+
