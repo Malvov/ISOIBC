@@ -1,4 +1,5 @@
 class MeasurementsController < ApplicationController
+  require 'will_paginate/array'
   before_action :authenticate_user!
   before_action :set_equipment, except: :equipos
   before_action :set_measurement_types, only: [:new, :create, :edit, :update, :index]
@@ -13,6 +14,7 @@ class MeasurementsController < ApplicationController
         @measurements << measurement
       end
     end
+    @measurements = @measurements.paginate(page: params[:page], per_page: 15)
   end
 
   def equipos
@@ -40,7 +42,7 @@ class MeasurementsController < ApplicationController
     @measurement.user_id = current_user.id
     respond_to do |format|
       if @measurement.save
-        format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully created.' }
+        format.html { redirect_to new_measurement_path, notice: 'Measurement was successfully created.' }
         format.json { render :show, status: :created, location: @measurement }
       else
         format.html { render :new }

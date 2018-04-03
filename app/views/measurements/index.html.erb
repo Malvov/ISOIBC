@@ -1,5 +1,6 @@
 <h1>Mediciones de <%= @equipment.name %></h1>
-
+<%= link_to 'New Measurement', new_measurement_path, class: 'btn btn-success' %>
+<%= will_paginate @measurements, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>
     <tr>
@@ -8,6 +9,7 @@
       <th colspan="2">Value</th>
       
       <th>Comment</th>
+      <th>Date</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -26,14 +28,17 @@
           <% end %>
         </td>
         <td><%= measurement.comment %></td>
+        <td>
+          <%= measurement.date %>
+        </td>
         <td><%= link_to measurement_path(@equipment, measurement) do %>
                 <%= fa_icon 'eye 2x' %>
             <% end %>
         </td>
-        <td><%= link_to edit_measurement_path(@equipment, measurement) do %>
+        <!--<td><%= link_to edit_measurement_path(@equipment, measurement) do %>
                 <%= fa_icon 'edit 2x' %>
             <% end %>
-        </td>
+        </td>-->
         <td><%= link_to measurement_path(@equipment, measurement), method: :delete, 
                 data: { confirm: 'U sure?' } do %>
                 <%= fa_icon 'trash 2x'%>
@@ -44,7 +49,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Measurement', new_measurement_path %>
