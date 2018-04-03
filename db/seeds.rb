@@ -155,15 +155,19 @@
 #     print '.'
 # end
 
-10.times do
+6352.times do
     measurement_type = MeasurementType.all.sample
     if measurement_type.parameter.equal.empty?
         Measurement.create!(value:
             rand(measurement_type.parameter.min_value..measurement_type.parameter.max_value).round(1), 
-        measurement_type: measurement_type)
+                            measurement_type: measurement_type,
+                            user_id: User.first.id,
+                            date: DateTime.now)
     else
         Measurement.create!(value: measurement_type.parameter.name.split('/').sample,
-                            measurement_type: measurement_type)
+                            measurement_type: measurement_type,
+                            user_id: User.first.id,
+                            date: DateTime.now)
     end
     print '.'
 end

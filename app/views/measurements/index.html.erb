@@ -26,11 +26,20 @@
           <% end %>
         </td>
         <td><%= measurement.comment %></td>
-        <td><%= link_to 'Show', measurement_path(@equipment, measurement) %></td>
-        <!--<td><%# link_to 'Edit', edit_measurement_path(@equipment, measurement) %></td>-->
-        <td><%= link_to 'Destroy', measurement_path(@equipment, measurement), method: :delete,
-            data: { confirm: 'U sure?' } %></td>
-        <td></td>
+        <td><%= link_to measurement_path(@equipment, measurement) do %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_measurement_path(@equipment, measurement) do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to measurement_path(@equipment, measurement), method: :delete, 
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
+        
       </tr>
     <% end %>
   </tbody>
