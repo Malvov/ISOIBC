@@ -19,7 +19,7 @@ SET search_path = public, pg_catalog;
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
---INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-03-20 22:32:53.407641', '2018-03-20 22:32:53.407641');
+--INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-04-03 18:18:31.729212', '2018-04-03 18:18:31.729212');
 
 
 --
@@ -569,7 +569,7 @@ SELECT pg_catalog.setval('tasks_id_seq', 129, true);
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
-INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name) VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 3, '2018-03-21 14:55:40.509491', '2018-03-15 14:39:34.035211', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-03-21 14:55:40.57659', NULL);
+INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name) VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 8, '2018-04-03 18:20:15.579986', '2018-04-03 18:06:37.106759', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-04-03 18:20:15.836092', NULL);
 
 
 --
