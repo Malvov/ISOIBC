@@ -4,8 +4,11 @@
     <h1 class="text-center">
         Dashboard
     </h1>
-    
-    <%# employees_evaluations %>
-    <%# evaluation_results_per_month %>
-    <%= measurements_chart %>
+    <% if current_user.admin? || current_user.department == 'mantenimiento' %>
+    <%= employees_evaluations %>
+    <%= evaluation_results_per_month %>
+    <% end %>
+    <% if current_user.admin? || current_user.department == 'electricista' %>
+        <%= measurements_chart %>
+    <% end %>
 <% end %>
