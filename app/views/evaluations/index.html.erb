@@ -24,6 +24,7 @@
       <th>Actividad</th>
       <th>Sector</th>
       <th>Calificación</th>
+      <th>Fecha</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -36,6 +37,7 @@
         <td>
           <%= evaluation.result %>
         </td>
+        <td><%= evaluation.date.strftime("%d/%m/%Y") %></td>
         <td><%= link_to evaluation, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
                 <%= fa_icon 'eye 2x' %>
             <% end %>
