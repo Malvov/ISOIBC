@@ -70,6 +70,39 @@ ALTER SEQUENCE employees_id_seq OWNED BY employees.id;
 
 
 --
+-- Name: equipment; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE equipment (
+    id bigint NOT NULL,
+    name character varying,
+    location character varying,
+    description text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: equipment_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE equipment_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: equipment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE equipment_id_seq OWNED BY equipment.id;
+
+
+--
 -- Name: evaluations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -103,6 +136,108 @@ CREATE SEQUENCE evaluations_id_seq
 --
 
 ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
+
+
+--
+-- Name: measurement_types; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE measurement_types (
+    id bigint NOT NULL,
+    name character varying,
+    equipment_id bigint,
+    parameter_id bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: measurement_types_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE measurement_types_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: measurement_types_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE measurement_types_id_seq OWNED BY measurement_types.id;
+
+
+--
+-- Name: measurements; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE measurements (
+    id bigint NOT NULL,
+    value character varying,
+    measurement_type_id bigint,
+    comment text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    user_id integer,
+    date date
+);
+
+
+--
+-- Name: measurements_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE measurements_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: measurements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE measurements_id_seq OWNED BY measurements.id;
+
+
+--
+-- Name: parameters; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE parameters (
+    id bigint NOT NULL,
+    name character varying,
+    equal character varying,
+    min_value double precision,
+    max_value double precision,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: parameters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE parameters_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: parameters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE parameters_id_seq OWNED BY parameters.id;
 
 
 --
@@ -231,7 +366,35 @@ ALTER TABLE ONLY employees ALTER COLUMN id SET DEFAULT nextval('employees_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY equipment ALTER COLUMN id SET DEFAULT nextval('equipment_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types ALTER COLUMN id SET DEFAULT nextval('measurement_types_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurements ALTER COLUMN id SET DEFAULT nextval('measurements_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_seq'::regclass);
 
 
 --
@@ -272,11 +435,43 @@ ALTER TABLE ONLY employees
 
 
 --
+-- Name: equipment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY equipment
+    ADD CONSTRAINT equipment_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: evaluations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY evaluations
     ADD CONSTRAINT evaluations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: measurement_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT measurement_types_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: measurements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurements
+    ADD CONSTRAINT measurements_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: parameters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY parameters
+    ADD CONSTRAINT parameters_pkey PRIMARY KEY (id);
 
 
 --
@@ -333,6 +528,27 @@ CREATE INDEX index_evaluations_on_task_id ON evaluations USING btree (task_id);
 
 
 --
+-- Name: index_measurement_types_on_equipment_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_measurement_types_on_equipment_id ON measurement_types USING btree (equipment_id);
+
+
+--
+-- Name: index_measurement_types_on_parameter_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_measurement_types_on_parameter_id ON measurement_types USING btree (parameter_id);
+
+
+--
+-- Name: index_measurements_on_measurement_type_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_measurements_on_measurement_type_id ON measurements USING btree (measurement_type_id);
+
+
+--
 -- Name: index_tasks_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -358,6 +574,30 @@ CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+
+
+--
+-- Name: fk_rails_1c04c91aeb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT fk_rails_1c04c91aeb FOREIGN KEY (equipment_id) REFERENCES equipment(id);
+
+
+--
+-- Name: fk_rails_261a78d10f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurement_types
+    ADD CONSTRAINT fk_rails_261a78d10f FOREIGN KEY (parameter_id) REFERENCES parameters(id);
+
+
+--
+-- Name: fk_rails_31a8426c4a; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY measurements
+    ADD CONSTRAINT fk_rails_31a8426c4a FOREIGN KEY (measurement_type_id) REFERENCES measurement_types(id);
 
 
 --
@@ -401,6 +641,12 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180312143933'),
 ('20180312163057'),
 ('20180315213425'),
-('20180320153956');
+('20180320153956'),
+('20180327203924'),
+('20180327211407'),
+('20180328144145'),
+('20180402145520'),
+('20180403143038'),
+('20180403145022');
 
 

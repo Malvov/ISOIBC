@@ -85,3 +85,16 @@ UV 	    OV	    UF	    OF	    UV   	OV	    UF	    OF
 TOdos estos serían "tipo" de algo jaja
 Cada equipo tendría asociado estos "tipos"
 "tipo de medida" y a cada tipo le asociaría el parámetro
+
+Equipment name location description
+MasurementType name equipment_id parameter_id
+Parameter name equal min_value max_value
+Measurement value comment measurement_type_id
+
+para las opcione del Measurement podría sacarlo desde el nombre del parámetro 
+si el parameter.equal.nil? !
+Siempre y cuando los names de los parámetros se separen con '/'. Debería hacer esa validación.
+si el equal no es nil, que:
+    el equal sea igual a almenos una parte del name separado con slash
+(AJAX)
+ 

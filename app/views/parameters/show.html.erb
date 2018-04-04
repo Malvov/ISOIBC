@@ -1,0 +1,22 @@
+<p>
+  <strong>Name:</strong>
+  <%= @parameter.name %>
+</p>
+
+<p>
+  <strong>Equal:</strong>
+  <%= @parameter.equal %>
+</p>
+
+<p>
+  <strong>Min value:</strong>
+  <%= @parameter.min_value %>
+</p>
+
+<p>
+  <strong>Max value:</strong>
+  <%= @parameter.max_value %>
+</p>
+
+<%= link_to 'Edit', edit_parameter_path(@parameter) %> |
+<%= link_to 'Back', parameters_path %>

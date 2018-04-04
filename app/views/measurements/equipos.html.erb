@@ -1,0 +1,19 @@
+<h1>Equipos industriales</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @equipment.each do |equipment| %>
+      <tr>
+        <td><%= equipment.name %></td>
+        <td><%= link_to 'Ver mediciones', measurements_path(equipment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

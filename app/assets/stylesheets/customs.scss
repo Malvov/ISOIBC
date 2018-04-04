@@ -35,7 +35,6 @@
     margin-bottom: -20px; 
   }
   
-  .table th { text-align: center; }
   .table-100 td { padding: 0 4px !important; }
   .table-th { margin-bottom: 3px; }
   .table-thead { text-align: center; }
@@ -359,8 +358,8 @@
   input[type="tel"]:focus,
   input[type="color"]:focus,
   .uneditable-input:focus {   
-    border-color: rgb(3, 70, 28);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgb(3, 70, 28);
+    border-color: #7EA37F;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #7EA37F;
     outline: 0 none;
   }
   

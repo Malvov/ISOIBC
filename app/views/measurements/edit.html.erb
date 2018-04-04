@@ -1,0 +1,6 @@
+<h1>Editing Measurement</h1>
+
+<%= render 'form', equipment: @equipment, measurement: @measurement %>
+
+<%= link_to 'Show', measurement_path(@equipment, @measurement) %> |
+<%= link_to 'Back', measurements_path(@equipment) %>
