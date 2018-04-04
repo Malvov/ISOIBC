@@ -4,11 +4,22 @@
     <h1 class="text-center">
         Dashboard
     </h1>
+    
     <% if current_user.admin? || current_user.department == 'mantenimiento' %>
-    <%= employees_evaluations %>
-    <%= evaluation_results_per_month %>
+    <div class="row">
+        <div class="col-md-6">
+            <%= employees_evaluations %>
+        </div>
+        <div class="col-md-6">
+            <%= evaluation_results_per_month %>
+        </div>
+    </div>
     <% end %>
     <% if current_user.admin? || current_user.department == 'electricista' %>
-        <%= measurements_chart %>
+        <div class="row">
+            <div class="col-md-12">
+                <%= measurements_chart %>
+            </div>
+        </div>
     <% end %>
 <% end %>
