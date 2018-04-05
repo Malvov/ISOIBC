@@ -18,6 +18,22 @@ class Measurement < ApplicationRecord
   validates_numericality_of :value, unless: :accepts_equal?
   validate :value_is_correct?, if: :accepts_equal?
   
+  # include PgSearch
+  # pg_search_scope :search, against: [:date], associated_against: { measurement_type: :name },
+  #                 using: { 
+  #                   tsearch: {
+  #                     prefix: true
+  #                   }
+  #                 }
+
+  # def self.text_search(query)
+  #   if query.present?
+  #     search(query)
+  #   else
+  #     scoped
+  #   end
+  # end
+
   def accepts_equal?
     if measurement_type.present?
       !measurement_type.parameter.equal.empty?
