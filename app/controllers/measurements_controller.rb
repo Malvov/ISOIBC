@@ -24,6 +24,7 @@ class MeasurementsController < ApplicationController
   # GET /measurements/1
   # GET /measurements/1.json
   def show
+    
   end
 
   # GET /measurements/new
