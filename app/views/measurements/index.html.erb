@@ -31,15 +31,15 @@
         <td>
           <%= measurement.date.strftime("%d/%m/%Y") %>
         </td>
-        <td><%= link_to measurement_path(@equipment, measurement) do %>
+        <td><%= link_to measurement, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do %>
                 <%= fa_icon 'eye 2x' %>
             <% end %>
         </td>
-        <!--<td><%= link_to edit_measurement_path(@equipment, measurement) do %>
+        <td><%= link_to edit_measurement_path(measurement), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
                 <%= fa_icon 'edit 2x' %>
             <% end %>
-        </td>-->
-        <td><%= link_to measurement_path(@equipment, measurement), method: :delete, 
+        </td>
+        <td><%= link_to measurement_path(measurement), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
                 data: { confirm: 'U sure?' } do %>
                 <%= fa_icon 'trash 2x'%>
             <% end %>    

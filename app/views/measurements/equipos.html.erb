@@ -10,7 +10,7 @@
     <% @equipment.each do |equipment| %>
       <tr>
         <td><%= equipment.name %></td>
-        <td><%= link_to 'Ver mediciones', measurements_path(equipment) %></td>
+        <td><%= link_to 'Ver mediciones', mediciones_path(equipment) %></td>
       </tr>
     <% end %>
   </tbody>
