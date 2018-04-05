@@ -55,18 +55,15 @@ class MeasurementsController < ApplicationController
   # PATCH/PUT /measurements/1
   # PATCH/PUT /measurements/1.json
   def update
-   # respond_to do |format|
+   respond_to do |format|
       if @measurement.update(measurement_params)
-        
-        # format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @measurement }
-        flash[:notice] = 'Measurement was succesfully updated.'
-        redirect_to equipos_path
+        format.html { redirect_to @measurement, notice: 'Measurement was successfully updated.' }
+        format.json { render :show, status: :ok, location: @measurement }
       else
-        flash[:notice] = 'Something bad happened.'
-        redirect_to edit_measurement_path(@equipment, @measurement)
+        format.html { render :edit }
+        format.json { render json: @measurement.errors, status: :unprocessable_entity }
       end
-   # end
+   end
   end
 
   # DELETE /measurements/1

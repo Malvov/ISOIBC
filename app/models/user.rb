@@ -1,5 +1,5 @@
 # == Schema Information
-# 
+#
 # Table name: users
 #
 #  id                     :integer          not null, primary key
@@ -17,7 +17,9 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
-
+#  admin                  :boolean          default(FALSE)
+#  department             :string
+#
 
 class User < ApplicationRecord
   # Virtual attribute for authenticating by either username or email

@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'turbolinks:load', ->
   jQuery ->
-    
     measurement_types = $('#measurement_measurement_type_id').html()
     $('#equipment_id').change ->
       equipment = $('#equipment_id :selected').text()

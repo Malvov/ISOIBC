@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: measurements
+#
+#  id                  :integer          not null, primary key
+#  value               :string
+#  measurement_type_id :integer
+#  comment             :text
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  user_id             :integer
+#  date                :date
+#
+
 class Measurement < ApplicationRecord
   belongs_to :measurement_type
   validates_presence_of :value, :measurement_type_id
