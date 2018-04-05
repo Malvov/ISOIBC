@@ -98,3 +98,5 @@ si el equal no es nil, que:
     el equal sea igual a almenos una parte del name separado con slash
 (AJAX)
  
+# Autorización
+ 
