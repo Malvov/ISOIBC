@@ -46,6 +46,11 @@
                 <%= fa_icon 'edit 2x' %>
             <% end %>
         </td>
+        <td><%= link_to evaluation_path(evaluation), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
       </tr>
     <% end %>
   </tbody>
