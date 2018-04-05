@@ -5,7 +5,9 @@ class Measurement < ApplicationRecord
   validate :value_is_correct?, if: :accepts_equal?
   
   def accepts_equal?
-    !measurement_type.parameter.equal.empty?
+    if measurement_type.present?
+      !measurement_type.parameter.equal.empty?
+    end
   end
 
   def value_is_correct?

@@ -1,14 +1,14 @@
 class MeasurementsController < ApplicationController
   require 'will_paginate/array'
   before_action :authenticate_user!
-  before_action :set_equipment, except: :equipos
-  before_action :set_measurement_types, only: [:new, :create, :edit, :update, :index]
+  before_action :set_equipment, only: [:index]
   before_action :set_measurement, only: [:show, :edit, :update, :destroy]
 
   # GET /measurements
   # GET /measurements.json
   def index
     @measurements = Array.new
+    @measurement_types = @equipment.measurement_types
     @measurement_types.each do |measurement_type|
       measurement_type.measurements.each do |measurement|
         @measurements << measurement
@@ -33,6 +33,7 @@ class MeasurementsController < ApplicationController
 
   # GET /measurements/1/edit
   def edit
+    
   end
 
   # POST /measurements
@@ -56,6 +57,7 @@ class MeasurementsController < ApplicationController
   def update
    # respond_to do |format|
       if @measurement.update(measurement_params)
+        
         # format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully updated.' }
         # format.json { render :show, status: :ok, location: @measurement }
         flash[:notice] = 'Measurement was succesfully updated.'
@@ -85,10 +87,6 @@ class MeasurementsController < ApplicationController
 
     def set_equipment
       @equipment = Equipment.find(params[:equipment_id])
-    end
-
-    def set_measurement_types
-      @measurement_types = @equipment.measurement_types
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
