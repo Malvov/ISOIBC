@@ -22,9 +22,11 @@
         <td><%= measurement.value %></td>
         <td>
           <% if measurement.is_ok? %>
-            <i class="fa fa-thumbs-up fa-2x"></i>
+            <!--<i class="fa fa-thumbs-up fa-2x"></i>-->      
+            <%= fa_icon 'thumbs-up 2x', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'OK' %>            
           <% else %>
-            <i class="fa fa-thumbs-down fa-2x"></i>
+            <!--<i class="fa fa-thumbs-down fa-2x"></i>-->            
+            <%= fa_icon 'thumbs-down 2x', 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Fuera de parámetro' %>            
           <% end %>
         </td>
         <td><%= measurement.comment %></td>
@@ -42,7 +44,7 @@
         <td><%= link_to measurement_path(measurement), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
                 data: { confirm: 'U sure?' } do %>
                 <%= fa_icon 'trash 2x'%>
-            <% end %>    
+            <% end %>
         </td>
         
       </tr>
