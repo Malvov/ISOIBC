@@ -29,7 +29,7 @@
         </td>
         <td><%= measurement.comment %></td>
         <td>
-          <%= measurement.date %>
+          <%= measurement.date.strftime("%d/%m/%Y") %>
         </td>
         <td><%= link_to measurement_path(@equipment, measurement) do %>
                 <%= fa_icon 'eye 2x' %>
