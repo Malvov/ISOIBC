@@ -1,6 +1,6 @@
 class MeasurementsController < ApplicationController
   require 'will_paginate/array'
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_equipment, only: [:index]
   before_action :set_measurement, only: [:show, :edit, :update, :destroy]
 

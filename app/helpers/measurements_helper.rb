@@ -16,7 +16,7 @@ module MeasurementsHelper
         end
 
         #not_ok = count - ok
-
+        
         { "OK": ok, "Fuera de parámetro": not_ok }
         
     end
