@@ -1,5 +1,5 @@
 <h1>Mediciones de <%= @equipment.name %></h1>
-<%= link_to 'New Measurement', new_measurement_path, class: 'btn btn-success' %>
+<%= link_to 'Nueva', new_measurement_path, class: 'btn btn-success' %>
 <%= will_paginate @measurements, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>

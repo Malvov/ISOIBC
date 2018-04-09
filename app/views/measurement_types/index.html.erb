@@ -1,4 +1,7 @@
 <h1>Tipos de medidas</h1>
+<br>
+<%= link_to 'Nuevo', new_measurement_type_path, class: 'btn btn-primary' %>
+<br>
 <%= will_paginate @measurement_types, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>
@@ -16,14 +19,21 @@
         <td><%= measurement_type.name %></td>
         <td><%= measurement_type.equipment.name %></td>
         <td><%= measurement_type.parameter.name %></td>
-        <td><%= link_to 'Show', measurement_type %></td>
-        <td><%= link_to 'Edit', edit_measurement_type_path(measurement_type) %></td>
-        <td><%= link_to 'Destroy', measurement_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to measurement_type, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_measurement_type_path(measurement_type), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to measurement_type_path(measurement_type), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Measurement Type', new_measurement_type_path %>

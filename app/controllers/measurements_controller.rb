@@ -14,7 +14,7 @@ class MeasurementsController < ApplicationController
         @measurements << measurement
       end
     end
-    @measurements = @measurements.paginate(page: params[:page], per_page: 15)
+    @measurements = @measurements.paginate(page: params[:page], per_page: 10)
   end
 
   def equipos

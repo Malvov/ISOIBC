@@ -1,5 +1,5 @@
 <h1>Sectores</h1>
-<%= link_to 'Nueva', new_zone_path, class: 'btn btn-success' %>
+<%= link_to 'Nuevo', new_zone_path, class: 'btn btn-success' %>
 
 <table class="table">
   <thead>
@@ -13,9 +13,19 @@
     <% @zones.each do |zone| %>
       <tr>
         <td><%= zone.name %></td>
-        <td><%= link_to 'Mostrar', zone %></td>
-        <td><%= link_to 'Editar', edit_zone_path(zone) %></td>
-        <td><%= link_to 'Eliminar', zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <td><%= link_to zone, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_zone_path(zone), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to zone_path(zone), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
       </tr>
     <% end %>
   </tbody>

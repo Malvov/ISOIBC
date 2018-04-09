@@ -1,5 +1,7 @@
 <h1>Equipos industriales</h1>
-
+<br>
+<%= link_to 'Nuevo', new_equipment_path, class: 'btn btn-primary' %>
+<br>
 <table class="table">
   <thead>
     <tr>
@@ -15,14 +17,22 @@
         <td><%= equipment.name %></td>
         <td><%= equipment.location %></td>
         <td><%= equipment.description %></td>
-        <td><%= link_to 'Show', equipment %></td>
-        <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
-        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+        <td><%= link_to equipment, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_equipment_path(equipment), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to equipment_path(equipment), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Equipment', new_equipment_path, class: 'btn btn-primary' %>
