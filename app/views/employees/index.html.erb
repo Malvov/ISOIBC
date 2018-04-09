@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Calificación</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,6 +14,7 @@
     <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.name %></td>
+        <td><%= employee.calificacion.round(2) %></td>
         <td><%= link_to employee, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do %>
                 <%= fa_icon 'eye 2x' %>
             <% end %>

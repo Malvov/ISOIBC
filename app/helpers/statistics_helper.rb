@@ -15,6 +15,12 @@ module StatisticsHelper
                 title: {
                     text: 'Calificaciones obtenidas'
                 }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer'
+                }
             }
         }
     end
@@ -31,7 +37,13 @@ module StatisticsHelper
              title: { text: 'Rendimiento general' },
              yAxis: {
                  allowDecimals: false
-             }
+             },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer'
+                }
+            }
         }
     end
 
@@ -44,7 +56,10 @@ module StatisticsHelper
             '#fc1b02' #deficiente
             
         ],
-          title: { text: 'Rendimiento por mes' }
+          title: { text: 'Rendimiento por mes' },
+          yAxis: {
+            allowDecimals: false
+        }
       }
     end
 
@@ -55,6 +70,12 @@ module StatisticsHelper
                 '#fc1b02' #not ok
             ],
             title: { text: 'Conteo de eventos de electricidad y agua potable' },
-            pieSliceText: 'value-and-percentage' }
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer'
+                }
+            }
+         }
     end
 end
