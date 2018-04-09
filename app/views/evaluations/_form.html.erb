@@ -11,7 +11,7 @@
     <%= f.grouped_collection_select :task_id, Zone.all, :tasks, 
     :name, :id, :name, { include_blank: 'Escoger actividad' }, 
     { class: 'form-control form-group' } %>
-    <%= f.input :result, label: false, collection: %w[Bueno Regular Deficiente], 
+    <%= f.input :result, label: 'Calificación', collection: %w[Bueno Regular Deficiente], 
     prompt: 'Calificación' %>
     <label class="btn btn-info">
       Imagen

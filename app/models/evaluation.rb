@@ -18,7 +18,7 @@ class Evaluation < ApplicationRecord
   belongs_to :employee
   belongs_to :task
   
-  validates_presence_of :result
+  validates_presence_of :result, :task_id, :employee_id
 
   mount_uploader :image, ImageUploader
   
