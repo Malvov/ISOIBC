@@ -47,15 +47,21 @@
             <ul class="dropdown-menu">
               <% if current_user.admin? || current_user.department == 'mantenimiento' %>
                 <li class="dropdown-header">Limpieza y jardinería</li>
-                <li><%= link_to 'Sectores y tareas', zones_path %></li>
+                  <li><%= link_to 'Sectores y tareas', zones_path %></li>
                 
               <% end %>
               <% if current_user.admin? || current_user.department == 'electricista' %>
                 <li role="separator" class="divider">
-                <li class="dropdown-header">Eventos de electricidad y agua potable</li>
-                <li><%= link_to 'Equipos industriales', equipment_index_path %></li>
-                <li><%= link_to 'Parámetros', parameters_path %></li>
-                <li><%= link_to 'Tipos de mediciones', measurement_types_path%></li>
+                  <li class="dropdown-header">Eventos de electricidad y agua potable</li>
+                  <li><%= link_to 'Equipos industriales', equipment_index_path %></li>
+                  <li><%= link_to 'Parámetros', parameters_path %></li>
+                  <li><%= link_to 'Tipos de mediciones', measurement_types_path%></li>
+                </li>
+              <% end %>
+              <% if current_user.admin? %>
+                <li role="separator" class="divider">
+                  <li class="dropdown-header">Aires acondicionados</li>
+                  <li><%= link_to 'Clientes', customers_path %></li>
                 </li>
               <% end %>
             </ul>

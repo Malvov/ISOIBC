@@ -99,4 +99,11 @@ si el equal no es nil, que:
 (AJAX)
  
 # Autorización
+ ayy lmaoo
+
+ #Aires acondicionados
+ Esta gente tiene contratos con las empresas y en cada contrato se establece que darán equis cantidad de mantenimientos por mes
  
+
+ podría crear el plan de mantenimiento por empresa. Utilizaría los arrays de PG para guardar
+ los meses que corresponde por empresa. Luego, en el formato
