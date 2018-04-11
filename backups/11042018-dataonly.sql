@@ -19,7 +19,34 @@ SET search_path = public, pg_catalog;
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
---INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-04-04 21:44:29.213356', '2018-04-04 21:44:29.213356');
+--INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-04-10 15:43:17.099217', '2018-04-10 15:43:17.099217');
+
+
+--
+-- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: manuel
+--
+
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (1, 'IBEX.', 'Torre3', '2018-04-10 15:46:39.903884', '2018-04-10 15:47:13.149847');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (2, 'LANDTERRA/SITEL.', 'Torre2', '2018-04-10 15:46:39.913623', '2018-04-10 15:47:23.194087');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (5, 'NECONSA.', 'Torre2', '2018-04-10 15:46:39.938813', '2018-04-10 15:47:43.246212');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (6, 'PUESTO DE BOLSA.', 'Torre2', '2018-04-10 15:46:39.947022', '2018-04-10 15:48:08.316103');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (9, 'EMBAJADA DE COREA', 'Torre3', '2018-04-10 15:46:39.972187', '2018-04-10 15:48:27.100699');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (13, 'INVERSEGURO.', 'IAT', '2018-04-10 15:46:40.005458', '2018-04-10 15:48:35.379771');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (18, 'CASAVISIÓN', 'Torre2', '2018-04-10 15:46:40.049606', '2018-04-10 15:48:55.698796');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (21, 'DR. GUERRA', 'IAT', '2018-04-10 15:46:40.072261', '2018-04-10 15:49:12.940376');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (16, 'KUIKI-CREDIT.', 'IAT', '2018-04-10 15:46:40.030813', '2018-04-10 15:49:36.315729');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (3, 'SPI CRM', 'Torre2', '2018-04-10 15:46:39.92208', '2018-04-10 15:50:58.917666');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (14, 'SPI GLOBAL', 'Torre2', '2018-04-10 15:46:40.01365', '2018-04-10 15:51:12.653939');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (20, 'BICSA.', 'Torre2', '2018-04-10 15:46:40.063824', '2018-04-10 15:51:40.940823');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (17, 'DIGITECH.', 'Torre2', '2018-04-10 15:46:40.038702', '2018-04-10 15:51:57.876528');
+INSERT INTO customers (id, name, location, created_at, updated_at) VALUES (12, 'SERVICORP.', 'Torre3', '2018-04-10 15:46:39.997084', '2018-04-10 15:52:30.437364');
+
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
+--
+
+SELECT pg_catalog.setval('customers_id_seq', 22, true);
 
 
 --
@@ -763,6 +790,7 @@ SELECT pg_catalog.setval('parameters_id_seq', 31, true);
 -- INSERT INTO schema_migrations (version) VALUES ('20180403143038');
 -- INSERT INTO schema_migrations (version) VALUES ('20180403145022');
 -- INSERT INTO schema_migrations (version) VALUES ('20180404212141');
+-- INSERT INTO schema_migrations (version) VALUES ('20180410153207');
 
 
 --
@@ -777,15 +805,16 @@ SELECT pg_catalog.setval('tasks_id_seq', 130, true);
 --
 
 INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (3, 'martha', 'martha@grupoinvercasa.com.ni', '$2a$11$dGZkTY51OxI3dT6n5WxVzui5tfvS8QCpsnMvNTiftG6grW9swuT1.', NULL, NULL, NULL, 2, '2018-04-04 21:54:32.948861', '2018-04-04 21:50:37.538706', '127.0.0.1', '127.0.0.1', '2018-04-04 21:47:23.346073', '2018-04-04 21:54:32.96256', NULL, false, 'mantenimiento');
-INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 9, '2018-04-04 21:55:54.984671', '2018-04-04 21:52:42.812107', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-04-04 21:55:55.007746', NULL, true, NULL);
 INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (2, 'lballadares', 'electricos@invercasa.com.ni', '$2a$11$/4Pv/tmOjIql60xHiqUSyuejBTCUaFxRG2uI0gpVOnTMZcG8bU7Au', NULL, NULL, NULL, 5, '2018-04-04 21:57:02.210251', '2018-04-04 21:50:00.174741', '127.0.0.1', '127.0.0.1', '2018-04-04 15:23:16.488569', '2018-04-04 21:57:02.223655', '', false, 'electricista');
+INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 12, '2018-04-11 15:03:15.012453', '2018-04-11 14:38:01.390331', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-04-11 15:03:15.038184', NULL, true, NULL);
+INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (4, 'admin', 'admin@ibc.com.ni', '$2a$11$un2oKnHBAFO.noNMPCvNyuHKQG5xhXo86hT5./kN.siABSlUx7S22', NULL, NULL, NULL, 1, '2018-04-11 15:13:36.522485', '2018-04-11 15:13:36.522485', '127.0.0.1', '127.0.0.1', '2018-04-11 15:12:43.922345', '2018-04-11 15:13:36.539248', NULL, true, NULL);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
 --
 
-SELECT pg_catalog.setval('users_id_seq', 3, true);
+SELECT pg_catalog.setval('users_id_seq', 4, true);
 
 
 --
