@@ -195,3 +195,20 @@
 # customers.each do |customer|
 #     Customer.create!(name: customer)
 # end
+
+
+parts = %w[U_manejadora U_condensadora Drenaje Ducteria Termostato M+C Compresor
+    Motor_Fan]
+maintenance_types = %w[Programado Emergencia]
+
+task_types =  %w[Reparación Reemplazo Programación Cambio_Total]
+
+puts 'acmaintenanceforms'
+251.times do |n|
+    AcMaintenanceForm.create!(serial_number: n, customer: Customer.all.sample, user_id: 4,
+                                part: parts.sample, maintenance_type: maintenance_types.sample,
+                                task_type: task_types.sample, date: DateTime.now)
+    print '.'
+end
+
+

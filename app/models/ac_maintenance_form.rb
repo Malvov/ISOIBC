@@ -18,7 +18,7 @@
 class AcMaintenanceForm < ApplicationRecord
   belongs_to :customer
   validates_presence_of %i(serial_number customer_id part maintenance_type task_type date)
-
+  
   attr_accessor :operario
   
   def operario

@@ -4,7 +4,7 @@ class AcMaintenanceFormsController < ApplicationController
   # GET /ac_maintenance_forms
   # GET /ac_maintenance_forms.json
   def index
-    @ac_maintenance_forms = AcMaintenanceForm.all
+    @ac_maintenance_forms = AcMaintenanceForm.paginate(page: params[:page]).per_page(10)
   end
 
   # GET /ac_maintenance_forms/1

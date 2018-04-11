@@ -1,16 +1,19 @@
 <h1>Registro de mantenimiento de equipos de AC</h1>
 <br>
-
 <%= link_to 'Nuevo', new_ac_maintenance_form_path, class: 'btn btn-primary' %>
+<br>
+<%= will_paginate @evaluations, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>
     <tr>
+      <th>Número de orden</th>
       <th>Número de serie</th>
       <th>Cliente</th>
       <th>Operario</th>
       <th>Conjunto</th>
       <th>Tipo de mantenimiento</th>
       <th>Tipo de trabajo</th>
+      <th>Fecha</th>
       <th>Observaciones</th>
       <th colspan="3"></th>
     </tr>
@@ -19,12 +22,14 @@
   <tbody>
     <% @ac_maintenance_forms.each do |ac_maintenance_form| %>
       <tr>
+        <td><%= ac_maintenance_form.id %></td>
         <td><%= ac_maintenance_form.serial_number %></td>
         <td><%= ac_maintenance_form.customer.name %></td>
         <td><%= ac_maintenance_form.operario %></td>
         <td><%= ac_maintenance_form.part %></td>
         <td><%= ac_maintenance_form.maintenance_type %></td>
         <td><%= ac_maintenance_form.task_type %></td>
+        <td><%= ac_maintenance_form.date.strftime("%d/%m/%Y") %></td>
         <td><%= ac_maintenance_form.comment %></td>
         <td><%= link_to ac_maintenance_form, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
                 <%= fa_icon 'eye 2x' %>
