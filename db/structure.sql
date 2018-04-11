@@ -27,6 +27,44 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: ac_maintenance_forms; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE ac_maintenance_forms (
+    id bigint NOT NULL,
+    serial_number character varying,
+    customer_id bigint,
+    user_id integer,
+    part character varying,
+    maintenance_type character varying,
+    task_type character varying,
+    comment text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    date date
+);
+
+
+--
+-- Name: ac_maintenance_forms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE ac_maintenance_forms_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: ac_maintenance_forms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE ac_maintenance_forms_id_seq OWNED BY ac_maintenance_forms.id;
+
+
+--
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -393,6 +431,13 @@ ALTER SEQUENCE zones_id_seq OWNED BY zones.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY ac_maintenance_forms ALTER COLUMN id SET DEFAULT nextval('ac_maintenance_forms_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY customers ALTER COLUMN id SET DEFAULT nextval('customers_id_seq'::regclass);
 
 
@@ -457,6 +502,14 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 --
 
 ALTER TABLE ONLY zones ALTER COLUMN id SET DEFAULT nextval('zones_id_seq'::regclass);
+
+
+--
+-- Name: ac_maintenance_forms_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY ac_maintenance_forms
+    ADD CONSTRAINT ac_maintenance_forms_pkey PRIMARY KEY (id);
 
 
 --
@@ -553,6 +606,13 @@ ALTER TABLE ONLY users
 
 ALTER TABLE ONLY zones
     ADD CONSTRAINT zones_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_ac_maintenance_forms_on_customer_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_ac_maintenance_forms_on_customer_id ON ac_maintenance_forms USING btree (customer_id);
 
 
 --
@@ -666,6 +726,14 @@ ALTER TABLE ONLY evaluations
 
 
 --
+-- Name: fk_rails_8ed55c966f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY ac_maintenance_forms
+    ADD CONSTRAINT fk_rails_8ed55c966f FOREIGN KEY (customer_id) REFERENCES customers(id);
+
+
+--
 -- Name: fk_rails_db55870dbd; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -698,6 +766,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180403143038'),
 ('20180403145022'),
 ('20180404212141'),
-('20180410153207');
+('20180410153207'),
+('20180411155859'),
+('20180411160505');
 
 

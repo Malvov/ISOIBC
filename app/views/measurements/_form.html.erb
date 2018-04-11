@@ -17,7 +17,8 @@
     { class: 'form-control form-group', required: true } %>
     <%= f.input :value, label: 'Valor' %>
     <%= f.input :comment %>
-    <%= f.input :date %>
+    <%= f.input :date, label: 'Fecha de supervisión', 
+    order: [:day, :month, :year],  use_month_numbers: true %>
   </div>
 
   <div class="form-actions">

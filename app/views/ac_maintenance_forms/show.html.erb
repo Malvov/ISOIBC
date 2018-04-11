@@ -1,0 +1,37 @@
+<p>
+  <strong>Número de serie:</strong>
+  <%= @ac_maintenance_form.serial_number %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @ac_maintenance_form.customer.name %>
+</p>
+
+<p>
+  <strong>Operario:</strong>
+  <%= @ac_maintenance_form.operario %>
+</p>
+
+<p>
+  <strong>Conjunto:</strong>
+  <%= @ac_maintenance_form.part %>
+</p>
+
+<p>
+  <strong>Tipo de mantenimiento:</strong>
+  <%= @ac_maintenance_form.maintenance_type %>
+</p>
+
+<p>
+  <strong>Tipo de trabajo:</strong>
+  <%= @ac_maintenance_form.task_type %>
+</p>
+
+<p>
+  <strong>Observación:</strong>
+  <%= @ac_maintenance_form.comment %>
+</p>
+
+<%= link_to 'Editar', edit_ac_maintenance_form_path(@ac_maintenance_form) %> |
+<%= link_to 'Regresar', ac_maintenance_forms_path %>

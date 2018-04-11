@@ -1,0 +1,22 @@
+
+<%= simple_form_for(@ac_maintenance_form) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :serial_number, label: 'Número de serie' %>
+    <%= f.association :customer, prompt: 'Escoger cliente' %>
+    <%= f.input :part, collection: %w[U_manejadora U_condensadora Drenaje Ducteria Termostato M+C Compresor
+                                      Motor_Fan], label: 'Conjunto', prompt: 'Escoger conjunto' %>
+    <%= f.input :maintenance_type, collection: %w[Programado Emergencia], label: 'Tipo de mantenimiento',
+                                    prompt: 'Escoger tipo de mantenimiento' %>
+    <%= f.input :task_type, collection: %w[Reparación Reemplazo Programación Cambio_Total],
+                                  label: 'Tipo de trabajo', prompt: 'Escoger tipo de trabajo' %>
+    <%= f.input :date, label: 'Fecha de mantenimiento', 
+    order: [:day, :month, :year],  use_month_numbers: true %>
+    <%= f.input :comment %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Guardar', class: 'btn btn-success' %>
+  </div>
+<% end %>
