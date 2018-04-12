@@ -11,7 +11,17 @@
             <%= employees_evaluations %>
         </div>
         <div class="col-md-6">
-            <%= evaluation_results_per_month %>
+            <%= evaluations_results_per_month %>
+            <div class="row">
+                <div class="col-md-6">
+                    <%= label_tag 'Inicio' %>
+                    <%= date_field_tag :start_at %>
+                </div>
+                <div class="col-md-6">
+                    <%= label_tag 'Fin' %>
+                    <%= date_field_tag :end_at %>
+                </div>
+            </div>
         </div>
     </div>
     <% end %>

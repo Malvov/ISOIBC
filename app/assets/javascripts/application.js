@@ -18,3 +18,22 @@
 //= require highcharts
 //= require chartkick
 //= require_tree .
+// $(function() {
+//     $("#end_at").change(function(e){
+    
+//         end_at = $(e.target).val(); 
+//         start_at = $("#start_at").val();
+//           $.ajax({
+//             type: "POST",
+//             url: "/charts/evaluations_results_per_month",
+//             data: {
+//               start_at: start_at,
+//               end_at: end_at,
+//             },
+//             success: function (data) {
+//                 var chart = Chartkick.charts["chart-2"];
+//                 chart.updateData(data);
+//             }
+//           });    
+//     });
+// });

@@ -47,21 +47,27 @@ module StatisticsHelper
         }
     end
 
-    def evaluation_results_per_month
-      bar_chart Evaluation.group(:result).group_by_month(:date, format: '%b').count, 
-      stacked: true, library: {
+    def evaluations_results_per_month
+        
+    column_chart  evaluations_results_per_month_charts_path,
+        id: 'evaluations_results_per_month',                                                                    
+        stacked: true, library: {
         colors: [
             '#34fc02', #bueno
             '#fca902', #regular
             '#fc1b02' #deficiente
             
-        ],
-          title: { text: 'Rendimiento por mes' },
+        ], title: { text: 'Resultados por mes' },
           yAxis: {
             allowDecimals: false
+        },                                                                                                                                                                                                      
+        plotOptions: {
+            series: {
+                pointWidth: 50
+            }
         }
       }
-    end
+    end                                                 
 
     def measurements_chart
         pie_chart measurement_count_according_to_parameter,  library: {
