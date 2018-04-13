@@ -1,6 +1,6 @@
 module StatisticsHelper
     def employee_evaluations(employee)
-        pie_chart employee.evaluations.group(:result).order(result: :asc).count,  library: {
+        pie_chart employee_performance_charts_path(employee),  library: {
             colors: [
                 '#34fc02', #bueno                        
                 '#fc1b02', #deficiente
@@ -26,7 +26,7 @@ module StatisticsHelper
     end
     
     def employees_evaluations
-         pie_chart Evaluation.group(:result).order(result: :asc).count, library: {
+         pie_chart employees_evaluations_charts_path , library: {
             colors: [
                         '#34fc02', #bueno                        
                         '#fc1b02', #deficiente
@@ -71,7 +71,7 @@ module StatisticsHelper
     end                                                 
 
     def measurements_chart
-        pie_chart measurement_count_according_to_parameter,  library: {
+        pie_chart measurements_chart_charts_path,  library: {
             colors: [
                 '#34fc02', #ok
                 '#fc1b02' #not ok

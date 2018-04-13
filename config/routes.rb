@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     collection do
       get 'evaluations_results_per_month'
       post 'evaluations_results_per_month'
+      get 'measurements_chart'
+      get 'employees_evaluations'
+      get 'individual_evaluations/:employee_id', to: 'charts#individual_evaluations', as: :employee_performance
     end
   end
   

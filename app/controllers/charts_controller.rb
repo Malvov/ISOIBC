@@ -11,4 +11,17 @@ class ChartsController < ApplicationController
             count.chart_json
         end
     end
+
+    def measurements_chart
+        render json: helpers.measurement_count_according_to_parameter
+    end
+    
+    def employees_evaluations
+        render json: Evaluation.group(:result).order(result: :asc).count
+    end
+
+    def individual_evaluations
+        employee = Employee.find(params[:employee_id])
+        render json: employee.evaluations.group(:result).order(result: :asc).count        
+    end
 end
