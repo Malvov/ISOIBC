@@ -148,9 +148,9 @@ end
 calificaciones = ['Bueno', 'Regular', 'Deficiente']
 
 puts 'evaluations'
-293.times do |n|
+10000.times do |n|
     Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
-        calificaciones.sample, comment: Faker::Lorem.paragraph, date: (2.months.ago.to_datetime..DateTime.
+        calificaciones.sample, comment: Faker::Lorem.paragraph, date: (2.years.ago.to_datetime..DateTime.
             now.to_datetime).to_a.sample)
     print '.'
 end

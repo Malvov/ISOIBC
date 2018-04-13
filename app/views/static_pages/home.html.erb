@@ -7,18 +7,18 @@
     
     <% if current_user.admin? || current_user.department == 'mantenimiento' %>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <%= employees_evaluations %>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6">
             <%= evaluations_results_per_month %>
             <div class="row">
-                <div class="col-md-6">
-                    <%= label_tag 'Inicio' %>
-                    <%= date_field_tag :start_at, class: 'form-control form-group' %>
+                <div class="col-lg-6">
+                    <%= label_tag 'Desde' %>
+                    <%= date_field_tag :start_at %>
                 </div>
-                <div class="col-md-6">
-                    <%= label_tag 'Fin' %>
+                <div class="col-lg-6">
+                    <%= label_tag 'Hasta' %>
                     <%= date_field_tag :end_at %>
                 </div>
             </div>
@@ -26,10 +26,10 @@
     </div>
     <% end %>
     <% if current_user.admin? || current_user.department == 'electricista' %>
-        <div class="row">
-            <div class="col-md-12">
+        <!--<div class="row">
+            <div class="col-lg-12">
                 <%= measurements_chart %>
             </div>
-        </div>
+        </div>-->
     <% end %>
 <% end %>
