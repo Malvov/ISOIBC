@@ -54,8 +54,9 @@ module StatisticsHelper
         stacked: true, library: {
         colors: [
             '#34fc02', #bueno
+            '#fc1b02', #deficiente
             '#fca902', #regular
-            '#fc1b02' #deficiente
+            
             
         ], title: { text: 'Resultados por mes' },
           yAxis: {
