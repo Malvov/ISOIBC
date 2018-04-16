@@ -3,7 +3,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :value, label: 'Valor' %>
+    
     <%# f.input :measurement_type_id, collection: @measurement_types, 
     label_method: :name, value_method: :id,
      include_blank: 'Cuestión a medir' %>
@@ -13,13 +13,17 @@
     prompt: 'Escoger equipo' %>
     <%= label_tag 'Mediciones' %>
     <%= f.grouped_collection_select :measurement_type_id, Equipment.all, :measurement_types, 
-    :name, :id, :name, { include_blank: 'Escoger actividad' }, 
+    :name, :id, :name, { include_blank: 'Escoger cuestión a medir' }, 
     { class: 'form-control form-group', required: true } %>
+    <%= f.input :value, label: 'Valor' %>
     <%= f.input :comment %>
-    <%= f.input :date %>
+    <%= f.input :date, label: 'Fecha', 
+    order: [:day, :month, :year],  use_month_numbers: true %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<%# console %>

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get '/equipos/:equipment_id/mediciones', to: 'measurements#index', as: :mediciones
 
   resources :measurements, except: :index
+
+  get 'get_parameters', to: 'measurements#get_parameters'
   
   # put '/equipos/:equipment_id/measurements/:id', to: 'measurements#update'
   # patch '/equipos/:equipment_id/measurements/:id', to: 'measurements#update'

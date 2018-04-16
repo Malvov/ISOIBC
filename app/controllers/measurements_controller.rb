@@ -17,6 +17,11 @@ class MeasurementsController < ApplicationController
     @measurements = @measurements.paginate(page: params[:page], per_page: 15)
   end
 
+  def get_parameters
+    measurement_type = MeasurementType.find_by_name(params[:measurement_type])
+    render json: measurement_type.parameter.name
+  end
+
   def equipos
     @equipment = Equipment.all
   end
