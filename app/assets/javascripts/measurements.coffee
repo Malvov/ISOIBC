@@ -31,10 +31,22 @@ changeInputAccordingToParameter = ->
       url: '/get_parameters'
       data:
         measurement_type: measurementType
+      error: (jqXHR, textStatus, errorThrown) ->
+        alert textStatus        
       success: (data) ->
-        console.log data
+        
+        textInput = $("<input class='form-control string required' type='text' name='measurement[value]'' id='measurement_value'>")
+        textInput.remove() if textInput.length
+        $('#data').remove() if $('#data').length
+        $("<label id='valor'>Valor</label>").insertAfter($('#measurement_measurement_type_id'))
+        if data == 'no equal'
+          textInput.insertAfter($('#valor'))
+        else
+          textInput.insertAfter($('#valor'))                    
+          $("<p id='data'>#{data.split '/'}</p>").insertAfter($('#measurement_value'))
         return
     return
   return
+  
   
 

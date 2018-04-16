@@ -19,7 +19,11 @@ class MeasurementsController < ApplicationController
 
   def get_parameters
     measurement_type = MeasurementType.find_by_name(params[:measurement_type])
-    render json: measurement_type.parameter.name
+    unless measurement_type.parameter.equal.empty?
+      render json: measurement_type.parameter.name.to_json
+    else
+      render json: 'no equal'.to_json
+    end
   end
 
   def equipos

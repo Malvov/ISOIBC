@@ -15,7 +15,9 @@
     <%= f.grouped_collection_select :measurement_type_id, Equipment.all, :measurement_types, 
     :name, :id, :name, { include_blank: 'Escoger cuestión a medir' }, 
     { class: 'form-control form-group', required: true } %>
-    <%= f.input :value, label: 'Valor' %>
+
+    
+    
     <%= f.input :comment %>
     <%= f.input :date, label: 'Fecha', 
     order: [:day, :month, :year],  use_month_numbers: true %>
