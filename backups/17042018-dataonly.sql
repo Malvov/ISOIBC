@@ -19,7 +19,7 @@ SET search_path = public, pg_catalog;
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
---INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-04-04 21:44:29.213356', '2018-04-04 21:44:29.213356');
+--INSERT INTO ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-04-17 15:53:50.084484', '2018-04-17 15:53:50.084484');
 
 
 --
@@ -226,6 +226,7 @@ INSERT INTO tasks (id, name, zone_id, created_at, updated_at) VALUES (127, 'Cort
 INSERT INTO tasks (id, name, zone_id, created_at, updated_at) VALUES (128, 'Puntualidad', 15, '2018-03-21 14:58:03.506036', '2018-03-21 14:58:03.506036');
 INSERT INTO tasks (id, name, zone_id, created_at, updated_at) VALUES (129, 'Vestimenta', 15, '2018-03-21 14:58:03.509585', '2018-03-21 14:58:03.509585');
 INSERT INTO tasks (id, name, zone_id, created_at, updated_at) VALUES (130, 'Brinda información al cliente', 15, '2018-04-04 16:10:19.424073', '2018-04-04 16:10:19.424073');
+INSERT INTO tasks (id, name, zone_id, created_at, updated_at) VALUES (131, 'Limpieza de entrada a sotano', 5, '2018-04-11 22:32:24.760513', '2018-04-11 22:32:24.760513');
 
 
 --
@@ -571,13 +572,34 @@ INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_a
 INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (338, 5, 127, 'Bueno', '2018-04-04 16:19:39.803039', '2018-04-04 16:19:39.803039', '', NULL, '2018-03-04');
 INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (339, 12, 65, 'Deficiente', '2018-04-04 16:22:17.190478', '2018-04-04 16:22:17.190478', '', NULL, '2018-03-04');
 INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (340, 12, 36, 'Regular', '2018-04-04 16:25:30.556862', '2018-04-04 16:25:30.556862', '', NULL, '2018-03-07');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (341, 6, 26, 'Bueno', '2018-04-11 22:25:55.187825', '2018-04-11 22:25:55.187825', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (342, 6, 27, 'Bueno', '2018-04-11 22:26:40.212723', '2018-04-11 22:26:40.212723', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (343, 6, 28, 'Bueno', '2018-04-11 22:27:26.990697', '2018-04-11 22:27:26.990697', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (344, 6, 88, 'Bueno', '2018-04-11 22:29:03.201709', '2018-04-11 22:29:32.500262', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (345, 6, 131, 'Bueno', '2018-04-11 22:33:34.973226', '2018-04-11 22:33:34.973226', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (346, 6, 127, 'Bueno', '2018-04-11 22:34:37.941562', '2018-04-11 22:34:37.941562', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (347, 6, 128, 'Bueno', '2018-04-11 22:35:13.219973', '2018-04-11 22:35:13.219973', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (348, 6, 129, 'Bueno', '2018-04-11 22:36:33.51694', '2018-04-11 22:36:33.51694', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (349, 5, 59, 'Bueno', '2018-04-11 22:40:10.230128', '2018-04-11 22:40:10.230128', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (350, 2, 1, 'Bueno', '2018-04-11 22:42:31.552737', '2018-04-11 22:42:31.552737', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (351, 2, 2, 'Bueno', '2018-04-11 22:43:26.674949', '2018-04-11 22:43:26.674949', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (352, 2, 83, 'Bueno', '2018-04-11 22:44:17.126619', '2018-04-11 22:44:17.126619', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (353, 2, 84, 'Bueno', '2018-04-11 22:45:03.058745', '2018-04-11 22:45:03.058745', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (354, 2, 127, 'Bueno', '2018-04-11 22:46:34.220152', '2018-04-11 22:46:34.220152', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (355, 2, 128, 'Bueno', '2018-04-11 22:47:04.253165', '2018-04-11 22:47:04.253165', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (356, 2, 129, 'Bueno', '2018-04-11 22:47:53.814129', '2018-04-11 22:47:53.814129', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (357, 2, 130, 'Bueno', '2018-04-11 22:48:38.838554', '2018-04-11 22:48:38.838554', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (358, 13, 99, 'Bueno', '2018-04-11 22:50:16.816846', '2018-04-11 22:50:16.816846', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (359, 13, 104, 'Bueno', '2018-04-11 22:51:12.309989', '2018-04-11 22:51:12.309989', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (360, 13, 80, 'Bueno', '2018-04-11 22:52:00.749059', '2018-04-11 22:52:00.749059', '', NULL, '2018-03-05');
+INSERT INTO evaluations (id, employee_id, task_id, result, created_at, updated_at, comment, image, date) VALUES (361, 13, 127, 'Bueno', '2018-04-11 22:52:41.447475', '2018-04-11 22:52:41.447475', '', NULL, '2018-03-05');
 
 
 --
 -- Name: evaluations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
 --
 
-SELECT pg_catalog.setval('evaluations_id_seq', 340, true);
+SELECT pg_catalog.setval('evaluations_id_seq', 361, true);
 
 
 --
@@ -706,32 +728,13 @@ SELECT pg_catalog.setval('measurement_types_id_seq', 74, true);
 -- Data for Name: measurements; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (1, '275.4', 30, '', '2018-04-03 17:03:20.017422', '2018-04-03 17:03:20.017422', 1, '2018-02-02');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (2, 'FULL', 31, '', '2018-04-03 17:05:51.969693', '2018-04-03 17:05:51.969693', 1, '2018-04-03');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (3, 'FULL', 32, '', '2018-04-03 17:06:35.976814', '2018-04-03 17:06:35.976814', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (4, 'FULL', 33, '', '2018-04-03 17:07:28.991035', '2018-04-03 17:07:28.991035', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (5, '12.5', 34, '', '2018-04-03 17:07:49.730229', '2018-04-03 17:07:49.730229', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (6, 'FUNCIONA', 35, '', '2018-04-03 17:09:32.431529', '2018-04-03 17:09:32.431529', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (8, 'AUTO', 36, '', '2018-04-03 17:11:15.142801', '2018-04-03 17:11:15.142801', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (9, 'LIMPIO', 37, '', '2018-04-03 17:11:35.284779', '2018-04-03 17:11:35.284779', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (10, 'ON', 38, '', '2018-04-03 17:12:08.260427', '2018-04-03 17:12:08.260427', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (11, '71', 39, '', '2018-04-03 17:12:32.398822', '2018-04-03 17:12:32.398822', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (12, '275.4', 30, '', '2018-04-03 17:14:05.076998', '2018-04-03 17:14:05.076998', 1, '2018-02-08');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (13, 'FULL', 31, '', '2018-04-03 17:15:03.504151', '2018-04-03 17:15:03.504151', 1, '2018-02-08');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (14, 'FULL', 32, '', '2018-04-03 17:15:19.730851', '2018-04-03 17:15:19.730851', 1, '2018-02-08');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (15, 'FULL', 33, '', '2018-04-03 17:15:36.243869', '2018-04-03 17:15:36.243869', 1, '2018-02-08');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (16, '12.5', 34, '', '2018-04-03 17:15:53.376929', '2018-04-03 17:15:53.376929', 1, '2018-02-09');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (17, 'FUNCIONA', 35, '', '2018-04-03 17:16:26.650123', '2018-04-03 17:16:26.650123', 1, '2018-02-08');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (18, 'AUTO', 36, '', '2018-04-03 17:17:02.00045', '2018-04-03 17:17:02.00045', 1, '2018-02-08');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (19, 'LIMPIO', 37, '', '2018-04-03 17:17:20.431865', '2018-04-03 17:17:20.431865', 1, '2018-02-08');
-INSERT INTO measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (20, '275.4', 30, '', '2018-04-03 17:21:50.610091', '2018-04-03 17:21:50.610091', 1, '2018-02-07');
 
 
 --
 -- Name: measurements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
 --
 
-SELECT pg_catalog.setval('measurements_id_seq', 21, true);
+SELECT pg_catalog.setval('measurements_id_seq', 1, false);
 
 
 --
@@ -769,16 +772,16 @@ SELECT pg_catalog.setval('parameters_id_seq', 31, true);
 -- Name: tasks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
 --
 
-SELECT pg_catalog.setval('tasks_id_seq', 130, true);
+SELECT pg_catalog.setval('tasks_id_seq', 131, true);
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: manuel
 --
 
-INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (3, 'martha', 'martha@grupoinvercasa.com.ni', '$2a$11$dGZkTY51OxI3dT6n5WxVzui5tfvS8QCpsnMvNTiftG6grW9swuT1.', NULL, NULL, NULL, 2, '2018-04-04 21:54:32.948861', '2018-04-04 21:50:37.538706', '127.0.0.1', '127.0.0.1', '2018-04-04 21:47:23.346073', '2018-04-04 21:54:32.96256', NULL, false, 'mantenimiento');
-INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (1, 'manuel', 'pasante.manuel@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 9, '2018-04-04 21:55:54.984671', '2018-04-04 21:52:42.812107', '127.0.0.1', '127.0.0.1', '2018-03-14 20:08:01.855514', '2018-04-04 21:55:55.007746', NULL, true, NULL);
-INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (2, 'lballadares', 'electricos@invercasa.com.ni', '$2a$11$/4Pv/tmOjIql60xHiqUSyuejBTCUaFxRG2uI0gpVOnTMZcG8bU7Au', NULL, NULL, NULL, 5, '2018-04-04 21:57:02.210251', '2018-04-04 21:50:00.174741', '127.0.0.1', '127.0.0.1', '2018-04-04 15:23:16.488569', '2018-04-04 21:57:02.223655', '', false, 'electricista');
+INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (1, 'admin', 'admin@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 20, '2018-04-13 14:31:35.677163', '2018-04-12 21:32:58.233919', '172.16.10.36', '172.16.10.36', '2018-03-14 20:08:01.855514', '2018-04-13 14:31:35.682364', '', true, NULL);
+INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (3, 'martha', 'martha@grupoinvercasa.com.ni', '$2a$11$8h4fJZsrU8OYtUbQ/cE0tuX/tZ0Rb7Jopw6OWKOrF9cExc9ucVXny', NULL, NULL, NULL, 9, '2018-04-16 17:59:25.373591', '2018-04-11 23:19:10.972012', '172.16.10.36', '172.16.34.9', '2018-04-04 21:47:23.346073', '2018-04-16 17:59:25.409037', '', false, 'mantenimiento');
+INSERT INTO users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (2, 'lballadares', 'electricos@invercasa.com.ni', '$2a$11$DaAcDbyxY5MsaqeVLraJHuIYcnTIB6D1AWyS3ZJRV0jD1x1jkGEVK', NULL, NULL, NULL, 6, '2018-04-11 21:52:27.651498', '2018-04-04 21:57:02.210251', '172.16.10.36', '127.0.0.1', '2018-04-04 15:23:16.488569', '2018-04-17 15:59:39.385667', '', false, 'electricista');
 
 
 --

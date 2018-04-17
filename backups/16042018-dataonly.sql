@@ -727,32 +727,32 @@ SELECT pg_catalog.setval('public.measurement_types_id_seq', 74, true);
 -- Data for Name: measurements; Type: TABLE DATA; Schema: public; Owner: intranet
 --
 
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (1, '275.4', 30, '', '2018-04-03 17:03:20.017422', '2018-04-03 17:03:20.017422', 1, '2018-02-02');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (2, 'FULL', 31, '', '2018-04-03 17:05:51.969693', '2018-04-03 17:05:51.969693', 1, '2018-04-03');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (3, 'FULL', 32, '', '2018-04-03 17:06:35.976814', '2018-04-03 17:06:35.976814', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (4, 'FULL', 33, '', '2018-04-03 17:07:28.991035', '2018-04-03 17:07:28.991035', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (5, '12.5', 34, '', '2018-04-03 17:07:49.730229', '2018-04-03 17:07:49.730229', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (6, 'FUNCIONA', 35, '', '2018-04-03 17:09:32.431529', '2018-04-03 17:09:32.431529', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (8, 'AUTO', 36, '', '2018-04-03 17:11:15.142801', '2018-04-03 17:11:15.142801', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (9, 'LIMPIO', 37, '', '2018-04-03 17:11:35.284779', '2018-04-03 17:11:35.284779', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (10, 'ON', 38, '', '2018-04-03 17:12:08.260427', '2018-04-03 17:12:08.260427', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (11, '71', 39, '', '2018-04-03 17:12:32.398822', '2018-04-03 17:12:32.398822', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (12, '275.4', 30, '', '2018-04-03 17:14:05.076998', '2018-04-03 17:14:05.076998', 1, '2018-02-08');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (13, 'FULL', 31, '', '2018-04-03 17:15:03.504151', '2018-04-03 17:15:03.504151', 1, '2018-02-08');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (14, 'FULL', 32, '', '2018-04-03 17:15:19.730851', '2018-04-03 17:15:19.730851', 1, '2018-02-08');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (15, 'FULL', 33, '', '2018-04-03 17:15:36.243869', '2018-04-03 17:15:36.243869', 1, '2018-02-08');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (16, '12.5', 34, '', '2018-04-03 17:15:53.376929', '2018-04-03 17:15:53.376929', 1, '2018-02-09');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (17, 'FUNCIONA', 35, '', '2018-04-03 17:16:26.650123', '2018-04-03 17:16:26.650123', 1, '2018-02-08');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (18, 'AUTO', 36, '', '2018-04-03 17:17:02.00045', '2018-04-03 17:17:02.00045', 1, '2018-02-08');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (19, 'LIMPIO', 37, '', '2018-04-03 17:17:20.431865', '2018-04-03 17:17:20.431865', 1, '2018-02-08');
-INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (20, '275.4', 30, '', '2018-04-03 17:21:50.610091', '2018-04-03 17:21:50.610091', 1, '2018-02-07');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (1, '275.4', 30, '', '2018-04-03 17:03:20.017422', '2018-04-03 17:03:20.017422', 1, '2018-02-02');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (2, 'FULL', 31, '', '2018-04-03 17:05:51.969693', '2018-04-03 17:05:51.969693', 1, '2018-04-03');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (3, 'FULL', 32, '', '2018-04-03 17:06:35.976814', '2018-04-03 17:06:35.976814', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (4, 'FULL', 33, '', '2018-04-03 17:07:28.991035', '2018-04-03 17:07:28.991035', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (5, '12.5', 34, '', '2018-04-03 17:07:49.730229', '2018-04-03 17:07:49.730229', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (6, 'FUNCIONA', 35, '', '2018-04-03 17:09:32.431529', '2018-04-03 17:09:32.431529', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (8, 'AUTO', 36, '', '2018-04-03 17:11:15.142801', '2018-04-03 17:11:15.142801', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (9, 'LIMPIO', 37, '', '2018-04-03 17:11:35.284779', '2018-04-03 17:11:35.284779', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (10, 'ON', 38, '', '2018-04-03 17:12:08.260427', '2018-04-03 17:12:08.260427', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (11, '71', 39, '', '2018-04-03 17:12:32.398822', '2018-04-03 17:12:32.398822', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (12, '275.4', 30, '', '2018-04-03 17:14:05.076998', '2018-04-03 17:14:05.076998', 1, '2018-02-08');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (13, 'FULL', 31, '', '2018-04-03 17:15:03.504151', '2018-04-03 17:15:03.504151', 1, '2018-02-08');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (14, 'FULL', 32, '', '2018-04-03 17:15:19.730851', '2018-04-03 17:15:19.730851', 1, '2018-02-08');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (15, 'FULL', 33, '', '2018-04-03 17:15:36.243869', '2018-04-03 17:15:36.243869', 1, '2018-02-08');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (16, '12.5', 34, '', '2018-04-03 17:15:53.376929', '2018-04-03 17:15:53.376929', 1, '2018-02-09');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (17, 'FUNCIONA', 35, '', '2018-04-03 17:16:26.650123', '2018-04-03 17:16:26.650123', 1, '2018-02-08');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (18, 'AUTO', 36, '', '2018-04-03 17:17:02.00045', '2018-04-03 17:17:02.00045', 1, '2018-02-08');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (19, 'LIMPIO', 37, '', '2018-04-03 17:17:20.431865', '2018-04-03 17:17:20.431865', 1, '2018-02-08');
+-- INSERT INTO public.measurements (id, value, measurement_type_id, comment, created_at, updated_at, user_id, date) VALUES (20, '275.4', 30, '', '2018-04-03 17:21:50.610091', '2018-04-03 17:21:50.610091', 1, '2018-02-07');
 
 
 --
 -- Name: measurements_id_seq; Type: SEQUENCE SET; Schema: public; Owner: intranet
 --
 
-SELECT pg_catalog.setval('public.measurements_id_seq', 21, true);
+--SELECT pg_catalog.setval('public.measurements_id_seq', 21, true);
 
 
 --
