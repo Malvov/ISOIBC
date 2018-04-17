@@ -357,10 +357,15 @@
   input[type="search"]:focus,
   input[type="tel"]:focus,
   input[type="color"]:focus,
+  select:focus,
   .uneditable-input:focus {   
     border-color: #7EA37F;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #7EA37F;
     outline: 0 none;
+  }
+
+  .btn-login {
+    color:  #7EA37F;
   }
   
   .login-links {
