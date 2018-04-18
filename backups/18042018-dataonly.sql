@@ -53,25 +53,25 @@ SELECT pg_catalog.setval('public.employees_id_seq', 18, true);
 
 
 --
--- Data for Name: equipment; Type: TABLE DATA; Schema: public; Owner: intranet
+-- Data for Name: public.equipment; Type: TABLE DATA; Schema: public; Owner: intranet
 --
 
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (3, 'Transferencia automática GE 2500 Torre 2', 'IT2', '', '2018-03-27 20:57:13.29014', '2018-03-27 20:57:13.29014');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (6, 'Transferencia automática GE 2500 Torre 3', 'IT3', '', '2018-03-27 20:58:44.474668', '2018-03-27 20:58:44.474668');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (9, 'Generadores eléctricos IAT', 'IAT', '', '2018-03-27 21:00:54.831314', '2018-03-27 21:00:54.831314');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (10, 'Generadores eléctricos T2', 'IT2', '', '2018-03-27 21:01:06.985667', '2018-03-27 21:01:06.985667');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (11, 'Generadores eléctricos T3', 'IT3', '', '2018-03-27 21:01:19.570197', '2018-03-27 21:01:19.570197');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (12, 'Bombas de agua potable T2', 'IT2', '', '2018-03-27 21:01:41.185909', '2018-03-27 21:01:41.185909');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (13, 'Bombas de agua potable T3', 'IT3', '', '2018-03-27 21:02:37.413845', '2018-03-27 21:02:37.413845');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (14, 'Sistema contra incendios T2', 'IT2', '', '2018-03-27 21:02:52.605915', '2018-03-27 21:02:52.605915');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (15, 'Sistema contra incendios T3', 'IT3', '', '2018-03-27 21:03:02.598512', '2018-03-27 21:03:02.598512');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (16, 'Combustión T3', 'IT3', '', '2018-03-27 21:03:26.121626', '2018-03-27 21:03:26.121626');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (19, 'GE Switchboard T3', 'IT3', '', '2018-04-04 15:25:41.514404', '2018-04-04 15:25:41.514404');
-INSERT INTO equipment (id, name, location, description, created_at, updated_at) VALUES (20, 'GE Switchboard Torre 2', 'IT2', '', '2018-04-18 19:59:36.7462', '2018-04-18 19:59:36.7462');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (3, 'Transferencia automática GE 2500 Torre 2', 'IT2', '', '2018-03-27 20:57:13.29014', '2018-03-27 20:57:13.29014');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (6, 'Transferencia automática GE 2500 Torre 3', 'IT3', '', '2018-03-27 20:58:44.474668', '2018-03-27 20:58:44.474668');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (9, 'Generadores eléctricos IAT', 'IAT', '', '2018-03-27 21:00:54.831314', '2018-03-27 21:00:54.831314');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (10, 'Generadores eléctricos T2', 'IT2', '', '2018-03-27 21:01:06.985667', '2018-03-27 21:01:06.985667');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (11, 'Generadores eléctricos T3', 'IT3', '', '2018-03-27 21:01:19.570197', '2018-03-27 21:01:19.570197');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (12, 'Bombas de agua potable T2', 'IT2', '', '2018-03-27 21:01:41.185909', '2018-03-27 21:01:41.185909');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (13, 'Bombas de agua potable T3', 'IT3', '', '2018-03-27 21:02:37.413845', '2018-03-27 21:02:37.413845');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (14, 'Sistema contra incendios T2', 'IT2', '', '2018-03-27 21:02:52.605915', '2018-03-27 21:02:52.605915');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (15, 'Sistema contra incendios T3', 'IT3', '', '2018-03-27 21:03:02.598512', '2018-03-27 21:03:02.598512');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (16, 'Combustión T3', 'IT3', '', '2018-03-27 21:03:26.121626', '2018-03-27 21:03:26.121626');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (19, 'GE Switchboard T3', 'IT3', '', '2018-04-04 15:25:41.514404', '2018-04-04 15:25:41.514404');
+INSERT INTO public.equipment (id, name, location, description, created_at, updated_at) VALUES (20, 'GE Switchboard Torre 2', 'IT2', '', '2018-04-18 19:59:36.7462', '2018-04-18 19:59:36.7462');
 
 
 --
--- Name: equipment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
+-- Name: public.equipment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: manuel
 --
 
 SELECT pg_catalog.setval('equipment_id_seq', 20, true);
@@ -636,131 +636,131 @@ SELECT pg_catalog.setval('public.evaluations_id_seq', 395, true);
 
 
 --
--- Data for Name: parameters; Type: TABLE DATA; Schema: public; Owner: intranet
+-- Data for Name: public.parameters; Type: TABLE DATA; Schema: public; Owner: intranet
 --
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (2, 'Voltaje GE Switchboard', '', 207, 226, '2018-03-28 15:06:16.259091', '2018-03-28 15:06:16.259091');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (3, 'Voltaje GE Switchboar Ln-N', '', 119, 126, '2018-03-28 15:09:37.251188', '2018-03-28 15:09:37.251188');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (4, 'Amperaje GE Switchboard', '', 0, 2000, '2018-03-28 15:11:27.348546', '2018-03-28 15:11:27.348546');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (5, 'Potencia KW L1', '', 0, 201, '2018-03-28 15:50:01.868971', '2018-03-28 15:50:01.868971');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (6, 'Potencia KW L2', '', 0, 190, '2018-03-28 15:50:17.955167', '2018-03-28 15:50:17.955167');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (7, 'Potencia KW L3', '', 0, 170, '2018-03-28 15:50:35.655303', '2018-03-28 15:50:35.655303');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (8, 'Frecuencia GE Switchboard', '', 59, 60.5, '2018-03-28 15:52:55.167559', '2018-03-28 15:53:30.040865');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (9, 'Tiempo acumulado de los generadores', '', 0, 552.600000000000023, '2018-03-28 15:55:04.89367', '2018-03-28 15:55:04.89367');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (10, 'Voltaje de baterías de los generadores eléctricos', '', 24, 26.5, '2018-03-28 15:55:34.176768', '2018-03-28 15:55:34.176768');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (11, 'Torre 2_Temp Cal', '', 0, 90, '2018-03-28 15:56:34.692487', '2018-03-28 15:57:06.417595');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (12, 'IAT_Temp Cal', '', 0, 85, '2018-03-28 15:57:54.380265', '2018-03-28 15:57:54.380265');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (13, 'Torre 3_Temp Cal', '', 25, 80, '2018-03-28 15:58:31.55689', '2018-03-28 15:58:31.55689');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (14, 'Voltaje de baterías de los generadores eléctricos IAT', '', 12, 12.8000000000000007, '2018-03-28 15:59:24.599557', '2018-03-28 15:59:24.599557');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (16, 'FULL/BAJO', 'FULL', NULL, NULL, '2018-03-28 16:01:43.871443', '2018-03-28 16:01:43.871443');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (15, 'En parámetro/Fuera de parámetro', 'En parámetro', NULL, NULL, '2018-03-28 16:00:58.572011', '2018-03-28 16:02:07.884486');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (17, 'ON/OFF', 'ON', NULL, NULL, '2018-03-28 16:02:38.476776', '2018-03-28 16:02:38.476776');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (18, 'SÍ/NO', 'SÍ', NULL, NULL, '2018-03-28 16:03:20.789222', '2018-03-28 16:03:20.789222');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (19, 'CARGADO/NO CARGADO', 'CARGADO', NULL, NULL, '2018-03-28 16:04:05.213144', '2018-03-28 16:04:05.213144');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (20, 'AUTO/MANUAL', 'AUTO', NULL, NULL, '2018-03-28 16:04:27.636161', '2018-03-28 16:04:27.636161');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (21, 'RUN/STOP', 'RUN', NULL, NULL, '2018-03-28 16:08:07.202708', '2018-03-28 16:08:07.202708');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (22, 'LIMPIO/SUCIO', 'LIMPIO', NULL, NULL, '2018-03-28 16:08:49.815629', '2018-03-28 16:08:49.815629');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (23, 'FUNCIONA/NO FUNCIONA', 'FUNCIONA', NULL, NULL, '2018-03-28 17:17:12.616175', '2018-03-28 17:17:12.616175');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (26, 'Presión de arranque CI', '', 79, 81, '2018-03-28 17:34:57.522606', '2018-03-28 17:34:57.522606');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (27, 'Presión de operación CI', '', 119, 121, '2018-03-28 17:35:34.76807', '2018-03-28 17:35:34.76807');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (28, 'Presión de operación CB', '', 119, 122, '2018-03-28 17:36:18.916204', '2018-03-28 17:36:18.916204');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (29, 'Voltaje de fuente BAT', '', 119, 125, '2018-03-28 17:36:39.845714', '2018-03-28 17:36:39.845714');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (30, 'Temperatura de Motor C', '', 0, 80, '2018-03-28 17:37:44.581394', '2018-03-28 17:37:44.581394');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (24, 'Presión de arranque agua potable', '', 55, 80, '2018-03-28 17:32:27.86166', '2018-04-04 15:44:01.416744');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (25, 'Presión de operación agua potable', '', 80, 85, '2018-03-28 17:32:57.700322', '2018-04-04 15:44:25.997217');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (32, 'Parámetro para Voltajes Línea-Línea ', '', 200, 240, '2018-04-18 20:02:21.948806', '2018-04-18 20:02:21.948806');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (33, 'Voltaje Línea-Neutro', '', 105, 130, '2018-04-18 20:05:44.784022', '2018-04-18 20:05:44.784022');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (34, 'Parámetro corriente de línea', '', 0, 4000, '2018-04-18 20:07:36.605861', '2018-04-18 20:07:36.605861');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (35, 'Parámetro de potencia de línea', '', 0, 1350, '2018-04-18 20:12:19.342822', '2018-04-18 20:12:19.342822');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (36, 'Frecuencia GE Switchboard Torre 2', '', 59, 61, '2018-04-18 20:16:45.700203', '2018-04-18 20:16:45.700203');
---INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (37, '1/0', 'f', 0, 0, '2018-04-18 20:20:06.593165', '2018-04-18 20:20:06.593165');
-INSERT INTO parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (38, '1/0', '1', 0, 0, '2018-04-18 20:20:37.30946', '2018-04-18 20:20:37.30946');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (2, 'Voltaje GE Switchboard', '', 207, 226, '2018-03-28 15:06:16.259091', '2018-03-28 15:06:16.259091');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (3, 'Voltaje GE Switchboar Ln-N', '', 119, 126, '2018-03-28 15:09:37.251188', '2018-03-28 15:09:37.251188');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (4, 'Amperaje GE Switchboard', '', 0, 2000, '2018-03-28 15:11:27.348546', '2018-03-28 15:11:27.348546');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (5, 'Potencia KW L1', '', 0, 201, '2018-03-28 15:50:01.868971', '2018-03-28 15:50:01.868971');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (6, 'Potencia KW L2', '', 0, 190, '2018-03-28 15:50:17.955167', '2018-03-28 15:50:17.955167');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (7, 'Potencia KW L3', '', 0, 170, '2018-03-28 15:50:35.655303', '2018-03-28 15:50:35.655303');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (8, 'Frecuencia GE Switchboard', '', 59, 60.5, '2018-03-28 15:52:55.167559', '2018-03-28 15:53:30.040865');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (9, 'Tiempo acumulado de los generadores', '', 0, 552.600000000000023, '2018-03-28 15:55:04.89367', '2018-03-28 15:55:04.89367');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (10, 'Voltaje de baterías de los generadores eléctricos', '', 24, 26.5, '2018-03-28 15:55:34.176768', '2018-03-28 15:55:34.176768');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (11, 'Torre 2_Temp Cal', '', 0, 90, '2018-03-28 15:56:34.692487', '2018-03-28 15:57:06.417595');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (12, 'IAT_Temp Cal', '', 0, 85, '2018-03-28 15:57:54.380265', '2018-03-28 15:57:54.380265');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (13, 'Torre 3_Temp Cal', '', 25, 80, '2018-03-28 15:58:31.55689', '2018-03-28 15:58:31.55689');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (14, 'Voltaje de baterías de los generadores eléctricos IAT', '', 12, 12.8000000000000007, '2018-03-28 15:59:24.599557', '2018-03-28 15:59:24.599557');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (16, 'FULL/BAJO', 'FULL', NULL, NULL, '2018-03-28 16:01:43.871443', '2018-03-28 16:01:43.871443');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (15, 'En parámetro/Fuera de parámetro', 'En parámetro', NULL, NULL, '2018-03-28 16:00:58.572011', '2018-03-28 16:02:07.884486');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (17, 'ON/OFF', 'ON', NULL, NULL, '2018-03-28 16:02:38.476776', '2018-03-28 16:02:38.476776');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (18, 'SÍ/NO', 'SÍ', NULL, NULL, '2018-03-28 16:03:20.789222', '2018-03-28 16:03:20.789222');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (19, 'CARGADO/NO CARGADO', 'CARGADO', NULL, NULL, '2018-03-28 16:04:05.213144', '2018-03-28 16:04:05.213144');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (20, 'AUTO/MANUAL', 'AUTO', NULL, NULL, '2018-03-28 16:04:27.636161', '2018-03-28 16:04:27.636161');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (21, 'RUN/STOP', 'RUN', NULL, NULL, '2018-03-28 16:08:07.202708', '2018-03-28 16:08:07.202708');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (22, 'LIMPIO/SUCIO', 'LIMPIO', NULL, NULL, '2018-03-28 16:08:49.815629', '2018-03-28 16:08:49.815629');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (23, 'FUNCIONA/NO FUNCIONA', 'FUNCIONA', NULL, NULL, '2018-03-28 17:17:12.616175', '2018-03-28 17:17:12.616175');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (26, 'Presión de arranque CI', '', 79, 81, '2018-03-28 17:34:57.522606', '2018-03-28 17:34:57.522606');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (27, 'Presión de operación CI', '', 119, 121, '2018-03-28 17:35:34.76807', '2018-03-28 17:35:34.76807');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (28, 'Presión de operación CB', '', 119, 122, '2018-03-28 17:36:18.916204', '2018-03-28 17:36:18.916204');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (29, 'Voltaje de fuente BAT', '', 119, 125, '2018-03-28 17:36:39.845714', '2018-03-28 17:36:39.845714');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (30, 'Temperatura de Motor C', '', 0, 80, '2018-03-28 17:37:44.581394', '2018-03-28 17:37:44.581394');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (24, 'Presión de arranque agua potable', '', 55, 80, '2018-03-28 17:32:27.86166', '2018-04-04 15:44:01.416744');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (25, 'Presión de operación agua potable', '', 80, 85, '2018-03-28 17:32:57.700322', '2018-04-04 15:44:25.997217');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (32, 'Parámetro para Voltajes Línea-Línea ', '', 200, 240, '2018-04-18 20:02:21.948806', '2018-04-18 20:02:21.948806');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (33, 'Voltaje Línea-Neutro', '', 105, 130, '2018-04-18 20:05:44.784022', '2018-04-18 20:05:44.784022');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (34, 'Parámetro corriente de línea', '', 0, 4000, '2018-04-18 20:07:36.605861', '2018-04-18 20:07:36.605861');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (35, 'Parámetro de potencia de línea', '', 0, 1350, '2018-04-18 20:12:19.342822', '2018-04-18 20:12:19.342822');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (36, 'Frecuencia GE Switchboard Torre 2', '', 59, 61, '2018-04-18 20:16:45.700203', '2018-04-18 20:16:45.700203');
+--INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (37, '1/0', 'f', 0, 0, '2018-04-18 20:20:06.593165', '2018-04-18 20:20:06.593165');
+INSERT INTO public.parameters (id, name, equal, min_value, max_value, created_at, updated_at) VALUES (38, '1/0', '1', 0, 0, '2018-04-18 20:20:37.30946', '2018-04-18 20:20:37.30946');
 
 
 --
--- Data for Name: measurement_types; Type: TABLE DATA; Schema: public; Owner: intranet
+-- Data for Name: public.measurements_types; Type: TABLE DATA; Schema: public; Owner: intranet
 --
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (22, 'FUENTE', 3, 17, '2018-03-28 16:52:02.139843', '2018-03-28 16:52:02.139843', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (24, 'SELECTOR', 3, 20, '2018-03-28 16:53:06.746993', '2018-03-28 16:53:06.746993', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (25, 'RESORTE', 3, 19, '2018-03-28 16:53:30.084046', '2018-03-28 16:53:30.084046', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (26, 'FUENTE', 6, 17, '2018-03-28 16:53:47.630282', '2018-03-28 16:53:47.630282', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (23, 'PLC', 3, 21, '2018-03-28 16:52:21.063151', '2018-03-28 16:54:00.455803', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (27, 'PLC', 6, 21, '2018-03-28 16:54:12.838076', '2018-03-28 16:54:12.838076', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (28, 'SELECTOR', 6, 20, '2018-03-28 16:54:26.62862', '2018-03-28 16:54:26.62862', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (29, 'RESORTE', 6, 19, '2018-03-28 16:55:03.61336', '2018-03-28 16:55:03.61336', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (30, 'Tiempo acumulado', 9, 9, '2018-03-28 17:14:15.037071', '2018-03-28 17:14:15.037071', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (31, 'Nivel de combustible', 9, 16, '2018-03-28 17:14:43.573423', '2018-03-28 17:14:43.573423', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (32, 'Nivel de aceite', 9, 16, '2018-03-28 17:15:23.222969', '2018-03-28 17:15:23.222969', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (33, 'Nivel de refrigerante', 9, 16, '2018-03-28 17:15:46.342997', '2018-03-28 17:15:46.342997', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (34, 'Voltaje de baterías', 9, 14, '2018-03-28 17:16:19.255595', '2018-03-28 17:16:19.255595', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (35, 'Paro de emergencia', 9, 23, '2018-03-28 17:17:39.396703', '2018-03-28 17:17:39.396703', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (36, 'Modo de arranque', 9, 20, '2018-03-28 17:18:12.072569', '2018-03-28 17:18:12.072569', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (37, 'Limpieza externa', 9, 22, '2018-03-28 17:18:31.571777', '2018-03-28 17:18:31.571777', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (38, 'Posición de Main', 9, 17, '2018-03-28 17:18:56.55765', '2018-03-28 17:18:56.55765', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (39, 'Temperatura del calentador', 9, 12, '2018-03-28 17:19:17.095845', '2018-03-28 17:19:17.095845', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (40, 'Tiempo acumulado', 10, 9, '2018-03-28 17:20:15.659846', '2018-03-28 17:20:15.659846', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (41, 'Nivel de combustible', 10, 16, '2018-03-28 17:20:39.724689', '2018-03-28 17:20:39.724689', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (42, 'Nivel de aceite', 10, 16, '2018-03-28 17:21:15.300026', '2018-03-28 17:21:15.300026', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (43, 'Nivel de refrigerante', 10, 16, '2018-03-28 17:22:23.917729', '2018-03-28 17:22:23.917729', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (44, 'Voltaje de baterías', 10, 10, '2018-03-28 17:23:06.116482', '2018-03-28 17:23:06.116482', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (45, 'Paro de emergencia', 10, 23, '2018-03-28 17:23:43.511447', '2018-03-28 17:23:43.511447', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (46, 'Modo de arranque', 10, 20, '2018-03-28 17:24:03.51515', '2018-03-28 17:24:03.51515', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (47, 'Limpieza externa', 10, 22, '2018-03-28 17:24:34.944459', '2018-03-28 17:24:34.944459', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (48, 'Posición de Main', 10, 17, '2018-03-28 17:25:00.665428', '2018-03-28 17:25:00.665428', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (49, 'Temperatura del calentador', 10, 11, '2018-03-28 17:25:16.786074', '2018-03-28 17:25:16.786074', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (50, 'Tiempo acumulado', 11, 9, '2018-03-28 17:25:57.858566', '2018-03-28 17:25:57.858566', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (51, 'Nivel de combustible', 11, 16, '2018-03-28 17:26:31.051158', '2018-03-28 17:26:31.051158', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (52, 'Nivel de aceite', 11, 16, '2018-03-28 17:28:01.277739', '2018-03-28 17:28:01.277739', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (53, 'Nivel de refrigerante', 11, 16, '2018-03-28 17:28:18.068753', '2018-03-28 17:28:18.068753', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (54, 'Voltaje de baterías', 11, 10, '2018-03-28 17:28:42.917687', '2018-03-28 17:28:42.917687', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (55, 'Paro de emergencia', 11, 23, '2018-03-28 17:29:06.452465', '2018-03-28 17:29:06.452465', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (56, 'Modo de arranque', 11, 20, '2018-03-28 17:29:47.024146', '2018-03-28 17:29:47.024146', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (57, 'Limpieza externa', 11, 22, '2018-03-28 17:30:48.075722', '2018-03-28 17:30:48.075722', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (58, 'Posición de Main', 11, 17, '2018-03-28 17:31:16.936727', '2018-03-28 17:31:16.936727', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (59, 'Temperatura del calentador', 11, 13, '2018-03-28 17:31:44.756553', '2018-03-28 17:31:44.756553', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (60, 'Presión de arranque', 12, 24, '2018-03-28 17:38:41.04136', '2018-03-28 17:38:41.04136', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (61, 'Presión de operación', 12, 25, '2018-03-28 17:41:06.454195', '2018-03-28 17:41:06.454195', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (62, 'Vibración y ruido', 12, 18, '2018-03-28 17:41:28.816484', '2018-03-28 17:41:28.816484', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (63, 'Alarmas', 12, 18, '2018-03-28 17:41:45.913166', '2018-03-28 17:41:45.913166', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (64, 'Presión de arranque', 14, 26, '2018-03-28 17:42:14.479289', '2018-03-28 17:42:14.479289', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (65, 'Presión de operación', 14, 27, '2018-03-28 17:43:17.511342', '2018-03-28 17:43:17.511342', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (66, 'Presión de arranque', 16, 24, '2018-03-28 17:45:33.848816', '2018-03-28 17:45:33.848816', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (67, 'Presión de operación', 16, 28, '2018-03-28 17:46:18.435203', '2018-03-28 17:46:18.435203', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (68, 'Carga de batería 1', 16, 19, '2018-03-28 17:47:43.381044', '2018-03-28 17:47:43.381044', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (69, 'Carga de batería 2', 16, 19, '2018-03-28 17:48:02.166709', '2018-03-28 17:48:02.166709', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (70, 'Voltaje de fuente BAT', 16, 29, '2018-03-28 17:48:27.326028', '2018-03-28 17:48:27.326028', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (71, 'Nivel de aceite bomba', 16, 16, '2018-03-28 17:48:43.416762', '2018-03-28 17:48:43.416762', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (72, 'Temperatura de motor C', 16, 30, '2018-03-28 17:49:01.100568', '2018-03-28 17:49:01.100568', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (73, 'Nivel de aceite del motor', 16, 16, '2018-03-28 17:49:16.802156', '2018-03-28 17:49:16.802156', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (74, 'Posición de selector', 10, 20, '2018-04-04 15:30:11.551948', '2018-04-04 15:30:11.551948', NULL);
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (75, 'L1-L2', 20, 32, '2018-04-18 20:03:14.353906', '2018-04-18 20:13:10.789945', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (76, 'L2-L3', 20, 32, '2018-04-18 20:04:30.032059', '2018-04-18 20:13:23.858436', 'v');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (77, 'L1-L3', 20, 32, '2018-04-18 20:05:00.749275', '2018-04-18 20:13:38.314885', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (78, 'L1-Ln', 20, 33, '2018-04-18 20:06:03.21103', '2018-04-18 20:13:49.968533', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (79, 'L2-N', 20, 33, '2018-04-18 20:06:40.386324', '2018-04-18 20:13:59.736533', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (80, 'L3-N', 20, 33, '2018-04-18 20:06:55.95529', '2018-04-18 20:14:27.660447', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (81, 'A L1', 20, 34, '2018-04-18 20:08:00.364358', '2018-04-18 20:14:36.860222', 'A');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (82, 'A L2', 20, 34, '2018-04-18 20:10:59.769078', '2018-04-18 20:14:44.553662', 'A');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (83, 'A L3', 20, 34, '2018-04-18 20:11:32.34072', '2018-04-18 20:14:55.505804', 'A');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (84, 'Potencia kW L1', 20, 35, '2018-04-18 20:12:54.461099', '2018-04-18 20:15:06.869935', 'kw');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (85, 'Potencia kW L2', 20, 35, '2018-04-18 20:15:44.858773', '2018-04-18 20:15:44.858773', 'kw');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (86, 'Potencia kw l3', 20, 35, '2018-04-18 20:16:08.420827', '2018-04-18 20:16:08.420827', 'kw');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (87, 'Frecuencia', 20, 36, '2018-04-18 20:17:05.145805', '2018-04-18 20:17:05.145805', 'Hz');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (88, 'Disparo para bajo voltaje 177V', 20, 38, '2018-04-18 20:26:05.156295', '2018-04-18 20:26:05.156295', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (89, 'Disparo por sobrevoltaje 239V', 20, 37, '2018-04-18 20:26:27.744283', '2018-04-18 20:26:27.744283', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (90, 'Disparo para baja frecuencia 57Hz', 20, 38, '2018-04-18 20:26:57.462196', '2018-04-18 20:26:57.462196', 'Hz');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (91, 'Disparo para sobrefrecuencia 63Hz', 20, 38, '2018-04-18 20:27:31.640163', '2018-04-18 20:27:31.640163', 'Hz');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (92, 'Alarma para bajo voltaje 187V', 20, 37, '2018-04-18 20:28:08.52216', '2018-04-18 20:28:08.52216', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (93, 'Alarma para sobrevoltaje 228V', 20, 37, '2018-04-18 20:28:33.176267', '2018-04-18 20:28:33.176267', 'V');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (94, 'Alarma para baja frecuencia 58.2Hz', 20, 38, '2018-04-18 20:29:23.108087', '2018-04-18 20:29:23.108087', 'Hz');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (95, 'Alarma para sobrefrecuencia 61.2Hz', 20, 37, '2018-04-18 20:29:52.329712', '2018-04-18 20:29:52.329712', 'Hz');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (96, 'FUENTE', 20, 17, '2018-04-18 20:44:59.322956', '2018-04-18 20:44:59.322956', '');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (97, 'PLC', 20, 21, '2018-04-18 20:45:25.512736', '2018-04-18 20:45:25.512736', '');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (98, 'SELECTOR', 20, 20, '2018-04-18 20:45:45.077663', '2018-04-18 20:45:45.077663', '');
-INSERT INTO measurement_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (99, 'RESORTE', 20, 38, '2018-04-18 20:45:59.82231', '2018-04-18 20:45:59.82231', '');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (22, 'FUENTE', 3, 17, '2018-03-28 16:52:02.139843', '2018-03-28 16:52:02.139843', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (24, 'SELECTOR', 3, 20, '2018-03-28 16:53:06.746993', '2018-03-28 16:53:06.746993', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (25, 'RESORTE', 3, 19, '2018-03-28 16:53:30.084046', '2018-03-28 16:53:30.084046', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (26, 'FUENTE', 6, 17, '2018-03-28 16:53:47.630282', '2018-03-28 16:53:47.630282', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (23, 'PLC', 3, 21, '2018-03-28 16:52:21.063151', '2018-03-28 16:54:00.455803', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (27, 'PLC', 6, 21, '2018-03-28 16:54:12.838076', '2018-03-28 16:54:12.838076', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (28, 'SELECTOR', 6, 20, '2018-03-28 16:54:26.62862', '2018-03-28 16:54:26.62862', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (29, 'RESORTE', 6, 19, '2018-03-28 16:55:03.61336', '2018-03-28 16:55:03.61336', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (30, 'Tiempo acumulado', 9, 9, '2018-03-28 17:14:15.037071', '2018-03-28 17:14:15.037071', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (31, 'Nivel de combustible', 9, 16, '2018-03-28 17:14:43.573423', '2018-03-28 17:14:43.573423', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (32, 'Nivel de aceite', 9, 16, '2018-03-28 17:15:23.222969', '2018-03-28 17:15:23.222969', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (33, 'Nivel de refrigerante', 9, 16, '2018-03-28 17:15:46.342997', '2018-03-28 17:15:46.342997', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (34, 'Voltaje de baterías', 9, 14, '2018-03-28 17:16:19.255595', '2018-03-28 17:16:19.255595', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (35, 'Paro de emergencia', 9, 23, '2018-03-28 17:17:39.396703', '2018-03-28 17:17:39.396703', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (36, 'Modo de arranque', 9, 20, '2018-03-28 17:18:12.072569', '2018-03-28 17:18:12.072569', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (37, 'Limpieza externa', 9, 22, '2018-03-28 17:18:31.571777', '2018-03-28 17:18:31.571777', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (38, 'Posición de Main', 9, 17, '2018-03-28 17:18:56.55765', '2018-03-28 17:18:56.55765', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (39, 'Temperatura del calentador', 9, 12, '2018-03-28 17:19:17.095845', '2018-03-28 17:19:17.095845', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (40, 'Tiempo acumulado', 10, 9, '2018-03-28 17:20:15.659846', '2018-03-28 17:20:15.659846', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (41, 'Nivel de combustible', 10, 16, '2018-03-28 17:20:39.724689', '2018-03-28 17:20:39.724689', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (42, 'Nivel de aceite', 10, 16, '2018-03-28 17:21:15.300026', '2018-03-28 17:21:15.300026', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (43, 'Nivel de refrigerante', 10, 16, '2018-03-28 17:22:23.917729', '2018-03-28 17:22:23.917729', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (44, 'Voltaje de baterías', 10, 10, '2018-03-28 17:23:06.116482', '2018-03-28 17:23:06.116482', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (45, 'Paro de emergencia', 10, 23, '2018-03-28 17:23:43.511447', '2018-03-28 17:23:43.511447', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (46, 'Modo de arranque', 10, 20, '2018-03-28 17:24:03.51515', '2018-03-28 17:24:03.51515', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (47, 'Limpieza externa', 10, 22, '2018-03-28 17:24:34.944459', '2018-03-28 17:24:34.944459', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (48, 'Posición de Main', 10, 17, '2018-03-28 17:25:00.665428', '2018-03-28 17:25:00.665428', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (49, 'Temperatura del calentador', 10, 11, '2018-03-28 17:25:16.786074', '2018-03-28 17:25:16.786074', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (50, 'Tiempo acumulado', 11, 9, '2018-03-28 17:25:57.858566', '2018-03-28 17:25:57.858566', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (51, 'Nivel de combustible', 11, 16, '2018-03-28 17:26:31.051158', '2018-03-28 17:26:31.051158', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (52, 'Nivel de aceite', 11, 16, '2018-03-28 17:28:01.277739', '2018-03-28 17:28:01.277739', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (53, 'Nivel de refrigerante', 11, 16, '2018-03-28 17:28:18.068753', '2018-03-28 17:28:18.068753', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (54, 'Voltaje de baterías', 11, 10, '2018-03-28 17:28:42.917687', '2018-03-28 17:28:42.917687', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (55, 'Paro de emergencia', 11, 23, '2018-03-28 17:29:06.452465', '2018-03-28 17:29:06.452465', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (56, 'Modo de arranque', 11, 20, '2018-03-28 17:29:47.024146', '2018-03-28 17:29:47.024146', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (57, 'Limpieza externa', 11, 22, '2018-03-28 17:30:48.075722', '2018-03-28 17:30:48.075722', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (58, 'Posición de Main', 11, 17, '2018-03-28 17:31:16.936727', '2018-03-28 17:31:16.936727', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (59, 'Temperatura del calentador', 11, 13, '2018-03-28 17:31:44.756553', '2018-03-28 17:31:44.756553', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (60, 'Presión de arranque', 12, 24, '2018-03-28 17:38:41.04136', '2018-03-28 17:38:41.04136', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (61, 'Presión de operación', 12, 25, '2018-03-28 17:41:06.454195', '2018-03-28 17:41:06.454195', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (62, 'Vibración y ruido', 12, 18, '2018-03-28 17:41:28.816484', '2018-03-28 17:41:28.816484', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (63, 'Alarmas', 12, 18, '2018-03-28 17:41:45.913166', '2018-03-28 17:41:45.913166', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (64, 'Presión de arranque', 14, 26, '2018-03-28 17:42:14.479289', '2018-03-28 17:42:14.479289', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (65, 'Presión de operación', 14, 27, '2018-03-28 17:43:17.511342', '2018-03-28 17:43:17.511342', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (66, 'Presión de arranque', 16, 24, '2018-03-28 17:45:33.848816', '2018-03-28 17:45:33.848816', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (67, 'Presión de operación', 16, 28, '2018-03-28 17:46:18.435203', '2018-03-28 17:46:18.435203', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (68, 'Carga de batería 1', 16, 19, '2018-03-28 17:47:43.381044', '2018-03-28 17:47:43.381044', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (69, 'Carga de batería 2', 16, 19, '2018-03-28 17:48:02.166709', '2018-03-28 17:48:02.166709', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (70, 'Voltaje de fuente BAT', 16, 29, '2018-03-28 17:48:27.326028', '2018-03-28 17:48:27.326028', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (71, 'Nivel de aceite bomba', 16, 16, '2018-03-28 17:48:43.416762', '2018-03-28 17:48:43.416762', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (72, 'Temperatura de motor C', 16, 30, '2018-03-28 17:49:01.100568', '2018-03-28 17:49:01.100568', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (73, 'Nivel de aceite del motor', 16, 16, '2018-03-28 17:49:16.802156', '2018-03-28 17:49:16.802156', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (74, 'Posición de selector', 10, 20, '2018-04-04 15:30:11.551948', '2018-04-04 15:30:11.551948', NULL);
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (75, 'L1-L2', 20, 32, '2018-04-18 20:03:14.353906', '2018-04-18 20:13:10.789945', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (76, 'L2-L3', 20, 32, '2018-04-18 20:04:30.032059', '2018-04-18 20:13:23.858436', 'v');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (77, 'L1-L3', 20, 32, '2018-04-18 20:05:00.749275', '2018-04-18 20:13:38.314885', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (78, 'L1-Ln', 20, 33, '2018-04-18 20:06:03.21103', '2018-04-18 20:13:49.968533', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (79, 'L2-N', 20, 33, '2018-04-18 20:06:40.386324', '2018-04-18 20:13:59.736533', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (80, 'L3-N', 20, 33, '2018-04-18 20:06:55.95529', '2018-04-18 20:14:27.660447', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (81, 'A L1', 20, 34, '2018-04-18 20:08:00.364358', '2018-04-18 20:14:36.860222', 'A');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (82, 'A L2', 20, 34, '2018-04-18 20:10:59.769078', '2018-04-18 20:14:44.553662', 'A');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (83, 'A L3', 20, 34, '2018-04-18 20:11:32.34072', '2018-04-18 20:14:55.505804', 'A');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (84, 'Potencia kW L1', 20, 35, '2018-04-18 20:12:54.461099', '2018-04-18 20:15:06.869935', 'kw');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (85, 'Potencia kW L2', 20, 35, '2018-04-18 20:15:44.858773', '2018-04-18 20:15:44.858773', 'kw');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (86, 'Potencia kw l3', 20, 35, '2018-04-18 20:16:08.420827', '2018-04-18 20:16:08.420827', 'kw');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (87, 'Frecuencia', 20, 36, '2018-04-18 20:17:05.145805', '2018-04-18 20:17:05.145805', 'Hz');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (88, 'Disparo para bajo voltaje 177V', 20, 38, '2018-04-18 20:26:05.156295', '2018-04-18 20:26:05.156295', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (89, 'Disparo por sobrevoltaje 239V', 20, 37, '2018-04-18 20:26:27.744283', '2018-04-18 20:26:27.744283', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (90, 'Disparo para baja frecuencia 57Hz', 20, 38, '2018-04-18 20:26:57.462196', '2018-04-18 20:26:57.462196', 'Hz');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (91, 'Disparo para sobrefrecuencia 63Hz', 20, 38, '2018-04-18 20:27:31.640163', '2018-04-18 20:27:31.640163', 'Hz');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (92, 'Alarma para bajo voltaje 187V', 20, 37, '2018-04-18 20:28:08.52216', '2018-04-18 20:28:08.52216', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (93, 'Alarma para sobrevoltaje 228V', 20, 37, '2018-04-18 20:28:33.176267', '2018-04-18 20:28:33.176267', 'V');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (94, 'Alarma para baja frecuencia 58.2Hz', 20, 38, '2018-04-18 20:29:23.108087', '2018-04-18 20:29:23.108087', 'Hz');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (95, 'Alarma para sobrefrecuencia 61.2Hz', 20, 37, '2018-04-18 20:29:52.329712', '2018-04-18 20:29:52.329712', 'Hz');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (96, 'FUENTE', 20, 17, '2018-04-18 20:44:59.322956', '2018-04-18 20:44:59.322956', '');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (97, 'PLC', 20, 21, '2018-04-18 20:45:25.512736', '2018-04-18 20:45:25.512736', '');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (98, 'SELECTOR', 20, 20, '2018-04-18 20:45:45.077663', '2018-04-18 20:45:45.077663', '');
+INSERT INTO public.measurements_types (id, name, equipment_id, parameter_id, created_at, updated_at, unit) VALUES (99, 'RESORTE', 20, 38, '2018-04-18 20:45:59.82231', '2018-04-18 20:45:59.82231', '');
 
 
 --
--- Name: measurement_types_id_seq; Type: SEQUENCE SET; Schema: public; Owner: intranet
+-- Name: public.measurements_types_id_seq; Type: SEQUENCE SET; Schema: public; Owner: intranet
 --
 
 SELECT pg_catalog.setval('public.measurement_types_id_seq', 99, true);
