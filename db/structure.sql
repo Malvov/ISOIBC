@@ -147,7 +147,8 @@ CREATE TABLE public.measurement_types (
     equipment_id bigint,
     parameter_id bigint,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    unit character varying
 );
 
 
@@ -649,6 +650,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180402145520'),
 ('20180403143038'),
 ('20180403145022'),
-('20180404212141');
+('20180404212141'),
+('20180418150319');
 
 

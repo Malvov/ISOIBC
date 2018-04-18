@@ -17,6 +17,15 @@ class MeasurementsController < ApplicationController
     @measurements = @measurements.paginate(page: params[:page], per_page: 10)
   end
 
+  def get_parameters
+    measurement_type = MeasurementType.find_by_name(params[:measurement_type])
+    unless measurement_type.parameter.equal.empty?
+      render json: measurement_type.parameter.name.to_json
+    else
+      render json: 'no equal'.to_json
+    end
+  end
+
   def equipos
     @equipment = Equipment.all
   end
@@ -58,8 +67,11 @@ class MeasurementsController < ApplicationController
   def update
    respond_to do |format|
       if @measurement.update(measurement_params)
-        format.html { redirect_to @measurement, notice: 'Measurement was successfully updated.' }
-        format.json { render :show, status: :ok, location: @measurement }
+        
+        # format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @measurement }
+        flash[:notice] = 'Measurement was succesfully updated.'
+        redirect_to mediciones_path(@measurement.measurement_type.equipment)
       else
         format.html { render :edit }
         format.json { render json: @measurement.errors, status: :unprocessable_entity }

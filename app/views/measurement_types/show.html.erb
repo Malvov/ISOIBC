@@ -1,16 +1,21 @@
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @measurement_type.name %>
 </p>
 
 <p>
-  <strong>Equipment:</strong>
+  <strong>Equipo:</strong>
   <%= @measurement_type.equipment.name %>
 </p>
 
 <p>
-  <strong>Parameter:</strong>
+  <strong>Parámetro:</strong>
   <%= @measurement_type.parameter.name %>
+</p>
+
+<p>
+  <strong>Unidad de medida:</strong>
+  <%= @measurement_type.unit %>
 </p>
 
 <%= link_to 'Edit', edit_measurement_type_path(@measurement_type) %> |
