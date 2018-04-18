@@ -18,7 +18,7 @@ SET row_security = off;
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: intranet
 --
 
-INSERT INTO public.ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-04-17 16:06:54.70887', '2018-04-17 16:06:54.70887');
+--INSERT INTO public.ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-04-17 16:06:54.70887', '2018-04-17 16:06:54.70887');
 
 
 --
