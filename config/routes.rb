@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get 'individual_evaluations/:employee_id', to: 'charts#individual_evaluations', as: :employee_performance
     end
   end
+  get 'get_parameters', to: 'measurements#get_parameters'
   
   # put '/equipos/:equipment_id/measurements/:id', to: 'measurements#update'
   # patch '/equipos/:equipment_id/measurements/:id', to: 'measurements#update'
