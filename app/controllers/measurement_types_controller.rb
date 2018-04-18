@@ -70,6 +70,6 @@ class MeasurementTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def measurement_type_params
-      params.require(:measurement_type).permit(:name, :equipment_id, :parameter_id)
+      params.require(:measurement_type).permit(:name, :equipment_id, :parameter_id, :unit)
     end
 end

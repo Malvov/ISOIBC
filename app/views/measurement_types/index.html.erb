@@ -6,6 +6,7 @@
       <th>Nombre</th>
       <th>Equipo</th>
       <th>Parámetro</th>
+      <th>Unidad de medida</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
         <td><%= measurement_type.name %></td>
         <td><%= measurement_type.equipment.name %></td>
         <td><%= measurement_type.parameter.name %></td>
+        <td><%= measurement_type.unit %></td>
         <td><%= link_to 'Show', measurement_type %></td>
         <td><%= link_to 'Edit', edit_measurement_type_path(measurement_type) %></td>
         <td><%= link_to 'Destroy', measurement_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

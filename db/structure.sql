@@ -148,7 +148,8 @@ CREATE TABLE measurement_types (
     equipment_id bigint,
     parameter_id bigint,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    unit character varying
 );
 
 
@@ -301,6 +302,8 @@ CREATE TABLE users (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     name character varying,
+    admin boolean DEFAULT false,
+    department character varying,
     CONSTRAINT email_must_have_email_format CHECK (((email)::text ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'::text))
 );
 
@@ -647,6 +650,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180328144145'),
 ('20180402145520'),
 ('20180403143038'),
-('20180403145022');
+('20180403145022'),
+('20180404212141'),
+('20180418150319');
 
 

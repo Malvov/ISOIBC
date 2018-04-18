@@ -3,4 +3,4 @@
 <%= render 'form', measurement: @measurement %>
 
 <%= link_to 'Show', measurement_path(@measurement) %> |
-<%= link_to 'Back', measurements_path(@equipment) %>
+<%= link_to 'Back', mediciones_path(@measurement.measurement_type.equipment) %>

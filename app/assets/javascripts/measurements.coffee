@@ -3,9 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'turbolinks:load', ->
   changeMeasurementTypes()
-
-$ ->
   changeInputAccordingToParameter()
+  
 
 changeMeasurementTypes = ->
   jQuery ->

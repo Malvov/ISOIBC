@@ -70,7 +70,7 @@ class MeasurementsController < ApplicationController
         # format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully updated.' }
         # format.json { render :show, status: :ok, location: @measurement }
         flash[:notice] = 'Measurement was succesfully updated.'
-        redirect_to equipos_path
+        redirect_to mediciones_path(@measurement.measurement_type.equipment)
       else
         flash[:notice] = 'Something bad happened.'
         redirect_to edit_measurement_path(@equipment, @measurement)

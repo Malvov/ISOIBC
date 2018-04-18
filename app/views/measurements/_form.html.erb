@@ -18,7 +18,7 @@
 
     <% if @measurement.persisted? %>
       <% if @measurement.accepts_equal? %>
-        <%= f.input :value, label: 'Valor', collection: @measurement.measurement_type.parameter.name.split('/') %>
+        <%= f.input :value, label: 'Valor', collection: @measurement.measurement_type.parameter.name.split('/'), include_blank: false %>
       <% else %>        
         <%= f.input :value, label: 'Valor', as: :float, label: 'Valor' %>
       <% end %>
