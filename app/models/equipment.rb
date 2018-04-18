@@ -12,5 +12,5 @@
 
 class Equipment < ApplicationRecord
     validates_presence_of :name, :location
-    has_many :measurement_types
+    has_many :measurement_types, dependent: :destroy
 end
