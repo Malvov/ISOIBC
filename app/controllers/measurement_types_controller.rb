@@ -5,7 +5,12 @@ class MeasurementTypesController < ApplicationController
   # GET /measurement_types
   # GET /measurement_types.json
   def index
-    @measurement_types = MeasurementType.paginate(page: params[:page]).per_page(10)
+    if params[:query]
+      @measurement_types = MeasurementType.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+      flash[:notice] = 'Ningún resultado' if @measurement_types.empty?
+    else
+      @measurement_types = MeasurementType.paginate(page: params[:page]).per_page(10)
+    end
   end
 
   # GET /measurement_types/1

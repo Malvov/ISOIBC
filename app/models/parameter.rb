@@ -16,9 +16,23 @@ class Parameter < ApplicationRecord
     validates_presence_of :name
     validates_numericality_of :min_value, allow_nil: true, less_than: :max_value, unless: :max_value_is_nil?
     validates_numericality_of :max_value, allow_nil: true
-
     has_many :measurement_types
     #validate :equal_xor_min_xor_max
+
+    include PgSearch
+    pg_search_scope :search, against: [:name], using: {
+      tsearch: {
+        prefix: true
+      }
+    }
+    
+    def self.text_search(query)
+      if query.present?
+        search(query)
+      else
+        unscoped
+      end
+    end
 
     private
 
