@@ -1,6 +1,7 @@
 <h1>Mediciones de <%= @equipment.name %></h1>
 <%= link_to 'Nueva', new_measurement_path, class: 'btn btn-success' %>
 <%= will_paginate @measurements, renderer: BootstrapPagination::Rails %>
+
 <table class="table">
   <thead>
     <tr>
@@ -51,10 +52,14 @@
         </td>
         <td><%= link_to measurement_path(measurement), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
                 data: { confirm: 'U sure?' } do %>
-                <%= fa_icon 'trash 2x'%>
+                <%= fa_icon 'trash 2x' %>
             <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to equipos_path, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Atrás' do %>
+  <%= fa_icon 'backward 2x' %>
+<% end %>

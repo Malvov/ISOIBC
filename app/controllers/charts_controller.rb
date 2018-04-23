@@ -24,4 +24,6 @@ class ChartsController < ApplicationController
         employee = Employee.find(params[:employee_id])
         render json: employee.evaluations.group(:result).order(result: :asc).count.chart_json        
     end
+
+
 end
