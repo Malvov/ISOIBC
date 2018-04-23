@@ -33,8 +33,14 @@
         </div>
         <div class="row">
             <% Equipment.all.each do |equipment| %>
-                <div class="col-lg-6">
-                    <%= measurements_per_equipment_chart(equipment) %>                
+                <div class="col-lg-4">
+                    <%= measurements_per_equipment_chart(equipment) %>
+                    <span style='margin-left: 10em'>
+                        <%= link_to mediciones_path(equipment), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                            <%= fa_icon 'eye 2x' %>
+                        <% end %>               
+                    </span>
+                    
                 </div>
             <% end %>
         </div>
