@@ -31,5 +31,12 @@
                 <%= measurements_chart %>
             </div>
         </div>
+        <div class="row">
+            <% Equipment.all.each do |equipment| %>
+                <div class="col-lg-6">
+                    <%= measurements_per_equipment_chart(equipment) %>                
+                </div>
+            <% end %>
+        </div>
     <% end %>
 <% end %>

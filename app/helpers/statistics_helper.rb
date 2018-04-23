@@ -85,4 +85,20 @@ module StatisticsHelper
             }
          }
     end
+
+    def measurements_per_equipment_chart(equipment)
+        pie_chart measurements_per_equipment(equipment), library: {
+            colors: [
+                '#34fc02', #ok
+                '#fc1b02' #not ok
+            ],
+            title: { text: equipment.name },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer'
+                }
+            }
+         }
+    end
 end
