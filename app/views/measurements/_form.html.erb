@@ -7,10 +7,13 @@
     <%# f.input :measurement_type_id, collection: @measurement_types, 
     label_method: :name, value_method: :id,
      include_blank: 'Cuestión a medir' %>
-    <%= label_tag 'Equipos industriales' %>
-    <%= select_tag 'equipment_id',
-    options_from_collection_for_select(Equipment.all, 'id', 'name'), class: 'form-control form-group', 
-    prompt: 'Escoger equipo' %>
+    <% unless @measurement.persisted? %>
+      <%= label_tag 'Equipos industriales' %>
+      <%= select_tag 'equipment_id',
+      options_from_collection_for_select(Equipment.all, 'id', 'name', Measurement.last.measurement_type.equipment.id), 
+      class: 'form-control form-group', 
+      prompt: 'Escoger equipo' %>
+    <% end %>
     <%= label_tag 'Mediciones' %>
     <%= f.grouped_collection_select :measurement_type_id, Equipment.all, :measurement_types, 
     :name, :id, :name, { include_blank: 'Escoger cuestión a medir' }, 

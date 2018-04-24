@@ -74,8 +74,8 @@ class MeasurementsController < ApplicationController
         # flash[:notice] = 'Measurement was succesfully updated.'
         # redirect_to mediciones_path(@measurement.measurement_type.equipment)
       else
-        format.html { render :edit }
-        format.json { render json: @measurement.errors, status: :unprocessable_entity }
+        flash[:notice] = 'Something bad happened.'
+        redirect_to edit_measurement_path(@measurement)
       end
    end
   end
@@ -84,10 +84,8 @@ class MeasurementsController < ApplicationController
   # DELETE /measurements/1.json
   def destroy
     @measurement.destroy
-    respond_to do |format|
-      format.html { redirect_to measurements_url, notice: 'Measurement was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'Measurement was succesfully destroyed.'
+    redirect_to request.env["HTTP_REFERER"]
   end
 
   private
