@@ -2,24 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'turbolinks:load', ->
+  
   changeMeasurementTypes()
   changeInputAccordingToParameter()
+  if $('#equipment_id').length
+    changeMeasurementTypesWhenLoaded()
   
-
-changeMeasurementTypes = ->
-  jQuery ->
-    
-    measurementTypes = $('#measurement_measurement_type_id').html()
-
-    $('#equipment_id').change ->
-      equipment = $('#equipment_id :selected').text()
-      options = $(measurementTypes).filter("optgroup[label='#{equipment}']").html()
-      if options
-        $('#measurement_measurement_type_id').html(options)
-      else
-        $('#measurement_measurement_type_id').empty()
-
-
 changeInputAccordingToParameter = ->
   $('#measurement_measurement_type_id').change ->
     measurementType = $('#measurement_measurement_type_id :selected').text()
@@ -31,7 +19,6 @@ changeInputAccordingToParameter = ->
       error: (jqXHR, textStatus, errorThrown) ->
         alert textStatus        
       success: (data) ->
-       
         textInput = $("<input type='number' class='form-control string required' type='text' name='measurement[value]' id='measurement_value'>")
         label = $("<label id='valor_label'>Valor</label>")
         $('#valor_label').remove() if $('#valor_label').length
@@ -52,5 +39,25 @@ changeInputAccordingToParameter = ->
     return
   return
   
-  
+changeMeasurementTypes = ->
+  jQuery ->    
+    measurementTypes = $('#measurement_measurement_type_id').html()
+
+    $('#equipment_id').change ->
+      equipment = $('#equipment_id :selected').text()
+      options = $(measurementTypes).filter("optgroup[label='#{equipment}']").html()
+      if options
+        $('#measurement_measurement_type_id').html(options)
+      else
+        $('#measurement_measurement_type_id').empty()
+
+changeMeasurementTypesWhenLoaded = ->
+    jQuery ->
+      measurementTypes = $('#measurement_measurement_type_id').html()
+      equipment = $('#equipment_id :selected').text()
+      options = $(measurementTypes).filter("optgroup[label='#{equipment}']").html()
+      if options
+        $('#measurement_measurement_type_id').html(options)
+      else
+        $('#measurement_measurement_type_id').empty() 
 
