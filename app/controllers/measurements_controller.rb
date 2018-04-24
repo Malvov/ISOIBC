@@ -39,6 +39,7 @@ class MeasurementsController < ApplicationController
   # GET /measurements/new
   def new
     @measurement = Measurement.new
+    @measurement.measurement_type_id = Measurement.last.measurement_type_id
   end
 
   # GET /measurements/1/edit
@@ -68,10 +69,10 @@ class MeasurementsController < ApplicationController
    respond_to do |format|
       if @measurement.update(measurement_params)
         
-        # format.html { redirect_to measurement_path(@equipment, @measurement), notice: 'Measurement was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @measurement }
-        flash[:notice] = 'Measurement was succesfully updated.'
-        redirect_to mediciones_path(@measurement.measurement_type.equipment)
+        format.html { redirect_to @measurement, notice: 'Measurement was successfully updated.' }
+        format.json { render :show, status: :ok, location: @measurement }
+        # flash[:notice] = 'Measurement was succesfully updated.'
+        # redirect_to mediciones_path(@measurement.measurement_type.equipment)
       else
         format.html { render :edit }
         format.json { render json: @measurement.errors, status: :unprocessable_entity }
