@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :schedules
   resources :ac_maintenance_forms
   resources :customers
   resources :measurement_types

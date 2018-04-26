@@ -18,6 +18,23 @@
 class AcMaintenanceForm < ApplicationRecord
   belongs_to :customer
   validates_presence_of %i(serial_number customer_id part maintenance_type task_type date)
+
+  include PgSearch
+
+  pg_search_scope :search, against: [:maintenance_type, :task_type],
+  associated_against: { customer: :name }, using: {
+    tsearch: {
+      prefix: true
+    }
+  }
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      unscoped
+    end
+  end
   
   attr_accessor :operario
   

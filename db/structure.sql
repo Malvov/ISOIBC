@@ -218,7 +218,8 @@ CREATE TABLE measurement_types (
     equipment_id bigint,
     parameter_id bigint,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    unit character varying
 );
 
 
@@ -308,6 +309,39 @@ CREATE SEQUENCE parameters_id_seq
 --
 
 ALTER SEQUENCE parameters_id_seq OWNED BY parameters.id;
+
+
+--
+-- Name: schedules; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE schedules (
+    id bigint NOT NULL,
+    customer_id bigint,
+    month character varying,
+    maintenances_quantity integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: schedules_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE schedules_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: schedules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE schedules_id_seq OWNED BY schedules.id;
 
 
 --
@@ -487,6 +521,13 @@ ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY schedules ALTER COLUMN id SET DEFAULT nextval('schedules_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
 
 
@@ -577,6 +618,14 @@ ALTER TABLE ONLY parameters
 
 
 --
+-- Name: schedules_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY schedules
+    ADD CONSTRAINT schedules_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -658,6 +707,13 @@ CREATE INDEX index_measurements_on_measurement_type_id ON measurements USING btr
 
 
 --
+-- Name: index_schedules_on_customer_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_schedules_on_customer_id ON schedules USING btree (customer_id);
+
+
+--
 -- Name: index_tasks_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -734,6 +790,14 @@ ALTER TABLE ONLY ac_maintenance_forms
 
 
 --
+-- Name: fk_rails_b367e1df40; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY schedules
+    ADD CONSTRAINT fk_rails_b367e1df40 FOREIGN KEY (customer_id) REFERENCES customers(id);
+
+
+--
 -- Name: fk_rails_db55870dbd; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -768,6 +832,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180404212141'),
 ('20180410153207'),
 ('20180411155859'),
-('20180411160505');
+('20180411160505'),
+('20180418150319'),
+('20180425202255');
 
 

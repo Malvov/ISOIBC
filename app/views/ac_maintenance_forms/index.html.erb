@@ -1,8 +1,22 @@
-<h1>Registro de mantenimiento de equipos de AC</h1>
-<br>
-<%= link_to 'Nuevo', new_ac_maintenance_form_path, class: 'btn btn-primary' %>
-<br>
-<%= will_paginate @evaluations, renderer: BootstrapPagination::Rails %>
+<div class="row">
+  <div class="text-center"><h1>Registro de mantenimiento de equipos de AC</h1></div>
+</div>
+
+<div class="row">
+  <%= form_tag ac_maintenance_forms_path, method: :get do %>
+      <div class="col-md-4">
+        <%= text_field_tag :query, params[:query], class: 'form-control' %>
+      </div>
+      <div class="col-md-4">
+        <%= submit_tag 'Buscar', name: nil, class: 'btn btn-info' %>
+      </div>
+      <div class="col-md-4">
+        <%= link_to 'Nueva', new_ac_maintenance_form_path, class: 'btn btn-success' %>
+      </div>
+  <% end %>
+</div>
+
+<%= will_paginate @ac_maintenance_forms, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>
     <tr>

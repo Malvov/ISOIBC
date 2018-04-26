@@ -11,5 +11,6 @@
 
 class Customer < ApplicationRecord
     validates_presence_of :name, :location
-    has_many :ac_maintenance_forms
+    has_many :ac_maintenance_forms, dependent: :destroy
+    has_many :schedules, dependent: :destroy
 end

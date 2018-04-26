@@ -39,6 +39,14 @@
               </ul>
             </li>
             <% end %>
+            <% if current_user.admin? %>
+              <li class="dropwdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aires acondicionados<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Registros de mantenimientos de aires acondicionados', ac_maintenance_forms_path %></li>
+                </ul>
+              </li>
+            <% end %>
             
           </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -62,6 +70,7 @@
                 <li role="separator" class="divider">
                   <li class="dropdown-header">Aires acondicionados</li>
                   <li><%= link_to 'Clientes', customers_path %></li>
+                  <li><%= link_to 'Programaciones', schedules_path %></li>
                 </li>
               <% end %>
             </ul>

@@ -4,7 +4,13 @@ class AcMaintenanceFormsController < ApplicationController
   # GET /ac_maintenance_forms
   # GET /ac_maintenance_forms.json
   def index
-    @ac_maintenance_forms = AcMaintenanceForm.paginate(page: params[:page]).per_page(10)
+    if params[:query]
+      @ac_maintenance_forms = AcMaintenanceForm.
+      text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+      flash[:notice] = 'Ningún resultado' if @ac_maintenance_forms.empty?
+    else
+      @ac_maintenance_forms = AcMaintenanceForm.paginate(page: params[:page]).per_page(10)
+    end
   end
 
   # GET /ac_maintenance_forms/1
