@@ -17,4 +17,5 @@
 //= require cocoon
 //= require highcharts
 //= require chartkick
+//= require select2
 //= require_tree .

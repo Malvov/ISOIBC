@@ -1,0 +1,42 @@
+<p>
+  <strong>Serial number:</strong>
+  <%= @ac_maintenance.serial_number %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @ac_maintenance.customer %>
+</p>
+
+<p>
+  <strong>Parts:</strong>
+  <%= @ac_maintenance.parts %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ac_maintenance.user_id %>
+</p>
+
+<p>
+  <strong>Maintenance type:</strong>
+  <%= @ac_maintenance.maintenance_type %>
+</p>
+
+<p>
+  <strong>Task type:</strong>
+  <%= @ac_maintenance.task_type %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @ac_maintenance.comment %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @ac_maintenance.date %>
+</p>
+
+<%= link_to 'Edit', edit_ac_maintenance_path(@ac_maintenance) %> |
+<%= link_to 'Back', ac_maintenances_path %>
