@@ -1,0 +1,36 @@
+<h1>Clientes</h1>
+<br>
+<%= link_to 'Nuevo cliente', new_customer_path, class: 'btn btn-primary' %>
+
+<table class="table table-striped table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Locación</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.name %></td>
+        <td><%= customer.location %></td>
+        <td><%= link_to customer, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_customer_path(customer), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to customer_path(customer), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
