@@ -39,7 +39,7 @@
               </ul>
             </li>
             <% end %>
-            <% if current_user.admin? %>
+            <% if current_user.admin? || current_user.department == 'ac' %>
               <li class="dropwdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aires acondicionados<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -66,7 +66,7 @@
                   <li><%= link_to 'Tipos de mediciones', measurement_types_path%></li>
                 </li>
               <% end %>
-              <% if current_user.admin? %>
+              <% if current_user.admin? || current_user.department == 'ac' %>
                 <li role="separator" class="divider">
                   <li class="dropdown-header">Aires acondicionados</li>
                   <li><%= link_to 'Clientes', customers_path %></li>
