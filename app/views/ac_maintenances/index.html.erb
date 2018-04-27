@@ -1,10 +1,18 @@
-<h1>Ac Maintenances</h1>
-
+<h1>Registros de mantenimientos de aires acondicionados</h1>
+<div class="row">
+  <div class="col-md-10">
+    <%= will_paginate @ac_maintenances, renderer: BootstrapPagination::Rails %>
+  </div>
+  <div class="col-md-2">
+    <%= link_to 'Nuevo', new_ac_maintenance_path, class: 'btn btn-success' %>
+  </div>
+</div>
 <table class='table table-striped table-hover table-responsive'>
   <thead>
     <tr>
       <th>Número de serie</th>
       <th>Cliente</th>
+      <th>Lugar</th>
       <th>Conjunto</th>
       <th>Tipo de mantenimiento</th>
       <th>Tipo de trabajo</th>
@@ -19,9 +27,17 @@
       <tr>
         <td><%= ac_maintenance.serial_number %></td>
         <td><%= ac_maintenance.customer.name %></td>
+        <td><%= ac_maintenance.customer.location %></td>
         <td>
-              <%= ac_maintenance.parts.join(', ') %>
-            
+              <%= ac_maintenance.parts.join ', ' %>
+             <!-- <%= truncate ac_maintenance.parts.join(', '), length: 15 %>
+              <%= link_to 'Ver más', '', class: "read-more-#{ac_maintenance.id}" %>
+              <script>
+                  $('.read-more-<%= ac_maintenance.id %>').on('click', function(e) {
+                    e.preventDefault()
+                    $(this).parent().html('<%= escape_javascript ac_maintenance.parts.join(', ') %>')
+                  })
+              </script>-->
         </td>
         <td><%= ac_maintenance.maintenance_type %></td>
         <td><%= ac_maintenance.task_type %></td>
@@ -45,6 +61,4 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Ac Maintenance', new_ac_maintenance_path %>

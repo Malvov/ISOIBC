@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(document).ready ->
-    $('select#ac_maintenance_parts').select2
+$(document).on 'turbolinks:load', ->
+    $('#ac_maintenance_parts').select2
         multiple: true
     return

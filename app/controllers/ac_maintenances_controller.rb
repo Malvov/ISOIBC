@@ -1,10 +1,11 @@
 class AcMaintenancesController < ApplicationController
   before_action :set_ac_maintenance, only: [:show, :edit, :update, :destroy]
+  before_action :set_conjunto, only: [:new, :edit]
 
   # GET /ac_maintenances
   # GET /ac_maintenances.json
   def index
-    @ac_maintenances = AcMaintenance.all
+    @ac_maintenances = AcMaintenance.paginate(page: params[:page]).per_page(10)
   end
 
   # GET /ac_maintenances/1
@@ -71,9 +72,11 @@ class AcMaintenancesController < ApplicationController
     def set_ac_maintenance
       @ac_maintenance = AcMaintenance.find(params[:id])
     end
-
+    def set_conjunto
+      @conjunto = AcMaintenance::CONJUNTO
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def ac_maintenance_params
-      params.require(:ac_maintenance).permit(:serial_number, :customer_id, :user_id, :maintenance_type, :task_type, :comment, :date, :parts => [])
+      params.require(:ac_maintenance).permit(:serial_number, :customer_id, :maintenance_type, :task_type, :comment, :date, :parts => [])
     end
 end
