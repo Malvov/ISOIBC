@@ -219,8 +219,7 @@ CREATE TABLE measurement_types (
     equipment_id bigint,
     parameter_id bigint,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    unit character varying
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -680,13 +679,6 @@ CREATE INDEX index_evaluations_on_employee_id ON evaluations USING btree (employ
 
 
 --
--- Name: index_evaluations_on_result; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_evaluations_on_result ON evaluations USING btree (result);
-
-
---
 -- Name: index_evaluations_on_task_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -712,13 +704,6 @@ CREATE INDEX index_measurement_types_on_parameter_id ON measurement_types USING 
 --
 
 CREATE INDEX index_measurements_on_measurement_type_id ON measurements USING btree (measurement_type_id);
-
-
---
--- Name: index_parameters_on_name; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_parameters_on_name ON parameters USING btree (name);
 
 
 --
@@ -846,11 +831,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180403145022'),
 ('20180404212141'),
 ('20180410153207'),
-('20180418150319'),
 ('20180425202255'),
 ('20180426182610'),
-('20180427215013'),
-('20180427220711'),
 ('20180430144732');
 
 
