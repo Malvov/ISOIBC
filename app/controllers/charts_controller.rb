@@ -25,5 +25,10 @@ class ChartsController < ApplicationController
         render json: employee.evaluations.group(:result).order(result: :asc).count.chart_json        
     end
 
+    def ac_maintenance_goals
+        #Schedule.group(:month).sum(:maintenances_quantity)
+        #AcMaintenance.where(maintenance_type: 'Programado').group_by_month(:date, format: '%b').sum(:valid_for)
+        # render json: [ ['ENERO',['Programado'=>47, 'Completado'=>40]] ].chart_json
+    end
 
 end

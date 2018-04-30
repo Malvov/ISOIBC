@@ -51,7 +51,8 @@ module StatisticsHelper
         
     column_chart  evaluations_results_per_month_charts_path,
         id: 'evaluations_results_per_month',                                                                    
-        stacked: true, library: {
+        stacked: true, 
+        library: {
         colors: [
             '#34fc02', #bueno
             '#fc1b02', #deficiente
@@ -71,7 +72,7 @@ module StatisticsHelper
     end                                                 
 
     def measurements_chart
-        pie_chart measurements_chart_charts_path,  library: {
+        pie_chart measurements_chart_charts_path, donut: true,  library: {
             colors: [
                 '#34fc02', #ok
                 '#fc1b02' #not ok
@@ -87,7 +88,7 @@ module StatisticsHelper
     end
 
     def measurements_per_equipment_chart(equipment)
-        pie_chart measurements_per_equipment(equipment), library: {
+        pie_chart measurements_per_equipment(equipment), donut: true, library: {
             colors: [
                 '#34fc02', #ok
                 '#fc1b02' #not ok
@@ -100,5 +101,9 @@ module StatisticsHelper
                 }
             }
          }
+    end
+
+    def ac_maintenance_goals_chart
+        bar_chart ac_maintenance_goals_charts_path
     end
 end
