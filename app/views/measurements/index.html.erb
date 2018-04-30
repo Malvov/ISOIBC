@@ -5,11 +5,11 @@
   <thead>
     <tr>
       
-      <th>Measurement type</th>
-      <th colspan="2">Value</th>
+      <th>Medición</th>
+      <th colspan="2">Valor</th>
       
-      <th>Comment</th>
-      <th>Date</th>
+      <th>Comentario</th>
+      <th>Fecha</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -19,7 +19,15 @@
       <tr>
         
         <td><%= measurement.measurement_type.name %></td>
-        <td><%= measurement.value %></td>
+        <td>
+          <% value = measurement.value %>
+          <% if measurement.measurement_type.unit.nil? %>
+            <%= value %>
+          <% else %>
+            <%= value + measurement.measurement_type.unit %>
+          <% end %>
+        </td>
+        
         <td>
           <% if measurement.is_ok? %>
             <!--<i class="fa fa-thumbs-up fa-2x"></i>-->      
@@ -31,7 +39,7 @@
         </td>
         <td><%= measurement.comment %></td>
         <td>
-          <%= measurement.date.strftime("%d/%m/%Y") %>
+          <%= measurement.date.strftime('%d/%m/%Y') %>
         </td>
         <td><%= link_to measurement, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do %>
                 <%= fa_icon 'eye 2x' %>
@@ -43,11 +51,14 @@
         </td>
         <td><%= link_to measurement_path(measurement), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
                 data: { confirm: 'U sure?' } do %>
-                <%= fa_icon 'trash 2x'%>
+                <%= fa_icon 'trash 2x' %>
             <% end %>
         </td>
-        
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to equipos_path, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Atrás' do %>
+  <%= fa_icon 'backward 2x' %>
+<% end %>

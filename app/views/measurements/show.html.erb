@@ -1,18 +1,18 @@
-<h1>Measurement</h1>
+<h1>Medición</h1>
 <p>
-  <strong>Value:</strong>
+  <strong>Valor:</strong>
   <%= @measurement.value %>
 </p>
 
 <p>
-  <strong>Measurement type:</strong>
+  <strong>Tipo de medición:</strong>
   <%= @measurement.measurement_type.name %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Comentario:</strong>
   <%= @measurement.comment %>
 </p>
 
-<%= link_to 'Edit', edit_measurement_path(@measurement) %> |
-<%= link_to 'Back', mediciones_path(@measurement.measurement_type.equipment) %>
+<%= link_to 'Editar', edit_measurement_path(@measurement) %>
+<%= link_to 'Atrás', mediciones_path(@measurement.measurement_type.equipment) %>

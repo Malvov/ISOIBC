@@ -6,10 +6,11 @@ class EvaluationsController < ApplicationController
   # GET /evaluations.json
   def index
     if params[:query]
-      @evaluations = Evaluation.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+      @evaluations = Evaluation.text_search(params[:query]).paginate(page: params[:page]).
+      order(date: :asc).per_page(10)
       flash[:notice] = 'Ningún resultado' if @evaluations.empty?
     else
-      @evaluations = Evaluation.paginate(page: params[:page]).per_page(10)
+      @evaluations = Evaluation.paginate(page: params[:page]).order(date: :asc).per_page(10)
     end
   end
 
@@ -21,6 +22,7 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   def new
     @evaluation = Evaluation.new
+    @evaluation.employee_id = Evaluation.last.employee_id
   end
   
   # GET /evaluations/1/edit

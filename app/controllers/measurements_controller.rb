@@ -17,6 +17,15 @@ class MeasurementsController < ApplicationController
     @measurements = @measurements.paginate(page: params[:page], per_page: 10)
   end
 
+  def get_parameters
+    measurement_type = MeasurementType.find_by_name(params[:measurement_type])
+    unless measurement_type.parameter.equal.empty?
+      render json: measurement_type.parameter.name.to_json
+    else
+      render json: 'no equal'.to_json
+    end
+  end
+
   def equipos
     @equipment = Equipment.all
   end
@@ -30,6 +39,7 @@ class MeasurementsController < ApplicationController
   # GET /measurements/new
   def new
     @measurement = Measurement.new
+    @measurement.measurement_type_id = Measurement.last.measurement_type_id
   end
 
   # GET /measurements/1/edit
@@ -58,11 +68,14 @@ class MeasurementsController < ApplicationController
   def update
    respond_to do |format|
       if @measurement.update(measurement_params)
+        
         format.html { redirect_to @measurement, notice: 'Measurement was successfully updated.' }
         format.json { render :show, status: :ok, location: @measurement }
+        # flash[:notice] = 'Measurement was succesfully updated.'
+        # redirect_to mediciones_path(@measurement.measurement_type.equipment)
       else
-        format.html { render :edit }
-        format.json { render json: @measurement.errors, status: :unprocessable_entity }
+        flash[:notice] = 'Something bad happened.'
+        redirect_to edit_measurement_path(@measurement)
       end
    end
   end
@@ -71,10 +84,8 @@ class MeasurementsController < ApplicationController
   # DELETE /measurements/1.json
   def destroy
     @measurement.destroy
-    respond_to do |format|
-      format.html { redirect_to measurements_url, notice: 'Measurement was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'Measurement was succesfully destroyed.'
+    redirect_to request.env["HTTP_REFERER"]
   end
 
   private

@@ -5,7 +5,12 @@ class ParametersController < ApplicationController
   # GET /parameters
   # GET /parameters.json
   def index
-    @parameters = Parameter.paginate(page: params[:page]).per_page(10)
+    if params[:query]
+      @parameters = Parameter.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+      flash[:notice] = 'Ningún resultado' if @parameters.empty?
+    else
+      @parameters = Parameter.paginate(page: params[:page]).per_page(10)
+    end
   end
 
   # GET /parameters/1

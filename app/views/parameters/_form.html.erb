@@ -3,10 +3,18 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :equal %>
-    <%= f.input :min_value %>
-    <%= f.input :max_value %>
+    <%= f.input :name, label: 'Nombre del parámetro' %>
+    <div class="row">
+        <div class="col-md-4">
+          <%= f.input :equal, label: 'Igual a' %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :min_value, label: 'O desde' %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :max_value, label: 'hasta' %>
+        </div>
+    </div>
   </div>
 
   <div class="form-actions">

@@ -7,21 +7,34 @@
     <%# f.input :measurement_type_id, collection: @measurement_types, 
     label_method: :name, value_method: :id,
      include_blank: 'Cuestión a medir' %>
-    <%= label_tag 'Equipos industriales' %>
-    <%= select_tag 'equipment_id',
-    options_from_collection_for_select(Equipment.all, 'id', 'name'), class: 'form-control form-group', 
-    prompt: 'Escoger equipo' %>
+    <% unless @measurement.persisted? %>
+      <%= label_tag 'Equipos industriales' %>
+      <%= select_tag 'equipment_id',
+      options_from_collection_for_select(Equipment.all, 'id', 'name', Measurement.last.measurement_type.equipment.id), 
+      class: 'form-control form-group', 
+      prompt: 'Escoger equipo' %>
+    <% end %>
     <%= label_tag 'Mediciones' %>
     <%= f.grouped_collection_select :measurement_type_id, Equipment.all, :measurement_types, 
-    :name, :id, :name, { include_blank: 'Escoger actividad' }, 
+    :name, :id, :name, { include_blank: 'Escoger cuestión a medir' }, 
     { class: 'form-control form-group', required: true } %>
-    <%= f.input :value, label: 'Valor' %>
-    <%= f.input :comment %>
-    <%= f.input :date, label: 'Fecha de supervisión', 
+
+    <% if @measurement.persisted? %>
+      <% if @measurement.accepts_equal? %>
+        <%= f.input :value, label: 'Valor', collection: @measurement.measurement_type.parameter.name.split('/'), include_blank: false %>
+      <% else %>        
+        <%= f.input :value, label: 'Valor', as: :float, label: 'Valor' %>
+      <% end %>
+    <% end %>
+    
+    <%= f.input :comment, label: 'Comentario' %>
+    <%= f.input :date, label: 'Fecha', 
     order: [:day, :month, :year],  use_month_numbers: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<%# console %>

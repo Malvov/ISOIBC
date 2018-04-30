@@ -25,7 +25,7 @@ class AcMaintenancesController < ApplicationController
   # POST /ac_maintenances
   # POST /ac_maintenances.json
   def create
-    debugger
+    #debugger
     
     @ac_maintenance = AcMaintenance.new(ac_maintenance_params)
     @ac_maintenance.user_id = current_user.id

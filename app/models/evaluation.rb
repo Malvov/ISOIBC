@@ -34,7 +34,7 @@ class Evaluation < ApplicationRecord
     if query.present?
       search(query)
     else
-      scoped
+      unscoped
     end
   end
     

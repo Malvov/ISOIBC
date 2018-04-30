@@ -16,4 +16,21 @@ class MeasurementType < ApplicationRecord
   belongs_to :parameter
   has_many :measurements, dependent: :destroy
   validates_presence_of :equipment_id, :parameter_id, :name
+
+  include PgSearch
+    pg_search_scope :search, against: [:name],
+    associated_against: { equipment: :name },
+    using: {
+      tsearch: {
+        prefix: true
+      }
+    }
+    
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      unscoped
+    end
+  end
 end
