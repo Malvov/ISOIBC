@@ -1,0 +1,17 @@
+<p>
+  <strong>Cliente:</strong>
+  <%= @schedule.customer.name %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @schedule.month %>
+</p>
+
+<p>
+  <strong>Cantidad de mantenimientos programados:</strong>
+  <%= @schedule.maintenances_quantity %>
+</p>
+
+<%= link_to 'Editar', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>

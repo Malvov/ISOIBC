@@ -93,3 +93,9 @@ gem 'groupdate'
 
 #font awesome
 gem 'font-awesome-rails'
+
+#select2
+gem 'select2-rails'
+
+# #readmore.js
+# gem 'readmorejs-rails'

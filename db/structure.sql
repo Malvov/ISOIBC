@@ -27,6 +27,45 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: ac_maintenances; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE ac_maintenances (
+    id bigint NOT NULL,
+    serial_number character varying,
+    customer_id bigint,
+    parts character varying[] DEFAULT '{}'::character varying[],
+    user_id integer,
+    maintenance_type character varying,
+    task_type character varying,
+    comment text,
+    date date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    valid_for integer
+);
+
+
+--
+-- Name: ac_maintenances_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE ac_maintenances_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: ac_maintenances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE ac_maintenances_id_seq OWNED BY ac_maintenances.id;
+
+
+--
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -36,6 +75,38 @@ CREATE TABLE ar_internal_metadata (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
+
+
+--
+-- Name: customers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE customers (
+    id bigint NOT NULL,
+    name character varying,
+    location character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE customers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE customers_id_seq OWNED BY customers.id;
 
 
 --
@@ -148,7 +219,8 @@ CREATE TABLE measurement_types (
     equipment_id bigint,
     parameter_id bigint,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    unit character varying
 );
 
 
@@ -238,6 +310,39 @@ CREATE SEQUENCE parameters_id_seq
 --
 
 ALTER SEQUENCE parameters_id_seq OWNED BY parameters.id;
+
+
+--
+-- Name: schedules; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE schedules (
+    id bigint NOT NULL,
+    customer_id bigint,
+    month character varying,
+    maintenances_quantity integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: schedules_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE schedules_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: schedules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE schedules_id_seq OWNED BY schedules.id;
 
 
 --
@@ -361,6 +466,20 @@ ALTER SEQUENCE zones_id_seq OWNED BY zones.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY ac_maintenances ALTER COLUMN id SET DEFAULT nextval('ac_maintenances_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY customers ALTER COLUMN id SET DEFAULT nextval('customers_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY employees ALTER COLUMN id SET DEFAULT nextval('employees_id_seq'::regclass);
 
 
@@ -403,6 +522,13 @@ ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_s
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY schedules ALTER COLUMN id SET DEFAULT nextval('schedules_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
 
 
@@ -421,11 +547,27 @@ ALTER TABLE ONLY zones ALTER COLUMN id SET DEFAULT nextval('zones_id_seq'::regcl
 
 
 --
+-- Name: ac_maintenances_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY ac_maintenances
+    ADD CONSTRAINT ac_maintenances_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY customers
+    ADD CONSTRAINT customers_pkey PRIMARY KEY (id);
 
 
 --
@@ -477,6 +619,14 @@ ALTER TABLE ONLY parameters
 
 
 --
+-- Name: schedules_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY schedules
+    ADD CONSTRAINT schedules_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -509,6 +659,13 @@ ALTER TABLE ONLY zones
 
 
 --
+-- Name: index_ac_maintenances_on_customer_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_ac_maintenances_on_customer_id ON ac_maintenances USING btree (customer_id);
+
+
+--
 -- Name: index_employees_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -520,6 +677,13 @@ CREATE INDEX index_employees_on_name ON employees USING btree (name);
 --
 
 CREATE INDEX index_evaluations_on_employee_id ON evaluations USING btree (employee_id);
+
+
+--
+-- Name: index_evaluations_on_result; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_evaluations_on_result ON evaluations USING btree (result);
 
 
 --
@@ -548,6 +712,20 @@ CREATE INDEX index_measurement_types_on_parameter_id ON measurement_types USING 
 --
 
 CREATE INDEX index_measurements_on_measurement_type_id ON measurements USING btree (measurement_type_id);
+
+
+--
+-- Name: index_parameters_on_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_parameters_on_name ON parameters USING btree (name);
+
+
+--
+-- Name: index_schedules_on_customer_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_schedules_on_customer_id ON schedules USING btree (customer_id);
 
 
 --
@@ -603,6 +781,14 @@ ALTER TABLE ONLY measurements
 
 
 --
+-- Name: fk_rails_38e65dc5b0; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY ac_maintenances
+    ADD CONSTRAINT fk_rails_38e65dc5b0 FOREIGN KEY (customer_id) REFERENCES customers(id);
+
+
+--
 -- Name: fk_rails_579f2293cc; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -616,6 +802,14 @@ ALTER TABLE ONLY tasks
 
 ALTER TABLE ONLY evaluations
     ADD CONSTRAINT fk_rails_898c99af36 FOREIGN KEY (task_id) REFERENCES tasks(id);
+
+
+--
+-- Name: fk_rails_b367e1df40; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY schedules
+    ADD CONSTRAINT fk_rails_b367e1df40 FOREIGN KEY (customer_id) REFERENCES customers(id);
 
 
 --
@@ -650,6 +844,13 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180402145520'),
 ('20180403143038'),
 ('20180403145022'),
-('20180404212141');
+('20180404212141'),
+('20180410153207'),
+('20180418150319'),
+('20180425202255'),
+('20180426182610'),
+('20180427215013'),
+('20180427220711'),
+('20180430144732');
 
 
