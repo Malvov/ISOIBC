@@ -2,6 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
+  evaluationsResultsPerMonth()
+  optionChanged()
+
+evaluationsResultsPerMonth = ->
   $('#end_at').change (e) ->
     end_at = $(e.target).val()
     start_at = $('#start_at').val()
@@ -17,3 +21,20 @@ $ ->
         return
     return
   return
+
+optionChanged = ->
+  $('#option').change ->
+    if @checked
+      $.ajax
+        type: 'POST'
+        url: '/charts/ac_maintenance_goals'
+        data:
+          todos: 1
+        success: (data) ->
+          chart = Chartkick.charts['ac_maintenance_goals']
+          chart.updateData data
+          return
+      return
+    else
+      alert('somethingnot')
+    return

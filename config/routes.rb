@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get 'employees_evaluations'
       get 'individual_evaluations/:employee_id', to: 'charts#individual_evaluations', as: :employee_performance
       get 'ac_maintenance_goals'
+      post 'ac_maintenance_goals'
     end
   end
   get 'get_parameters', to: 'measurements#get_parameters'

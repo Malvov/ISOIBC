@@ -104,6 +104,23 @@ module StatisticsHelper
     end
 
     def ac_maintenance_goals_chart
-        bar_chart ac_maintenance_goals_charts_path
+        column_chart ac_maintenance_goals_charts_path,
+        id: 'ac_maintenance_goals',
+        library: {
+            colors: [
+                '#34fc02', #Programados
+                '#fca902', #Completados
+                
+                
+            ], title: { text: 'Mantenimientos de AC programados vs completados' },
+              yAxis: {
+                allowDecimals: false
+            },                                                                                                                                                                                                      
+            plotOptions: {
+                series: {
+                    pointWidth: 50
+                }
+            }
+          }
     end
 end

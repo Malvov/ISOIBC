@@ -20,6 +20,8 @@ class AcMaintenance < ApplicationRecord
   belongs_to :customer
   validates_presence_of :task_type, :maintenance_type
   validates :valid_for, :numericality => { :only_integer => true, :greater_than => 0 }
+  scope :programados, -> { where(maintenance_type: 'Programado')}
+
 
   CONJUNTO = [
       ['Manejadora', [
