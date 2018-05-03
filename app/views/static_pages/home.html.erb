@@ -45,32 +45,33 @@
             <% end %>
         </div>
     <% end %>
-    
-    <div class="row">
-        <div class="col-lg-9">
-            <%= ac_maintenance_goals_chart %>
-        </div>
-        <div class="col-lg-3">
-            <br>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary">
-                            <input type="checkbox" name="options" id="option">Todos los trabajos
-                        </label>
+    <% if current_user.admin? || current_user.department == 'ac' %>
+        <div class="row">
+            <div class="col-lg-9">
+                <%= ac_maintenance_goals_chart %>
+            </div>
+            <div class="col-lg-3">
+                <br>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary">
+                                <input type="checkbox" name="options" id="option">Todos los trabajos
+                            </label>
+                        </div>
                     </div>
+                    <!--<div class="row">
+                        <div class="col-lg-6">
+                            <%= label_tag 'Desde' %>
+                            <%= date_field_tag :start_at %>
+                        </div>
+                        <div class="col-lg-6">
+                            <%= label_tag 'Hasta' %>
+                            <%= date_field_tag :end_at %>
+                        </div>
+                    </div>-->
                 </div>
-                <!--<div class="row">
-                    <div class="col-lg-6">
-                        <%= label_tag 'Desde' %>
-                        <%= date_field_tag :start_at %>
-                    </div>
-                    <div class="col-lg-6">
-                        <%= label_tag 'Hasta' %>
-                        <%= date_field_tag :end_at %>
-                    </div>
-                </div>-->
             </div>
         </div>
-    </div>
+    <% end %>
 <% end %>
