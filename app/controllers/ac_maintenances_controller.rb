@@ -1,6 +1,6 @@
 class AcMaintenancesController < ApplicationController
   before_action :set_ac_maintenance, only: [:show, :edit, :update, :destroy]
-  before_action :set_conjunto, only: [:new, :edit]
+  before_action :set_conjunto, only: [:new, :edit, :create, :update]
 
   # GET /ac_maintenances
   # GET /ac_maintenances.json
@@ -77,6 +77,6 @@ class AcMaintenancesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def ac_maintenance_params
-      params.require(:ac_maintenance).permit(:serial_number, :customer_id, :maintenance_type, :task_type, :comment, :date, :parts => [])
+      params.require(:ac_maintenance).permit(:serial_number, :customer_id, :maintenance_type, :task_type, :comment, :date, :valid_for, :parts => [])
     end
 end

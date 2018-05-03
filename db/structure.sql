@@ -40,7 +40,8 @@ CREATE TABLE public.ac_maintenances (
     comment text,
     date date,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    valid_for integer
 );
 
 
@@ -848,6 +849,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180425202255'),
 ('20180426182610'),
 ('20180427215013'),
-('20180427220711');
+('20180427220711'),
+('20180430144732');
 
 

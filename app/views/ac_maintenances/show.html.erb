@@ -37,5 +37,10 @@
   <%= @ac_maintenance.date.strftime '%d/%m/%Y' %>
 </p>
 
+<p>
+  <strong>Válido para:</strong>
+  <%= @ac_maintenance.valid_for %>
+</p>
+
 <%= link_to 'Edit', edit_ac_maintenance_path(@ac_maintenance) %> |
 <%= link_to 'Back', ac_maintenances_path %>

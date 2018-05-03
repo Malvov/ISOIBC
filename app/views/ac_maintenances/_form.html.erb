@@ -14,8 +14,13 @@
     <%= f.input :date,
                 label: 'Fecha del mantenimiento', 
                 order: [:day, :month, :year],  use_month_numbers: true %>
+    <div class="input-group">
+      <span class="input-group-addon">Válido para</span>
+      <%= f.input :valid_for, label: false %>
+      <span class="input-group-addon">unidad(es)</span>
+    </div>
   </div>
-
+<br>
   <div class="form-actions">
     <%= f.button :submit, 'Guardar', class: 'btn btn-success' %>
   </div>
