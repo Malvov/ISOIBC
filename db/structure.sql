@@ -32,7 +32,6 @@ SET default_with_oids = false;
 
 CREATE TABLE ac_maintenances (
     id bigint NOT NULL,
-    serial_number character varying,
     customer_id bigint,
     parts character varying[] DEFAULT '{}'::character varying[],
     user_id integer,
@@ -851,6 +850,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180426182610'),
 ('20180427215013'),
 ('20180427220711'),
-('20180430144732');
+('20180430144732'),
+('20180503211112');
 
 

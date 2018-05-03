@@ -1,9 +1,4 @@
 <p>
-  <strong>Número de serie:</strong>
-  <%= @ac_maintenance.serial_number %>
-</p>
-
-<p>
   <strong>Cliente:</strong>
   <%= @ac_maintenance.customer.name %>
 </p>
@@ -39,7 +34,7 @@
 
 <p>
   <strong>Válido para:</strong>
-  <%= @ac_maintenance.valid_for %>
+  <%= @ac_maintenance.valid_for %>Unidad(es)
 </p>
 
 <%= link_to 'Edit', edit_ac_maintenance_path(@ac_maintenance) %> |

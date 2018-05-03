@@ -77,6 +77,6 @@ class AcMaintenancesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def ac_maintenance_params
-      params.require(:ac_maintenance).permit(:serial_number, :customer_id, :maintenance_type, :task_type, :comment, :date, :valid_for, :parts => [])
+      params.require(:ac_maintenance).permit(:customer_id, :maintenance_type, :task_type, :comment, :date, :valid_for, :parts => [])
     end
 end

@@ -3,11 +3,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :serial_number, label: 'Número de serie' %>
     <%= f.association :customer, label: 'Cliente', prompt: 'Escoger cliente' %>
-    <%# f.input :parts, as: :grouped_select, collection: AcMaintenance::CONJUNTO, group_method: :last, include_blank: false, input_html: { multiple: true} %>
+    <%# f.input :parts, label: 'Conjunto', collection: @conjunto, include_blank: false, input_html: { multiple: true} %>
     <%= label_tag 'Conjunto' %>    
-    <%= select_tag 'ac_maintenance[parts]', grouped_options_for_select(@conjunto),  { multiple: true, class: 'form-control form-group' } %>
+    <%= select_tag 'ac_maintenance[parts]', options_for_select(@conjunto),  { multiple: true, class: 'form-control form-group' } %>
     <%= f.input :maintenance_type, label: 'Tipo de mantenimiento', collection: %w[Emergencia Programado],  prompt: 'Escoger tipo de mantenimiento' %>
     <%= f.input :task_type,  label: 'Tipo de trabajo', collection: %w[Reparación Remplazo Programación Cambio_Total], prompt: 'Escoger tipo de trabajo' %>
     <%= f.input :comment, label: 'Comentario' %>

@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
   evaluationsResultsPerMonth()
+  #$(document)
   optionChanged()
 
 evaluationsResultsPerMonth = ->
@@ -36,5 +37,14 @@ optionChanged = ->
           return
       return
     else
-      alert('somethingnot')
+      $.ajax
+        type: 'POST'
+        url: '/charts/ac_maintenance_goals'
+        data:
+          todos: 0
+        success: (data) ->
+          chart = Chartkick.charts['ac_maintenance_goals']
+          chart.updateData data
+          return
+      return
     return
