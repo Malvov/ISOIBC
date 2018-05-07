@@ -31,13 +31,32 @@ class ChartsController < ApplicationController
        # debugger
         hash = Hash.new
 
-        if params[:todos] == '1'
-            valid_fors_todos = AcMaintenance.group_by_month(:date, format: '%B').sum(:valid_for)
-            todos = params[:todos]
+        debugger
+
+        unless params[:start_at].nil? && params[:end_at].nil? && params[:todos].nil?
+            todos = params[:todos] unless params[:todos].nil?
+            start_at = params[:start_at].to_date unless params[:start_at].nil?
+            end_at = params[:end_at].to_date unless params[:end_at].nil?
+            range = start_at..end_at
         end
-        ac_maintenance_months = AcMaintenance.programados.group_by_month(:date, format: '%B').count.keys
+        
+        if todos == '1' && !range.nil?
+            valid_fors_todos = AcMaintenance.group_by_month(:date, range: range, format: '%B').sum(:valid_for)
+        end
+
+        if params[:start_at] && params[:end_at]
+            ac_maintenance_months = AcMaintenance.programados.group_by_month(:date, range: range,
+                format: '%B').count.keys
+            valid_fors = AcMaintenance.programados.group_by_month(:date, range: range,
+                 format: '%B').sum(:valid_for)
+        else
+            ac_maintenance_months = AcMaintenance.programados.group_by_month(:date, format: '%B').count.keys
+            valid_fors = AcMaintenance.programados.group_by_month(:date, format: '%B').sum(:valid_for)
+            valid_fors_todos = AcMaintenance.group_by_month(:date, format: '%B').sum(:valid_for) if todos == '1'
+        end
+        
         maintenance_quantities = Schedule.group(:month).sum(:maintenances_quantity)
-        valid_fors = AcMaintenance.programados.group_by_month(:date, format: '%B').sum(:valid_for)
+        
         
         ac_maintenance_months.each do |month|
             case month
