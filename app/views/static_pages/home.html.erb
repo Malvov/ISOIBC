@@ -26,6 +26,7 @@
     </div>
     <% end %>
     <% if current_user.admin? || current_user.department == 'electricista' %>
+        <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' %>
         <div class="row">
             <div class="col-lg-12">
                 <%= measurements_chart %>
@@ -44,6 +45,7 @@
                 </div>
             <% end %>
         </div>
+        
     <% end %>
     <% if current_user.admin? || current_user.department == 'ac' %>
         <div class="row">
