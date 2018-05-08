@@ -23,7 +23,7 @@ class Evaluation < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   include PgSearch
-  pg_search_scope :search, against: [:result],
+  pg_search_scope :search, against: [:result, :comment, :date],
   associated_against: { employee: :name, task: :name }, using: {
     tsearch: {
       prefix: true

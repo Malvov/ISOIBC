@@ -24,6 +24,7 @@
       <th>Actividad</th>
       <th>Sector</th>
       <th>Calificación</th>
+      <th>Observaciones</th>
       <th>Fecha</th>
       <th colspan="2"></th>
     </tr>
@@ -36,6 +37,9 @@
         <td><%= evaluation.task.zone.name %></td>
         <td>
           <%= evaluation.result %>
+        </td>
+        <td>
+          <%= evaluation.comment %>
         </td>
         <td><%= evaluation.date.strftime("%d/%m/%Y") %></td>
         <td><%= link_to evaluation, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
