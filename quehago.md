@@ -96,14 +96,65 @@ si el parameter.equal.nil? !
 Siempre y cuando los names de los parámetros se separen con '/'. Debería hacer esa validación.
 si el equal no es nil, que:
     el equal sea igual a almenos una parte del name separado con slash
-(AJAX)
+(AJAX) -- HECHO
+
+Debería mostrar para cada equipo también en específico las cosas que están fuera de parámetro. Podría ser en un modal o algo así y mostrar esto también en la notificaciones
+ cómo hago esa onda de las notificaciones????
  
 # Autorización
- ayy lmaoo
-
+ No entiendo cómo funciona cancancan o no sé cómo aplicarlo aquí :(
+     Debería crear una tabla de área/departamento e indicar los usuarios de ahí?
+     Debería definir roles para cada usuario? Cada rol tiene diferentes permisos para las acciones
+     de los modelos asociados al departamento/áreaa
+     martha - admin - limpieza y jardinería, podría
+     lballadares - admin - electricistas/aparatos industriales
+     aireacondicionado - admin - aire acondicionado/ac
+     admin - admin - all
+     cuáles serían los roles?????? Solamente admin sinceramente
+     Pero creo que sí debería crear la tabla Área y asociarla con User
+     Pero sería lo mismo más o menos que tengo ahora que sólo es agregar el deparatmento al usuario 
+     en la columna 'department' y ponerle si es admin o no
+     por ahora sólo tengo ese rol (admin)
+     Quiero usar la gema RailsAdmin también. Esto sería sólo para agregar users, probablemente
+     
+     Modelos por área:
+        Electricistas
+            Equipment
+            Measurement
+            MeasurementType
+            Parameter
+        Limpieza y jardinería
+            Employee
+            Zone
+            Task
+            Evaluation
+        Aire acondicionado
+            Customer
+            Schedule
+            AcMaintenance
+            
  #Aires acondicionados
  Esta gente tiene contratos con las empresas y en cada contrato se establece que darán equis cantidad de mantenimientos por mes
  
 
- podría crear el plan de mantenimiento por empresa. Utilizaría los arrays de PG para guardar
- los meses que corresponde por empresa. Luego, en el formato
+ Podría crear el plan de mantenimiento por empresa. Utilizaría los arrays de PG para guardar
+ los meses que corresponde por empresa.
+
+ HECHO MÁS O MENOS
+ 
+
+ #Otros
+    Mejorar la presentación de la página principal. Especialmente para el administrador
+    
+#Notificaciones
+    Deberían ser sólo para el admin, quizá, no sé :sobbing
+    Notificaciones con todos los comments de todos los modelos donde esté esta columna
+    Evaluation
+    Measurement
+    AcMaintenance
+
+    tengo que hacer lo de cancancan??? no sé qué más hacer ahí 
+    no entiendo la guía de gorails para in-app navbar notifications
+
+
+    
