@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@elevator_form) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :start_at, label: 'Hora inicio' %>
+    <%= f.input :end_at, label: 'Hora final' %>
+    <%= f.input :date, label: 'Fecha', order: [:day, :month, :year],  use_month_numbers: true %>
+    <%= f.input :elevator, collection: %w[Oeste Este], label: 'Elevadores',
+      include_blank: 'Escoger elevador' %>
+    <%= f.input :maintenance, label: 'En mantenimiento?' %>
+    <%= f.input :people_caught, label: 'Personas atrapadas' %>
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Guardar', class: 'btn btn-success' %>
+  </div>
+<% end %>

@@ -1,0 +1,48 @@
+<h1>Informe de elevadores</h1>
+
+<br>
+
+<%= link_to 'Nueva', new_elevator_form_path, class: 'btn btn-success' %>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Hora inicio</th>
+      <th>Hora final</th>
+      <th>Fecha</th>
+      <th>Elevador</th>
+      <th>¿Por mantenimiento?</th>
+      <th>Personas atrapadas</th>
+      <th>Minutos detenido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @elevator_forms.each do |elevator_form| %>
+      <tr>
+        <td><%= elevator_form.start_at.strftime '%H:%M' %></td>
+        <td><%= elevator_form.end_at.strftime '%H:%M' %></td>
+        <td><%= elevator_form.date.strftime '%d/%m/%Y' %></td>
+        <td><%= elevator_form.elevator %></td>
+        <td><%= elevator_form.maintenance? %></td>
+        <td><%= elevator_form.people_caught %></td>
+        <td><%= elevator_form.total_minutes %></td>
+        <td><%= link_to elevator_form, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_elevator_form_path(elevator_form), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to elevator_form_path(elevator_form), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

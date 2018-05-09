@@ -1,0 +1,37 @@
+<p>
+  <strong>Hora de inicio:</strong>
+  <%= @elevator_form.start_at.strftime '%H:%M' %>
+</p>
+
+<p>
+  <strong>Hora final:</strong>
+  <%= @elevator_form.end_at.strftime '%H:%M' %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @elevator_form.date.strftime '%d/%m/%y' %>
+</p>
+
+<p>
+  <strong>Elevador:</strong>
+  <%= @elevator_form.elevator %>
+</p>
+
+<p>
+  <strong>¿Por mantenimiento?:</strong>
+  <%= @elevator_form.maintenance? %>
+</p>
+
+<p>
+  <strong>Personas atrapadas:</strong>
+  <%= @elevator_form.people_caught %>
+</p>
+
+<p>
+  <strong>Minutos detenido:</strong>
+  <%= @elevator_form.total_minutes %>
+</p>
+
+<%= link_to 'Edit', edit_elevator_form_path(@elevator_form) %> |
+<%= link_to 'Back', elevator_forms_path %>
