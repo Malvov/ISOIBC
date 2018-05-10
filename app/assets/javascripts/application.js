@@ -18,6 +18,9 @@
 //= require highcharts
 //= require chartkick
 //= require select2
+//= require jquery/clockpicker
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 // $(function() {
 //     $("#end_at").change(function(e){
