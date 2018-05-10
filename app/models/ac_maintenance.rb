@@ -19,7 +19,8 @@ class AcMaintenance < ApplicationRecord
   belongs_to :customer
   validates_presence_of :task_type, :maintenance_type, :parts
   validates :valid_for, :numericality => { :only_integer => true, :greater_than => 0 }
-  scope :programados, -> { where(maintenance_type: 'Programado')}
+  scope :programados, -> { where(maintenance_type: 'Programado') }
+  scope :emergencias, -> { where(maintenance_type: 'Emergencia') }
 
 
   CONJUNTO = %w[Manejadora Condensadora Ductería Termostato]

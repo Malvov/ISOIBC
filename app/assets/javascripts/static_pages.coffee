@@ -1,10 +1,18 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-$ ->
+
+
+
+
+    
+$(document).ready ->
   evaluationsResultsPerMonth()
-  #$(document)
+  # #$(document)
   optionChanged()
+  acCustomerButtonClicked()
+
+
 
 evaluationsResultsPerMonth = ->
   $('#end_at').change (e) ->
@@ -24,27 +32,33 @@ evaluationsResultsPerMonth = ->
   return
 
 optionChanged = ->
-  $('#option').change ->
-    if @checked
-      $.ajax
-        type: 'POST'
-        url: '/charts/ac_maintenance_goals'
-        data:
-          todos: 1
-        success: (data) ->
-          chart = Chartkick.charts['ac_maintenance_goals']
-          chart.updateData data
-          return
-      return
-    else
-      $.ajax
-        type: 'POST'
-        url: '/charts/ac_maintenance_goals'
-        data:
-          todos: 0
-        success: (data) ->
-          chart = Chartkick.charts['ac_maintenance_goals']
-          chart.updateData data
-          return
-      return
+  $('#option').click ->
+    $.ajax
+      type: 'POST'
+      url: '/charts/ac_maintenance_goals'
+      data:
+        todos: 1
+      success: (data) ->
+        chart = Chartkick.charts['ac_maintenance_goals']
+        chart.updateData data
+        return
     return
+  return
+
+acCustomerButtonClicked = ->
+  $('#customer-button').click ->
+    id = $('#ac_customer :selected').val()
+    $.ajax
+      type: 'POST'
+      url: '/charts/ac_maintenance_goals'
+      data:
+        todos: 'not blank'
+        customer_id: id
+      success: (data) ->
+        chart = Chartkick.charts['ac_maintenance_goals']
+        chart.updateData data
+        return
+    return
+  return
+
+  
