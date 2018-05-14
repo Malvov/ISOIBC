@@ -15,8 +15,7 @@
 #
 
 class ElevatorForm < ApplicationRecord
-    validates_presence_of :elevator
-
+    validates_presence_of :elevator, :start_at, :end_at, :date, :elevator
     attr_accessor :total_minutes
 
     def total_minutes

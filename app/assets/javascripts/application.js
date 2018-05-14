@@ -20,6 +20,7 @@
 //= require select2
 //= require jquery/clockpicker
 //= require moment
+//= require moment/es
 //= require bootstrap-datetimepicker
 //= require_tree .
 // $(function() {

@@ -9,4 +9,7 @@ $(document).on 'turbolinks:load', ->
         'default': 'now'
     })
 
-    $('.datetimepicker').datetimepicker()
+    $('.datetimepicker').datetimepicker({
+        locale: 'es',
+        format: 'L'
+    })
