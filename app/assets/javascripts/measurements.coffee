@@ -3,6 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'turbolinks:load', ->
   
+  $('.datetimepicker').datetimepicker({
+    format: 'L'
+  })
   changeMeasurementTypes()
   changeInputAccordingToParameter()
   if $('#equipment_id').length
