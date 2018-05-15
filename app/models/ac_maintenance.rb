@@ -23,8 +23,11 @@ class AcMaintenance < ApplicationRecord
   scope :emergencias, -> { where(maintenance_type: 'Emergencia') }
 
 
-  CONJUNTO = %w[Manejadora Condensadora Ductería Termostato]
+  PARTS = %w[Manejadora Condensadora Ductería Termostato]
 
+  MAINTENANCE_TYPES = %w[Emergencia Programado]
+
+  TASK_TYPES = %w[Reparación Reemplazo Programación Cambio_Total]
   
 
 end
