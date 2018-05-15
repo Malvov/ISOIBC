@@ -109,8 +109,8 @@ module StatisticsHelper
         library: {
             colors: [
                 '#34fc02', #Programados
-                '#fca902', #Completados
-                '#2c5bd8' #todos
+                '#2c5bd8', #Completados
+                '#fca902' #todos
                 
                 
             ], title: { text: 'Mantenimientos de AC programados vs completados' },

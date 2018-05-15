@@ -31,83 +31,72 @@ class ChartsController < ApplicationController
        # debugger
         hash = Hash.new
 
-        debugger
+        #debugger
 
-        unless params[:start_at].nil? && params[:end_at].nil? && params[:todos].nil?
-            todos = params[:todos] unless params[:todos].nil?
-            start_at = params[:start_at].to_date unless params[:start_at].nil?
-            end_at = params[:end_at].to_date unless params[:end_at].nil?
-            range = start_at..end_at
-        end
-        
-        if todos == '1' && !range.nil?
-            valid_fors_todos = AcMaintenance.group_by_month(:date, range: range, format: '%B').sum(:valid_for)
+        if params[:todos] == '1' || params[:todos].blank?
+            valid_fors_emergencias = AcMaintenance.emergencias.group_by_month(:date, format: '%B').sum(:valid_for)
+            ac_maintenance_months = AcMaintenance.group_by_month(:date, format: '%B').count.keys
+            maintenance_quantities = Schedule.group(:month).sum(:maintenances_quantity)
+            valid_fors_programados = AcMaintenance.programados.group_by_month(:date, format: '%B').sum(:valid_for)
+        elsif params[:customer_id]
+            customer = Customer.find(params[:customer_id])
+            valid_fors_emergencias = customer.ac_maintenances.emergencias.group_by_month(:date, format: '%B').sum(:valid_for)
+            ac_maintenance_months = customer.ac_maintenances.group_by_month(:date, format: '%B').count.keys
+            maintenance_quantities = customer.schedules.group(:month).sum(:maintenances_quantity)
+            valid_fors_programados = customer.ac_maintenances.programados.group_by_month(:date, format: '%B').sum(:valid_for)
         end
 
-        if params[:start_at] && params[:end_at]
-            ac_maintenance_months = AcMaintenance.programados.group_by_month(:date, range: range,
-                format: '%B').count.keys
-            valid_fors = AcMaintenance.programados.group_by_month(:date, range: range,
-                 format: '%B').sum(:valid_for)
-        else
-            ac_maintenance_months = AcMaintenance.programados.group_by_month(:date, format: '%B').count.keys
-            valid_fors = AcMaintenance.programados.group_by_month(:date, format: '%B').sum(:valid_for)
-            valid_fors_todos = AcMaintenance.group_by_month(:date, format: '%B').sum(:valid_for) if todos == '1'
-        end
-        
-        maintenance_quantities = Schedule.group(:month).sum(:maintenances_quantity)
-        
         
         ac_maintenance_months.each do |month|
             case month
             when 'January'
                 hash[['Programados', 'Enero']] = maintenance_quantities.slice('Enero').values.first
-                hash[['Ejecutados', 'Enero']] = valid_fors.slice('January').values.first
-                hash[['Todos', 'Enero']] = valid_fors_todos.slice('January').values.first if todos == '1'
+                hash[['Ejecutados', 'Enero']] = valid_fors_programados.slice('January').values.first
+                hash[['Emergencias', 'Enero']] = valid_fors_emergencias.slice('January').values.first 
             when 'February'
                 hash[['Programados', 'Febrero']] = maintenance_quantities.slice('Febrero').values.first
-                hash[['Ejecutados', 'Febrero']] = valid_fors.slice('February').values.first
-                hash[['Todos', 'Febrero']] = valid_fors_todos.slice('February').values.first if todos == '1'
+                hash[['Ejecutados', 'Febrero']] = valid_fors_programados.slice('February').values.first
+                hash[['Emergencias', 'Febrero']] = valid_fors_emergencias.slice('February').values.first 
             when 'March'
                 hash[['Programados', 'Marzo']] = maintenance_quantities.slice('Marzo').values.first
-                hash[['Ejecutados', 'Marzo']] = valid_fors.slice('March').values.first
-                hash[['Todos', 'Marzo']] = valid_fors_todos.slice('March').values.first if todos == '1'
+                hash[['Ejecutados', 'Marzo']] = valid_fors_programados.slice('March').values.first
+                hash[['Emergencias', 'Marzo']] = valid_fors_emergencias.slice('March').values.first 
             when 'April'
                 hash[['Programados', 'Abril']] = maintenance_quantities.slice('Abril').values.first
-                hash[['Ejecutados', 'Abril']] = valid_fors.slice('April').values.first
-                hash[['Todos', 'Abril']] = valid_fors_todos.slice('April').values.first if todos == '1'
+                hash[['Ejecutados', 'Abril']] = valid_fors_programados.slice('April').values.first
+                hash[['Emergencias', 'Abril']] = valid_fors_emergencias.slice('April').values.first 
             when 'May'
                 hash[['Programados', 'Mayo']] = maintenance_quantities.slice('Mayo').values.first
-                hash[['Ejecutados', 'Mayo']] = valid_fors.slice('May').values.first
-                hash[['Todos', 'Mayo']] = valid_fors_todos.slice('May').values.first if todos == '1'
+                hash[['Ejecutados', 'Mayo']] = valid_fors_programados.slice('May').values.first
+                hash[['Emergencias', 'Mayo']] = valid_fors_emergencias.slice('May').values.first 
             when 'June'
                 hash[['Programados', 'Junio']] = maintenance_quantities.slice('Junio').values.first
-                hash[['Ejecutados', 'Junio']] = valid_fors.slice('June').values.first
-                hash[['Todos', 'Junio']] = valid_fors_todos.slice('June').values.first if todos == '1'
+                hash[['Ejecutados', 'Junio']] = valid_fors_programados.slice('June').values.first
+                hash[['Emergencias', 'Junio']] = valid_fors_emergencias.slice('June').values.first 
             when 'July'
                 hash[['Programados', 'Julio']] = maintenance_quantities.slice('Julio').values.first
-                hash[['Ejecutados', 'Julio']] = valid_fors.slice('July').values.first
-                hash[['Todos', 'Julio']] = valid_fors_todos.slice('July').values.first if todos == '1'
+                hash[['Ejecutados', 'Julio']] = valid_fors_programados.slice('July').values.first
+                hash[['Emergencias', 'Julio']] = valid_fors_emergencias.slice('July').values.first 
             when 'August'
                 hash[['Programados', 'Agosto']] = maintenance_quantities.slice('Agosto').values.first
-                hash[['Ejecutados', 'Agosto']] = valid_fors.slice('August').values.first
-                hash[['Todos', 'Agosto']] = valid_fors_todos.slice('August').values.first if todos == '1'
+                hash[['Ejecutados', 'Agosto']] = valid_fors_programados.slice('August').values.first
+                hash[['Emergencias', 'Agosto']] = valid_fors_emergencias.slice('August').values.first 
             when 'September'
                 hash[['Programados', 'Septiembre']] = maintenance_quantities.slice('Septiembre').values.first
-                hash[['Ejecutados', 'Septiembre']] = valid_fors.slice('September').values.first
-                hash[['Todos', 'Septiembre']] = valid_fors_todos.slice('September').values.first if todos == '1'
+                hash[['Ejecutados', 'Septiembre']] = valid_fors_programados.slice('September').values.first
+                hash[['Emergencias', 'Septiembre']] = valid_fors_emergencias.slice('September').values.first 
             when 'October'
                 hash[['Programados', 'Octubre']] = maintenance_quantities.slice('Octubre').values.first
-                hash[['Ejecutados', 'Octubre']] = valid_fors.slice('October').values.first
-                hash[['Todos', 'Octubre']] = valid_fors_todos.slice('October').values.first if todos == '1'
+                hash[['Ejecutados', 'Octubre']] = valid_fors_programados.slice('October').values.first
+                hash[['Emergencias', 'Octubre']] = valid_fors_emergencias.slice('October').values.first 
             when 'November'
                 hash[['Programados', 'Noviembre']] = maintenance_quantities.slice('Noviembre').values.first
-                hash[['Ejecutados', 'Noviembre']] = valid_fors.slice('November').values.first
-                hash[['Todos', 'Noviembre']] = valid_fors_todos.slice('November').values.first if todos == '1'
+                hash[['Ejecutados', 'Noviembre']] = valid_fors_programados.slice('November').values.first
+                hash[['Emergencias', 'Noviembre']] = valid_fors_emergencias.slice('November').values.first 
             when 'December'
                 hash[['Programados', 'Diciembre']] = maintenance_quantities.slice('Diciembre').values.first
-                hash[['Ejecutados', 'Diciembre']] = valid_fors.slice('December').values.first
-                hash[['Todos', 'Diciembre']] = valid_fors_todos.slice('December').values.first if todos == '1'
+                hash[['Ejecutados', 'Diciembre']] = valid_fors_programados.slice('December').values.first
+                hash[['Emergencias', 'Diciembre']] = valid_fors_emergencias.slice('December').values.first 
             end
         end
         render json: hash.chart_json

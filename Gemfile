@@ -99,3 +99,9 @@ gem 'select2-rails'
 
 # #readmore.js
 # gem 'readmorejs-rails'
+
+#momentjs
+gem 'momentjs-rails', '>= 2.9.0'
+
+#datetimepicker
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
