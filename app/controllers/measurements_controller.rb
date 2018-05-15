@@ -36,6 +36,19 @@ class MeasurementsController < ApplicationController
     
   end
 
+  def not_oks
+    @measurements = Array.new
+    equipment = Equipment.find(params[:equipment_id])
+    
+    equipment.measurement_types.each do |measurement_type|
+      measurement_type.measurements.each do |measurement|
+        @measurements << measurement unless measurement.is_ok?
+      end
+    end
+
+    @measurements = @measurements.paginate(page: params[:page], per_page: 15)
+  end
+
   # GET /measurements/new
   def new
     @measurement = Measurement.new

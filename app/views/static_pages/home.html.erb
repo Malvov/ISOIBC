@@ -37,7 +37,7 @@
                 <div class="col-lg-4">
                     <%= measurements_per_equipment_chart(equipment) %>
                     <span style='margin-left: 10em'>
-                        <%= link_to mediciones_path(equipment), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                        <%= link_to not_oks_path(equipment), remote: true, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
                             <%= fa_icon 'eye 2x' %>
                         <% end %>               
                     </span>
