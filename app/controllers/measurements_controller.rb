@@ -46,7 +46,7 @@ class MeasurementsController < ApplicationController
       end
     end
 
-    @measurements = @measurements.paginate(page: params[:page], per_page: 15)
+    @measurements = @measurements.paginate(page: params[:page], per_page: 12)
   end
 
   # GET /measurements/new
