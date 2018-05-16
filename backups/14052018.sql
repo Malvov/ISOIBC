@@ -3549,9 +3549,9 @@ INSERT INTO public.schedules (id, customer_id, month, maintenances_quantity, cre
 SELECT pg_catalog.setval('public.schedules_id_seq', 63, true);
 
 
--- --
--- -- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: intranet
--- --
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: intranet
+--
 
 -- INSERT INTO public.schema_migrations (version) VALUES ('20180306155809');
 -- INSERT INTO public.schema_migrations (version) VALUES ('20180306161208');
