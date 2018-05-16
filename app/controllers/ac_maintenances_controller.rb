@@ -1,6 +1,6 @@
 class AcMaintenancesController < ApplicationController
   before_action :set_ac_maintenance, only: [:show, :edit, :update, :destroy]
-  before_action :set_conjunto, only: [:new, :edit, :create, :update]
+  before_action :set_constants, only: [:new, :edit, :create, :update]
 
   # GET /ac_maintenances
   # GET /ac_maintenances.json
@@ -72,8 +72,10 @@ class AcMaintenancesController < ApplicationController
     def set_ac_maintenance
       @ac_maintenance = AcMaintenance.find(params[:id])
     end
-    def set_conjunto
-      @conjunto = AcMaintenance::CONJUNTO
+    def set_constants
+      @parts = AcMaintenance::PARTS
+      @maintenance_types = AcMaintenance::MAINTENANCE_TYPES
+      @task_types = AcMaintenance::TASK_TYPES
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def ac_maintenance_params

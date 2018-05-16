@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     end
   end
   get 'get_parameters', to: 'measurements#get_parameters'
+
+  get '/:equipment_id/not_oks', to: 'measurements#not_oks', as: :not_oks
   
   # put '/equipos/:equipment_id/measurements/:id', to: 'measurements#update'
   # patch '/equipos/:equipment_id/measurements/:id', to: 'measurements#update'

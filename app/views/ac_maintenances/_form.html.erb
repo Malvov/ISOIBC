@@ -6,13 +6,17 @@
     <%= f.association :customer, label: 'Cliente', prompt: 'Escoger cliente' %>
     <%# f.input :parts, label: 'Conjunto', collection: @conjunto, include_blank: false, input_html: { multiple: true} %>
     <%= label_tag 'Conjunto' %>    
-    <%= select_tag 'ac_maintenance[parts]', options_for_select(@conjunto),  { multiple: true, class: 'form-control form-group' } %>
-    <%= f.input :maintenance_type, label: 'Tipo de mantenimiento', collection: %w[Emergencia Programado],  prompt: 'Escoger tipo de mantenimiento' %>
-    <%= f.input :task_type,  label: 'Tipo de trabajo', collection: %w[Reparación Remplazo Programación Cambio_Total], prompt: 'Escoger tipo de trabajo' %>
+    <%= select_tag 'ac_maintenance[parts]', options_for_select(@parts, @ac_maintenance.parts),  { multiple: true, class: 'form-control form-group' } %>
+    <%= f.input :maintenance_type, label: 'Tipo de mantenimiento', collection: @maintenance_types,  prompt: 'Escoger tipo de mantenimiento' %>
+    <%= f.input :task_type,  label: 'Tipo de trabajo', collection: @task_types, prompt: 'Escoger tipo de trabajo' %>
     <%= f.input :comment, label: 'Comentario' %>
-    <%= f.input :date,
-                label: 'Fecha del mantenimiento', 
-                order: [:day, :month, :year],  use_month_numbers: true %>
+    <%= f.label :date, label: 'Fecha del mantenimiento' %>
+    <div class="input-group form-group">
+      <%= f.text_field :date, class: 'form-control datetimepicker', value: @ac_maintenance.persisted? ? f.object.date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y')  %>
+       <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
     <div class="input-group">
       <span class="input-group-addon">Válido para</span>
       <%= f.input :valid_for, label: false %>
