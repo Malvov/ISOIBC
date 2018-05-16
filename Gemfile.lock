@@ -71,6 +71,8 @@ GEM
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
+    clockpicker-rails (0.0.2)
+      railties (>= 3.1)
     cocoon (1.2.11)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -254,6 +256,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   carrierwave (~> 1.0)
   chartkick
+  clockpicker-rails
   cocoon
   coffee-rails (~> 4.2)
   devise

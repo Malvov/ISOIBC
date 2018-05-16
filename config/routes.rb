@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :elevator_forms
   resources :ac_maintenances
   resources :schedules
   resources :customers

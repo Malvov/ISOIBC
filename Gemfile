@@ -100,6 +100,10 @@ gem 'select2-rails'
 # #readmore.js
 # gem 'readmorejs-rails'
 
+#clockpicker
+gem 'clockpicker-rails'
+
+
 #momentjs
 gem 'momentjs-rails', '>= 2.9.0'
 

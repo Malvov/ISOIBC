@@ -1,0 +1,54 @@
+
+<%= simple_form_for(@elevator_form) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.label :start_at, label: 'Hora inicio' %>
+        <div class="input-group clockpicker">
+          <%= f.text_field :start_at, class: 'form-control clockpicker', placeholder: 'Seleccionar hora', value:  @elevator_form.persisted? ? f.object.start_at.strftime('%H:%M') : '' %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+          </span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <%= f.label :end_at, label: 'Hora fin' %>
+        <div class="input-group">
+          <%= f.text_field :end_at, label: false, class: 'form-control clockpicker', placeholder: 'Seleccionar hora', value:  @elevator_form.persisted? ? f.object.end_at.strftime('%H:%M') : '' %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.label :date, label: 'Fecha' %>
+        <div class="input-group">  
+          <%= f.text_field :date, class: 'form-control datetimepicker', placeholder: 'Seleccionar fecha', value: @elevator_form.persisted? ? f.object.date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y') %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>  
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :elevator, collection: %w[Oeste Este], label: 'Elevadores',
+        include_blank: 'Escoger elevador' %>
+      </div>
+    </div>
+  
+    <%= f.input :maintenance, label: 'En mantenimiento?' %>
+    <%= f.input :people_caught, label: 'Personas atrapadas' %>
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Guardar', class: 'btn btn-success' %>
+  </div>
+<% end %>
+

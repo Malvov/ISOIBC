@@ -86,4 +86,7 @@
             </div>
         </div>
     <% end %>
+    <% if current_user.admin? || current_user.department == 'seguridad' %>
+        <%= link_to 'Informes de elevadores', elevator_forms_path, class: 'btn btn-lg btn-primary' %>
+    <% end %>
 <% end %>
