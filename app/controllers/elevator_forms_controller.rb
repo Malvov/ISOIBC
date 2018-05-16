@@ -4,7 +4,7 @@ class ElevatorFormsController < ApplicationController
   # GET /elevator_forms
   # GET /elevator_forms.json
   def index
-    @elevator_forms = ElevatorForm.all
+    @elevator_forms = ElevatorForm.paginate(page: params[:page]).per_page(10)
   end
 
   # GET /elevator_forms/1

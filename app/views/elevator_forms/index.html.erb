@@ -4,7 +4,7 @@
 
 <%= link_to 'Nueva', new_elevator_form_path, class: 'btn btn-success' %>
 
-
+<%= will_paginate @elevator_forms, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>
     <tr>
