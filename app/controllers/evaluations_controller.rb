@@ -33,6 +33,7 @@ class EvaluationsController < ApplicationController
   # POST /evaluations.json
   def create
     @evaluation = Evaluation.new(evaluation_params)
+    @evaluation.image.attach(params[:evaluation][:image])
 
     if @evaluation.save
       flash[:success] = 'Guardado correctamente'
@@ -71,6 +72,6 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:employee_id, :task_id, :result, :comment, :image, :remove_image, :date)
+      params.require(:evaluation).permit(:employee_id, :task_id, :result, :comment, :image, :date)
     end
 end
