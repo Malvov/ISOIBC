@@ -9,7 +9,6 @@
 #  elevator      :string
 #  maintenance   :boolean
 #  people_caught :integer
-#  total_minutes :float
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #

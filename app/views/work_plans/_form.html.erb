@@ -1,0 +1,46 @@
+
+<%= simple_form_for(@work_plan) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :task, label: 'Tarea' %>
+    <%= f.input :status, collection: @status, label: 'Estado', prompt: 'Seleccionar estado' %>
+    <%= f.input :assigned_to, label: 'Asignado a' %>
+
+    <div class="row form-group">
+      <div class="col-lg-6">
+        <%= f.label :start_date, label: 'Fecha de inicio' %>
+        <div class="input-group">  
+          <%= f.text_field :start_date, class: 'form-control datetimepicker', placeholder: 'Seleccionar fecha', value: @work_plan.persisted? ? f.object.start_date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y') %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>  
+      </div>
+      <div class="col-lg-6">
+        <%= f.label :end_date, label: 'Fecha de finalización' %>
+        <div class="input-group">  
+          <%= f.text_field :end_date, class: 'form-control datetimepicker', placeholder: 'Seleccionar fecha', value: @work_plan.persisted? ? f.object.end_date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y') %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.input :square_meters, label: 'Cantidad de m2' %>  
+      </div>
+      <div class="col-lg-6">
+        <%= f.input :cost_estimate_per_square_meter, label: 'Costo estimado por m2' %>  
+      </div>
+    </div>
+    
+    <%= f.input :real_cost, label: 'Costo real' %>
+    <%= f.input :comment, label: 'Observaciones' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success' %>
+  </div>
+<% end %>

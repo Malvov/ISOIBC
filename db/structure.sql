@@ -467,6 +467,45 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
+-- Name: work_plans; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE work_plans (
+    id bigint NOT NULL,
+    task character varying,
+    status character varying,
+    assigned_to character varying,
+    start_date date,
+    end_date date,
+    square_meters double precision,
+    cost_estimate_per_square_meter double precision,
+    real_cost double precision,
+    comment text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: work_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE work_plans_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: work_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE work_plans_id_seq OWNED BY work_plans.id;
+
+
+--
 -- Name: zones; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -579,6 +618,13 @@ ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regcl
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY work_plans ALTER COLUMN id SET DEFAULT nextval('work_plans_id_seq'::regclass);
 
 
 --
@@ -698,6 +744,14 @@ ALTER TABLE ONLY tasks
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY work_plans
+    ADD CONSTRAINT work_plans_pkey PRIMARY KEY (id);
 
 
 --
@@ -903,6 +957,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180427220711'),
 ('20180430144732'),
 ('20180503211112'),
-('20180509195512');
+('20180509195512'),
+('20180517145138');
 
 

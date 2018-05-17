@@ -1,0 +1,47 @@
+<p>
+  <strong>Task:</strong>
+  <%= @work_plan.task %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @work_plan.status %>
+</p>
+
+<p>
+  <strong>Assigned to:</strong>
+  <%= @work_plan.assigned_to %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @work_plan.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @work_plan.end_date %>
+</p>
+
+<p>
+  <strong>Square meters:</strong>
+  <%= @work_plan.square_meters %>
+</p>
+
+<p>
+  <strong>Cost estimate per square meter:</strong>
+  <%= @work_plan.cost_estimate_per_square_meter %>
+</p>
+
+<p>
+  <strong>Real cost:</strong>
+  <%= @work_plan.real_cost %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @work_plan.comment %>
+</p>
+
+<%= link_to 'Edit', edit_work_plan_path(@work_plan) %> |
+<%= link_to 'Back', work_plans_path %>
