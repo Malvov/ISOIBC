@@ -13,7 +13,7 @@
     { class: 'form-control form-group' } %>
     <%= f.input :result, label: 'Calificación', collection: %w[Bueno Regular Deficiente], 
     prompt: 'Calificación' %>
-    <%= image_tag f.object.image %>
+    <%= image_tag f.object.image if @evaluation.image.attached? %>
     <label class="btn btn-info">
       Imagen
       <span style="display:none;">

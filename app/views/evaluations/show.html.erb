@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <%= image_tag @evaluation.image %>
+  <%= image_tag @evaluation.image if @evaluation.image.attached? %>
 </p>
 
 <p>
