@@ -25,12 +25,14 @@ class WorkPlansController < ApplicationController
   # POST /work_plans
   # POST /work_plans.json
   def create
+
+    debugger
     @work_plan = WorkPlan.new(work_plan_params)
 
     respond_to do |format|
       if @work_plan.save
         format.html { redirect_to @work_plan, notice: 'Work plan was successfully created.' }
-        format.json { render :show, status: :created, location: @work_plan }
+        format.json { ren der :show, status: :created, location: @work_plan }
       else
         format.html { render :new }
         format.json { render json: @work_plan.errors, status: :unprocessable_entity }
@@ -74,6 +76,6 @@ class WorkPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_plan_params
-      params.require(:work_plan).permit(:task, :status, :assigned_to, :start_date, :end_date, :square_meters, :cost_estimate_per_square_meter, :real_cost, :comment)
+      params.require(:work_plan).permit(:task, :status, :assigned_to, :start_date, :end_date, :square_meters, :cost_estimate_per_square_meter, :real_cost, :comment, images: [])
     end
 end

@@ -2,14 +2,13 @@
 #
 # Table name: evaluations
 #
-#  id          :integer          not null, primary key
-#  employee_id :integer
-#  task_id     :integer
+#  id          :bigint(8)        not null, primary key
+#  employee_id :bigint(8)
+#  task_id     :bigint(8)
 #  result      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  comment     :text
-#  image       :string
 #  date        :date
 #
 

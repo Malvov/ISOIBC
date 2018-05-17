@@ -2,8 +2,8 @@
 #
 # Table name: schedules
 #
-#  id                    :integer          not null, primary key
-#  customer_id           :integer
+#  id                    :bigint(8)        not null, primary key
+#  customer_id           :bigint(8)
 #  month                 :string
 #  maintenances_quantity :integer
 #  created_at            :datetime         not null

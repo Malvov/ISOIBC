@@ -33,7 +33,7 @@ class EvaluationsController < ApplicationController
   # POST /evaluations.json
   def create
     @evaluation = Evaluation.new(evaluation_params)
-    @evaluation.image.attach(params[:evaluation][:image])
+    
 
     if @evaluation.save
       flash[:success] = 'Guardado correctamente'

@@ -2,7 +2,7 @@
 #
 # Table name: elevator_forms
 #
-#  id            :integer          not null, primary key
+#  id            :bigint(8)        not null, primary key
 #  start_at      :time
 #  end_at        :time
 #  date          :date

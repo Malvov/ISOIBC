@@ -2,7 +2,7 @@
 #
 # Table name: work_plans
 #
-#  id                             :integer          not null, primary key
+#  id                             :bigint(8)        not null, primary key
 #  task                           :string
 #  status                         :string
 #  assigned_to                    :string
@@ -18,12 +18,13 @@
 
 class WorkPlan < ApplicationRecord
     validates_presence_of :task, :status
+    has_many_attached :images
 
     STATUS = ['No iniciado', 'En progreso', 'Retrasado', 'Completado', 'Anteproyecto', 'Presupuestación']
 
     attr_accessor :global_cost
 
     def global_cost
-        @global_cost = square_meters * cost_estimate_per_square_meter
+        @global_cost = square_meters * cost_estimate_per_square_meter unless square_meters.nil? or cost_estimate_per_square_meter.nil?
     end
 end

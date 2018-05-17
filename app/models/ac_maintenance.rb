@@ -2,8 +2,8 @@
 #
 # Table name: ac_maintenances
 #
-#  id               :integer          not null, primary key
-#  customer_id      :integer
+#  id               :bigint(8)        not null, primary key
+#  customer_id      :bigint(8)
 #  parts            :string           default([]), is an Array
 #  user_id          :integer
 #  maintenance_type :string

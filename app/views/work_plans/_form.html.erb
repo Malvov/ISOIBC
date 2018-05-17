@@ -35,7 +35,13 @@
         <%= f.input :cost_estimate_per_square_meter, label: 'Costo estimado por m2' %>  
       </div>
     </div>
-    
+
+    <label class="btn btn-info">
+      Imágenes
+      <span style="display:none;">
+        <%= f.file_field :images, multiple: true %>
+      </span>
+    </label>
     <%= f.input :real_cost, label: 'Costo real' %>
     <%= f.input :comment, label: 'Observaciones' %>
   </div>

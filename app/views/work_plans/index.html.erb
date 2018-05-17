@@ -36,8 +36,8 @@
         <td><%= work_plan.task %></td>
         <td><%= work_plan.status %></td>
         <td><%= work_plan.assigned_to %></td>
-        <td><%= work_plan.start_date %></td>
-        <td><%= work_plan.end_date %></td>
+        <td><%= work_plan.start_date.strftime '%d/%m/%Y' %></td>
+        <td><%= work_plan.end_date.strftime '%d/%m/%Y' %></td>
         <td><%= work_plan.square_meters %></td>
         <td><%= number_to_currency work_plan.cost_estimate_per_square_meter, unit: '$' %></td>
         <td><%= number_to_currency work_plan.global_cost, unit: '$' %></td>
