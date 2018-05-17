@@ -13,17 +13,13 @@
     { class: 'form-control form-group' } %>
     <%= f.input :result, label: 'Calificación', collection: %w[Bueno Regular Deficiente], 
     prompt: 'Calificación' %>
+    <%= image_tag f.object.image if @evaluation.image.attached? %>
     <label class="btn btn-info">
       Imagen
       <span style="display:none;">
         <%= f.input :image, as: :file %>
       </span>
     </label>
-    <% if f.object.image? %>
-      <%= image_tag f.object.image.url %>
-      <%= label_tag "Quitar imagen" %>
-      <%= f.input :remove_image, as: :boolean, label: false %>
-    <% end %>
     <%= f.input :comment, label: 'Observaciones' %>
     <%# f.input :date, label: 'Fecha de supervisión', 
     order: [:day, :month, :year],  use_month_numbers: true %>

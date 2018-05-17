@@ -78,10 +78,6 @@ gem 'will_paginate-bootstrap'
 #search
 gem 'pg_search'
 
-#image upload
-gem 'carrierwave', '~> 1.0'
-gem 'mini_magick'
-
 #authentication
 gem 'devise'
 

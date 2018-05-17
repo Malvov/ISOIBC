@@ -20,7 +20,7 @@ class Evaluation < ApplicationRecord
   
   validates_presence_of :result, :task_id, :employee_id
 
-  mount_uploader :image, ImageUploader
+  has_one_attached :image
   
   include PgSearch
   pg_search_scope :search, against: [:result, :comment, :date],
