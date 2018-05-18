@@ -18,7 +18,7 @@
 
 class WorkPlan < ApplicationRecord
     validates_presence_of :task, :status
-    has_many_attached :images
+    has_one_attached :image
 
     STATUS = ['No iniciado', 'En progreso', 'Retrasado', 'Completado', 'Anteproyecto', 'Presupuestación']
 

@@ -3,7 +3,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :task, label: 'Tarea' %>
+    <%= f.input :task, label: 'Proyecto' %>
     <%= f.input :status, collection: @status, label: 'Estado', prompt: 'Seleccionar estado' %>
     <%= f.input :assigned_to, label: 'Asignado a' %>
 
@@ -39,7 +39,7 @@
     <label class="btn btn-info">
       Imágenes
       <span style="display:none;">
-        <%= f.file_field :images, multiple: true %>
+        <%= f.file_field :image %>
       </span>
     </label>
     <%= f.input :real_cost, label: 'Costo real' %>
