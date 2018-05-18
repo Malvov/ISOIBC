@@ -1,5 +1,6 @@
 class ElevatorFormsController < ApplicationController
   before_action :set_elevator_form, only: [:show, :edit, :update, :destroy]
+  before_action :set_elevators, only: [:new, :create, :edit, :update]
 
   # GET /elevator_forms
   # GET /elevator_forms.json
@@ -65,6 +66,10 @@ class ElevatorFormsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_elevator_form
       @elevator_form = ElevatorForm.find(params[:id])
+    end
+
+    def set_elevators
+      @elevators = ElevatorForm::ELEVATORS
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -37,7 +37,7 @@
         </div>  
       </div>
       <div class="col-lg-6">
-        <%= f.input :elevator, collection: %w[Oeste Este], label: 'Elevadores',
+        <%= f.input :elevator, collection: @elevators, label: 'Elevadores',
         include_blank: 'Escoger elevador' %>
       </div>
     </div>
