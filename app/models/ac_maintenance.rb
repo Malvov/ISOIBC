@@ -2,8 +2,8 @@
 #
 # Table name: ac_maintenances
 #
-#  id               :integer          not null, primary key
-#  customer_id      :integer
+#  id               :bigint(8)        not null, primary key
+#  customer_id      :bigint(8)
 #  parts            :string           default([]), is an Array
 #  user_id          :integer
 #  maintenance_type :string
@@ -28,6 +28,21 @@ class AcMaintenance < ApplicationRecord
   MAINTENANCE_TYPES = %w[Emergencia Programado]
 
   TASK_TYPES = %w[Reparación Reemplazo Programación Cambio_Total]
+  include PgSearch
+  pg_search_scope :search, against: [:maintenance_type, :parts],
+  associated_against: { customer: :name }, using: {
+    tsearch: {
+      prefix: true
+    }
+  }
+  
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      unscoped
+    end
+  end
   
 
 end

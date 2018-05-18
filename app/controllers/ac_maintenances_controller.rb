@@ -5,7 +5,13 @@ class AcMaintenancesController < ApplicationController
   # GET /ac_maintenances
   # GET /ac_maintenances.json
   def index
-    @ac_maintenances = AcMaintenance.paginate(page: params[:page]).per_page(10)
+    if params[:query]
+      @ac_maintenances = AcMaintenance.text_search(params[:query]).paginate(page: params[:page]).
+      order(date: :asc).per_page(10)
+      flash[:notice] = 'Ningún resultado' if @ac_maintenances.empty?
+    else
+      @ac_maintenances = AcMaintenance.paginate(page: params[:page]).order(date: :asc).per_page(10)
+    end
   end
 
   # GET /ac_maintenances/1

@@ -2,10 +2,10 @@
 #
 # Table name: measurement_types
 #
-#  id           :integer          not null, primary key
+#  id           :bigint(8)        not null, primary key
 #  name         :string
-#  equipment_id :integer
-#  parameter_id :integer
+#  equipment_id :bigint(8)
+#  parameter_id :bigint(8)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  unit         :string
