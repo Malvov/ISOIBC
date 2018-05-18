@@ -15,6 +15,7 @@
 
 class ElevatorForm < ApplicationRecord
     validates_presence_of :elevator, :start_at, :end_at, :date, :elevator
+    ELEVATORS = ['Este', 'Oeste', 'Número 1', 'Número 2', 'Número 3', 'Número 4']
     attr_accessor :total_minutes
 
     def total_minutes
