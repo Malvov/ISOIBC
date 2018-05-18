@@ -25,6 +25,21 @@ class AcMaintenance < ApplicationRecord
 
   CONJUNTO = %w[Manejadora Condensadora Ductería Termostato]
 
+  include PgSearch
+  pg_search_scope :search, against: [:maintenance_type, :parts],
+  associated_against: { customer: :name }, using: {
+    tsearch: {
+      prefix: true
+    }
+  }
+  
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      unscoped
+    end
+  end
   
 
 end
