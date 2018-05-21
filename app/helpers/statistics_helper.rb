@@ -124,4 +124,30 @@ module StatisticsHelper
             }
           }
     end
+
+    def total_minutes_per_elevator_per_month_chart
+        column_chart total_minutes_per_elevator_per_month_charts_path,
+        id: 'total_minutes_per_elevator_per_month',
+        library: {
+            colors: [
+                '#34fc02', #Programados
+                '#2c5bd8', #Completados
+                '#fca902' #todos
+                
+                
+            ], title: { text: 'Informe de elevadores por mes' },
+              yAxis: {
+                title: { text: 'Minutos detenido' },
+                allowDecimals: false
+            },
+            xAxis: {
+                title: { text: 'Mes' }
+            },                                                                                                                                                                                                  
+            plotOptions: {
+                series: {
+                    pointWidth: 50
+                }
+            }
+          }
+    end
 end

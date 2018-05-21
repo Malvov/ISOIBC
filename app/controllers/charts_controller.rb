@@ -45,7 +45,7 @@ class ChartsController < ApplicationController
             maintenance_quantities = customer.schedules.group(:month).sum(:maintenances_quantity)
             valid_fors_programados = customer.ac_maintenances.programados.group_by_month(:date, format: '%B').sum(:valid_for)
         end
-
+        ElevatorForm.group(:elevator).group_by_month(:date, format: '%B').sum(:total_minutes).chart_json
         
         ac_maintenance_months.each do |month|
             case month
@@ -100,6 +100,17 @@ class ChartsController < ApplicationController
             end
         end
         render json: hash.chart_json
+    end
+
+    def total_minutes_per_elevator_per_month
+        unless params[:start_at].blank? && params[:end_at].blank?
+            start_at = params[:start_at].to_date
+            end_at = params[:end_at].to_date
+            render json: ElevatorForm.group(:elevator).
+            group_by_month(:date, range: start_at..end_at, format: '%B').sum(:total_minutes).chart_json
+        else
+            render json: ElevatorForm.group(:elevator).group_by_month(:date, format: '%B').sum(:total_minutes).chart_json
+        end
     end
 
 end

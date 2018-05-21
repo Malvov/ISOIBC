@@ -88,5 +88,14 @@
     <% end %>
     <% if current_user.admin? || current_user.department == 'seguridad' %>
         <%= link_to 'Informes de elevadores', elevator_forms_path, class: 'btn btn-lg btn-primary' %>
+        <%= total_minutes_per_elevator_per_month_chart %>
+        <div class="row">
+            <div class="col-lg-6">
+                <%= label_tag 'Desde' %>
+                <%= date_field_tag :elevators_start_at %>
+                <%= label_tag 'Hasta' %>
+                <%= date_field_tag :elevators_end_at %>
+            </div>
+        </div>
     <% end %>
 <% end %>

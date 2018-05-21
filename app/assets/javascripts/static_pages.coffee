@@ -11,6 +11,7 @@ $(document).ready ->
   # #$(document)
   optionChanged()
   acCustomerButtonClicked()
+  elevatorFormsPerMonth()
 
 
 
@@ -61,4 +62,19 @@ acCustomerButtonClicked = ->
     return
   return
 
-  
+elevatorFormsPerMonth = ->
+  $('#elevators_end_at').change (e) ->
+    end_at = $(e.target).val()
+    start_at = $('#elevators_start_at').val()
+    $.ajax
+      type: 'POST'
+      url: '/charts/total_minutes_per_elevator_per_month'
+      data:
+        start_at: start_at
+        end_at: end_at
+      success: (data) ->
+        chart = Chartkick.charts['total_minutes_per_elevator_per_month']
+        chart.updateData data
+        return
+    return
+  return
