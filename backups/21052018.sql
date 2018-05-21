@@ -100,7 +100,7 @@ SELECT pg_catalog.setval('public.active_storage_blobs_id_seq', 1, false);
 -- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: intranet
 --
 
---INSERT INTO public.ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-05-18 15:25:23.012052', '2018-05-18 15:25:23.012052');
+INSERT INTO public.ar_internal_metadata (key, value, created_at, updated_at) VALUES ('environment', 'development', '2018-05-18 15:25:23.012052', '2018-05-18 15:25:23.012052');
 
 
 --
@@ -114,8 +114,8 @@ SELECT pg_catalog.setval('public.customers_id_seq', 16, true);
 -- Data for Name: elevator_forms; Type: TABLE DATA; Schema: public; Owner: intranet
 --
 
-INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at) VALUES (1, '09:40:00', '12:15:00', '2018-05-17', 'Número 1', false, NULL, '2018-05-18 15:53:07.669592', '2018-05-18 15:53:07.669592');
-INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at) VALUES (2, '01:13:00', '02:37:00', '2018-05-03', 'Oeste', false, NULL, '2018-05-21 14:04:43.788125', '2018-05-21 14:04:43.788125');
+INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at, total_minutes) VALUES (1, '09:40:00', '12:15:00', '2018-05-17', 'Número 1', false, NULL, '2018-05-18 15:53:07.669592', '2018-05-21 21:28:33.962391', 155);
+INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at, total_minutes) VALUES (2, '01:13:00', '02:37:00', '2018-05-03', 'Oeste', false, NULL, '2018-05-21 14:04:43.788125', '2018-05-21 21:29:10.177033', 84);
 
 
 --
@@ -4264,33 +4264,34 @@ SELECT pg_catalog.setval('public.schedules_id_seq', 63, true);
 -- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: intranet
 --
 
--- INSERT INTO public.schema_migrations (version) VALUES ('20180306155809');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180306161208');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180306201154');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180306202408');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180307211341');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180308181334');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180312143933');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180312163057');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180315213425');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180320153956');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180327203924');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180327211407');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180328144145');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180402145520');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180403143038');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180403145022');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180404212141');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180410153207');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180418150319');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180425202255');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180426182610');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180427215013');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180427220711');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180430144732');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180503211112');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180509195512');
--- INSERT INTO public.schema_migrations (version) VALUES ('20180517162937');
+INSERT INTO public.schema_migrations (version) VALUES ('20180306155809');
+INSERT INTO public.schema_migrations (version) VALUES ('20180306161208');
+INSERT INTO public.schema_migrations (version) VALUES ('20180306201154');
+INSERT INTO public.schema_migrations (version) VALUES ('20180306202408');
+INSERT INTO public.schema_migrations (version) VALUES ('20180307211341');
+INSERT INTO public.schema_migrations (version) VALUES ('20180308181334');
+INSERT INTO public.schema_migrations (version) VALUES ('20180312143933');
+INSERT INTO public.schema_migrations (version) VALUES ('20180312163057');
+INSERT INTO public.schema_migrations (version) VALUES ('20180315213425');
+INSERT INTO public.schema_migrations (version) VALUES ('20180320153956');
+INSERT INTO public.schema_migrations (version) VALUES ('20180327203924');
+INSERT INTO public.schema_migrations (version) VALUES ('20180327211407');
+INSERT INTO public.schema_migrations (version) VALUES ('20180328144145');
+INSERT INTO public.schema_migrations (version) VALUES ('20180402145520');
+INSERT INTO public.schema_migrations (version) VALUES ('20180403143038');
+INSERT INTO public.schema_migrations (version) VALUES ('20180403145022');
+INSERT INTO public.schema_migrations (version) VALUES ('20180404212141');
+INSERT INTO public.schema_migrations (version) VALUES ('20180410153207');
+INSERT INTO public.schema_migrations (version) VALUES ('20180418150319');
+INSERT INTO public.schema_migrations (version) VALUES ('20180425202255');
+INSERT INTO public.schema_migrations (version) VALUES ('20180426182610');
+INSERT INTO public.schema_migrations (version) VALUES ('20180427215013');
+INSERT INTO public.schema_migrations (version) VALUES ('20180427220711');
+INSERT INTO public.schema_migrations (version) VALUES ('20180430144732');
+INSERT INTO public.schema_migrations (version) VALUES ('20180503211112');
+INSERT INTO public.schema_migrations (version) VALUES ('20180509195512');
+INSERT INTO public.schema_migrations (version) VALUES ('20180517162937');
+INSERT INTO public.schema_migrations (version) VALUES ('20180521190827');
 
 
 --
@@ -4306,9 +4307,9 @@ SELECT pg_catalog.setval('public.tasks_id_seq', 136, true);
 
 INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (4, 'aireacondicionado', 'electricistas@grupoinvercasa.com', '$2a$11$DbR/w12AVMvhK/Af2a0tjuthbG70hkwk6b3o9i3Tq9g/5qmlnu3j6', NULL, NULL, NULL, 22, '2018-05-16 22:52:03.653893', '2018-05-16 20:09:52.579783', '172.16.10.36', '172.16.34.3', '2018-04-27 18:12:21.24879', '2018-05-16 22:52:03.660909', NULL, false, 'ac');
 INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (3, 'martha', 'martha@grupoinvercasa.com.ni', '$2a$11$1MtwE6TaRorTU/RFX9UEQeB8kJpUpTOrnjq905hrf7KpUBy9od8Qy', NULL, NULL, NULL, 45, '2018-05-18 22:02:00.714971', '2018-05-15 22:43:44.144748', '172.16.34.4', '172.16.34.4', '2018-04-04 21:47:23.346073', '2018-05-18 22:02:00.717276', '', false, 'mantenimiento');
-INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (5, 'seguridad', 'seguridad@grupoinvercasa.com.ni', '$2a$11$2KdjxIgePCIj5FX3iEhURuaAaIhkD9LcXdRPNqOzKDVzFS.S.t5Su', NULL, NULL, NULL, 8, '2018-05-21 14:02:57.643586', '2018-05-18 19:49:53.007487', '172.16.34.13', '172.16.34.13', '2018-05-16 21:09:10.541366', '2018-05-21 14:02:57.6457', NULL, false, 'seguridad');
-INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (1, 'admin', 'admin@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 65, '2018-05-21 14:28:35.504296', '2018-05-18 18:04:00.657016', '172.16.10.36', '172.16.10.36', '2018-03-14 20:08:01.855514', '2018-05-21 14:28:35.506438', '', true, NULL);
-INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (2, 'lballadares', 'electricos@invercasa.com.ni', '$2a$11$DaAcDbyxY5MsaqeVLraJHuIYcnTIB6D1AWyS3ZJRV0jD1x1jkGEVK', NULL, NULL, NULL, 51, '2018-05-21 15:16:11.18536', '2018-05-20 19:14:22.644432', '172.16.34.3', '172.16.34.3', '2018-04-04 15:23:16.488569', '2018-05-21 15:16:11.221182', '', false, 'electricista');
+INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (2, 'lballadares', 'electricos@invercasa.com.ni', '$2a$11$DaAcDbyxY5MsaqeVLraJHuIYcnTIB6D1AWyS3ZJRV0jD1x1jkGEVK', NULL, NULL, NULL, 52, '2018-05-21 21:06:31.717014', '2018-05-21 15:16:11.18536', '172.16.34.3', '172.16.34.3', '2018-04-04 15:23:16.488569', '2018-05-21 21:06:31.818244', '', false, 'electricista');
+INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (1, 'admin', 'admin@grupoinvercasa.com.ni', '$2a$11$ISrQmNbI6LgDVKj2kqYLUuFs/8hP/OgQpc/VVPb94k7BWzOTEGWhi', NULL, NULL, NULL, 67, '2018-05-21 21:45:25.845649', '2018-05-21 17:58:46.952364', '172.16.10.36', '172.16.10.36', '2018-03-14 20:08:01.855514', '2018-05-21 21:45:25.847979', '', true, NULL);
+INSERT INTO public.users (id, username, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, name, admin, department) VALUES (5, 'seguridad', 'seguridad@grupoinvercasa.com.ni', '$2a$11$2KdjxIgePCIj5FX3iEhURuaAaIhkD9LcXdRPNqOzKDVzFS.S.t5Su', NULL, NULL, NULL, 10, '2018-05-21 21:46:38.642787', '2018-05-21 21:32:35.182078', '172.16.34.13', '172.16.10.36', '2018-05-16 21:09:10.541366', '2018-05-21 21:46:38.645645', NULL, false, 'seguridad');
 
 
 --
