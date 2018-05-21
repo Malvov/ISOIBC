@@ -11,17 +11,13 @@
 #  people_caught :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  total_minutes :float
 #
 
 class ElevatorForm < ApplicationRecord
     validates_presence_of :elevator, :start_at, :end_at, :date, :elevator
     ELEVATORS = ['Este', 'Oeste', 'Número 1', 'Número 2', 'Número 3', 'Número 4']
-    attr_accessor :total_minutes
-
-    def total_minutes
-        #@total_minutes = ((end_at-start_at)/60).abs
-        @total_minutes = time_difference(start_at, end_at)
-    end
+    before_save { self.total_minutes = time_difference(start_at, end_at) }
 
     def maintenance?
         if maintenance
@@ -32,7 +28,7 @@ class ElevatorForm < ApplicationRecord
     end
 
     private 
-
+    
     def time_difference(start_at, end_at)
         difference = end_at - start_at
         
