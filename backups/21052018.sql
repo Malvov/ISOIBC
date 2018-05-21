@@ -114,8 +114,8 @@ SELECT pg_catalog.setval('public.customers_id_seq', 16, true);
 -- Data for Name: elevator_forms; Type: TABLE DATA; Schema: public; Owner: intranet
 --
 
--- INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at) VALUES (1, '09:40:00', '12:15:00', '2018-05-17', 'Número 1', false, NULL, '2018-05-18 15:53:07.669592', '2018-05-18 15:53:07.669592');
--- INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at) VALUES (2, '01:13:00', '02:37:00', '2018-05-03', 'Oeste', false, NULL, '2018-05-21 14:04:43.788125', '2018-05-21 14:04:43.788125');
+INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at) VALUES (1, '09:40:00', '12:15:00', '2018-05-17', 'Número 1', false, NULL, '2018-05-18 15:53:07.669592', '2018-05-18 15:53:07.669592');
+INSERT INTO public.elevator_forms (id, start_at, end_at, date, elevator, maintenance, people_caught, created_at, updated_at) VALUES (2, '01:13:00', '02:37:00', '2018-05-03', 'Oeste', false, NULL, '2018-05-21 14:04:43.788125', '2018-05-21 14:04:43.788125');
 
 
 --
