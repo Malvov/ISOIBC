@@ -7,10 +7,11 @@ class MeasurementsController < ApplicationController
   # GET /measurements
   # GET /measurements.json
   def index
+    
     @measurements = Array.new
-    @measurement_types = @equipment.measurement_types
+    @measurement_types =  @equipment.measurement_types
     @measurement_types.each do |measurement_type|
-      measurement_type.measurements.each do |measurement|
+      measurement_type.measurements.order(date: :desc).each do |measurement|
         @measurements << measurement
       end
     end
@@ -41,7 +42,7 @@ class MeasurementsController < ApplicationController
     equipment = Equipment.find(params[:equipment_id])
     
     equipment.measurement_types.each do |measurement_type|
-      measurement_type.measurements.each do |measurement|
+      measurement_type.measurements.order(date: :desc).each do |measurement|
         @measurements << measurement unless measurement.is_ok?
       end
     end

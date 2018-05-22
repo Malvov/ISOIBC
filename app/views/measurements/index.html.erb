@@ -1,6 +1,17 @@
 <h1>Mediciones de <%= @equipment.name %></h1>
 <%= link_to 'Nueva', new_measurement_path, class: 'btn btn-success' %>
-<%= will_paginate @measurements, renderer: BootstrapPagination::Rails %>
+
+<div class="row">
+  <div class="col-lg-8">
+    <%= will_paginate @measurements, renderer: BootstrapPagination::Rails %>    
+  </div>
+  <div class="col-lg-4">
+    <%= label_tag 'Escoger tipo de medición' %>
+    <%= select_tag :measurement_type, options_from_collection_for_select(@measurement_types, 'id', 'name'), { class: 'form-control form-group', data: { 'equipment-id': @equipment.id.to_s }  } %>
+  </div>
+</div>
+
+
 <table class="table table-striped table-hover table-responsive">
   <thead>
     <tr>

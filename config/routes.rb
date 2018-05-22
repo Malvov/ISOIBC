@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/equipos', to: 'measurements#equipos'
 
   get '/equipos/:equipment_id/mediciones', to: 'measurements#index', as: :mediciones
+  get '/equipos/:equipment_id/mediciones', to: 'measurements#index'
+  
 
   resources :measurements, except: :index
 
