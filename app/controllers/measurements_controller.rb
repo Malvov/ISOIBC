@@ -7,15 +7,22 @@ class MeasurementsController < ApplicationController
   # GET /measurements
   # GET /measurements.json
   def index
-    
     @measurements = Array.new
-    @measurement_types =  @equipment.measurement_types
-    @measurement_types.each do |measurement_type|
+    @measurement_types = @equipment.measurement_types
+    if params[:measurement_type]
+      measurement_type = @equipment.measurement_types.find_by_name(params[:measurement_type])
       measurement_type.measurements.order(date: :desc).each do |measurement|
         @measurements << measurement
       end
+    else
+      @measurement_types.each do |measurement_type|
+        measurement_type.measurements.order(date: :desc).each do |measurement|
+          @measurements << measurement
+        end
+      end
     end
     @measurements = @measurements.paginate(page: params[:page], per_page: 10)
+
   end
 
   def get_parameters

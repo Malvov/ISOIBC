@@ -6,7 +6,7 @@
 
 
     
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
   evaluationsResultsPerMonth()
   # #$(document)
   optionChanged()

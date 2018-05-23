@@ -8,7 +8,6 @@ $(document).on 'turbolinks:load', ->
   })
   changeMeasurementTypes()
   changeInputAccordingToParameter()
-  measurementsAccordingToMeasurementType()
   if $('#equipment_id').length
     changeMeasurementTypesWhenLoaded()
   
@@ -65,19 +64,3 @@ changeMeasurementTypesWhenLoaded = ->
         $('#measurement_measurement_type_id').html(options)
       else
         $('#measurement_measurement_type_id').empty() 
-
-measurementsAccordingToMeasurementType = ->
-  equipmentId = $('#measurement_type').attr('data-equipment-id')
-  $('#measurement_type').change ->
-    measurementType = $('#measurement_type :selected').text()
-    $.ajax
-      type: 'GET'
-      url: '/equipos/'+eqipmentId+'/mediciones'
-      data:
-        equipment_id: equipmentId
-        measurement_type: measurementType
-      success: (data) ->
-        return
-    return
-  return
-    
