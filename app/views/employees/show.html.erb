@@ -5,5 +5,10 @@
 
 <%= employee_evaluations(@employee) %>
 
+<div id="evaluations">
+  <%= render 'employee_evaluations', remote: true %>
+</div>
+
+
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>

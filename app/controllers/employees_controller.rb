@@ -11,6 +11,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
+    @evaluations = @employee.evaluations.paginate(page: params[:page]).order(date: :asc).per_page(10)
   end
 
   # GET /employees/new

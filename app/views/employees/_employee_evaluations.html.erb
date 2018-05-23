@@ -1,0 +1,22 @@
+<h3>Resultados</h3>
+<%= will_paginate @evaluations, renderer: BootstrapPagination::Rails %> 
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tarea</th>
+      <th>Resultado</th>
+      <th>Comentario</th>
+      <th>Fecha</th>
+    </tr>  
+  </thead>
+  <tbody>
+    <% @evaluations.each do |evaluation| %>
+      <tr>
+        <td><%= evaluation.task.name %></td>
+        <td><%= evaluation.result %></td>
+        <td><%= evaluation.comment %></td>
+        <td><%= evaluation.date.strftime '%d/%m/%Y' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
