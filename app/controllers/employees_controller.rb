@@ -5,13 +5,15 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.sort_by_calificacion
+    @employees = Employee.operarixs.sort_by_calificacion
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @evaluations = @employee.evaluations.paginate(page: params[:page]).order(date: :asc).per_page(10)
+    if @employee.type.nil?
+      @evaluations = @employee.evaluations.paginate(page: params[:page]).order(date: :asc).per_page(10)
+    end
   end
 
   # GET /employees/new

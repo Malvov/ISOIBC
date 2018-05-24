@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
   
-  
+  resources :manager_work_plans
+  resources :areas
   resources :elevator_forms
   resources :ac_maintenances
   resources :schedules
   resources :customers
   resources :measurement_types
   resources :parameters
-  resources :equipment 
+  resources :equipment
   devise_for :users
   root 'static_pages#home'
 
   resources :evaluations 
   resources :employees
+  resources :person_responsibles
   resources :zones
   
   get '/equipos', to: 'measurements#equipos'

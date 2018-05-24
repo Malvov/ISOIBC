@@ -80,6 +80,13 @@
                   <li><%= link_to 'Programaciones', schedules_path %></li>
                 </li>
               <% end %>
+              <% if current_user.admin? %>
+                <li role="separator" class="divider">
+                  <li class="dropdown-header">Gerencia</li>
+                  <li><%= link_to 'Responsables', person_responsibles_path %></li>
+                  <li><%= link_to 'Áreas', areas_path %></li>
+                </li>
+              <% end %>
             </ul>
           </li>
           <li class="dropdown">

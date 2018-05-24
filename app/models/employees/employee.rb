@@ -6,10 +6,12 @@
 #  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  type       :string
 #
 
 class Employee < ApplicationRecord
     has_many :evaluations, dependent: :destroy
+    scope :operarixs,  -> { where(type: nil) } #por ahora
     attr_accessor :calificacion
 
 
@@ -25,6 +27,7 @@ class Employee < ApplicationRecord
     
     def score
         total = 0
+        
         results.each do |result|
             case result
             when 'Bueno'
@@ -35,11 +38,15 @@ class Employee < ApplicationRecord
                 total += 0
             end
         end
-        (total.to_f/evaluations_total) * 100
+        total.to_f/evaluations_total*100
     end
 
     def evaluations_total
-        evaluations.count * 2
+        if evaluations.count > 0
+            evaluations.count * 2
+        else
+            1
+        end
     end
     
     def results

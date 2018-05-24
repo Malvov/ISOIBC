@@ -1,0 +1,38 @@
+
+<%= simple_form_for(@manager_work_plan) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :area, label: 'Área', prompt: 'Escoger área' %>
+    <%= f.input :task, label: 'Actividad' %>
+    <%= f.input :person_responsible_id, label: 'Responsable', collection: PersonResponsible.all, prompt: 'Escoger responsable' %>
+    <%= f.input :priority, label: 'Prioridad', collection: %w[Alta Media Baja], prompt: 'Escoger prioridad' %>
+    <div class="row">
+      <div class="col-lg-6">
+        <%= f.label :start_date, label: 'Fecha de inicio' %>
+        <div class="input-group form-group">
+          <%= f.text_field :start_date, class: 'form-control datetimepicker', value: @manager_work_plan.persisted? ? f.object.start_date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y')  %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <%= f.label :end_date, label: 'Fecha de fin' %>
+        <div class="input-group form-group">
+          <%= f.text_field :end_date, class: 'form-control datetimepicker', value: @manager_work_plan.persisted? ? f.object.end_date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y')  %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+      </div>
+      
+    </div>
+    <%= f.input :progress, label: 'Progreso', collection: %w[0% 25 50 75 100], prompt: 'Escoger progreso'  %>
+    <%= f.input :comment %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Guardar' %>
+  </div>
+<% end %>

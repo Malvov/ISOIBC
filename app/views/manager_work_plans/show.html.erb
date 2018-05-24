@@ -1,0 +1,42 @@
+<p>
+  <strong>Area:</strong>
+  <%= @manager_work_plan.area %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @manager_work_plan.task %>
+</p>
+
+<p>
+  <strong>Person responsible:</strong>
+  <%= @manager_work_plan.person_responsible_id %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @manager_work_plan.priority %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @manager_work_plan.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @manager_work_plan.end_date %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @manager_work_plan.progress %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @manager_work_plan.comment %>
+</p>
+
+<%= link_to 'Edit', edit_manager_work_plan_path(@manager_work_plan) %> |
+<%= link_to 'Back', manager_work_plans_path %>

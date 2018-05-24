@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   
   <div class="form-inputs">
-    <%= f.association :employee, label: 'Operario/a', prompt: 'Escoger operario/a' %>
+    <%= f.association :employee, collection: Employee.operarixs, label: 'Operario/a', prompt: 'Escoger operario/a' %>
     <%= label_tag 'Sectores' %>
     <%= select_tag 'zone_id',
     options_from_collection_for_select(Zone.all, 'id', 'name'), class: 'form-control form-group', 

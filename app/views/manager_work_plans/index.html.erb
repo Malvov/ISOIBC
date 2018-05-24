@@ -1,0 +1,46 @@
+<h1>Manager Work Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Task</th>
+      <th>Person responsible</th>
+      <th>Priority</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Progress</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manager_work_plans.each do |manager_work_plan| %>
+      <tr>
+        <td><%= manager_work_plan.area %></td>
+        <td><%= manager_work_plan.task %></td>
+        <td><%= manager_work_plan.person_responsible_id %></td>
+        <td><%= manager_work_plan.priority %></td>
+        <td><%= manager_work_plan.start_date %></td>
+        <td><%= manager_work_plan.end_date %></td>
+        <td>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="<%= manager_work_plan.progress %>"
+            aria-valuemin="0" aria-valuemax="100" style="width:70%">
+              <%= manager_work_plan.progress %>%
+            </div>
+          </div>  
+        </td>
+        <td><%= manager_work_plan.comment %></td>
+        <td><%= link_to 'Show', manager_work_plan %></td>
+        <td><%= link_to 'Edit', edit_manager_work_plan_path(manager_work_plan) %></td>
+        <td><%= link_to 'Destroy', manager_work_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Manager Work Plan', new_manager_work_plan_path %>

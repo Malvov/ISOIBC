@@ -145,6 +145,37 @@ CREATE TABLE ar_internal_metadata (
 
 
 --
+-- Name: areas; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE areas (
+    id bigint NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: areas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE areas_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: areas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE areas_id_seq OWNED BY areas.id;
+
+
+--
 -- Name: customers; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -221,7 +252,8 @@ CREATE TABLE employees (
     id bigint NOT NULL,
     name character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    type character varying
 );
 
 
@@ -310,6 +342,44 @@ CREATE SEQUENCE evaluations_id_seq
 --
 
 ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
+
+
+--
+-- Name: manager_work_plans; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE manager_work_plans (
+    id bigint NOT NULL,
+    area_id bigint,
+    task character varying,
+    person_responsible_id integer NOT NULL,
+    priority character varying,
+    start_date date,
+    end_date date,
+    progress integer,
+    comment text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: manager_work_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE manager_work_plans_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: manager_work_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE manager_work_plans_id_seq OWNED BY manager_work_plans.id;
 
 
 --
@@ -590,6 +660,13 @@ ALTER TABLE ONLY active_storage_blobs ALTER COLUMN id SET DEFAULT nextval('activ
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY areas ALTER COLUMN id SET DEFAULT nextval('areas_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY customers ALTER COLUMN id SET DEFAULT nextval('customers_id_seq'::regclass);
 
 
@@ -619,6 +696,13 @@ ALTER TABLE ONLY equipment ALTER COLUMN id SET DEFAULT nextval('equipment_id_seq
 --
 
 ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY manager_work_plans ALTER COLUMN id SET DEFAULT nextval('manager_work_plans_id_seq'::regclass);
 
 
 --
@@ -703,6 +787,14 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
+-- Name: areas_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY areas
+    ADD CONSTRAINT areas_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -740,6 +832,14 @@ ALTER TABLE ONLY equipment
 
 ALTER TABLE ONLY evaluations
     ADD CONSTRAINT evaluations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: manager_work_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY manager_work_plans
+    ADD CONSTRAINT manager_work_plans_pkey PRIMARY KEY (id);
 
 
 --
@@ -863,6 +963,13 @@ CREATE INDEX index_evaluations_on_task_id ON evaluations USING btree (task_id);
 
 
 --
+-- Name: index_manager_work_plans_on_area_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_manager_work_plans_on_area_id ON manager_work_plans USING btree (area_id);
+
+
+--
 -- Name: index_measurement_types_on_equipment_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -966,6 +1073,14 @@ ALTER TABLE ONLY tasks
 
 
 --
+-- Name: fk_rails_5c51c56c51; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY manager_work_plans
+    ADD CONSTRAINT fk_rails_5c51c56c51 FOREIGN KEY (area_id) REFERENCES areas(id);
+
+
+--
 -- Name: fk_rails_898c99af36; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1023,6 +1138,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180503211112'),
 ('20180509195512'),
 ('20180517162937'),
-('20180521190827');
+('20180521190827'),
+('20180524174844'),
+('20180524193707'),
+('20180524224648');
 
 

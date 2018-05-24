@@ -22,7 +22,9 @@ class ChartsController < ApplicationController
 
     def individual_evaluations
         employee = Employee.find(params[:employee_id])
-        render json: employee.evaluations.group(:result).order(result: :asc).count.chart_json        
+        if employee.type.nil?
+            render json: employee.evaluations.group(:result).order(result: :asc).count.chart_json        
+        end
     end
 
     def ac_maintenance_goals

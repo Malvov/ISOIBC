@@ -1,0 +1,2 @@
+module ManagerWorkPlansHelper
+end
