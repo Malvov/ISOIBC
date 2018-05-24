@@ -9,12 +9,20 @@ class MeasurementsController < ApplicationController
   def index
     @measurements = Array.new
     @measurement_types = @equipment.measurement_types
-    @measurement_types.each do |measurement_type|
-      measurement_type.measurements.each do |measurement|
+    if params[:measurement_type]
+      measurement_type = @equipment.measurement_types.find_by_name(params[:measurement_type])
+      measurement_type.measurements.order(date: :desc).each do |measurement|
         @measurements << measurement
+      end
+    else
+      @measurement_types.each do |measurement_type|
+        measurement_type.measurements.order(date: :desc).each do |measurement|
+          @measurements << measurement
+        end
       end
     end
     @measurements = @measurements.paginate(page: params[:page], per_page: 10)
+
   end
 
   def get_parameters
@@ -41,7 +49,7 @@ class MeasurementsController < ApplicationController
     equipment = Equipment.find(params[:equipment_id])
     
     equipment.measurement_types.each do |measurement_type|
-      measurement_type.measurements.each do |measurement|
+      measurement_type.measurements.order(date: :desc).each do |measurement|
         @measurements << measurement unless measurement.is_ok?
       end
     end

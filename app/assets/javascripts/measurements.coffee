@@ -11,6 +11,7 @@ $(document).on 'turbolinks:load', ->
   if $('#equipment_id').length
     changeMeasurementTypesWhenLoaded()
   
+  
 changeInputAccordingToParameter = ->
   $('#measurement_measurement_type_id').change ->
     measurementType = $('#measurement_measurement_type_id :selected').text()
@@ -63,4 +64,3 @@ changeMeasurementTypesWhenLoaded = ->
         $('#measurement_measurement_type_id').html(options)
       else
         $('#measurement_measurement_type_id').empty() 
-

@@ -61,8 +61,9 @@ module StatisticsHelper
             
         ], title: { text: 'Resultados por mes' },
           yAxis: {
-            allowDecimals: false
-        },                                                                                                                                                                                                      
+            allowDecimals: false,
+            title: { text: 'Cantidad' }
+        },                                                                                                                                                                                         
         plotOptions: {
             series: {
                 pointWidth: 50
@@ -115,8 +116,9 @@ module StatisticsHelper
                 
             ], title: { text: 'Mantenimientos de AC programados vs completados' },
               yAxis: {
-                allowDecimals: false
-            },                                                                                                                                                                                                      
+                allowDecimals: false,
+                title: { text: 'Cantidad de mantenimientos' }
+            },                                                                                                                                                                                           
             plotOptions: {
                 series: {
                     pointWidth: 50

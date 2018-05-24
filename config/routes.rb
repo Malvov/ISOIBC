@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   get '/equipos/:equipment_id/mediciones', to: 'measurements#index', as: :mediciones
 
+  
+
   resources :measurements, except: :index
 
   resources :charts, only: [] do
