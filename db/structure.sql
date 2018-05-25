@@ -2,6 +2,7 @@ SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
@@ -20,8 +21,6 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
-SET search_path = public, pg_catalog;
-
 SET default_tablespace = '';
 
 SET default_with_oids = false;
@@ -30,7 +29,7 @@ SET default_with_oids = false;
 -- Name: ac_maintenances; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE ac_maintenances (
+CREATE TABLE public.ac_maintenances (
     id bigint NOT NULL,
     customer_id bigint,
     parts character varying[] DEFAULT '{}'::character varying[],
@@ -49,7 +48,7 @@ CREATE TABLE ac_maintenances (
 -- Name: ac_maintenances_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE ac_maintenances_id_seq
+CREATE SEQUENCE public.ac_maintenances_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -61,14 +60,14 @@ CREATE SEQUENCE ac_maintenances_id_seq
 -- Name: ac_maintenances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE ac_maintenances_id_seq OWNED BY ac_maintenances.id;
+ALTER SEQUENCE public.ac_maintenances_id_seq OWNED BY public.ac_maintenances.id;
 
 
 --
 -- Name: active_storage_attachments; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE active_storage_attachments (
+CREATE TABLE public.active_storage_attachments (
     id bigint NOT NULL,
     name character varying NOT NULL,
     record_type character varying NOT NULL,
@@ -82,7 +81,7 @@ CREATE TABLE active_storage_attachments (
 -- Name: active_storage_attachments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE active_storage_attachments_id_seq
+CREATE SEQUENCE public.active_storage_attachments_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -94,14 +93,14 @@ CREATE SEQUENCE active_storage_attachments_id_seq
 -- Name: active_storage_attachments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE active_storage_attachments_id_seq OWNED BY active_storage_attachments.id;
+ALTER SEQUENCE public.active_storage_attachments_id_seq OWNED BY public.active_storage_attachments.id;
 
 
 --
 -- Name: active_storage_blobs; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE active_storage_blobs (
+CREATE TABLE public.active_storage_blobs (
     id bigint NOT NULL,
     key character varying NOT NULL,
     filename character varying NOT NULL,
@@ -117,7 +116,7 @@ CREATE TABLE active_storage_blobs (
 -- Name: active_storage_blobs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE active_storage_blobs_id_seq
+CREATE SEQUENCE public.active_storage_blobs_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -129,14 +128,14 @@ CREATE SEQUENCE active_storage_blobs_id_seq
 -- Name: active_storage_blobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE active_storage_blobs_id_seq OWNED BY active_storage_blobs.id;
+ALTER SEQUENCE public.active_storage_blobs_id_seq OWNED BY public.active_storage_blobs.id;
 
 
 --
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE ar_internal_metadata (
+CREATE TABLE public.ar_internal_metadata (
     key character varying NOT NULL,
     value character varying,
     created_at timestamp without time zone NOT NULL,
@@ -148,7 +147,7 @@ CREATE TABLE ar_internal_metadata (
 -- Name: areas; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE areas (
+CREATE TABLE public.areas (
     id bigint NOT NULL,
     name character varying,
     created_at timestamp without time zone NOT NULL,
@@ -160,7 +159,7 @@ CREATE TABLE areas (
 -- Name: areas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE areas_id_seq
+CREATE SEQUENCE public.areas_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -172,14 +171,14 @@ CREATE SEQUENCE areas_id_seq
 -- Name: areas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE areas_id_seq OWNED BY areas.id;
+ALTER SEQUENCE public.areas_id_seq OWNED BY public.areas.id;
 
 
 --
 -- Name: customers; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE customers (
+CREATE TABLE public.customers (
     id bigint NOT NULL,
     name character varying,
     location character varying,
@@ -192,7 +191,7 @@ CREATE TABLE customers (
 -- Name: customers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE customers_id_seq
+CREATE SEQUENCE public.customers_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -204,14 +203,14 @@ CREATE SEQUENCE customers_id_seq
 -- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE customers_id_seq OWNED BY customers.id;
+ALTER SEQUENCE public.customers_id_seq OWNED BY public.customers.id;
 
 
 --
 -- Name: elevator_forms; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE elevator_forms (
+CREATE TABLE public.elevator_forms (
     id bigint NOT NULL,
     start_at time without time zone,
     end_at time without time zone,
@@ -229,7 +228,7 @@ CREATE TABLE elevator_forms (
 -- Name: elevator_forms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE elevator_forms_id_seq
+CREATE SEQUENCE public.elevator_forms_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -241,14 +240,14 @@ CREATE SEQUENCE elevator_forms_id_seq
 -- Name: elevator_forms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE elevator_forms_id_seq OWNED BY elevator_forms.id;
+ALTER SEQUENCE public.elevator_forms_id_seq OWNED BY public.elevator_forms.id;
 
 
 --
 -- Name: employees; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE employees (
+CREATE TABLE public.employees (
     id bigint NOT NULL,
     name character varying,
     created_at timestamp without time zone NOT NULL,
@@ -261,7 +260,7 @@ CREATE TABLE employees (
 -- Name: employees_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE employees_id_seq
+CREATE SEQUENCE public.employees_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -273,14 +272,14 @@ CREATE SEQUENCE employees_id_seq
 -- Name: employees_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE employees_id_seq OWNED BY employees.id;
+ALTER SEQUENCE public.employees_id_seq OWNED BY public.employees.id;
 
 
 --
 -- Name: equipment; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE equipment (
+CREATE TABLE public.equipment (
     id bigint NOT NULL,
     name character varying,
     location character varying,
@@ -294,7 +293,7 @@ CREATE TABLE equipment (
 -- Name: equipment_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE equipment_id_seq
+CREATE SEQUENCE public.equipment_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -306,14 +305,14 @@ CREATE SEQUENCE equipment_id_seq
 -- Name: equipment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE equipment_id_seq OWNED BY equipment.id;
+ALTER SEQUENCE public.equipment_id_seq OWNED BY public.equipment.id;
 
 
 --
 -- Name: evaluations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE evaluations (
+CREATE TABLE public.evaluations (
     id bigint NOT NULL,
     employee_id bigint,
     task_id bigint,
@@ -329,7 +328,7 @@ CREATE TABLE evaluations (
 -- Name: evaluations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE evaluations_id_seq
+CREATE SEQUENCE public.evaluations_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -341,14 +340,14 @@ CREATE SEQUENCE evaluations_id_seq
 -- Name: evaluations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
+ALTER SEQUENCE public.evaluations_id_seq OWNED BY public.evaluations.id;
 
 
 --
 -- Name: manager_work_plans; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE manager_work_plans (
+CREATE TABLE public.manager_work_plans (
     id bigint NOT NULL,
     area_id bigint,
     task character varying,
@@ -367,7 +366,7 @@ CREATE TABLE manager_work_plans (
 -- Name: manager_work_plans_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE manager_work_plans_id_seq
+CREATE SEQUENCE public.manager_work_plans_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -379,14 +378,14 @@ CREATE SEQUENCE manager_work_plans_id_seq
 -- Name: manager_work_plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE manager_work_plans_id_seq OWNED BY manager_work_plans.id;
+ALTER SEQUENCE public.manager_work_plans_id_seq OWNED BY public.manager_work_plans.id;
 
 
 --
 -- Name: measurement_types; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE measurement_types (
+CREATE TABLE public.measurement_types (
     id bigint NOT NULL,
     name character varying,
     equipment_id bigint,
@@ -401,7 +400,7 @@ CREATE TABLE measurement_types (
 -- Name: measurement_types_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE measurement_types_id_seq
+CREATE SEQUENCE public.measurement_types_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -413,14 +412,14 @@ CREATE SEQUENCE measurement_types_id_seq
 -- Name: measurement_types_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE measurement_types_id_seq OWNED BY measurement_types.id;
+ALTER SEQUENCE public.measurement_types_id_seq OWNED BY public.measurement_types.id;
 
 
 --
 -- Name: measurements; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE measurements (
+CREATE TABLE public.measurements (
     id bigint NOT NULL,
     value character varying,
     measurement_type_id bigint,
@@ -436,7 +435,7 @@ CREATE TABLE measurements (
 -- Name: measurements_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE measurements_id_seq
+CREATE SEQUENCE public.measurements_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -448,14 +447,14 @@ CREATE SEQUENCE measurements_id_seq
 -- Name: measurements_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE measurements_id_seq OWNED BY measurements.id;
+ALTER SEQUENCE public.measurements_id_seq OWNED BY public.measurements.id;
 
 
 --
 -- Name: parameters; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE parameters (
+CREATE TABLE public.parameters (
     id bigint NOT NULL,
     name character varying,
     equal character varying,
@@ -470,7 +469,7 @@ CREATE TABLE parameters (
 -- Name: parameters_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE parameters_id_seq
+CREATE SEQUENCE public.parameters_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -482,14 +481,14 @@ CREATE SEQUENCE parameters_id_seq
 -- Name: parameters_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE parameters_id_seq OWNED BY parameters.id;
+ALTER SEQUENCE public.parameters_id_seq OWNED BY public.parameters.id;
 
 
 --
 -- Name: schedules; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE schedules (
+CREATE TABLE public.schedules (
     id bigint NOT NULL,
     customer_id bigint,
     month character varying,
@@ -503,7 +502,7 @@ CREATE TABLE schedules (
 -- Name: schedules_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE schedules_id_seq
+CREATE SEQUENCE public.schedules_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -515,14 +514,14 @@ CREATE SEQUENCE schedules_id_seq
 -- Name: schedules_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE schedules_id_seq OWNED BY schedules.id;
+ALTER SEQUENCE public.schedules_id_seq OWNED BY public.schedules.id;
 
 
 --
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE schema_migrations (
+CREATE TABLE public.schema_migrations (
     version character varying NOT NULL
 );
 
@@ -531,7 +530,7 @@ CREATE TABLE schema_migrations (
 -- Name: tasks; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE tasks (
+CREATE TABLE public.tasks (
     id bigint NOT NULL,
     name character varying,
     zone_id bigint,
@@ -544,7 +543,7 @@ CREATE TABLE tasks (
 -- Name: tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE tasks_id_seq
+CREATE SEQUENCE public.tasks_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -556,14 +555,14 @@ CREATE SEQUENCE tasks_id_seq
 -- Name: tasks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE tasks_id_seq OWNED BY tasks.id;
+ALTER SEQUENCE public.tasks_id_seq OWNED BY public.tasks.id;
 
 
 --
 -- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE users (
+CREATE TABLE public.users (
     id bigint NOT NULL,
     username character varying DEFAULT ''::character varying NOT NULL,
     email character varying DEFAULT ''::character varying NOT NULL,
@@ -589,7 +588,7 @@ CREATE TABLE users (
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE users_id_seq
+CREATE SEQUENCE public.users_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -601,14 +600,14 @@ CREATE SEQUENCE users_id_seq
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE users_id_seq OWNED BY users.id;
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
 -- Name: zones; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE zones (
+CREATE TABLE public.zones (
     id bigint NOT NULL,
     name character varying,
     created_at timestamp without time zone NOT NULL,
@@ -620,7 +619,7 @@ CREATE TABLE zones (
 -- Name: zones_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE zones_id_seq
+CREATE SEQUENCE public.zones_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -632,133 +631,133 @@ CREATE SEQUENCE zones_id_seq
 -- Name: zones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE zones_id_seq OWNED BY zones.id;
+ALTER SEQUENCE public.zones_id_seq OWNED BY public.zones.id;
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY ac_maintenances ALTER COLUMN id SET DEFAULT nextval('ac_maintenances_id_seq'::regclass);
+ALTER TABLE ONLY public.ac_maintenances ALTER COLUMN id SET DEFAULT nextval('public.ac_maintenances_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY active_storage_attachments ALTER COLUMN id SET DEFAULT nextval('active_storage_attachments_id_seq'::regclass);
+ALTER TABLE ONLY public.active_storage_attachments ALTER COLUMN id SET DEFAULT nextval('public.active_storage_attachments_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY active_storage_blobs ALTER COLUMN id SET DEFAULT nextval('active_storage_blobs_id_seq'::regclass);
+ALTER TABLE ONLY public.active_storage_blobs ALTER COLUMN id SET DEFAULT nextval('public.active_storage_blobs_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY areas ALTER COLUMN id SET DEFAULT nextval('areas_id_seq'::regclass);
+ALTER TABLE ONLY public.areas ALTER COLUMN id SET DEFAULT nextval('public.areas_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY customers ALTER COLUMN id SET DEFAULT nextval('customers_id_seq'::regclass);
+ALTER TABLE ONLY public.customers ALTER COLUMN id SET DEFAULT nextval('public.customers_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY elevator_forms ALTER COLUMN id SET DEFAULT nextval('elevator_forms_id_seq'::regclass);
+ALTER TABLE ONLY public.elevator_forms ALTER COLUMN id SET DEFAULT nextval('public.elevator_forms_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY employees ALTER COLUMN id SET DEFAULT nextval('employees_id_seq'::regclass);
+ALTER TABLE ONLY public.employees ALTER COLUMN id SET DEFAULT nextval('public.employees_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY equipment ALTER COLUMN id SET DEFAULT nextval('equipment_id_seq'::regclass);
+ALTER TABLE ONLY public.equipment ALTER COLUMN id SET DEFAULT nextval('public.equipment_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id_seq'::regclass);
+ALTER TABLE ONLY public.evaluations ALTER COLUMN id SET DEFAULT nextval('public.evaluations_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY manager_work_plans ALTER COLUMN id SET DEFAULT nextval('manager_work_plans_id_seq'::regclass);
+ALTER TABLE ONLY public.manager_work_plans ALTER COLUMN id SET DEFAULT nextval('public.manager_work_plans_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY measurement_types ALTER COLUMN id SET DEFAULT nextval('measurement_types_id_seq'::regclass);
+ALTER TABLE ONLY public.measurement_types ALTER COLUMN id SET DEFAULT nextval('public.measurement_types_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY measurements ALTER COLUMN id SET DEFAULT nextval('measurements_id_seq'::regclass);
+ALTER TABLE ONLY public.measurements ALTER COLUMN id SET DEFAULT nextval('public.measurements_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_seq'::regclass);
+ALTER TABLE ONLY public.parameters ALTER COLUMN id SET DEFAULT nextval('public.parameters_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY schedules ALTER COLUMN id SET DEFAULT nextval('schedules_id_seq'::regclass);
+ALTER TABLE ONLY public.schedules ALTER COLUMN id SET DEFAULT nextval('public.schedules_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY tasks ALTER COLUMN id SET DEFAULT nextval('tasks_id_seq'::regclass);
+ALTER TABLE ONLY public.tasks ALTER COLUMN id SET DEFAULT nextval('public.tasks_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY zones ALTER COLUMN id SET DEFAULT nextval('zones_id_seq'::regclass);
+ALTER TABLE ONLY public.zones ALTER COLUMN id SET DEFAULT nextval('public.zones_id_seq'::regclass);
 
 
 --
 -- Name: ac_maintenances_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY ac_maintenances
+ALTER TABLE ONLY public.ac_maintenances
     ADD CONSTRAINT ac_maintenances_pkey PRIMARY KEY (id);
 
 
@@ -766,7 +765,7 @@ ALTER TABLE ONLY ac_maintenances
 -- Name: active_storage_attachments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY active_storage_attachments
+ALTER TABLE ONLY public.active_storage_attachments
     ADD CONSTRAINT active_storage_attachments_pkey PRIMARY KEY (id);
 
 
@@ -774,7 +773,7 @@ ALTER TABLE ONLY active_storage_attachments
 -- Name: active_storage_blobs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY active_storage_blobs
+ALTER TABLE ONLY public.active_storage_blobs
     ADD CONSTRAINT active_storage_blobs_pkey PRIMARY KEY (id);
 
 
@@ -782,7 +781,7 @@ ALTER TABLE ONLY active_storage_blobs
 -- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY ar_internal_metadata
+ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
 
 
@@ -790,7 +789,7 @@ ALTER TABLE ONLY ar_internal_metadata
 -- Name: areas_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY areas
+ALTER TABLE ONLY public.areas
     ADD CONSTRAINT areas_pkey PRIMARY KEY (id);
 
 
@@ -798,7 +797,7 @@ ALTER TABLE ONLY areas
 -- Name: customers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY customers
+ALTER TABLE ONLY public.customers
     ADD CONSTRAINT customers_pkey PRIMARY KEY (id);
 
 
@@ -806,7 +805,7 @@ ALTER TABLE ONLY customers
 -- Name: elevator_forms_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY elevator_forms
+ALTER TABLE ONLY public.elevator_forms
     ADD CONSTRAINT elevator_forms_pkey PRIMARY KEY (id);
 
 
@@ -814,7 +813,7 @@ ALTER TABLE ONLY elevator_forms
 -- Name: employees_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY employees
+ALTER TABLE ONLY public.employees
     ADD CONSTRAINT employees_pkey PRIMARY KEY (id);
 
 
@@ -822,7 +821,7 @@ ALTER TABLE ONLY employees
 -- Name: equipment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY equipment
+ALTER TABLE ONLY public.equipment
     ADD CONSTRAINT equipment_pkey PRIMARY KEY (id);
 
 
@@ -830,7 +829,7 @@ ALTER TABLE ONLY equipment
 -- Name: evaluations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY evaluations
+ALTER TABLE ONLY public.evaluations
     ADD CONSTRAINT evaluations_pkey PRIMARY KEY (id);
 
 
@@ -838,7 +837,7 @@ ALTER TABLE ONLY evaluations
 -- Name: manager_work_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY manager_work_plans
+ALTER TABLE ONLY public.manager_work_plans
     ADD CONSTRAINT manager_work_plans_pkey PRIMARY KEY (id);
 
 
@@ -846,7 +845,7 @@ ALTER TABLE ONLY manager_work_plans
 -- Name: measurement_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY measurement_types
+ALTER TABLE ONLY public.measurement_types
     ADD CONSTRAINT measurement_types_pkey PRIMARY KEY (id);
 
 
@@ -854,7 +853,7 @@ ALTER TABLE ONLY measurement_types
 -- Name: measurements_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY measurements
+ALTER TABLE ONLY public.measurements
     ADD CONSTRAINT measurements_pkey PRIMARY KEY (id);
 
 
@@ -862,7 +861,7 @@ ALTER TABLE ONLY measurements
 -- Name: parameters_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY parameters
+ALTER TABLE ONLY public.parameters
     ADD CONSTRAINT parameters_pkey PRIMARY KEY (id);
 
 
@@ -870,7 +869,7 @@ ALTER TABLE ONLY parameters
 -- Name: schedules_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY schedules
+ALTER TABLE ONLY public.schedules
     ADD CONSTRAINT schedules_pkey PRIMARY KEY (id);
 
 
@@ -878,7 +877,7 @@ ALTER TABLE ONLY schedules
 -- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY schema_migrations
+ALTER TABLE ONLY public.schema_migrations
     ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
 
 
@@ -886,7 +885,7 @@ ALTER TABLE ONLY schema_migrations
 -- Name: tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY tasks
+ALTER TABLE ONLY public.tasks
     ADD CONSTRAINT tasks_pkey PRIMARY KEY (id);
 
 
@@ -894,7 +893,7 @@ ALTER TABLE ONLY tasks
 -- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY users
+ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
@@ -902,7 +901,7 @@ ALTER TABLE ONLY users
 -- Name: zones_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY zones
+ALTER TABLE ONLY public.zones
     ADD CONSTRAINT zones_pkey PRIMARY KEY (id);
 
 
@@ -910,198 +909,198 @@ ALTER TABLE ONLY zones
 -- Name: index_ac_maintenances_on_customer_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_ac_maintenances_on_customer_id ON ac_maintenances USING btree (customer_id);
+CREATE INDEX index_ac_maintenances_on_customer_id ON public.ac_maintenances USING btree (customer_id);
 
 
 --
 -- Name: index_active_storage_attachments_on_blob_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_active_storage_attachments_on_blob_id ON active_storage_attachments USING btree (blob_id);
+CREATE INDEX index_active_storage_attachments_on_blob_id ON public.active_storage_attachments USING btree (blob_id);
 
 
 --
 -- Name: index_active_storage_attachments_uniqueness; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_active_storage_attachments_uniqueness ON active_storage_attachments USING btree (record_type, record_id, name, blob_id);
+CREATE UNIQUE INDEX index_active_storage_attachments_uniqueness ON public.active_storage_attachments USING btree (record_type, record_id, name, blob_id);
 
 
 --
 -- Name: index_active_storage_blobs_on_key; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_active_storage_blobs_on_key ON active_storage_blobs USING btree (key);
+CREATE UNIQUE INDEX index_active_storage_blobs_on_key ON public.active_storage_blobs USING btree (key);
 
 
 --
 -- Name: index_employees_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_employees_on_name ON employees USING btree (name);
+CREATE INDEX index_employees_on_name ON public.employees USING btree (name);
 
 
 --
 -- Name: index_evaluations_on_employee_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_evaluations_on_employee_id ON evaluations USING btree (employee_id);
+CREATE INDEX index_evaluations_on_employee_id ON public.evaluations USING btree (employee_id);
 
 
 --
 -- Name: index_evaluations_on_result; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_evaluations_on_result ON evaluations USING btree (result);
+CREATE INDEX index_evaluations_on_result ON public.evaluations USING btree (result);
 
 
 --
 -- Name: index_evaluations_on_task_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_evaluations_on_task_id ON evaluations USING btree (task_id);
+CREATE INDEX index_evaluations_on_task_id ON public.evaluations USING btree (task_id);
 
 
 --
 -- Name: index_manager_work_plans_on_area_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_manager_work_plans_on_area_id ON manager_work_plans USING btree (area_id);
+CREATE INDEX index_manager_work_plans_on_area_id ON public.manager_work_plans USING btree (area_id);
 
 
 --
 -- Name: index_measurement_types_on_equipment_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_measurement_types_on_equipment_id ON measurement_types USING btree (equipment_id);
+CREATE INDEX index_measurement_types_on_equipment_id ON public.measurement_types USING btree (equipment_id);
 
 
 --
 -- Name: index_measurement_types_on_parameter_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_measurement_types_on_parameter_id ON measurement_types USING btree (parameter_id);
+CREATE INDEX index_measurement_types_on_parameter_id ON public.measurement_types USING btree (parameter_id);
 
 
 --
 -- Name: index_measurements_on_measurement_type_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_measurements_on_measurement_type_id ON measurements USING btree (measurement_type_id);
+CREATE INDEX index_measurements_on_measurement_type_id ON public.measurements USING btree (measurement_type_id);
 
 
 --
 -- Name: index_parameters_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_parameters_on_name ON parameters USING btree (name);
+CREATE INDEX index_parameters_on_name ON public.parameters USING btree (name);
 
 
 --
 -- Name: index_schedules_on_customer_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_schedules_on_customer_id ON schedules USING btree (customer_id);
+CREATE INDEX index_schedules_on_customer_id ON public.schedules USING btree (customer_id);
 
 
 --
 -- Name: index_tasks_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_tasks_on_name ON tasks USING btree (name);
+CREATE INDEX index_tasks_on_name ON public.tasks USING btree (name);
 
 
 --
 -- Name: index_tasks_on_zone_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_tasks_on_zone_id ON tasks USING btree (zone_id);
+CREATE INDEX index_tasks_on_zone_id ON public.tasks USING btree (zone_id);
 
 
 --
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
+CREATE UNIQUE INDEX index_users_on_email ON public.users USING btree (email);
 
 
 --
 -- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING btree (reset_password_token);
 
 
 --
 -- Name: fk_rails_1c04c91aeb; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY measurement_types
-    ADD CONSTRAINT fk_rails_1c04c91aeb FOREIGN KEY (equipment_id) REFERENCES equipment(id);
+ALTER TABLE ONLY public.measurement_types
+    ADD CONSTRAINT fk_rails_1c04c91aeb FOREIGN KEY (equipment_id) REFERENCES public.equipment(id);
 
 
 --
 -- Name: fk_rails_261a78d10f; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY measurement_types
-    ADD CONSTRAINT fk_rails_261a78d10f FOREIGN KEY (parameter_id) REFERENCES parameters(id);
+ALTER TABLE ONLY public.measurement_types
+    ADD CONSTRAINT fk_rails_261a78d10f FOREIGN KEY (parameter_id) REFERENCES public.parameters(id);
 
 
 --
 -- Name: fk_rails_31a8426c4a; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY measurements
-    ADD CONSTRAINT fk_rails_31a8426c4a FOREIGN KEY (measurement_type_id) REFERENCES measurement_types(id);
+ALTER TABLE ONLY public.measurements
+    ADD CONSTRAINT fk_rails_31a8426c4a FOREIGN KEY (measurement_type_id) REFERENCES public.measurement_types(id);
 
 
 --
 -- Name: fk_rails_38e65dc5b0; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY ac_maintenances
-    ADD CONSTRAINT fk_rails_38e65dc5b0 FOREIGN KEY (customer_id) REFERENCES customers(id);
+ALTER TABLE ONLY public.ac_maintenances
+    ADD CONSTRAINT fk_rails_38e65dc5b0 FOREIGN KEY (customer_id) REFERENCES public.customers(id);
 
 
 --
 -- Name: fk_rails_579f2293cc; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY tasks
-    ADD CONSTRAINT fk_rails_579f2293cc FOREIGN KEY (zone_id) REFERENCES zones(id);
+ALTER TABLE ONLY public.tasks
+    ADD CONSTRAINT fk_rails_579f2293cc FOREIGN KEY (zone_id) REFERENCES public.zones(id);
 
 
 --
 -- Name: fk_rails_5c51c56c51; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY manager_work_plans
-    ADD CONSTRAINT fk_rails_5c51c56c51 FOREIGN KEY (area_id) REFERENCES areas(id);
+ALTER TABLE ONLY public.manager_work_plans
+    ADD CONSTRAINT fk_rails_5c51c56c51 FOREIGN KEY (area_id) REFERENCES public.areas(id);
 
 
 --
 -- Name: fk_rails_898c99af36; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY evaluations
-    ADD CONSTRAINT fk_rails_898c99af36 FOREIGN KEY (task_id) REFERENCES tasks(id);
+ALTER TABLE ONLY public.evaluations
+    ADD CONSTRAINT fk_rails_898c99af36 FOREIGN KEY (task_id) REFERENCES public.tasks(id);
 
 
 --
 -- Name: fk_rails_b367e1df40; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY schedules
-    ADD CONSTRAINT fk_rails_b367e1df40 FOREIGN KEY (customer_id) REFERENCES customers(id);
+ALTER TABLE ONLY public.schedules
+    ADD CONSTRAINT fk_rails_b367e1df40 FOREIGN KEY (customer_id) REFERENCES public.customers(id);
 
 
 --
 -- Name: fk_rails_db55870dbd; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY evaluations
-    ADD CONSTRAINT fk_rails_db55870dbd FOREIGN KEY (employee_id) REFERENCES employees(id);
+ALTER TABLE ONLY public.evaluations
+    ADD CONSTRAINT fk_rails_db55870dbd FOREIGN KEY (employee_id) REFERENCES public.employees(id);
 
 
 --

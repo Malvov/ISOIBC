@@ -17,4 +17,12 @@
 
 class ManagerWorkPlan < ApplicationRecord
   belongs_to :area
+
+  PRIORITIES = %w[Alta Media Baja]
+  PROGRESS = ['0%', '25%', '50%', '75%', '100%']
+  def person_responsible
+    Employee.find(person_responsible_id).name
+  end
+
+
 end

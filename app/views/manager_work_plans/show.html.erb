@@ -1,42 +1,44 @@
 <p>
-  <strong>Area:</strong>
-  <%= @manager_work_plan.area %>
+  <strong>Área:</strong>
+  <%= @manager_work_plan.area.name %>
 </p>
 
 <p>
-  <strong>Task:</strong>
+  <strong>Actividad:</strong>
   <%= @manager_work_plan.task %>
 </p>
 
 <p>
-  <strong>Person responsible:</strong>
-  <%= @manager_work_plan.person_responsible_id %>
+  <strong>Responsable:</strong>
+  <%= @manager_work_plan.person_responsible %>
 </p>
 
 <p>
-  <strong>Priority:</strong>
-  <%= @manager_work_plan.priority %>
+  <strong>Prioridad:</strong>
+  <%= @manager_work_plan.priority %>%
 </p>
 
 <p>
-  <strong>Start date:</strong>
-  <%= @manager_work_plan.start_date %>
+  <strong>Fecha de inicio:</strong>
+  <%= @manager_work_plan.start_date.strftime '%d/%m/%Y' %>
 </p>
 
 <p>
-  <strong>End date:</strong>
-  <%= @manager_work_plan.end_date %>
+  <strong>Fecha de fin:</strong>
+  <%= @manager_work_plan.end_date.strftime '%d/%m/%Y' %>
 </p>
 
-<p>
-  <strong>Progress:</strong>
-  <%= @manager_work_plan.progress %>
-</p>
+<div class="progress">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<%= @manager_work_plan.progress %>"
+  aria-valuemin="0" aria-valuemax="100" style="width:<%= @manager_work_plan.progress %>%">
+    <%= @manager_work_plan.progress %>%
+  </div>
+</div>  
 
 <p>
-  <strong>Comment:</strong>
+  <strong>Comentarios:</strong>
   <%= @manager_work_plan.comment %>
 </p>
 
-<%= link_to 'Edit', edit_manager_work_plan_path(@manager_work_plan) %> |
-<%= link_to 'Back', manager_work_plans_path %>
+<%= link_to 'Editar', edit_manager_work_plan_path(@manager_work_plan) %> |
+<%= link_to 'Atrás', manager_work_plans_path %>

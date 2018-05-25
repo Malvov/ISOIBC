@@ -6,7 +6,7 @@
     <%= f.association :area, label: 'Área', prompt: 'Escoger área' %>
     <%= f.input :task, label: 'Actividad' %>
     <%= f.input :person_responsible_id, label: 'Responsable', collection: PersonResponsible.all, prompt: 'Escoger responsable' %>
-    <%= f.input :priority, label: 'Prioridad', collection: %w[Alta Media Baja], prompt: 'Escoger prioridad' %>
+    <%= f.input :priority, label: 'Prioridad', collection: @priorities, prompt: 'Escoger prioridad' %>
     <div class="row">
       <div class="col-lg-6">
         <%= f.label :start_date, label: 'Fecha de inicio' %>
@@ -28,7 +28,7 @@
       </div>
       
     </div>
-    <%= f.input :progress, label: 'Progreso', collection: %w[0% 25 50 75 100], prompt: 'Escoger progreso'  %>
+    <%= f.input :progress, label: 'Progreso', collection: @progress , prompt: 'Escoger progreso'  %>
     <%= f.input :comment %>
   </div>
 
