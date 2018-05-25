@@ -7,7 +7,7 @@ class CreateManagerWorkPlans < ActiveRecord::Migration[5.2]
       t.string :priority
       t.date :start_date
       t.date :end_date
-      t.integer :progress
+      t.string :progress
       t.text :comment
 
       t.timestamps

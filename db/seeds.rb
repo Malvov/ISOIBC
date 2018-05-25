@@ -246,4 +246,18 @@ PersonResponsible.create!([{ name: 'Ludwick Campos' },
     ]
 )
 
+areas = ['Proyectos',
+'Limpieza y Mantenimiento',
+'Seguridad',
+'Contabilidad',
+'Corporativo',
+'Compras',
+'Finanzas',
+'Comercialización',
+'Contraloría',
+'BI']
 
+
+areas.each do |area|
+    Area.create!(name: area)
+end
