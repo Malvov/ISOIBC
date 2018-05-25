@@ -1,6 +1,8 @@
 class ElevatorFormsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_elevator_form, only: [:show, :edit, :update, :destroy]
   before_action :set_elevators, only: [:new, :create, :edit, :update]
+  
 
   # GET /elevator_forms
   # GET /elevator_forms.json

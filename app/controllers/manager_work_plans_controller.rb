@@ -1,4 +1,5 @@
 class ManagerWorkPlansController < ApplicationController
+  load_and_authorize_resource
   before_action :set_manager_work_plan, only: [:show, :edit, :update, :destroy]
   before_action :set_prioritites, only: [:new, :edit, :update, :create]
   before_action :set_progress, only: [:new, :edit, :update, :create]

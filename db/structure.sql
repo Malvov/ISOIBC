@@ -580,7 +580,7 @@ CREATE TABLE users (
     updated_at timestamp without time zone NOT NULL,
     name character varying,
     admin boolean DEFAULT false,
-    department character varying,
+    area_id bigint,
     CONSTRAINT email_must_have_email_format CHECK (((email)::text ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'::text))
 );
 
@@ -1019,6 +1019,13 @@ CREATE INDEX index_tasks_on_zone_id ON tasks USING btree (zone_id);
 
 
 --
+-- Name: index_users_on_area_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_users_on_area_id ON users USING btree (area_id);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1089,6 +1096,14 @@ ALTER TABLE ONLY evaluations
 
 
 --
+-- Name: fk_rails_8f8a4b3fcb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT fk_rails_8f8a4b3fcb FOREIGN KEY (area_id) REFERENCES areas(id);
+
+
+--
 -- Name: fk_rails_b367e1df40; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1141,6 +1156,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180521190827'),
 ('20180524174844'),
 ('20180524193707'),
-('20180524224648');
+('20180524224648'),
+('20180525183041');
 
 

@@ -1,4 +1,5 @@
 class AcMaintenancesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_ac_maintenance, only: [:show, :edit, :update, :destroy]
   before_action :set_constants, only: [:new, :edit, :create, :update]
 

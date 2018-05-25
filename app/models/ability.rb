@@ -2,6 +2,22 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    if user.present?
+      if user.admin?
+        can :manage, :all
+      else
+        case user.area.name
+        when 'Limpieza'
+          can :manage, [Employee, Evaluation, Zone, Task]
+        when 'Electricistas'
+          can :manage, [Measurement, MeasurementType, Equipment, Parameter]
+        when 'Seguridad'
+          can :manage, ElevatorForm
+        when 'AC'
+          can :manage, [AcMaintenance, Customer, Schedule]
+        end
+      end
+    end
     # Define abilities for the passed in user here. For example:
     #
     # user ||= User.new # guest user (not logged in)

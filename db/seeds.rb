@@ -247,7 +247,9 @@ PersonResponsible.create!([{ name: 'Ludwick Campos' },
 )
 
 areas = ['Proyectos',
-'Limpieza y Mantenimiento',
+'Limpieza',
+'AC',
+'Electricistas',
 'Seguridad',
 'Contabilidad',
 'Corporativo',
@@ -260,4 +262,5 @@ areas = ['Proyectos',
 
 areas.each do |area|
     Area.create!(name: area)
+    puts '.'
 end

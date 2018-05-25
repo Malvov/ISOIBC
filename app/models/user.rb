@@ -18,13 +18,14 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  admin                  :boolean          default(FALSE)
-#  department             :string
+#  area_id                :bigint(8)
 #
 
 class User < ApplicationRecord
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
+  belongs_to :area, optional: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

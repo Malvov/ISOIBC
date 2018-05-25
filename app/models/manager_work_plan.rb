@@ -9,7 +9,7 @@
 #  priority              :string
 #  start_date            :date
 #  end_date              :date
-#  progress              :integer
+#  progress              :string
 #  comment               :text
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
