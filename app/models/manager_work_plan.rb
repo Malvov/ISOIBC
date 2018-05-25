@@ -17,9 +17,9 @@
 
 class ManagerWorkPlan < ApplicationRecord
   belongs_to :area
-
+  validates_presence_of :task, :person_responsible_id, :priority, :start_date, :end_date, :progress
   PRIORITIES = %w[Alta Media Baja]
-  PROGRESS = ['0%', '25%', '50%', '75%', '100%']
+  PROGRESS = [0, 25, 50, 75, 100]
   def person_responsible
     Employee.find(person_responsible_id).name
   end

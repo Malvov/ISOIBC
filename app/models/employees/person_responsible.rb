@@ -10,4 +10,5 @@
 #
 
 class PersonResponsible < Employee
+    validates_uniqueness_of :name
 end

@@ -175,40 +175,75 @@
 # #     print '.'
 # # end
 
-customers = %w[
-IBEX.
-LANDTERRA/SITEL.
-SPI_CRM.
-NECONSA.
-PUESTO_DE_BOLSA.
-EMBAJADA_DE_KOREA.
-SERVICORP.
-INVERSEGURO.
-SPI_GLOBAL.
-KUIKI-CREDIT.
-DIGITECH.
-CASA_VISION.
-BICSA.
-'DR._GUERRA']
+# customers = %w[
+# IBEX.
+# LANDTERRA/SITEL.
+# SPI_CRM.
+# NECONSA.
+# PUESTO_DE_BOLSA.
+# EMBAJADA_DE_KOREA.
+# SERVICORP.
+# INVERSEGURO.
+# SPI_GLOBAL.
+# KUIKI-CREDIT.
+# DIGITECH.
+# CASA_VISION.
+# BICSA.
+# 'DR._GUERRA']
 
 
-customers.each do |customer|
-    Customer.create!(name: customer, location: %w[T1 T2 T3 Otra])
-end
+# customers.each do |customer|
+#     Customer.create!(name: customer, location: %w[T1 T2 T3 Otra])
+# end
 
 
-parts = %w[U_manejadora U_condensadora Drenaje Ducteria Termostato M+C Compresor
-    Motor_Fan]
-maintenance_types = %w[Programado Emergencia]
+# parts = %w[U_manejadora U_condensadora Drenaje Ducteria Termostato M+C Compresor
+#     Motor_Fan]
+# maintenance_types = %w[Programado Emergencia]
 
-task_types =  %w[Reparación Reemplazo Programación Cambio_Total]
+# task_types =  %w[Reparación Reemplazo Programación Cambio_Total]
 
-puts 'acmaintenanceforms'
-251.times do |n|
-    AcMaintenanceForm.create!(serial_number: n, customer: Customer.all.sample, user_id: 1,
-                                part: parts.sample, maintenance_type: maintenance_types.sample,
-                                task_type: task_types.sample, date: DateTime.now)
-    print '.'
-end
+# puts 'acmaintenanceforms'
+# 251.times do |n|
+#     AcMaintenanceForm.create!(serial_number: n, customer: Customer.all.sample, user_id: 1,
+#                                 part: parts.sample, maintenance_type: maintenance_types.sample,
+#                                 task_type: task_types.sample, date: DateTime.now)
+#     print '.'
+# end
+
+
+PersonResponsible.create!([{ name: 'Ludwick Campos' },
+        {
+            name: 'Tatiana Cantillano'
+        },
+        {
+            name: 'Alfonso Castillo'
+        },
+        {
+            name: 'Ericka Flores'
+        },
+        {
+            name: 'Leslie Estrada'
+        },
+        {
+            name: 'Oscar Larrave'
+        },
+        {
+            name: 'Bemilda Meza'
+        },
+        {
+            name: 'Oriana Chamorro'
+        },
+        {
+            name:  'David Canales'
+
+        },
+        {
+            name: 'María Salgado'
+            
+        },
+        { name: 'Daniel Espinoza' }
+    ]
+)
 
 

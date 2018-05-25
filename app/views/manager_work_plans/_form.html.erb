@@ -28,7 +28,7 @@
       </div>
       
     </div>
-    <%= f.input :progress, label: 'Progreso', collection: @progress , prompt: 'Escoger progreso'  %>
+    <%= f.input :progress, label: 'Progreso', collection: @progress.map { |progress| progress.to_s + '%' }, prompt: 'Escoger progreso'  %>
     <%= f.input :comment %>
   </div>
 
