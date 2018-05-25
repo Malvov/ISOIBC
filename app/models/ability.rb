@@ -7,7 +7,7 @@ class Ability
         can :manage, :all
       else
         case user.area.name
-        when 'Limpieza'
+        when 'Limpieza y mantenimiento'
           can :manage, [Employee, Evaluation, Zone, Task]
         when 'Electricistas'
           can :manage, [Measurement, MeasurementType, Equipment, Parameter]

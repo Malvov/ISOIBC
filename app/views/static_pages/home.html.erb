@@ -4,7 +4,7 @@
     <h1 class="text-center">
         Dashboard
     </h1>
-    <% if current_user.admin? || current_user.area.name == 'Limpieza' %>
+    <% if can? :manage, Evaluation %>
     <div class="row">
         <div class="col-lg-6">
             <%= employees_evaluations %>
@@ -24,7 +24,7 @@
         </div>
     </div>
     <% end %>
-    <% if current_user.admin? || current_user.area.name == 'Electricistas' %>
+    <% if can? :manage, Measurement  %>
         <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
         <div class="row">
             <div class="col-lg-12">
@@ -46,7 +46,7 @@
         </div>
         
     <% end %>
-    <% if current_user.admin? || current_user.area.name == 'AC' %>
+    <% if can? :manage, AcMaintenance %>
         <div class="row">
             <div class="col-lg-9">
                 <%= ac_maintenance_goals_chart %>
@@ -85,7 +85,7 @@
             </div>
         </div>
     <% end %>
-    <% if current_user.admin? || current_user.area.name == 'Seguridad' %>
+    <% if can? :manage, ElevatorForm %>
         <%= link_to 'Informes de elevadores', elevator_forms_path, class: 'btn btn-lg btn-primary' %>
         <%= total_minutes_per_elevator_per_month_chart %>
         <div class="row">

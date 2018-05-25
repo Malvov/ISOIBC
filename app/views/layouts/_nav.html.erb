@@ -71,27 +71,27 @@
                 <li class="dropdown-header">Gerencia</li>
                 <li><%= link_to 'Responsables', person_responsibles_path %></li>
                 <li><%= link_to 'Áreas', areas_path %></li>
-              <% else %>
-                <% case current_user.area.name %>
-                <% when 'Limpieza' %>
-                  <li role="separator" class="divider">
-                    <li class="dropdown-header">Limpieza y jardinería</li>
-                    <li><%= link_to 'Sectores y tareas', zones_path %></li>
-                  </li>
-                <% when 'Electricistas' %>
-                  <li role="separator" class="divider">
-                    <li class="dropdown-header">Eventos de electricidad y agua potable</li>
-                    <li><%= link_to 'Equipos industriales', equipment_index_path %></li>
-                    <li><%= link_to 'Parámetros', parameters_path %></li>
-                    <li><%= link_to 'Tipos de mediciones', measurement_types_path%></li>
-                  </li>
-                <% when 'AC' %>
-                  <li role="separator" class="divider">
-                    <li class="dropdown-header">Aires acondicionados</li>
-                    <li><%= link_to 'Clientes', customers_path %></li>
-                    <li><%= link_to 'Programaciones', schedules_path %></li>
-                  </li>
-                <% end %>
+              <% end %>
+              <% if can? :manage, Evaluation  %>
+                <li role="separator" class="divider">
+                  <li class="dropdown-header">Limpieza y jardinería</li>
+                  <li><%= link_to 'Sectores y tareas', zones_path %></li>
+                </li>
+              <% end %>
+              <% if can? :manage, Measurement %>
+                <li role="separator" class="divider">
+                  <li class="dropdown-header">Eventos de electricidad y agua potable</li>
+                  <li><%= link_to 'Equipos industriales', equipment_index_path %></li>
+                  <li><%= link_to 'Parámetros', parameters_path %></li>
+                  <li><%= link_to 'Tipos de mediciones', measurement_types_path%></li>
+                </li>
+              <% end %>
+              <% if can? :manage, AcMaintenance %>
+                <li role="separator" class="divider">
+                  <li class="dropdown-header">Aires acondicionados</li>
+                  <li><%= link_to 'Clientes', customers_path %></li>
+                  <li><%= link_to 'Programaciones', schedules_path %></li>
+                </li>
               <% end %>
             </ul>
           </li>
