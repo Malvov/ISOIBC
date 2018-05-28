@@ -6,14 +6,14 @@ class Ability
       if user.admin?
         can :manage, :all
       else
-        case user.area.name
-        when 'Limpieza y mantenimiento'
+        case user.area.id
+        when 2
           can :manage, [Employee, Evaluation, Zone, Task]
-        when 'Electricistas'
+        when 12
           can :manage, [Measurement, MeasurementType, Equipment, Parameter]
-        when 'Seguridad'
+        when 3
           can :manage, ElevatorForm
-        when 'AC'
+        when 11
           can :manage, [AcMaintenance, Customer, Schedule]
         end
       end
