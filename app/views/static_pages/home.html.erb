@@ -4,97 +4,121 @@
     <h1 class="text-center">
         Dashboard
     </h1>
-    <% if can? :manage, Evaluation %>
-    <div class="row">
-        <div class="col-lg-6">
-            <%= employees_evaluations %>
-        </div>
-        <div class="col-lg-6">
-            <%= evaluations_results_per_month %>
-            <div class="row">
-                <div class="col-lg-6">
-                    <%= label_tag 'Desde' %>
-                    <%= date_field_tag :start_at %>
-                </div>
-                <div class="col-lg-6">
-                    <%= label_tag 'Hasta' %>
-                    <%= date_field_tag :end_at %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <% end %>
-    <% if can? :manage, Measurement  %>
-        <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
-        <div class="row">
-            <div class="col-lg-12">
-                <%= measurements_chart %>
-            </div>
-        </div>
-        <div class="row">
-            <% Equipment.all.each do |equipment| %>
-                <div class="col-lg-4">
-                    <%= measurements_per_equipment_chart(equipment) %>
-                    <span style='margin-left: 10em'>
-                        <%= link_to not_oks_path(equipment), remote: true, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
-                            <%= fa_icon 'eye 2x' %>
-                        <% end %>               
-                    </span>
-                    
-                </div>
-            <% end %>
-        </div>
-        
-    <% end %>
-    <% if can? :manage, AcMaintenance %>
-        <div class="row">
-            <div class="col-lg-9">
-                <%= ac_maintenance_goals_chart %>
-            </div>
-            <div class="col-lg-3">
-                <br>
+    <ul class="nav nav-tabs">
+        <% if can? :manage, Evaluation %>
+            <li><a data-toggle="tab" href="#limpieza-y-jardineria">Limpieza y jardinería <i class="fas fa-broom"></i></a></li>
+        <% end %>
+        <% if can? :manage, Measurement %>
+            <li><a data-toggle="tab" href="#aparatos-industriales">Aparatos industriales <i class="fas fa-cogs"></i></a></li>
+        <% end %>
+        <% if can? :manage, AcMaintenance %>
+            <li><a data-toggle="tab" href="#aires-acondicionados">Aires acondicionados <i class="fas fa-snowflake"></i></a></li>
+        <% end %>
+        <% if can? :manage, ElevatorForm  %>
+            <li><a data-toggle="tab" href="#seguridad">Seguridad <i class="fas fa-lock"></i></a></li>
+        <% end %>
+    </ul>
+
+    <div class="tab-content">
+        <% if can? :manage, Evaluation %>
+            <div id="limpieza-y-jardineria" class="tab-pane">
                 <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <label class="btn btn-primary">
-                            Todos los trabajos
-                            <span style="display: none;">
-                                <input type="submit" name="options" id="option">
-                            </span>
-                        </label>
+                    <div class="col-lg-6">
+                        <%= employees_evaluations %>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <%= label_tag 'Escoger cliente' %>
-                            <%= select_tag :ac_customer, options_from_collection_for_select(Customer.all, 'id', 'name'), { class: 'form-control form-group' } %>
-                        </div>
-                        <div class="col-lg-4">
-                            <br>
-                            <label class="btn btn-info">
-                                <i class="fa fa-search"></i> Filtrar
-                                <span style="display: none">
-                                    <input type="submit" name="customer-button" id="customer-button">
-                                </span>
-                            </label>
+                    <div class="col-lg-6">
+                        <%= evaluations_results_per_month %>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <%= label_tag 'Desde' %>
+                                <%= date_field_tag :start_at %>
+                            </div>
+                            <div class="col-lg-6">
+                                <%= label_tag 'Hasta' %>
+                                <%= date_field_tag :end_at %>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <% end %>
-    <% if can? :manage, ElevatorForm %>
-        <%= link_to 'Informes de elevadores', elevator_forms_path, class: 'btn btn-lg btn-primary' %>
-        <%= total_minutes_per_elevator_per_month_chart %>
-        <div class="row">
-            <div class="col-lg-6">
-                <%= label_tag 'Desde' %>
-                <%= date_field_tag :elevators_start_at %>
-                <%= label_tag 'Hasta' %>
-                <%= date_field_tag :elevators_end_at %>
+        <% end %>
+        <% if can? :manage, Measurement  %>
+            <div id="aparatos-industriales" class="tab-pane">
+                <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <%= measurements_chart %>
+                    </div>
+                </div>
+                <div class="row">
+                    <% Equipment.all.each do |equipment| %>
+                        <div class="col-lg-4">
+                            <%= measurements_per_equipment_chart(equipment) %>
+                            <span style='margin-left: 10em'>
+                                <%= link_to not_oks_path(equipment), remote: true, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                                    <%= fa_icon 'eye 2x' %>
+                                <% end %>               
+                            </span>
+                            
+                        </div>
+                    <% end %>
+                </div>
             </div>
-        </div>
-    <% end %>
+        <% end %>
+        <% if can? :manage, AcMaintenance %>
+            <div id="aires-acondicionados" class="tab-pane">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <%= ac_maintenance_goals_chart %>
+                    </div>
+                    <div class="col-lg-3">
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <label class="btn btn-primary">
+                                    Todos los trabajos
+                                    <span style="display: none;">
+                                        <input type="submit" name="options" id="option">
+                                    </span>
+                                </label>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <%= label_tag 'Escoger cliente' %>
+                                    <%= select_tag :ac_customer, options_from_collection_for_select(Customer.all, 'id', 'name'), { class: 'form-control form-group' } %>
+                                </div>
+                                <div class="col-lg-4">
+                                    <br>
+                                    <label class="btn btn-info">
+                                        <i class="fa fa-search"></i> Filtrar
+                                        <span style="display: none">
+                                            <input type="submit" name="customer-button" id="customer-button">
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        <% if can? :manage, ElevatorForm %>
+            <div id="seguridad" class="tab-pane"> 
+                <%= link_to 'Informes de elevadores', elevator_forms_path, class: 'btn btn-lg btn-primary' %>
+                <%= total_minutes_per_elevator_per_month_chart %>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <%= label_tag 'Desde' %>
+                        <%= date_field_tag :elevators_start_at %>
+                        <%= label_tag 'Hasta' %>
+                        <%= date_field_tag :elevators_end_at %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
 <% end %>
