@@ -21,7 +21,7 @@
 
     <div class="tab-content">
         <% if can? :manage, Evaluation %>
-            <div id="limpieza-y-jardineria" class="tab-pane">
+            <div id="limpieza-y-jardineria" class="tab-pane fade">
                 <div class="row">
                     <div class="col-lg-6">
                         <%= employees_evaluations %>
@@ -43,7 +43,7 @@
             </div>
         <% end %>
         <% if can? :manage, Measurement  %>
-            <div id="aparatos-industriales" class="tab-pane">
+            <div id="aparatos-industriales" class="tab-pane fade">
                 <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
                 <!--<div class="row">
                     <div class="col-lg-12">
@@ -66,7 +66,7 @@
             </div>
         <% end %>
         <% if can? :manage, AcMaintenance %>
-            <div id="aires-acondicionados" class="tab-pane">
+            <div id="aires-acondicionados" class="tab-pane fade">
                 <div class="row">
                     <div class="col-lg-9">
                         <%= ac_maintenance_goals_chart %>
@@ -107,7 +107,7 @@
             </div>
         <% end %>
         <% if can? :manage, ElevatorForm %>
-            <div id="seguridad" class="tab-pane"> 
+            <div id="seguridad" class="tab-pane fade"> 
                 <%= link_to 'Informes de elevadores', elevator_forms_path, class: 'btn btn-lg btn-primary' %>
                 <%= total_minutes_per_elevator_per_month_chart %>
                 <div class="row">
