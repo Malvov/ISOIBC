@@ -12,6 +12,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  total_minutes :float
+#  comment       :text
 #
 
 class ElevatorForm < ApplicationRecord

@@ -76,6 +76,6 @@ class ElevatorFormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def elevator_form_params
-      params.require(:elevator_form).permit(:start_at, :end_at, :date, :elevator, :maintenance, :people_caught)
+      params.require(:elevator_form).permit(:start_at, :end_at, :date, :elevator, :maintenance, :people_caught, :comment)
     end
 end

@@ -221,7 +221,8 @@ CREATE TABLE elevator_forms (
     people_caught integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    total_minutes double precision
+    total_minutes double precision,
+    comment text
 );
 
 
@@ -1157,6 +1158,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180524174844'),
 ('20180524193707'),
 ('20180524224648'),
-('20180525183041');
+('20180525183041'),
+('20180528175350');
 
 
