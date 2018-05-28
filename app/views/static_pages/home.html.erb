@@ -45,11 +45,11 @@
         <% if can? :manage, Measurement  %>
             <div id="aparatos-industriales" class="tab-pane">
                 <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
                         <%= measurements_chart %>
                     </div>
-                </div>
+                </div>-->
                 <div class="row">
                     <% Equipment.all.each do |equipment| %>
                         <div class="col-lg-4">
