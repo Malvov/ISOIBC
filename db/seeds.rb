@@ -212,55 +212,68 @@
 # end
 
 
-PersonResponsible.create!([{ name: 'Ludwick Campos' },
-        {
-            name: 'Tatiana Cantillano'
-        },
-        {
-            name: 'Alfonso Castillo'
-        },
-        {
-            name: 'Ericka Flores'
-        },
-        {
-            name: 'Leslie Estrada'
-        },
-        {
-            name: 'Oscar Larrave'
-        },
-        {
-            name: 'Bemilda Meza'
-        },
-        {
-            name: 'Oriana Chamorro'
-        },
-        {
-            name:  'David Canales'
+# PersonResponsible.create!([{ name: 'Ludwick Campos' },
+#         {
+#             name: 'Tatiana Cantillano'
+#         },
+#         {
+#             name: 'Alfonso Castillo'
+#         },
+#         {
+#             name: 'Ericka Flores'
+#         },
+#         {
+#             name: 'Leslie Estrada'
+#         },
+#         {
+#             name: 'Oscar Larrave'
+#         },
+#         {
+#             name: 'Bemilda Meza'
+#         },
+#         {
+#             name: 'Oriana Chamorro'
+#         },
+#         {
+#             name:  'David Canales'
 
-        },
-        {
-            name: 'María Salgado'
+#         },
+#         {
+#             name: 'María Salgado'
             
-        },
-        { name: 'Daniel Espinoza' }
-    ]
-)
+#         },
+#         { name: 'Daniel Espinoza' }
+#     ]
+# )
 
-areas = ['Proyectos',
-'Limpieza',
-'AC',
-'Electricistas',
-'Seguridad',
-'Contabilidad',
-'Corporativo',
-'Compras',
-'Finanzas',
-'Comercialización',
-'Contraloría',
-'BI']
+# areas = ['Proyectos',
+# 'Limpieza',
+# 'AC',
+# 'Electricistas',
+# 'Seguridad',
+# 'Contabilidad',
+# 'Corporativo',
+# 'Compras',
+# 'Finanzas',
+# 'Comercialización',
+# 'Contraloría',
+# 'BI']
 
 
-areas.each do |area|
-    Area.create!(name: area)
-    puts '.'
+# areas.each do |area|
+#     Area.create!(name: area)
+#     puts '.'
+# end
+
+340.times do |n|
+    ManagerWorkPlan.create!(
+        area: Area.all.sample,
+        task: "Actividad #{n}",
+        person_responsible_id: PersonResponsible.all.sample.id,
+        priority: ManagerWorkPlan::PRIORITIES.sample,
+        start_date: DateTime.now,
+        end_date: (DateTime.now..2.months.from_now).to_a.sample,
+        progress: ManagerWorkPlan::PROGRESS.sample
+    )
+    puts n
 end
