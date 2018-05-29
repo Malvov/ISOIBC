@@ -27,7 +27,7 @@ class AcMaintenance < ApplicationRecord
 
   MAINTENANCE_TYPES = %w[Emergencia Programado]
 
-  TASK_TYPES = %w[Reparación Reemplazo Programación Cambio_Total]
+  TASK_TYPES = %w[Reparación Reemplazo Programación Cambio_Total Diagnóstico]
   include PgSearch
   pg_search_scope :search, against: [:maintenance_type, :parts],
   associated_against: { customer: :name }, using: {

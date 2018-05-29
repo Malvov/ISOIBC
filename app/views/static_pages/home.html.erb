@@ -89,7 +89,7 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <%= label_tag 'Escoger cliente' %>
-                                    <%= select_tag :ac_customer, options_from_collection_for_select(Customer.all, 'id', 'name'), { class: 'form-control form-group' } %>
+                                    <%= select_tag :ac_customer, options_from_collection_for_select(Customer.all, 'id', 'name'), { prompt: 'Escoger cliente', class: 'form-control form-group' } %>
                                 </div>
                                 <div class="col-lg-4">
                                     <br>
