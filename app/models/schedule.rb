@@ -11,10 +11,13 @@
 #
 
 class Schedule < ApplicationRecord
-  belongs_to :customer
-  validates_presence_of :customer_id, :month, :maintenances_quantity
+  belongs_to :customer, optional: true
+  validates_presence_of :month, :maintenances_quantity
+  scope :maintenances_only, -> { where(customer: nil) }
+  scope :ac_maintenances_only, -> { where.not(customer: nil) }
+  MONTHS = %w[Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre]
   include PgSearch
-
+NilClass
   pg_search_scope :search, against: [:month],
   associated_against: { customer: :name }, using: {
     tsearch: {

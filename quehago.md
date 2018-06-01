@@ -161,9 +161,26 @@ Debería mostrar para cada equipo también en específico las cosas que están f
 # Mantenimientos
 
 #Maintenances
-la factura no está aquí porque no corresponde a debocasas qué pereza más grande no
-entiendo cómo funciona este edificio lol
+
 equipment, provider, no_document, date
-no sé qué más hacer alagranputa debería traer el suéter
+
 
 Utilizaré otra vez Schedules. Tengo que crear un scope para sólo ac_maintenances y sólo para maintenances. El mismo scope debería funcionar para las views
+
+jefedemantenimiento hace las programaciones
+estas programaciones son mensuales y cuando vienen a ejecutarlas se hace el documento (Maintenance)
+
+en Schedule tengo también cliente, pero eso es, por ahora, exclusivo de los aires acondicionados
+opciones:
+    que jefedemantenimiento guarde como "cliente" a uno fijo, por ejemplo "IBC" para referirse
+    al mismo invercasa y sus equipos.
+        Entonces,en el scope para este caso tengo que limitarlo sólo para el cliente "IBC" y mostrar
+        sólo esto en el index.
+        cómo lo hago sin que sea tan raro el código en el controlador?
+        Los aires acondicionados no deberían ver esta parte de los registros, aunque las vistas 
+        sean las mismas.
+        El problema es que siento esto muy forzado.
+
+
+    
+

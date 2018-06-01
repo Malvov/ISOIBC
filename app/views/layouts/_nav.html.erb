@@ -38,11 +38,17 @@
                   </ul>
                 </li>
             <% end %>
-            <% if can? :manage, Measurement %>
+            <% if can? :manage, Measurement or can? :manage, Maintenance %>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Equipos industriales<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to 'Equipos y medidas', equipos_url %></li>
+                  <% if can? :manage, Measurement %>
+                    <li><%= link_to 'Equipos y medidas', equipos_url %></li>
+                  <% end %>
+                  <% if can? :manage, Maintenance %>
+                    <li><%= link_to 'Programaciones', schedules_path %></li>
+                    <li><%= link_to 'Mantenimientos', maintenances_path %></li>
+                  <% end %>
                 </ul>
               </li>
             <% end %>

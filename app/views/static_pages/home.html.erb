@@ -1,15 +1,16 @@
-<h1>Sistema de seguimiento ISO</h1>
+<h1>Sistema de seguimiento de KPIs</h1>
 <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-lg btn-primary' unless user_signed_in? %>
 <% if user_signed_in? %>
     <h1 class="text-center">
         Dashboard
     </h1>
+    <%= equipments_maintenances_chart %>
     <ul class="nav nav-tabs">
         <% if can? :manage, Evaluation %>
             <li><a data-toggle="tab" href="#limpieza-y-jardineria">Limpieza y jardinería <i class="fas fa-broom"></i></a></li>
         <% end %>
-        <% if can? :manage, Measurement %>
-            <li><a data-toggle="tab" href="#aparatos-industriales">Equipos industriales <i class="fas fa-industry"></i></a></li>
+        <% if can? :manage, Measurement or can? :manage, Maintenance %>
+            <li><a data-toggle="tab" href="#aparatos-industriales">Aparatos industriales <i class="fas fa-cogs"></i></a></li>
         <% end %>
         <% if can? :manage, AcMaintenance %>
             <li><a data-toggle="tab" href="#aires-acondicionados">Aires acondicionados <i class="fas fa-snowflake"></i></a></li>
@@ -42,7 +43,7 @@
                 </div>
             </div>
         <% end %>
-        <% if can? :manage, Measurement  %>
+        <% if can? :manage, Measurement or can? :manage, Maintenance  %>
             <div id="aparatos-industriales" class="tab-pane fade">
                 <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
                 <!--<div class="row">

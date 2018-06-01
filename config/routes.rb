@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :providers
+  resources :maintenances
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :manager_work_plans
   resources :areas
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
       post 'ac_maintenance_goals'
       get 'total_minutes_per_elevator_per_month'
       post 'total_minutes_per_elevator_per_month'
+      get 'equipments_maintenances'
     end
   end
   get 'get_parameters', to: 'measurements#get_parameters'
