@@ -8,7 +8,7 @@
         <% if can? :manage, Evaluation %>
             <li><a data-toggle="tab" href="#limpieza-y-jardineria">Limpieza y jardinería <i class="fas fa-broom"></i></a></li>
         <% end %>
-        <% if can? :manage, Measurement %>
+        <% if can? :manage, Measurement or can? :manage, Maintenance %>
             <li><a data-toggle="tab" href="#aparatos-industriales">Aparatos industriales <i class="fas fa-cogs"></i></a></li>
         <% end %>
         <% if can? :manage, AcMaintenance %>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         <% end %>
-        <% if can? :manage, Measurement  %>
+        <% if can? :manage, Measurement or can? :manage, Maintenance  %>
             <div id="aparatos-industriales" class="tab-pane fade">
                 <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
                 <!--<div class="row">

@@ -1,0 +1,20 @@
+
+<%= simple_form_for(@maintenance) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :provider %>
+    <%= f.label :date, label: 'Fecha' %>
+    <div class="input-group">  
+      <%= f.text_field :date, class: 'form-control datetimepicker', placeholder: 'Seleccionar fecha', value: @maintenance.persisted? ? f.object.date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y') %>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+    <br> 
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

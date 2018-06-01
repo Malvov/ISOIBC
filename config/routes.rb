@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :maintenances
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :manager_work_plans
   resources :areas

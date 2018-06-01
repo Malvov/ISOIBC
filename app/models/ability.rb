@@ -7,7 +7,7 @@ class Ability
         can :manage, :all
       else
         case user.area.id
-        when 2
+        when 13
           can :manage, [Employee, Evaluation, Zone, Task]
         when 12
           can :manage, [Measurement, MeasurementType, Equipment, Parameter]
@@ -15,6 +15,8 @@ class Ability
           can :manage, ElevatorForm
         when 11
           can :manage, [AcMaintenance, Customer, Schedule]
+        when 2
+          can :manage, [Schedule, Maintenance]
         end
       end
     end

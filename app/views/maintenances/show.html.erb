@@ -1,0 +1,12 @@
+<p>
+  <strong>Provider:</strong>
+  <%= @maintenance.provider %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @maintenance.date %>
+</p>
+
+<%= link_to 'Edit', edit_maintenance_path(@maintenance) %> |
+<%= link_to 'Back', maintenances_path %>

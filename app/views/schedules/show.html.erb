@@ -1,7 +1,9 @@
-<p>
-  <strong>Cliente:</strong>
-  <%= @schedule.customer.name %>
-</p>
+<% unless @schedule.customer.nil? %>
+  <p>
+    <strong>Cliente:</strong>
+    <%= @schedule.customer.name %>
+  </p>
+<% end %>
 
 <p>
   <strong>Mes:</strong>
