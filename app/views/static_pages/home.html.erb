@@ -9,13 +9,13 @@
             <li><a data-toggle="tab" href="#limpieza-y-jardineria">Limpieza y jardinería <i class="fas fa-broom"></i></a></li>
         <% end %>
         <% if can? :manage, Measurement %>
-            <li><a data-toggle="tab" href="#aparatos-industriales">Aparatos industriales <i class="fas fa-cogs"></i></a></li>
+            <li><a data-toggle="tab" href="#aparatos-industriales">Equipos industriales <i class="fas fa-industry"></i></a></li>
         <% end %>
         <% if can? :manage, AcMaintenance %>
             <li><a data-toggle="tab" href="#aires-acondicionados">Aires acondicionados <i class="fas fa-snowflake"></i></a></li>
         <% end %>
         <% if can? :manage, ElevatorForm  %>
-            <li><a data-toggle="tab" href="#seguridad">Seguridad <i class="fas fa-lock"></i></a></li>
+            <li><a data-toggle="tab" href="#seguridad">Seguridad <i class="fas fa-shield-alt"></i></a></li>
         <% end %>
     </ul>
 

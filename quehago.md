@@ -140,11 +140,12 @@ Debería mostrar para cada equipo también en específico las cosas que están f
  Podría crear el plan de mantenimiento por empresa. Utilizaría los arrays de PG para guardar
  los meses que corresponde por empresa.
 
- HECHO MÁS O MENOS
+ HECHO
  
 
  #Otros
-    Mejorar la presentación de la página principal. Especialmente para el administrador
+    Mejorar la presentación de la página principal. Especialmente para el administrador 
+    HECHO
     
 #Notificaciones
     Deberían ser sólo para el admin, quizá, no sé :sobbing
@@ -153,8 +154,16 @@ Debería mostrar para cada equipo también en específico las cosas que están f
     Measurement
     AcMaintenance
 
-    tengo que hacer lo de cancancan??? no sé qué más hacer ahí 
-    no entiendo la guía de gorails para in-app navbar notifications
+    HECHO
 
-
+    tengo que hacer lo de cancancan??? no sé qué más hacer ahí --HECHO
     
+# Mantenimientos
+
+#Maintenances
+la factura no está aquí porque no corresponde a debocasas qué pereza más grande no
+entiendo cómo funciona este edificio lol
+equipment, provider, no_document, date
+no sé qué más hacer alagranputa debería traer el suéter
+
+Utilizaré otra vez Schedules. Tengo que crear un scope para sólo ac_maintenances y sólo para maintenances. El mismo scope debería funcionar para las views
