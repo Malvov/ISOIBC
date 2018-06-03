@@ -64,7 +64,7 @@ class ChartsController < ApplicationController
 
     def equipments_maintenances
         hash = Hash.new
-        scheduled_maintenances = Schedule.maintenances_only.map { |schedule| [schedule.month, schedule.maintenances_quantity] }.to_h
+        scheduled_maintenances = Schedule.all.map { |schedule| [schedule.month, schedule.maintenances_quantity] }.to_h
         maintenances_completed = Maintenance.group_by_month(:date, format: '%B').count
         render json: scheduled_vs_completed(scheduled_maintenances, maintenances_completed).chart_json
     end

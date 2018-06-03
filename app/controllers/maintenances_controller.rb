@@ -1,5 +1,4 @@
 class MaintenancesController < ApplicationController
-  load_and_authorize_resource
   before_action :set_maintenance, only: [:show, :edit, :update, :destroy]
 
   # GET /maintenances
@@ -70,6 +69,6 @@ class MaintenancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def maintenance_params
-      params.require(:maintenance).permit(:provider, :date, :equipment, :no_document)
+      params.require(:maintenance).permit(:equipment_id, :provider_id, :date, :image, :comment)
     end
 end

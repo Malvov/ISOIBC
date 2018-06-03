@@ -6,6 +6,7 @@
     <%= f.input :name, label: 'Nombre' %>
     <%= f.input :location, label: 'Locación', collection: %w[IAT IT2 IT3], include_blank: 'Torre' %>
     <%= f.input :description, label: 'Descripción' %>
+    <%= f.input :provider_ids, label: 'Proveedores', collection: Provider.all, include_blank: false, input_html: { multiple: true} %>
   </div>
 
   <div class="form-actions">

@@ -19,9 +19,9 @@
 <table class='table'>
   <thead>
     <tr>
-      <% unless @schedules.first.customer.nil? %>
-        <th>Cliente</th>
-      <% end %>
+      
+      <th>Cliente</th>
+      
       <th>Mes</th>
       <th>Mantenimientos programados</th>
       <th colspan="3"></th>
@@ -31,9 +31,9 @@
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
-        <% unless schedule.customer.nil? %>
-          <td><%= schedule.customer.name %></td>
-        <% end %>
+        
+        <td><%= schedule.customer.name %></td>
+      
         <td><%= schedule.month %></td>
         <td><%= schedule.maintenances_quantity %></td>
         <td><%= link_to schedule, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>

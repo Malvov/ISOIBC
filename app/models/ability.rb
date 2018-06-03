@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     if user.present?
-      if user.admin?
+      if user.admin? || user.username == 'jefedemantenimiento'
         can :manage, :all
       else
         case user.area.id
@@ -15,8 +15,6 @@ class Ability
           can :manage, ElevatorForm
         when 11
           can :manage, [AcMaintenance, Customer, Schedule]
-        when 2
-          can :manage, [Schedule, Maintenance]
         end
       end
     end

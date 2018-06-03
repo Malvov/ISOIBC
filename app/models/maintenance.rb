@@ -2,15 +2,19 @@
 #
 # Table name: maintenances
 #
-#  id          :bigint(8)        not null, primary key
-#  provider    :string           not null
-#  date        :date             not null
-#  equipment   :string           not null
-#  no_document :string           not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id           :bigint(8)        not null, primary key
+#  equipment_id :bigint(8)
+#  provider_id  :bigint(8)
+#  date         :date
+#  comment      :text
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 class Maintenance < ApplicationRecord
-    validates_presence_of :provider, :equipment, :no_document, :date
+  belongs_to :equipment
+  belongs_to :provider
+
+  has_one_attached :image
+  
 end

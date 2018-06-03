@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :providers
   resources :maintenances
+  resources :providers
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :manager_work_plans
   resources :areas

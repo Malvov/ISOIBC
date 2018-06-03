@@ -7,20 +7,14 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     #debugger
-    if params[:query]
-        
-      if can? :manage, Maintenance
-        @schedules = Schedule.maintenances_only.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
-      else
-        @schedules = Schedule.ac_maintenances_only.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
-      end
+    if params[:query] 
+
+      @schedules = Schedule.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+
       flash[:notice] = 'Ningún resultado' if @schedules.empty?
     else
-      if can? :manage, Maintenance
-        @schedules = Schedule.maintenances_only.paginate(page: params[:page]).per_page(10)
-      else 
-        @schedules = Schedule.ac_maintenances_only.paginate(page: params[:page]).per_page(10)
-      end
+      
+      @schedules = Schedule.paginate(page: params[:page]).per_page(10)
     end
   end
 

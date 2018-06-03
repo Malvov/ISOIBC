@@ -3,17 +3,29 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :equipment, label: 'Máquina' %>
-    <%= f.input :provider, label: 'Proveedor' %>
-    <%= f.input :no_document, label: 'Número de documento' %>
+    <%= f.label :equipment, label: 'Equipo' %>
+    <%= select_tag 'equipment_id',
+    options_from_collection_for_select(Equipment.all, 'id', 'name', @maintenance.equipment.id), class: 'form-control form-group', 
+    prompt: 'Escoger equipo' %>
+    <%= f.label :provider, label: 'Proveedor' %>
+    <%= f.grouped_collection_select :provider_id, Equipment.all, :providers, 
+    :name, :id, :name, { include_blank: 'Escoger proveedor' }, 
+    { class: 'form-control form-group' } %>
     <%= f.label :date, label: 'Fecha' %>
-    <div class="input-group">  
-      <%= f.text_field :date, class: 'form-control datetimepicker', placeholder: 'Seleccionar fecha', value: @maintenance.persisted? ? f.object.date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y') %>
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-calendar"></span>
-      </span>
+    <div class="input-group form-group">
+      <%= f.text_field :date, class: 'form-control datetimepicker', value: @maintenance.persisted? ? f.object.date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y')  %>
+       <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
     </div>
-    <br> 
+    <label class="btn btn-info">
+      Imagen
+      <span style="display:none;">
+        <%= f.input :image, as: :file %>
+      </span>
+    </label>
+    <%= f.input :comment %>
+
   </div>
 
   <div class="form-actions">

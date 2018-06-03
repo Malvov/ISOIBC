@@ -1,4 +1,4 @@
-class CreateJoinTableProvidersEquipments < ActiveRecord::Migration[5.2]
+class CreateJoinTableEquipmentProviders < ActiveRecord::Migration[5.2]
   def change
     create_table :equipment_providers, id: false do |t|
       t.belongs_to :provider, index: true

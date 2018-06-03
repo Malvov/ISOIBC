@@ -1,12 +1,24 @@
 <p>
+  <strong>Equipment:</strong>
+  <%= @maintenance.equipment.name %>
+</p>
+
+<p>
   <strong>Provider:</strong>
-  <%= @maintenance.provider %>
+  <%= @maintenance.provider.name %>
 </p>
 
 <p>
   <strong>Date:</strong>
   <%= @maintenance.date %>
 </p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @maintenance.comment %>
+</p>
+
+<%= image_tag @maintenance.image if @maintenance.image.attached? %> 
 
 <%= link_to 'Edit', edit_maintenance_path(@maintenance) %> |
 <%= link_to 'Back', maintenances_path %>

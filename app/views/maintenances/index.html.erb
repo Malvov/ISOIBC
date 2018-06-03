@@ -1,12 +1,14 @@
-<h1>Mantenimientos</h1>
-<%= link_to 'Nuevo mantenimiento', new_maintenance_path, class: 'btn btn-success' %>
-<table class="table">
+<p id="notice"><%= notice %></p>
+
+<h1>Maintenances</h1>
+
+<table>
   <thead>
     <tr>
-      <th>Máquina</th>
-      <th>Proveedor</th>
-      <th>Número de documento</th>
-      <th>Fecha</th>
+      <th>Equipment</th>
+      <th>Provider</th>
+      <th>Date</th>
+      <th>Comment</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,22 +18,16 @@
       <tr>
         <td><%= maintenance.equipment %></td>
         <td><%= maintenance.provider %></td>
-        <td><%= maintenance.no_document  %></td>
-        <td><%= maintenance.date.strftime '%d/%m/%Y' %></td>
-        <td><%= link_to maintenance, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
-                <%= fa_icon 'eye 2x' %>
-            <% end %>
-        </td>
-        <td><%= link_to edit_maintenance_path(maintenance), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
-                <%= fa_icon 'edit 2x' %>
-            <% end %>
-        </td>
-        <td><%= link_to maintenance_path(maintenance), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
-                data: { confirm: 'U sure?' } do %>
-                <%= fa_icon 'trash 2x'%>
-            <% end %>    
-        </td>
+        <td><%= maintenance.date %></td>
+        <td><%= maintenance.comment %></td>
+        <td><%= link_to 'Show', maintenance %></td>
+        <td><%= link_to 'Edit', edit_maintenance_path(maintenance) %></td>
+        <td><%= link_to 'Destroy', maintenance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Maintenance', new_maintenance_path %>
