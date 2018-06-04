@@ -6,8 +6,8 @@ $(document).on 'turbolinks:load', ->
   jQuery ->
     
     providers = $('#maintenance_provider_id').html()
-    $('#equipment_id').change ->
-      equipment = $('#equipment_id :selected').text()
+    $('#maintenance_equipment_id').change ->
+      equipment = $('#maintenance_equipment_id :selected').text()
       options = $(providers).filter("optgroup[label='#{equipment}']").html()
       if options
         $('#maintenance_provider_id').html(options)

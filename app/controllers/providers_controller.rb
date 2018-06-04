@@ -4,7 +4,7 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
-    @providers = Provider.all
+    @providers = Provider.paginate(page: params[:page]).per_page(10)
   end
 
   # GET /providers/1
@@ -69,6 +69,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:name)
+      params.require(:provider).permit(:name, equipment_ids: [])
     end
 end

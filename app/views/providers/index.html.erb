@@ -1,20 +1,22 @@
-<h1>Providers</h1>
+<h1>Proveedores</h1>
 <br>
 <%= link_to 'Nuevo proveedor', new_provider_path, class: 'btn btn-primary' %>
-
+<%= will_paginate @providers, renderer: BootstrapPagination::Rails %>
 <table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Equipos</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% @providers.each do |provider| %>
       <tr>
         <td><%= provider.name %></td>
-            <td><%= link_to provider, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+        <td><%= provider.equipments.map { |equipment| equipment.name }.join ', ' %></td>
+        <td><%= link_to provider, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
                 <%= fa_icon 'eye 2x' %>
             <% end %>
         </td>

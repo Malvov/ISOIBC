@@ -49,27 +49,27 @@ module StatisticsHelper
 
     def evaluations_results_per_month
         
-    column_chart  evaluations_results_per_month_charts_path,
-        id: 'evaluations_results_per_month',                                                                    
-        stacked: true, 
-        library: {
-        colors: [
-            '#34fc02', #bueno
-            '#fc1b02', #deficiente
-            '#fca902', #regular
-            
-            
-        ], title: { text: 'Resultados por mes' },
-          yAxis: {
-            allowDecimals: false,
-            title: { text: 'Cantidad' }
-        },                                                                                                                                                                                         
-        plotOptions: {
-            series: {
-                pointWidth: 50
+        column_chart  evaluations_results_per_month_charts_path,
+            id: 'evaluations_results_per_month',                                                                    
+            stacked: true, 
+            library: {
+            colors: [
+                '#34fc02', #bueno
+                '#fc1b02', #deficiente
+                '#fca902', #regular
+                
+                
+            ], title: { text: 'Resultados por mes' },
+            yAxis: {
+                allowDecimals: false,
+                title: { text: 'Cantidad' }
+            },                                                                                                                                                                                         
+            plotOptions: {
+                series: {
+                    pointWidth: 15
+                }
             }
         }
-      }
     end                                                 
 
     def measurements_chart
@@ -107,6 +107,7 @@ module StatisticsHelper
     def ac_maintenance_goals_chart
         column_chart ac_maintenance_goals_charts_path,
         id: 'ac_maintenance_goals',
+        stacked: true,
         library: {
             colors: [
                 '#34fc02', #Programados
@@ -121,7 +122,7 @@ module StatisticsHelper
             },                                                                                                                                                                                           
             plotOptions: {
                 series: {
-                    pointWidth: 50
+                    pointWidth: 15
                 }
             }
           }
@@ -141,7 +142,7 @@ module StatisticsHelper
             },                                                                                                                                                                                                  
             plotOptions: {
                 series: {
-                    pointWidth: 50
+                    pointWidth: 15
                 }
             }
           }
@@ -161,7 +162,7 @@ module StatisticsHelper
             },                                                                                                                                                                                                  
             plotOptions: {
                 series: {
-                    pointWidth: 50
+                    pointWidth: 15
                 }
             }
           }

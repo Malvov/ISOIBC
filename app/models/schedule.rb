@@ -15,6 +15,7 @@ class Schedule < ApplicationRecord
   validates_presence_of :month, :maintenances_quantity
 
   MONTHS = %w[Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre]
+  
   include PgSearch
 
   pg_search_scope :search, against: [:month],

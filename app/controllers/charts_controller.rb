@@ -38,7 +38,8 @@ class ChartsController < ApplicationController
         if params[:todos] == '1' || params[:todos].blank?
             valid_fors_emergencias = AcMaintenance.emergencias.group_by_month(:date, format: '%B').sum(:valid_for)
             #ac_maintenance_months = AcMaintenance.group_by_month(:date, format: '%B').count
-            maintenance_quantities = Schedule.group(:month).sum(:maintenances_quantity)
+            maintenance_quantities = Schedule.where.not(customer: Customer.find_by_name('IBC')).
+            group(:month).sum(:maintenances_quantity)
             valid_fors_programados = AcMaintenance.programados.group_by_month(:date, format: '%B').sum(:valid_for)
         elsif params[:customer_id]
             customer = Customer.find(params[:customer_id])
@@ -64,7 +65,7 @@ class ChartsController < ApplicationController
 
     def equipments_maintenances
         hash = Hash.new
-        scheduled_maintenances = Schedule.all.map { |schedule| [schedule.month, schedule.maintenances_quantity] }.to_h
+        scheduled_maintenances = Schedule.where(customer: Customer.find_by_name('IBC')).map { |schedule| [schedule.month, schedule.maintenances_quantity] }.to_h
         maintenances_completed = Maintenance.group_by_month(:date, format: '%B').count
         render json: scheduled_vs_completed(scheduled_maintenances, maintenances_completed).chart_json
     end

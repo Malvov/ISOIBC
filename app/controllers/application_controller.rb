@@ -9,78 +9,78 @@ class ApplicationController < ActionController::Base
   def scheduled_vs_completed(scheduled, completed, emergencies = {})
     #debugger
     hash = Hash.new
-    completed.keys.each do |key|
+    scheduled.keys.each do |key|
         case key
-        when 'January'
+        when 'Enero'
             hash[['Programados', 'Enero']] = scheduled.slice('Enero').values.first
             hash[['Ejecutados', 'Enero']] = completed.slice('January').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Enero']] = emergencies.slice('January').values.first
             end 
-        when 'February'
+        when 'Febrero'
             hash[['Programados', 'Febrero']] = scheduled.slice('Febrero').values.first
             hash[['Ejecutados', 'Febrero']] = completed.slice('February').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Febrero']] = emergencies.slice('February').values.first
             end 
-        when 'March'
+        when 'Marzo'
             hash[['Programados', 'Marzo']] = scheduled.slice('Marzo').values.first
             hash[['Ejecutados', 'Marzo']] = completed.slice('March').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Marzo']] = emergencies.slice('March').values.first
             end
-        when 'April'
+        when 'Abril'
             hash[['Programados', 'Abril']] = scheduled.slice('Abril').values.first
             hash[['Ejecutados', 'Abril']] = completed.slice('April').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Abril']] = emergencies.slice('April').values.first
             end
-        when 'May'
+        when 'Mayo'
             hash[['Programados', 'Mayo']] = scheduled.slice('Mayo').values.first
             hash[['Ejecutados', 'Mayo']] = completed.slice('May').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Mayo']] = emergencies.slice('May').values.first
             end
-        when 'June'
+        when 'Junio'
             hash[['Programados', 'Junio']] = scheduled.slice('Junio').values.first
             hash[['Ejecutados', 'Junio']] = completed.slice('June').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Junio']] = emergencies.slice('June').values.first
             end
-        when 'July'
+        when 'Julio'
             hash[['Programados', 'Julio']] = scheduled.slice('Julio').values.first
             hash[['Ejecutados', 'Julio']] = completed.slice('July').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Julio']] = emergencies.slice('July').values.first
             end
-        when 'August'
+        when 'Agosto'
             hash[['Programados', 'Agosto']] = scheduled.slice('Agosto').values.first
             hash[['Ejecutados', 'Agosto']] = completed.slice('August').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Agosto']] = emergencies.slice('August').values.first
             end
-        when 'September'
+        when 'Septiembre'
             hash[['Programados', 'Septiembre']] = scheduled.slice('Septiembre').values.first
             hash[['Ejecutados', 'Septiembre']] = completed.slice('September').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Septiembre']] = emergencies.slice('September').values.first
             end
-        when 'October'
+        when 'Octubre'
             hash[['Programados', 'Octubre']] = scheduled.slice('Octubre').values.first
             hash[['Ejecutados', 'Octubre']] = completed.slice('October').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Octubre']] = emergencies.slice('October').values.first
             end
-        when 'November'
+        when 'Noviembre'
             hash[['Programados', 'Noviembre']] = scheduled.slice('Noviembre').values.first
             hash[['Ejecutados', 'Noviembre']] = completed.slice('November').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Noviembre']] = emergencies.slice('November').values.first
             end
-        when 'December'
+        when 'Diciembre'
             hash[['Programados', 'Diciembre']] = scheduled.slice('Diciembre').values.first
             hash[['Ejecutados', 'Diciembre']] = completed.slice('December').values.first
-            unless emergencies.nil?
+            unless emergencies == {}
                 hash[['Emergencias', 'Diciembre']] = emergencies.slice('December').values.first
             end
         end

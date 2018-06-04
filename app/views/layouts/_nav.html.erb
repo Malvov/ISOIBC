@@ -99,6 +99,12 @@
                   <li><%= link_to 'Programaciones', schedules_path %></li>
                 </li>
               <% end %>
+              <% if can? :manage, Maintenance %>
+                <li role="separator" class="divider">
+                  <li class="dropdown-header">General</li>
+                  <li><%= link_to 'Proveedores', providers_path %></li>
+                </li>
+              <% end %>
             </ul>
           </li>
           <li class="dropdown">

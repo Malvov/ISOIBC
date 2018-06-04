@@ -4,8 +4,8 @@
 
   <div class="form-inputs">
     <%= f.label :equipment, label: 'Equipo' %>
-    <%= select_tag 'equipment_id',
-    options_from_collection_for_select(Equipment.all, 'id', 'name', @maintenance.equipment.id), class: 'form-control form-group', 
+    <%= select_tag 'maintenance[equipment_id]',
+    options_from_collection_for_select(Equipment.all, 'id', 'name', (@maintenance.equipment.nil? ? nil : @maintenance.equipment.id)), class: 'form-control form-group', 
     prompt: 'Escoger equipo' %>
     <%= f.label :provider, label: 'Proveedor' %>
     <%= f.grouped_collection_select :provider_id, Equipment.all, :providers, 
@@ -24,11 +24,11 @@
         <%= f.input :image, as: :file %>
       </span>
     </label>
-    <%= f.input :comment %>
+    <%= f.input :comment, label: 'Observaciones' %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Guardar' %>
   </div>
 <% end %>
