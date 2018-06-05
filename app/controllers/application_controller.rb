@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   def scheduled_vs_completed(scheduled, completed, emergencies = nil)
-    #debugger
+
     hash = Hash.new
     scheduled.keys.each do |key|
         case key
@@ -85,7 +85,7 @@ class ApplicationController < ActionController::Base
             end
         end
     end
-    return hash
+    hash
   end
 
   protected

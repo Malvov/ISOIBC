@@ -113,8 +113,6 @@ module StatisticsHelper
                 '#34fc02', #Programados
                 '#2c5bd8', #Completados
                 '#fca902' #todos
-                
-                
             ], title: { text: 'Mantenimientos de AC programados vs completados' },
               yAxis: {
                 allowDecimals: false,
@@ -151,9 +149,14 @@ module StatisticsHelper
     def equipments_maintenances_chart
         column_chart equipments_maintenances_charts_path,
         id: 'equipments_maintenances_chart',
+
         library: {
-             title: { text: 'Mantenimientos a equipos' },
-              yAxis: {
+            colors: [
+                '#34fc02', #Programados
+                '#2c5bd8' #Completados
+            ],
+            title: { text: 'Mantenimientos a equipos' },
+            yAxis: {
                 title: { text: 'Cantidad de mantenimientos' },
                 allowDecimals: false
             },
