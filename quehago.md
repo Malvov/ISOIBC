@@ -184,3 +184,42 @@ opciones:
 
     
 
+STATUS
+
+La aplicación está compuesta por varios módulos correspondientes a cada subárea de mantenimiento y seguridad, estos son:
+
+    Limpieza y jardinería                   Estado
+        Catálogos
+            Evaluación                      Revisado y en producción
+            Sectores y tareas por sector    Revisado y en producción
+            Empleados                       Revisado y en producción
+        Gráficos que genera
+            Rendimiento general             Revisado y en producción
+            Resultados por mes              Revisado y en producción
+            Resultados por empleado         Revisado y en producción
+    Equipos industriales
+        Catálogos
+            Equipos industriales            Revisado y en producción
+            Tipos de mediciones             Revisado y en producción
+            Parámetros                      Revisado y en producción
+            Mantenimientos                  Por revisar
+            Programaciones (compartido con aires acondicionados) Por revisar
+            Proveedores                     Por revisar
+        Gráficos que genera
+            Mediciones por equipo
+            Mantenimientos a equipos (equipos industriales)
+    Aires acondicionados
+        Catálogos
+            Clientes                        Revisado y en producción
+            Programaciones (compartido con equipos industriales)    Revisado y en producción
+            Mantenimientos de aires acondicionados  Revisado y en producción
+        Gráficos que genera
+            Mantenimientos de AC programados vs completados En producción, falta filtro por fecha
+    Seguridad
+        Catálogo    
+            Informes de elevadores          Revisado y en producción
+        Gráficos que genera
+            Informe de elevadores por mes   Revisados y en producción
+
+Además, incluye un backoffice donde el usuario con permisos de admin puede administrar todo, pensado especialmente para agregar nuevos usuarios y asignarles un área porque según esta área, se le otorgan
+los permisos a los módulos antes mencionados.
