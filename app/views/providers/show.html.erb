@@ -1,0 +1,14 @@
+<p>
+  <strong>Name:</strong>
+  <%= @provider.name %>
+</p>
+
+<strong>Equipos: </strong>
+<ul>
+  <% @provider.equipments.each do |equipment| %>
+    <li><%= link_to equipment.name, equipment %></li>
+  <% end%>
+</ul>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>

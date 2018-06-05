@@ -3,11 +3,11 @@ class Ability
 
   def initialize(user)
     if user.present?
-      if user.admin?
+      if user.admin? || user.username == 'jefedemantenimiento'
         can :manage, :all
       else
         case user.area.id
-        when 2
+        when 13
           can :manage, [Employee, Evaluation, Zone, Task]
         when 12
           can :manage, [Measurement, MeasurementType, Equipment, Parameter]

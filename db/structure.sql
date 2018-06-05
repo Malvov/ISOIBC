@@ -311,6 +311,16 @@ ALTER SEQUENCE equipment_id_seq OWNED BY equipment.id;
 
 
 --
+-- Name: equipment_providers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE equipment_providers (
+    provider_id bigint,
+    equipment_id bigint
+);
+
+
+--
 -- Name: evaluations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -343,6 +353,40 @@ CREATE SEQUENCE evaluations_id_seq
 --
 
 ALTER SEQUENCE evaluations_id_seq OWNED BY evaluations.id;
+
+
+--
+-- Name: maintenances; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE maintenances (
+    id bigint NOT NULL,
+    equipment_id bigint,
+    provider_id bigint,
+    date date,
+    comment text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: maintenances_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE maintenances_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: maintenances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE maintenances_id_seq OWNED BY maintenances.id;
 
 
 --
@@ -484,6 +528,37 @@ CREATE SEQUENCE parameters_id_seq
 --
 
 ALTER SEQUENCE parameters_id_seq OWNED BY parameters.id;
+
+
+--
+-- Name: providers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE providers (
+    id bigint NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: providers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE providers_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: providers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE providers_id_seq OWNED BY providers.id;
 
 
 --
@@ -703,6 +778,13 @@ ALTER TABLE ONLY evaluations ALTER COLUMN id SET DEFAULT nextval('evaluations_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY maintenances ALTER COLUMN id SET DEFAULT nextval('maintenances_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY manager_work_plans ALTER COLUMN id SET DEFAULT nextval('manager_work_plans_id_seq'::regclass);
 
 
@@ -725,6 +807,13 @@ ALTER TABLE ONLY measurements ALTER COLUMN id SET DEFAULT nextval('measurements_
 --
 
 ALTER TABLE ONLY parameters ALTER COLUMN id SET DEFAULT nextval('parameters_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY providers ALTER COLUMN id SET DEFAULT nextval('providers_id_seq'::regclass);
 
 
 --
@@ -836,6 +925,14 @@ ALTER TABLE ONLY evaluations
 
 
 --
+-- Name: maintenances_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY maintenances
+    ADD CONSTRAINT maintenances_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: manager_work_plans_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -865,6 +962,14 @@ ALTER TABLE ONLY measurements
 
 ALTER TABLE ONLY parameters
     ADD CONSTRAINT parameters_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: providers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY providers
+    ADD CONSTRAINT providers_pkey PRIMARY KEY (id);
 
 
 --
@@ -943,6 +1048,20 @@ CREATE INDEX index_employees_on_name ON employees USING btree (name);
 
 
 --
+-- Name: index_equipment_providers_on_equipment_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_equipment_providers_on_equipment_id ON equipment_providers USING btree (equipment_id);
+
+
+--
+-- Name: index_equipment_providers_on_provider_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_equipment_providers_on_provider_id ON equipment_providers USING btree (provider_id);
+
+
+--
 -- Name: index_evaluations_on_employee_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -961,6 +1080,20 @@ CREATE INDEX index_evaluations_on_result ON evaluations USING btree (result);
 --
 
 CREATE INDEX index_evaluations_on_task_id ON evaluations USING btree (task_id);
+
+
+--
+-- Name: index_maintenances_on_equipment_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_maintenances_on_equipment_id ON maintenances USING btree (equipment_id);
+
+
+--
+-- Name: index_maintenances_on_provider_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_maintenances_on_provider_id ON maintenances USING btree (provider_id);
 
 
 --
@@ -1073,6 +1206,14 @@ ALTER TABLE ONLY ac_maintenances
 
 
 --
+-- Name: fk_rails_54a904b4b5; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY maintenances
+    ADD CONSTRAINT fk_rails_54a904b4b5 FOREIGN KEY (provider_id) REFERENCES providers(id);
+
+
+--
 -- Name: fk_rails_579f2293cc; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1102,6 +1243,14 @@ ALTER TABLE ONLY evaluations
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT fk_rails_8f8a4b3fcb FOREIGN KEY (area_id) REFERENCES areas(id);
+
+
+--
+-- Name: fk_rails_9bd119541d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY maintenances
+    ADD CONSTRAINT fk_rails_9bd119541d FOREIGN KEY (equipment_id) REFERENCES equipment(id);
 
 
 --
@@ -1159,6 +1308,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180524193707'),
 ('20180524224648'),
 ('20180525183041'),
-('20180528175350');
+('20180528175350'),
+('20180601215250'),
+('20180601222117'),
+('20180603053829');
 
 

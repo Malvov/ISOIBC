@@ -140,11 +140,12 @@ Debería mostrar para cada equipo también en específico las cosas que están f
  Podría crear el plan de mantenimiento por empresa. Utilizaría los arrays de PG para guardar
  los meses que corresponde por empresa.
 
- HECHO MÁS O MENOS
+ HECHO
  
 
  #Otros
-    Mejorar la presentación de la página principal. Especialmente para el administrador
+    Mejorar la presentación de la página principal. Especialmente para el administrador 
+    HECHO
     
 #Notificaciones
     Deberían ser sólo para el admin, quizá, no sé :sobbing
@@ -153,8 +154,72 @@ Debería mostrar para cada equipo también en específico las cosas que están f
     Measurement
     AcMaintenance
 
-    tengo que hacer lo de cancancan??? no sé qué más hacer ahí 
-    no entiendo la guía de gorails para in-app navbar notifications
+    HECHO
+
+    tengo que hacer lo de cancancan??? no sé qué más hacer ahí --HECHO
+    
+# Mantenimientos
+
+#Maintenances
+
+equipment, provider, no_document, date
+
+
+Utilizaré otra vez Schedules. Tengo que crear un scope para sólo ac_maintenances y sólo para maintenances. El mismo scope debería funcionar para las views
+
+jefedemantenimiento hace las programaciones
+estas programaciones son mensuales y cuando vienen a ejecutarlas se hace el documento (Maintenance)
+
+en Schedule tengo también cliente, pero eso es, por ahora, exclusivo de los aires acondicionados
+opciones:
+    que jefedemantenimiento guarde como "cliente" a uno fijo, por ejemplo "IBC" para referirse
+    al mismo invercasa y sus equipos.
+        Entonces,en el scope para este caso tengo que limitarlo sólo para el cliente "IBC" y mostrar
+        sólo esto en el index.
+        cómo lo hago sin que sea tan raro el código en el controlador?
+        Los aires acondicionados no deberían ver esta parte de los registros, aunque las vistas 
+        sean las mismas.
+        El problema es que siento esto muy forzado.
 
 
     
+
+STATUS
+
+La aplicación está compuesta por varios módulos correspondientes a cada subárea de mantenimiento y seguridad, estos son:
+
+    Limpieza y jardinería                   Estado
+        Catálogos
+            Evaluación                      Revisado y en producción
+            Sectores y tareas por sector    Revisado y en producción
+            Empleados                       Revisado y en producción
+        Gráficos que genera
+            Rendimiento general             Revisado y en producción
+            Resultados por mes              Revisado y en producción
+            Resultados por empleado         Revisado y en producción
+    Equipos industriales
+        Catálogos
+            Equipos industriales            Revisado y en producción
+            Tipos de mediciones             Revisado y en producción
+            Parámetros                      Revisado y en producción
+            Mantenimientos                  Por revisar
+            Programaciones (compartido con aires acondicionados) Por revisar
+            Proveedores                     Por revisar
+        Gráficos que genera
+            Mediciones por equipo
+            Mantenimientos a equipos (equipos industriales)
+    Aires acondicionados
+        Catálogos
+            Clientes                        Revisado y en producción
+            Programaciones (compartido con equipos industriales)    Revisado y en producción
+            Mantenimientos de aires acondicionados  Revisado y en producción
+        Gráficos que genera
+            Mantenimientos de AC programados vs completados En producción, falta filtro por fecha
+    Seguridad
+        Catálogo    
+            Informes de elevadores          Revisado y en producción
+        Gráficos que genera
+            Informe de elevadores por mes   Revisados y en producción
+
+Además, incluye un backoffice donde el usuario con permisos de admin puede administrar todo, pensado especialmente para agregar nuevos usuarios y asignarles un área porque según esta área, se le otorgan
+los permisos a los módulos antes mencionados.

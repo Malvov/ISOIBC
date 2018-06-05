@@ -1,4 +1,4 @@
-<h1>Sistema de seguimiento ISO</h1>
+<h1>Sistema de seguimiento de KPIs</h1>
 <%= link_to 'Iniciar sesión', new_user_session_path, class: 'btn btn-lg btn-primary' unless user_signed_in? %>
 <% if user_signed_in? %>
     <h1 class="text-center">
@@ -8,14 +8,14 @@
         <% if can? :manage, Evaluation %>
             <li><a data-toggle="tab" href="#limpieza-y-jardineria">Limpieza y jardinería <i class="fas fa-broom"></i></a></li>
         <% end %>
-        <% if can? :manage, Measurement %>
-            <li><a data-toggle="tab" href="#aparatos-industriales">Aparatos industriales <i class="fas fa-cogs"></i></a></li>
+        <% if can? :manage, Measurement or can? :manage, Maintenance %>
+            <li><a data-toggle="tab" href="#aparatos-industriales">Equipos industriales <i class="fas fa-cogs"></i></a></li>
         <% end %>
         <% if can? :manage, AcMaintenance %>
             <li><a data-toggle="tab" href="#aires-acondicionados">Aires acondicionados <i class="fas fa-snowflake"></i></a></li>
         <% end %>
         <% if can? :manage, ElevatorForm  %>
-            <li><a data-toggle="tab" href="#seguridad">Seguridad <i class="fas fa-lock"></i></a></li>
+            <li><a data-toggle="tab" href="#seguridad">Seguridad <i class="fas fa-shield-alt"></i></a></li>
         <% end %>
     </ul>
 
@@ -42,28 +42,42 @@
                 </div>
             </div>
         <% end %>
-        <% if can? :manage, Measurement  %>
+        <% if can? :manage, Measurement or can? :manage, Maintenance  %>
             <div id="aparatos-industriales" class="tab-pane fade">
-                <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
-                <!--<div class="row">
-                    <div class="col-lg-12">
-                        <%= measurements_chart %>
-                    </div>
-                </div>-->
-                <div class="row">
-                    <% Equipment.all.each do |equipment| %>
-                        <div class="col-lg-4">
-                            <%= measurements_per_equipment_chart(equipment) %>
-                            <span style='margin-left: 10em'>
-                                <%= link_to not_oks_path(equipment), remote: true, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
-                                    <%= fa_icon 'eye 2x' %>
-                                <% end %>               
-                            </span>
-                            
-                        </div>
+                <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab" href="#mediciones">Mediciones</a></li>
+                    <% if can? :manage, Maintenance %>
+                        <li><a data-toggle="tab" href="#mantenimientos">Mantenimientos</a></li>
                     <% end %>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="mediciones" class="tab-pane fade">
+                        <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
+                        <!--<div class="row">
+                            <div class="col-lg-12">
+                                <%= measurements_chart %>
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <% Equipment.all.each do |equipment| %>
+                                <div class="col-lg-4">
+                                    <%= measurements_per_equipment_chart(equipment) %>
+                                    <span style='margin-left: 10em'>
+                                        <%= link_to not_oks_path(equipment), remote: true, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                                            <%= fa_icon 'eye 2x' %>
+                                        <% end %>               
+                                    </span>     
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div id="mantenimientos" class="tab-pane fade">
+                        <%= equipments_maintenances_chart %>
+                    </div>
                 </div>
             </div>
+                
         <% end %>
         <% if can? :manage, AcMaintenance %>
             <div id="aires-acondicionados" class="tab-pane fade">
@@ -89,7 +103,7 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <%= label_tag 'Escoger cliente' %>
-                                    <%= select_tag :ac_customer, options_from_collection_for_select(Customer.all, 'id', 'name'), { prompt: 'Escoger cliente', class: 'form-control form-group' } %>
+                                    <%= select_tag :ac_customer, options_from_collection_for_select(Customer.where.not(name: 'IBC'), 'id', 'name'), { prompt: 'Escoger cliente', class: 'form-control form-group' } %>
                                 </div>
                                 <div class="col-lg-4">
                                     <br>

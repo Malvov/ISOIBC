@@ -38,11 +38,17 @@
                   </ul>
                 </li>
             <% end %>
-            <% if can? :manage, Measurement %>
+            <% if can? :manage, Measurement or can? :manage, Maintenance %>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aparatos industriales<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Equipos industriales<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to 'Equipos y medidas', equipos_url %></li>
+                  <% if can? :manage, Measurement %>
+                    <li><%= link_to 'Equipos y medidas', equipos_url %></li>
+                  <% end %>
+                  <% if can? :manage, Maintenance %>
+                    <li><%= link_to 'Programaciones', schedules_path %></li>
+                    <li><%= link_to 'Mantenimientos', maintenances_path %></li>
+                  <% end %>
                 </ul>
               </li>
             <% end %>
@@ -80,7 +86,7 @@
               <% end %>
               <% if can? :manage, Measurement %>
                 <li role="separator" class="divider">
-                  <li class="dropdown-header">Aparatos industriales</li>
+                  <li class="dropdown-header">Equipos industriales</li>
                   <li><%= link_to 'Equipos industriales', equipment_index_path %></li>
                   <li><%= link_to 'Parámetros', parameters_path %></li>
                   <li><%= link_to 'Tipos de mediciones', measurement_types_path%></li>
@@ -91,6 +97,12 @@
                   <li class="dropdown-header">Aires acondicionados</li>
                   <li><%= link_to 'Clientes', customers_path %></li>
                   <li><%= link_to 'Programaciones', schedules_path %></li>
+                </li>
+              <% end %>
+              <% if can? :manage, Maintenance %>
+                <li role="separator" class="divider">
+                  <li class="dropdown-header">General</li>
+                  <li><%= link_to 'Proveedores', providers_path %></li>
                 </li>
               <% end %>
             </ul>

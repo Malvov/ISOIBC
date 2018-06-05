@@ -13,5 +13,11 @@
   <%= @equipment.description %>
 </p>
 
+<ul>
+  <% @equipment.measurement_types.each do |measurement_type| %>
+    <li><%= link_to measurement_type.name, measurement_type %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_equipment_path(@equipment) %> |
 <%= link_to 'Back', equipment_index_path %>

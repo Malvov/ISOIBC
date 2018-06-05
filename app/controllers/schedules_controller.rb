@@ -1,14 +1,19 @@
 class SchedulesController < ApplicationController
   load_and_authorize_resource
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :set_months, only: [:new, :create, :edit, :update]
 
   # GET /schedules
   # GET /schedules.json
   def index
-    if params[:query]
+    #debugger
+    if params[:query] 
+
       @schedules = Schedule.text_search(params[:query]).paginate(page: params[:page]).per_page(10)
+
       flash[:notice] = 'Ningún resultado' if @schedules.empty?
     else
+      
       @schedules = Schedule.paginate(page: params[:page]).per_page(10)
     end
   end
@@ -71,6 +76,10 @@ class SchedulesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
       @schedule = Schedule.find(params[:id])
+    end
+
+    def set_months
+      @months = Schedule::MONTHS
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

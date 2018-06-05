@@ -49,27 +49,27 @@ module StatisticsHelper
 
     def evaluations_results_per_month
         
-    column_chart  evaluations_results_per_month_charts_path,
-        id: 'evaluations_results_per_month',                                                                    
-        stacked: true, 
-        library: {
-        colors: [
-            '#34fc02', #bueno
-            '#fc1b02', #deficiente
-            '#fca902', #regular
-            
-            
-        ], title: { text: 'Resultados por mes' },
-          yAxis: {
-            allowDecimals: false,
-            title: { text: 'Cantidad' }
-        },                                                                                                                                                                                         
-        plotOptions: {
-            series: {
-                pointWidth: 50
+        column_chart  evaluations_results_per_month_charts_path,
+            id: 'evaluations_results_per_month',                                                                    
+            stacked: true, 
+            library: {
+            colors: [
+                '#34fc02', #bueno
+                '#fc1b02', #deficiente
+                '#fca902', #regular
+                
+                
+            ], title: { text: 'Resultados por mes' },
+            yAxis: {
+                allowDecimals: false,
+                title: { text: 'Cantidad' }
+            },                                                                                                                                                                                         
+            plotOptions: {
+                series: {
+                    pointWidth: 15
+                }
             }
         }
-      }
     end                                                 
 
     def measurements_chart
@@ -107,13 +107,12 @@ module StatisticsHelper
     def ac_maintenance_goals_chart
         column_chart ac_maintenance_goals_charts_path,
         id: 'ac_maintenance_goals',
+        stacked: true,
         library: {
             colors: [
                 '#34fc02', #Programados
                 '#2c5bd8', #Completados
                 '#fca902' #todos
-                
-                
             ], title: { text: 'Mantenimientos de AC programados vs completados' },
               yAxis: {
                 allowDecimals: false,
@@ -121,7 +120,7 @@ module StatisticsHelper
             },                                                                                                                                                                                           
             plotOptions: {
                 series: {
-                    pointWidth: 50
+                    pointWidth: 15
                 }
             }
           }
@@ -130,14 +129,8 @@ module StatisticsHelper
     def total_minutes_per_elevator_per_month_chart
         column_chart total_minutes_per_elevator_per_month_charts_path,
         id: 'total_minutes_per_elevator_per_month',
-        library: {
-            colors: [
-                '#34fc02', #Programados
-                '#2c5bd8', #Completados
-                '#fca902' #todos
-                
-                
-            ], title: { text: 'Informe de elevadores por mes' },
+        library: 
+            { title: { text: 'Informe de elevadores por mes' },
               yAxis: {
                 title: { text: 'Minutos detenido' },
                 allowDecimals: false
@@ -147,7 +140,32 @@ module StatisticsHelper
             },                                                                                                                                                                                                  
             plotOptions: {
                 series: {
-                    pointWidth: 50
+                    pointWidth: 15
+                }
+            }
+          }
+    end
+
+    def equipments_maintenances_chart
+        column_chart equipments_maintenances_charts_path,
+        id: 'equipments_maintenances_chart',
+
+        library: {
+            colors: [
+                '#34fc02', #Programados
+                '#2c5bd8' #Completados
+            ],
+            title: { text: 'Mantenimientos a equipos' },
+            yAxis: {
+                title: { text: 'Cantidad de mantenimientos' },
+                allowDecimals: false
+            },
+            xAxis: {
+                title: { text: 'Mes' }
+            },                                                                                                                                                                                                  
+            plotOptions: {
+                series: {
+                    pointWidth: 15
                 }
             }
           }

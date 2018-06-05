@@ -3,11 +3,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :customer, label: 'Cliente', prompt: 'Escoger cliente' %>
-    <%= f.input :month, 
+    <% if can? :manage, AcMaintenance %>
+      <%= f.association :customer, label: 'Cliente', prompt: 'Escoger cliente' %>
+    <% end %>
+    <%= f.input :month,
         label: 'Mes',
-        collection: %w[Enero Febrero 
-        Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre],
+        collection: @months,
         prompt: 'Escoger mes' %>
     <%= f.input :maintenances_quantity, label: 'Cantidad' %>
   </div>

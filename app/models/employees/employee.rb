@@ -10,10 +10,11 @@
 #
 
 class Employee < ApplicationRecord
+    validates_presence_of :name
     has_many :evaluations, dependent: :destroy
     scope :operarixs,  -> { where(type: nil) } #por ahora
+    MAX_SCORE = 100
     attr_accessor :calificacion
-
 
     def self.sort_by_calificacion
         self.all.sort_by { |employee| employee.calificacion }.reverse
@@ -22,7 +23,7 @@ class Employee < ApplicationRecord
     def calificacion
         @calificacion = score
     end
-
+    
     private
     
     def score
@@ -31,9 +32,9 @@ class Employee < ApplicationRecord
         results.each do |result|
             case result
             when 'Bueno'
-                total += 2
+                total += MAX_SCORE
             when 'Regular'
-                total += 1
+                total += MAX_SCORE/2
             when 'Deficiente'
                 total += 0
             end
@@ -43,7 +44,7 @@ class Employee < ApplicationRecord
 
     def evaluations_total
         if evaluations.count > 0
-            evaluations.count * 2
+            evaluations.count * MAX_SCORE
         else
             1
         end

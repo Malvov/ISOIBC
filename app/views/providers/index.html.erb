@@ -1,0 +1,37 @@
+<h1>Proveedores</h1>
+<br>
+<%= link_to 'Nuevo proveedor', new_provider_path, class: 'btn btn-primary' %>
+<%= will_paginate @providers, renderer: BootstrapPagination::Rails %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Equipos</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.name %></td>
+        <td><%= provider.equipments.map { |equipment| equipment.name }.join ', ' %></td>
+        <td><%= link_to provider, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+                <%= fa_icon 'eye 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to edit_provider_path(provider), 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Editar' do %>
+                <%= fa_icon 'edit 2x' %>
+            <% end %>
+        </td>
+        <td><%= link_to provider_path(provider), method: :delete, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Eliminar',
+                data: { confirm: 'U sure?' } do %>
+                <%= fa_icon 'trash 2x'%>
+            <% end %>    
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

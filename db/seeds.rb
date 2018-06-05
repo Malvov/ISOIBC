@@ -265,15 +265,43 @@
 #     puts '.'
 # end
 
-340.times do |n|
-    ManagerWorkPlan.create!(
-        area: Area.all.sample,
-        task: "Actividad #{n}",
-        person_responsible_id: PersonResponsible.all.sample.id,
-        priority: ManagerWorkPlan::PRIORITIES.sample,
-        start_date: DateTime.now,
-        end_date: (DateTime.now..2.months.from_now).to_a.sample,
-        progress: ManagerWorkPlan::PROGRESS.sample
-    )
-    puts n
-end
+# 340.times do |n|
+#     ManagerWorkPlan.create!(
+#         area: Area.all.sample,
+#         task: "Actividad #{n}",
+#         person_responsible_id: PersonResponsible.all.sample.id,
+#         priority: ManagerWorkPlan::PRIORITIES.sample,
+#         start_date: DateTime.now,
+#         end_date: (DateTime.now..2.months.from_now).to_a.sample,
+#         progress: ManagerWorkPlan::PROGRESS.sample
+#     )
+#     puts n
+# end
+
+Schedule.create!(
+    [
+        { customer: Customer.last, month: 'Febrero', maintenances_quantity: 10 },
+        { customer: Customer.last, month: 'Marzo', maintenances_quantity: 11 },
+        { customer: Customer.last, month: 'Abril', maintenances_quantity: 12 },
+        { customer: Customer.last, month: 'Mayo', maintenances_quantity: 12 },
+        { customer: Customer.last, month: 'Junio', maintenances_quantity: 10 },
+        { customer: Customer.last, month: 'Julio', maintenances_quantity: 10 },
+        { customer: Customer.last, month: 'Agosto', maintenances_quantity: 10 },
+        { customer: Customer.last, month: 'Septiembre', maintenances_quantity: 10 },
+        { customer: Customer.last, month: 'Octubre', maintenances_quantity: 10 }
+        
+
+    ]
+)
+
+Provider.create!([
+    {
+        name: 'Provider 1'
+    },
+    {
+        name: 'Provider 2'
+    },
+    {
+        name: 'Provider 3'
+    }
+])
