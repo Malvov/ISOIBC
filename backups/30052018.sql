@@ -131,14 +131,15 @@ INSERT INTO public.areas (id, name, created_at, updated_at) VALUES (9, 'Contralo
 INSERT INTO public.areas (id, name, created_at, updated_at) VALUES (10, 'BI', '2018-05-25 16:02:44.738119', '2018-05-25 16:02:44.738119');
 INSERT INTO public.areas (id, name, created_at, updated_at) VALUES (11, 'AC', '2018-05-25 22:22:23.628059', '2018-05-25 22:22:23.628059');
 INSERT INTO public.areas (id, name, created_at, updated_at) VALUES (12, 'Electricistas', '2018-05-25 22:22:23.65816', '2018-05-25 22:22:23.65816');
-INSERT INTO public.areas (id, name, created_at, updated_at) VALUES (2, 'Limpieza y mantenimiento', '2018-05-25 16:02:44.527792', '2018-05-25 22:38:13.94326');
+INSERT INTO public.areas (id, name, created_at, updated_at) VALUES (2, 'Mantenimiento', '2018-05-25 16:02:44.527792', '2018-06-01 03:07:15.494293');
+INSERT INTO public.areas (id, name, created_at, updated_at) VALUES (13, 'Limpieza y jardinería', '2018-06-01 03:07:27.977653', '2018-06-01 03:07:27.977653');
 
 
 --
--- Name: areas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: intranet
+-- Name: areas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: elementary
 --
 
-SELECT pg_catalog.setval('public.areas_id_seq', 12, true);
+SELECT pg_catalog.setval('public.areas_id_seq', 13, true);
 
 
 --
