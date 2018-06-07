@@ -5050,8 +5050,6 @@ INSERT INTO public.schedules (id, customer_id, month, maintenances_quantity, cre
 INSERT INTO public.schedules (id, customer_id, month, maintenances_quantity, created_at, updated_at) VALUES (61, 16, 'Abril', 4, '2018-05-09 22:02:52.031162', '2018-05-09 22:02:52.031162');
 INSERT INTO public.schedules (id, customer_id, month, maintenances_quantity, created_at, updated_at) VALUES (62, 16, 'Julio', 4, '2018-05-09 22:03:13.905101', '2018-05-09 22:03:13.905101');
 INSERT INTO public.schedules (id, customer_id, month, maintenances_quantity, created_at, updated_at) VALUES (63, 16, 'Octubre', 4, '2018-05-09 22:03:47.613609', '2018-05-09 22:03:47.613609');
-INSERT INTO public.schedules (id, customer_id, month, maintenances_quantity, created_at, updated_at) VALUES (64, NULL, 'Enero', 9, '2018-06-01 05:36:02.969409', '2018-06-01 05:36:02.969409');
-
 
 --
 -- Name: schedules_id_seq; Type: SEQUENCE SET; Schema: public; Owner: elementary
