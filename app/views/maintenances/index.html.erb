@@ -3,6 +3,8 @@
 <br>
 
 <%= link_to 'Nuevo mantenimiento', new_maintenance_path, class: 'btn btn-primary' %>
+
+<%= will_paginate @maintenances, renderer: BootstrapPagination::Rails  %>
 <table class="table">
   <thead>
     <tr>

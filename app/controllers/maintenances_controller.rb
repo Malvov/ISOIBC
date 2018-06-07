@@ -5,7 +5,7 @@ class MaintenancesController < ApplicationController
   # GET /maintenances
   # GET /maintenances.json
   def index
-    @maintenances = Maintenance.all
+    @maintenances = Maintenance.paginate(page: params[:page]).per_page(10)
   end
 
   # GET /maintenances/1

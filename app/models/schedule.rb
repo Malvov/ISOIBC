@@ -12,7 +12,7 @@
 
 class Schedule < ApplicationRecord
   belongs_to :customer, optional: true
-  validates_presence_of :month, :maintenances_quantity
+  validates_presence_of :month, :maintenances_quantity, :customer_id
 
   MONTHS = %w[Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre]
   

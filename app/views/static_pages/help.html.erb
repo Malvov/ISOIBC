@@ -1,35 +1,418 @@
 <h1>Ayuda</h1>
-<h2>Módulos</h2>
+<p class="larger-font">
+    La aplicación consiste en 4 módulos para el registro de eventos según las subáreas de mantenimiento en Invercasa Business Center. Estas son: Limpieza y jardinería, Equipos industriales (electricistas y mantenimientos a equipos industriales), aires acondicionados y seguridad (informe de elevadores).
+</p>
 
+<h3>Módulos</h3>
+
+<ol>
+    <li><a href="#limpieza-y-jardineria">Limpieza y jardinería</a></li>
+    <li><a href="#equipos-industriales">Equipos industriales</a></li>
+    <li><a href="#mantenimientos-aires-acondicionados">Mantenimientos de aires acondicionados</a></li>
+    <li><a href="#seguridad">Seguridad</a></li>
+</ol>
 <h3>Gráficos</h3>
-    <ol>
-        <li><a href="#rendimento-general">Gráfico de rendimiento general</a></li>
-        <li><a href="#resultados-por-mes">Gráfico de resultados por mes</a></li>
-        <li><a href="#resultados-por-mes-por-empleado">Gráfico de resultados por mes por empleado</a></li>
-        <li><a href="#mediciones-por-equipos">Gráfico de mediciones por equipos</a></li>
-        <li><a href="#mantenimientos-a-equipos">Gráfico de mantenimientos a equipos programados vs ejecutados</a></li>
-        <li><a href="#mantenimientos-ac">Gráfico de mantenimientos a aires acondicionados programados vs ejecutados y emergencias</a></li>
-        <li><a href="#informe-de-elevadores">Gráfico de Informe de elevadores por mes</a></li>
-    </ol>
-<h4>
+<ol>
+    <li><a href="#rendimento-general">Gráfico de rendimiento general</a></li>
+    <li><a href="#resultados-por-mes">Gráfico de resultados por mes</a></li>
+    <li><a href="#resultados-por-mes-por-empleado">Gráfico de resultados por mes por empleado</a></li>
+    <li><a href="#mediciones-por-equipos">Gráfico de mediciones por equipos</a></li>
+    <li><a href="#mantenimientos-a-equipos">Gráfico de mantenimientos a equipos programados vs ejecutados</a></li>
+    <li><a href="#mantenimientos-ac">Gráfico de mantenimientos a aires acondicionados programados vs ejecutados y emergencias</a></li>
+    <li><a href="#informe-de-elevadores">Gráfico de Informe de elevadores por mes</a></li>
+</ol>
 
-</h4>
+<div id="limpieza-y-jardineria">
+    <h3>Limpieza y jardinería</h3>
+    <p class="larger-font">
+        Para llevar control del desempeño en las tareas que realizan los operarios de IBC. Consiste en 3 partes: Zonas y tareas, operarios y evaluaciones.
+    </p>
+
+    <p class="larger-font">
+        Se accede a cada una a través de la barra en la parte superior: 
+    </p>
+
+    <%= image_tag 'evaluations-zones-tasks.gif' %>
+
+    <p class="larger-font">
+        Cuando se agregan los sectores, también se agregan las actividades correspondientes a cada uno. Esto se puede hacer en la pestaña “Configuraciones” la sección de “Limpieza y jardinería”.
+    </p>
+
+    <%= image_tag 'limpieza-jardinería-2.png' %>
+
+    <%= image_tag 'zones-and-tasks-preview.gif' %>
+
+    <p class="larger-font">
+        Para crear un sector nuevo, se da click en el botón “Nueva” y aparecerá el formulario de sectores.
+    </p>
+
+    <%=  image_tag 'zone-and-tasks-form.png' %>
+
+    <p class="larger-font">
+        <strong>Campos obligatorios:</strong>
+        <ul>
+            <li class="larger-font">Nombre</li>
+        </ul>
+    </p>
+
+    <p class="larger-font">
+        Además, se puede agregar a cada sector, las actividades correspondientes a este. Para una nueva actividad, hay que dar click en el botón “Actividad nueva”. Puede haber varias actividades para un sector.
+    </p>
+
+    <%= image_tag 'zones-and-tasks-crud.gif' %>
+
+    <p class="larger-font">
+        Luego, se debe crear el Operario a evaluar. Esto se hace en la opción “Operario/a” del menú en la pestaña “Limpieza y jardinería”.
+    </p>
+
+    <%= image_tag 'limpieza-jardinería-1.png' %>
+
+    <p class="larger-font">
+        Se abrirá la pantalla para gestionar operarios, con un botón de “Nuevo” y los botones de ‘ver’ <i class="fa fa-eye"></i> , ‘editar’ <i class="fa fa-edit"></i> y ‘eliminar’ <i class="fa fa-trash"></i> cuando se tienen registros.
+    </p>
+
+    <%= image_tag 'employees-crud.gif' %>
+
+    <p class="larger-font">
+        <strong>En el formulario de Operarios, los campos obligatorios son:</strong>
+        <ul>
+            <li class="larger-font">Nombre</li>
+        </ul>
+    </p>
+
+    <%= image_tag 'employee-form.png' %>
+    
+
+    <p class="larger-font">
+        Con los Sectores, Actividades y Operarios agregados, se pueden crear las Evaluaciones.
+
+        Para acceder a la pantalla de las Evaluaciones, se da click en la opción “Supervisión” en la pestaña de ‘Limpieza y jardinería’.
+    </p>
+
+    <%= image_tag 'evaluations-preview.gif' %>
+
+    <p class="larger-font">
+        <strong>En el botón ‘Nueva’, se abre el formulario de Evaluaciones, que consiste en 7 campos:</strong>
+        <ul>
+            <li class="larger-font">Operario <strong>(obligatorio)</strong></li>
+            <li class="larger-font">Sectores. Cuando este cambia, cambia también el siguiente campo con las actividades relacionadas al sector seleccionado.</li>
+            <li class="larger-font">Actividades, correspondientes al sector del campo anterior. <strong>(obligatorio)</strong> </li>
+            <li class="larger-font">Calificación, tres opciones: Bueno, Regular y Deficiente <strong>(obligatorio)</strong></li>
+            <li class="larger-font">Imagen, donde se puede subir un archivo de imagen</li>
+            <li class="larger-font">Observaciones</li>
+            <li class="larger-font">Fecha <strong>(opcional)</strong></li>
+        </ul>
+    </p>
+
+    <p class="larger-font">
+        Cuando se llenan los <strong>campos obligatorios</strong>, se da click en el botón ‘Guardar’ para crear la nueva Evaluación.
+    </p>
+
+    <p class="larger-font">
+        Luego, en la pantalla de inicio de las Evaluaciones, estas se pueden gestionar en los botones ‘ver’ <i class="fa fa-eye"></i> , ‘editar’ <i class="fa fa-edit"></i> y ‘eliminar’ <i class="fa fa-trash"></i>
+    </p>
+
+    <%= image_tag 'evaluations-crud.gif' %>
+
+
+
+</div>
+
+<div id="equipos-industriales">
+
+    <h3>Equipos industriales</h3>
+
+    <h4>Mediciones</h4>
+
+    <p class="larger-font">
+        Para llevar control de las mediciones que se hacen a cada equipo industriales, se tiene que configurar: Parámetros, Tipos de medidas y Equipos.
+    </p>
+
+    <%= image_tag 'equipos-industriales-configuraciones.png' %>
+
+    <p class="larger-font">
+        En primer lugar, se deben configurar los Parámetros que van a tener los tipos de medidas. Estos tienen como objetivo indicar si un valor está correcto o no según lo que se tenga en el parámetro. 
+    </p>
+
+    <p class="larger-font">
+        En la aplicación, existen dos tipos de parámetros: los númericos y los ‘igual a’. Los numéricos se usan para definir un rango de valores correctos. Los ‘igual a’ determinan un valor único, por ejemplo: parámetro ‘Sí/No’ y el valor correcto puede ser ‘Sí’ o ‘No’.
+    </p>
+
+    <p class="larger-font">
+        <strong>
+            Es importante que para este último tipo de parámetro, el valor correcto sea igual a uno de los valores dados en el nombre separado por el ‘/’.
+        </strong>
+    </p>
+
+    <p class="larger-font">
+        Un parámetro puede ser usado en varios tipos de medidas.
+    </p>
+
+    <%= image_tag 'parameters-crud.gif' %>
+
+    <p class="larger-font">
+        Luego, se debe configurar el Equipo, la opción “Equipos industriales” de la sección “Equipos industriales” en la pestaña de configuraciones.
+    </p>
+
+    <%= image_tag 'equipos-industriales-configuraciones.png' %>
+
+    <p class="larger-font">
+        Se abrirá la pantalla para gestionar los equipos industriales.
+    </p>
+
+    <%= image_tag 'equipment-preview.png' %>
+
+    <p class="larger-f">
+        Cuando se da click en el botón ‘Nuevo’, se abre el formulario de Equipos con los campos:
+        <ul>
+            <li class="larger-font">
+                Nombre <strong>(obligatorio)</strong>
+            </li>
+            <li class="larger-font">
+                Locación <strong>(obligatorio)</strong>
+            </li>
+            <li class="larger-font">
+                Descripción (opcional)
+            </li>
+            <li class="larger-font">
+                Proveedores (opcional)
+            </li>
+        </ul>
+    </p>
+
+    <%= image_tag 'equipment-form.png' %>
+    
+    <br>
+
+
+    <%= image_tag 'equipment-crud.gif' %>
+
+    <p class="larger-font">
+        Ahora, con esto se pueden configurar los tipos de medidas que tendrá cada Equipo con sus respectivos parámetros.
+    </p>
+
+    <p class="larger-font">
+        Se accede a esta pantalla a través de la sección “Equipos industriales” en la pestaña de configuraciones.
+    </p>
+
+    <%= image_tag 'equipos-industriales-configuraciones.png' %>
+
+    <br>
+
+    <%= image_tag 'tipos-de-medidas.png' %>
+
+    <p class="larger-font">
+        El formulario de Tipos de medidas se abre dando click en el botón “Nuevo”. Sus campos son:
+        <ul>
+            <li class="larger-font">
+                Nombre <strong>(obligatorio)</strong>
+            </li>
+            <li class="larger-font">
+                Equipo <strong>(obligatorio)</strong>
+            </li>
+            <li class="larger-font">
+                Parámetro <strong>(obligatorio)</strong>
+            </li>
+            <li class="larger-font">
+                Unidad de medida (opcional)
+            </li>
+        </ul>
+    </p>
+
+    <%= image_tag 'measurement-type-form.png' %>
+
+    <br>
+
+    <%= image_tag 'measurement-types-crud.gif' %>
+
+    <p class="larger-font">
+        Ahora, para agregar las mediciones reales, se debe acceder a la pantalla de “Equipos y medidas” en la pestaña “Equipos industriales”.
+        <ul>
+            <li class="larger-font">
+                Equipos industriales <strong>(obligatorio)</strong>
+            </li>
+            <li class="larger-font">
+                Mediciones <strong>(obligatorio)</strong>
+                Cuando este cambia, se agrega un campo nuevo a la pantalla donde debe ir el valor real de la medición. Además, según el parámetro que se le haya indicado a ese tipo de medición, este campo nuevo puede ser un dropdown con los valores del nombre del parámetro establecido para este tipo de medición <strong>separados con un ‘/’</strong> o un campo para escribir un valor numérico, si el parámetro fue definido así.
+            </li>
+            <li class="larger-font">
+                Comentario (opcional)
+            </li>
+            <li class="larger-font">
+                Fecha <strong>(obligatorio)</strong>, la fecha del día por defecto
+            </li>
+        </ul>
+    </p>
+
+    <%= image_tag 'measurements-crud.gif' %>
+
+    <br>
+
+    <h4>Mantenimientos</h4>
+
+    <p class="larger-font">
+        La parte de mantenimientos a equipos industriales depende de: Programaciones, Proveedores, y Equipos
+    </p>
+
+    <p class="larger-font">
+        Para ello, se puede seguir los mismos pasos de agregar un equipo nuevo con el detalle de que ahora debe existir al menos un Proveedor para el mantenimiento del Equipo. Entonces, hay que gestionar Proveedores. Esto se hace en la sección “General” de la pestaña de Configuraciones en la barra superior.
+    </p>
+
+    <%= image_tag 'proveedores.png' %>
+
+
+    <p class="larger-font">
+        El formulario de Proveedores se abre en el botón “Nuevo”. Sus campos son.
+        <ul>
+            <li class="larger-font">Nombre <strong>(obligatorio)</strong></li>
+            <li class="larger-font">Equipos (opcional). Desde aquí, se puede indicar a qué equipos este proveedor le da mantenimientos. Se despliega una lista con los equipos agregados anteriormente y se puede seleccionar ninguno o varios. De la misma manera se puede hacer en el formulario de Equipos, cuando haya uno o más Proveedores registrados.</li>
+        </ul>
+    </p>
+
+    <%= image_tag 'proveedores-preview.gif' %>
+
+    <%= image_tag 'providers-crud.gif' %>
+
+
+    <%= image_tag 'equipment-providers.gif' %>
+
+    <p class="larger-font">
+        Y así se establece la relación entre equipos y proveedores.
+    </p>
+
+    <p class="larger-font">
+        Ahora, los Mantenimientos siguen un calendario. Este puede ser gestionado en la opción “Programaciones” en la pestaña “Equipos industriales”. El fin de esto es para crear el indicador de “Mantenimientos programados vs ejecutados”, muy similar al que siguen los aires acondicionados. De hecho, la pantalla “Programaciones” es compartida por las partes que hacen el módulo de “Aires Acondicionados”, por eso es que aparecen también los Clientes internos para los aires acondicionados.
+    </p>
+
+    <p class="larger-font">
+        Entonces, una programación recibe como campos:
+        <li class="larger-font">Cliente <strong>(obligatorio)</strong></li>
+        <li class="larger-font">Mes <strong>(obligatorio)</strong></li>
+        <li class="larfer-font">Cantidad de mantenimientos <strong>(obligatorio)</strong></li>
+    </p>
+
+    <%= image_tag 'schedules-providers.gif' %>
+
+    <p class="larger-font">
+        Luego, se puede proceder a gestionar los Mantenimientos a través de la pantalla de “Mantenimientos” en la misma pestaña de “Equipos industriales”.
+    </p>
+
+    <%= image_tag 'maintenances-preview.gif' %>
+
+    <p class="larger-font">
+        Para agregar un nuevo mantenimiento, hay que dar click en el botón ‘Nuevo mantenimiento’ para abrir el formulario de mantenimientos que tiene como campos:
+        <u>
+            <li class="larger-font">Equipo <strong>(obligatorio)</strong> </li>
+            <li class="larger-font">Proveedor <strong>(obligatorio)</strong> este cambia según el equipo seleccionado anteriormente. </li>
+            <li class="larger-font">Fecha <strong>(obligatorio)</strong> para subir un archivo correspondiente al documento proporcionado por el proveedor luego del trabajo </li>
+            <li class="larger-font">Observaciones (opcional)</li>
+        </u>
+    </p>
+
+    <%= image_tag 'maintenances-crud.gif' %>
+</div>
+
+<div id="mantenimientos-aires-acondicionados">
+    <h4>Mantenimientos de aires acondicionados</h4>
+
+    <p class="larger-font">
+        Los mantenimientos de aires acondicionados dependen de: Clientes y Programaciones.
+    </p>
+
+    <p class="larger-font">
+        Los Clientes se gestionan en la opción “Clientes” de la sección “Aires Acondicionados” en la pestaña de Configuraciones.
+    </p>
+
+    <%= image_tag 'ac-maintenances-configuraciones.png' %>
+
+    <p class="larger-font">
+        Para crear un nuevo cliente, se da click en el botón ‘Nuevo cliente’. Se abrirá un formulario con los siguientes campos:
+        <u>
+            <li class="larger-font">
+                Nombre <strong>(obligatorio)</strong>
+            </li>
+            <li class="larger-font">
+                Locación <strong>(obligatorio)</strong>
+            </li>
+        </u>
+    </p>
+
+    <%= image_tag 'customers-crud.gif' %>
+
+    <p class="larger-font">
+        Posteriormente, se puede seguir el mismo procedimiento explicado antes para agregar una nueva programación con los clientes.
+    </p>
+
+    <%= image_tag 'schedules-ac-maintenances.gif' %>
+
+    <p class="larger-font">
+        Una vez creados estos registros, se puede proceder a gestionar los mantenimientos de aires acondicionados en la opción “Registros de mantenimientos de aires acondicionados”.
+    </p>
+
+    <%= image_tag 'ac-maintenances-dashboard.png' %>
+
+    <p class="larger-font">
+        Aquí, se crea lo correspondiente a los mantenimientos por aires acondicionados. El formulario posee los siguientes campos:
+        <u>
+            <li class="larger-font">Cliente <strong>(obligatorio)</strong></li>
+            <li class="larger-font">Conjunto <strong>(obligatorio)</strong></li>
+            <li class="larger-font">Tipo de mantenimiento <strong>(obligatorio)</strong>    </li>
+            <li class="larger-font">Tipo de trabajo <strong>(obligatorio)</strong> </li>
+            <li class="larger-font">Comentario (opcional)</li>
+            <li class="larger-font">Fecha del mantenimiento <strong>(obligatorio, por defecto la fecha del día</strong></li>
+            <li class="larger-font">Válido para # de unidades <strong>(obligatorio)</strong></li>
+
+        </u>
+    </p>
+
+    <%= image_tag 'ac-maintenances-form.png' %>
+
+    <%= image_tag 'ac-maintenances-crud.gif' %>
+
+</div>
+
+<div id="seguridad">
+
+    <p class="larger-font">
+        En seguridad están los informes de elevadores, los cuales calculan el tiempo en que un elevador estuvo detenido.
+    </p>
+
+    <p class="larger-font">
+        Para ello no se requiere ninguna configuración adicional y se puede acceder a los registros y el formulario en la opción “Informes de elevadores” en la pestaña “Seguridad”.
+    </p>
+
+    <p class="larger-font">
+        Los campos del formulario son
+        <ul>
+            <li class="larger-font">Hora inicio <strong>(obligatorio)</strong>  </li>
+            <li class="larger-font">Hora fin <strong>(obligatorio)</strong> </li>
+            <li class="larger-font">Fecha <strong>(obligatorio, por defecto la fecha del día)</strong> </li>
+            <li class="larger-font">Elevadores <strong>(obligatorio)</strong> </li>
+            <li class="larger-font">¿En mantenimiento? (opcional) </li>
+            <li class="larger-font">Personas atrapadas (opcional) </li>
+            <li class="larger-font">Comentario (opcional)</li>
+        </ul>
+    </p>
+
+    <%= image_tag 'elevator-forms.gif' %>
+
+</div>
 
 <div id="rendimento-general">
-    <h4>
+    <h3>
         Gráfico de rendimiento general
-    </h4>
-    <p>
+    </h3>
+    <p class="larger-font">
         Depende de Evaluaciones. Este muestra la distribución del desempeño de todos los operarios en general.
     </p>
     <%= image_tag 'rendimiento-general.gif' %>
     
 </div>
 <div id="resultados-por-mes">
-    <h4>
+    <h3>
         Gráfico de resultados por mes
-    </h4>
-    <p>
+    </h3>
+    <p class="larger-font">
         Depende de Evaluaciones. Este muestra la distribución del desempeño de todos los Operarios en general en el mes. Tiene un filtro por fechas, que activa el gráfico cuando la fecha fin cambia.Depende de Evaluaciones. Este muestra la distribución del desempeño de todos los Operarios en general en el mes. Tiene un filtro por fechas, que activa el gráfico cuando la fecha fin cambia.
     </p>
     <%= image_tag 'resultados-por-mes.gif' %>
@@ -37,17 +420,17 @@
 
 <div id="resultados-por-mes-por-empleado">
 
-    <h4>Gráfico de resultados por mes por empleado</h4>
-    <p>
+    <h3>Gráfico de resultados por mes por empleado</h3>
+    <p class="larger-font">
         Depende de Evaluaciones. Este muestra la distribución del desempeño de un Operario en el mes. Tiene un filtro por fechas, que activa el gráfico cuando la fecha fin cambia.
     </p>
 
 </div>
 
 <div id="mediciones-por-equipos">
-    <h4>Gráfico de mediciones por equipos</h4>
-    <p>
-        Depende de Mediciones. Este gráfico muestra las mediciones realizadas a cada equipo y su distribución entre cuántas de estas están en “Parámetros correctos” y cuántas están dentro de “parámetros incorrectos”. Esto se define como se explicó en la sección #. Debajo de cada gráfico hay un icono que al darle click abre una ventana emergente con información sobre las mediciones fuera de parámetros del equipo, ordenadas a partir de la fecha más reciente.
+    <h3>Gráfico de mediciones por equipos</h3>
+    <p class="larger-font">
+        Depende de Mediciones. Este gráfico muestra las mediciones realizadas a cada equipo y su distribución entre cuántas de estas están en “Parámetros correctos” y cuántas están dentro de “parámetros incorrectos”. Esto se define como se explicó en la sección #. Debajo de cada gráfico hay un icono <i class="fa fa-eye"></i> que al darle click abre una ventana emergente con información sobre las mediciones fuera de parámetros del equipo, ordenadas a partir de la fecha más reciente.
     </p>
 
     <%= image_tag 'mediciones-por-equipo.gif' %>
@@ -55,8 +438,8 @@
 </div>
 
 <div id="mantenimientos-a-equipos">
-    <h4>Gráfico de mantenimientos a equipos programados vs ejecutados</h4>
-    <p>
+    <h3>Gráfico de mantenimientos a equipos programados vs ejecutados</h3>
+    <p class="larger-font">
         Depende de Mantenimientos. Este gráfico muestra una comparación entre la cantidad de Mantenimientos que se han ejecutado en el mes y según las Programaciones hechas para ese mes.
     </p>
 
@@ -65,10 +448,10 @@
 </div>
 
 <div id="mantenimientos-ac">
-    <h4>
+    <h3>
         Gráfico de mantenimientos a aires acondicionados programados vs ejecutados y emergencias
-    </h4>
-    <p>
+    </h3>
+    <p class="larger-font">
         Depende de Mantenimientos a aires acondicionados. Este gráfico muestra una comparación entre la cantidad de Mantenimientos a aires acondicionados ejecutados en el mes, las Programaciones para ese mes y los Mantenimientos realizados por emergencia.
     </p>
 
@@ -76,10 +459,10 @@
 </div>
 
 <div id="informe-de-elevadores">
-    <h4>
+    <h3>
         Gráfico de Informe de elevadores por mes
-    </h4>
-    <p>
+    </h3>
+    <p class="larger-font">
         Depende de Informe de elevadores. Este gráfico muestra el total de minutos que un elevador ha estado detenido según los datos ingresados en el módulo de Seguridad, informe de elevadores.
     </p>
 
