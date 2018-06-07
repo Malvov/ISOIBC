@@ -1,0 +1,87 @@
+<h1>Ayuda</h1>
+<h2>Módulos</h2>
+
+<h3>Gráficos</h3>
+    <ol>
+        <li><a href="#rendimento-general">Gráfico de rendimiento general</a></li>
+        <li><a href="#resultados-por-mes">Gráfico de resultados por mes</a></li>
+        <li><a href="#resultados-por-mes-por-empleado">Gráfico de resultados por mes por empleado</a></li>
+        <li><a href="#mediciones-por-equipos">Gráfico de mediciones por equipos</a></li>
+        <li><a href="#mantenimientos-a-equipos">Gráfico de mantenimientos a equipos programados vs ejecutados</a></li>
+        <li><a href="#mantenimientos-ac">Gráfico de mantenimientos a aires acondicionados programados vs ejecutados y emergencias</a></li>
+        <li><a href="#informe-de-elevadores">Gráfico de Informe de elevadores por mes</a></li>
+    </ol>
+<h4>
+
+</h4>
+
+<div id="rendimento-general">
+    <h4>
+        Gráfico de rendimiento general
+    </h4>
+    <p>
+        Depende de Evaluaciones. Este muestra la distribución del desempeño de todos los operarios en general.
+    </p>
+    <%= image_tag 'rendimiento-general.gif' %>
+    
+</div>
+<div id="resultados-por-mes">
+    <h4>
+        Gráfico de resultados por mes
+    </h4>
+    <p>
+        Depende de Evaluaciones. Este muestra la distribución del desempeño de todos los Operarios en general en el mes. Tiene un filtro por fechas, que activa el gráfico cuando la fecha fin cambia.Depende de Evaluaciones. Este muestra la distribución del desempeño de todos los Operarios en general en el mes. Tiene un filtro por fechas, que activa el gráfico cuando la fecha fin cambia.
+    </p>
+    <%= image_tag 'resultados-por-mes.gif' %>
+</div>
+
+<div id="resultados-por-mes-por-empleado">
+
+    <h4>Gráfico de resultados por mes por empleado</h4>
+    <p>
+        Depende de Evaluaciones. Este muestra la distribución del desempeño de un Operario en el mes. Tiene un filtro por fechas, que activa el gráfico cuando la fecha fin cambia.
+    </p>
+
+</div>
+
+<div id="mediciones-por-equipos">
+    <h4>Gráfico de mediciones por equipos</h4>
+    <p>
+        Depende de Mediciones. Este gráfico muestra las mediciones realizadas a cada equipo y su distribución entre cuántas de estas están en “Parámetros correctos” y cuántas están dentro de “parámetros incorrectos”. Esto se define como se explicó en la sección #. Debajo de cada gráfico hay un icono que al darle click abre una ventana emergente con información sobre las mediciones fuera de parámetros del equipo, ordenadas a partir de la fecha más reciente.
+    </p>
+
+    <%= image_tag 'mediciones-por-equipo.gif' %>
+
+</div>
+
+<div id="mantenimientos-a-equipos">
+    <h4>Gráfico de mantenimientos a equipos programados vs ejecutados</h4>
+    <p>
+        Depende de Mantenimientos. Este gráfico muestra una comparación entre la cantidad de Mantenimientos que se han ejecutado en el mes y según las Programaciones hechas para ese mes.
+    </p>
+
+    <%= image_tag 'mantenimientos-a-equipos.gif' %>
+
+</div>
+
+<div id="mantenimientos-ac">
+    <h4>
+        Gráfico de mantenimientos a aires acondicionados programados vs ejecutados y emergencias
+    </h4>
+    <p>
+        Depende de Mantenimientos a aires acondicionados. Este gráfico muestra una comparación entre la cantidad de Mantenimientos a aires acondicionados ejecutados en el mes, las Programaciones para ese mes y los Mantenimientos realizados por emergencia.
+    </p>
+
+    <%= image_tag 'mantenimientos-ac.gif' %>
+</div>
+
+<div id="informe-de-elevadores">
+    <h4>
+        Gráfico de Informe de elevadores por mes
+    </h4>
+    <p>
+        Depende de Informe de elevadores. Este gráfico muestra el total de minutos que un elevador ha estado detenido según los datos ingresados en el módulo de Seguridad, informe de elevadores.
+    </p>
+
+    <%= image_tag 'informe-de-elevadores.gif' %>
+</div>

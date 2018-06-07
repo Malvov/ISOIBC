@@ -278,6 +278,8 @@
 #     puts n
 # end
 
+Customer.create!(name: 'IBC', location: 'Otra')
+
 Schedule.create!(
     [
         { customer: Customer.last, month: 'Febrero', maintenances_quantity: 10 },
