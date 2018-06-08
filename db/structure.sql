@@ -545,8 +545,9 @@ CREATE TABLE work_plans (
     start_date date,
     end_date date,
     square_meters double precision,
-    cost_estimate_per_square_meter double precision,
-    real_cost double precision,
+    cost_estimate_per_square_meter numeric(15,2),
+    real_cost numeric(15,2),
+    profits numeric(15,2),
     comment text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL

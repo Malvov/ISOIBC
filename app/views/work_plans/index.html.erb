@@ -25,6 +25,7 @@
       <th>Costo estimado por m2</th>
       <th>Costo global</th>
       <th>Costo real</th>
+      <th>Utilidades</th>
       <th>Observaciones</th>
       <th colspan="3"></th>
     </tr>
@@ -40,10 +41,11 @@
         <td><%= work_plan.end_date.strftime '%d/%m/%Y' %></td>
         <td><%= work_plan.square_meters %></td>
         <td><%= number_to_currency work_plan.cost_estimate_per_square_meter, unit: '$' %></td>
-        <td><%= number_to_currency work_plan.global_cost, unit: '$' %></td>
-        <td><%= number_to_currency work_plan.real_cost, unit: '$' %></td>
+        <td><%= number_to_currency work_plan.global_cost, unit: 'US$ ' %></td>
+        <td><%= number_to_currency work_plan.real_cost, unit: 'US$ ' %></td>
+        <td><%= number_to_currency work_plan.profits, unit: 'US$ ' %></td>
         <td><%= work_plan.comment %></td>
-        <td><%= link_to work_plan, remote: true, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
+        <td><%= link_to work_plan, 'data-toggle': 'tooltip', 'data-placement': 'top', 'title': 'Ver' do  %>
                 <%= fa_icon 'eye 2x' %>
             <% end %>
         </td>

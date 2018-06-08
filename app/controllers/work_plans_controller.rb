@@ -76,6 +76,6 @@ class WorkPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_plan_params
-      params.require(:work_plan).permit(:task, :status, :assigned_to, :start_date, :end_date, :square_meters, :cost_estimate_per_square_meter, :real_cost, :comment, :image)
+      params.require(:work_plan).permit(:task, :status, :assigned_to, :start_date, :end_date, :square_meters, :cost_estimate_per_square_meter, :real_cost, :comment, :profits, :image)
     end
 end

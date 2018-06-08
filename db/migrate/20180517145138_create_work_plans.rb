@@ -7,8 +7,9 @@ class CreateWorkPlans < ActiveRecord::Migration[5.1]
       t.date :start_date
       t.date :end_date
       t.float :square_meters
-      t.float :cost_estimate_per_square_meter
-      t.float :real_cost
+      t.decimal :cost_estimate_per_square_meter, precision: 15, scale: 2
+      t.decimal :real_cost, precision: 15, scale: 2
+      t.decimal :profits, precision: 15, scale: 2
       t.text :comment
 
       t.timestamps

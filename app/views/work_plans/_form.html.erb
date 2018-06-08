@@ -32,9 +32,27 @@
         <%= f.input :square_meters, label: 'Cantidad de m2' %>  
       </div>
       <div class="col-lg-6">
-        <%= f.input :cost_estimate_per_square_meter, label: 'Costo estimado por m2' %>  
+        <%= f.label :cost_estimate_per_square_meter, label: 'Costo estimado por m2' %>
+        <div class="input-group">
+          <span class="input-group-addon">US$</span>
+          <%= f.input :cost_estimate_per_square_meter, label: false %>  
+        </div>
+        
       </div>
     </div>
+    <%= f.label :real_cost, label: 'Costo real' %>
+    <div class="input-group">
+      <span class="input-group-addon">US$</span>
+      <%= f.input :real_cost, label: false %>
+    </div>
+    <br>
+    <%= f.label :profits, label: 'Utilidades' %>
+    <div class="input-group">
+      <span class="input-group-addon">US$</span>
+      <%= f.input :profits, label: false %>
+    </div>
+    <br>
+    <%= f.input :comment, label: 'Observaciones' %>
 
     <label class="btn btn-info">
       Imágenes
@@ -42,8 +60,6 @@
         <%= f.file_field :image %>
       </span>
     </label>
-    <%= f.input :real_cost, label: 'Costo real' %>
-    <%= f.input :comment, label: 'Observaciones' %>
   </div>
 
   <div class="form-actions">
