@@ -10,7 +10,11 @@
     <li><a href="#equipos-industriales">Equipos industriales</a></li>
     <li><a href="#mantenimientos-aires-acondicionados">Mantenimientos de aires acondicionados</a></li>
     <li><a href="#seguridad">Seguridad</a></li>
+    <% if current_user.admin? %>
+        <li><a href="#admin">Opciones de administrador</a></li>
+    <% end %>
 </ol>
+
 <h3>Gráficos</h3>
 <ol>
     <li><a href="#rendimento-general">Gráfico de rendimiento general</a></li>
@@ -398,6 +402,67 @@
 
 </div>
 
+<div id="admin">
+    <h4>Opciones de administrador</h4>
+    <p class="larger-font">
+        Se accede a través de la  <a href="http://seguimiento:5000/admin">siguiente url</a> logeado con un usuario con permisos de administrador
+    </p>
+    <p class="larger-font">
+        A través de esta opción se puede gestionar <strong>TODO</strong> dentro de la aplicación. Es decir, se puede agregar, editar o eliminar cualquier registro, no importa si fue agregado por otros usuarios.
+    </p>
+    <p class="larger-font">
+        Aquí, se pueden agregar usuarios nuevos.
+    </p>
+
+    <p class="larger-font">
+        Un usuario nuevo podría administrar cualquier parte del sistema según el área que se indique. Entonces: 
+        El usuario con el área <strong>'Limpieza y jardinería'</strong> tiene acceso a los siguientes componentes:
+        <ul>
+            <li class="larger-font">Operarios</li>
+            <li class="larger-font">Evaluaciones</li>
+            <li class="larger-font">Sectores y tareas</li>
+        </ul>
+
+        <p class="larger-font">
+        El usuario con el área <strong>'Electricistas'</strong> tiene acceso a los siguientes componentes:
+        </p>
+        
+
+        <ul>
+            <li class="larger-font">Mediciones</li>
+            <li class="larger-font">Equipos industriales</li>
+            <li class="larger-font">Parámetros</li>
+            <li class="larger-font">Tipos de mediciones</li>
+        </ul>
+
+        <p class="larger-font">
+            El usuario con el área <strong>'Seguridad'</strong> tiene acceso a los siguientes componentes:
+        </p>
+        
+        <ul>
+            <li class="larger-font">Informe de elevadores</li>
+        </ul>
+
+        <p class="larger-font">
+            El usuario con el área <strong>'AC'</strong> tiene acceso a los siguientes componentes:El usuario con el área <strong>'AC'</strong> tiene acceso a los siguientes componentes:    
+        </p>
+        <ul>
+            <li class="larger-font">
+                Mantenimientos a aires acondicionados
+
+            </li>
+            <li class="larger-font">Clientes</li>
+            <li class="larger-font">Programaciones</li>
+        </ul>
+        <p class="larger-font">
+            Además, el usuario <strong>jefedemantenimiento</strong> tiene acceso a todo lo anterior y también a <strong>Mantenimientos a equipos industriales</strong>
+        </p>
+        
+
+        <%= image_tag 'admin.gif' %>
+    </p>
+</div>
+
 <div id="rendimento-general">
     <h3>
         Gráfico de rendimiento general
@@ -425,6 +490,7 @@
         Depende de Evaluaciones. Este muestra la distribución del desempeño de un Operario en el mes. Tiene un filtro por fechas, que activa el gráfico cuando la fecha fin cambia.
     </p>
 
+    <%= image_tag 'resultados-por-mes-por-empleado.gif' %>
 </div>
 
 <div id="mediciones-por-equipos">
@@ -453,8 +519,8 @@
     </h3>
     <p class="larger-font">
         Depende de Mantenimientos a aires acondicionados. Este gráfico muestra una comparación entre la cantidad de Mantenimientos a aires acondicionados ejecutados en el mes, las Programaciones para ese mes y los Mantenimientos realizados por emergencia.
+        Se puede filtrar solamente por cliente al seleccionar el Cliente en el dropdown o cuando la fecha en 'Hasta' cambia.
     </p>
-
     <%= image_tag 'mantenimientos-ac.gif' %>
 </div>
 

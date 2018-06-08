@@ -7,3 +7,4 @@ $(document).on 'turbolinks:load', ->
     $('#ac_maintenance_parts').select2
         multiple: true
     return
+    

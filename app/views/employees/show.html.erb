@@ -3,8 +3,19 @@
   <%= @employee.name %>
 </h3>
 
-<%= employee_evaluations(@employee) %>
-
+<%= employee_evaluations(@employee.id) %>
+<%= hidden_field_tag :employee_id, @employee.id.to_s %>
+<div class="row">
+      <div class="col-lg-4">
+          <%= label_tag 'Desde' %>
+          <%= date_field_tag :employee_start_at %>
+      </div>
+      <div class="col-lg-4">
+          <%= label_tag 'Hasta' %>
+          <%= date_field_tag :employee_end_at %>
+          
+      </div>
+  </div>
 <div id="evaluations">
   <%= render 'employee_evaluations', remote: true %>
 </div>

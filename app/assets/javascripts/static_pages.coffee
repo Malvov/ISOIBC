@@ -12,8 +12,32 @@ $(document).on 'turbolinks:load', ->
   optionChanged()
   acCustomerButtonClicked()
   elevatorFormsPerMonth()
+  acMaintenancesPerMonth()
 
 
+acMaintenancesPerMonth = ->
+  $('#ac_maintenances_end_at').change (e) ->
+
+      unless $('#ac_customer :selected').val() == ''
+        customer_id = $('#ac_customer :selected').val()
+      else
+        customer_id = 'id'
+
+      end_at = $(e.target).val()
+      start_at = $('#ac_maintenances_start_at').val()
+      $.ajax
+        type: 'POST'
+        url: '/charts/ac_maintenance_goals'
+        data:
+          customer_id: customer_id
+          end_at: end_at
+          start_at: start_at
+        success: (data) ->
+          chart = Chartkick.charts['ac_maintenance_goals']
+          chart.updateData data
+          return
+      return
+  return
 
 evaluationsResultsPerMonth = ->
   $('#end_at').change (e) ->

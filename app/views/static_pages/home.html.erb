@@ -4,6 +4,9 @@
     <h1 class="text-center">
         Dashboard
     </h1>
+    <% if can? :manage, Measurement %>
+        <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
+    <% end %>
     <ul class="nav nav-tabs">
         <% if can? :manage, Evaluation %>
             <li><a data-toggle="tab" href="#limpieza-y-jardineria">Limpieza y jardinería <i class="fas fa-broom"></i></a></li>
@@ -42,6 +45,7 @@
                 </div>
             </div>
         <% end %>
+
         <% if can? :manage, Measurement or can? :manage, Maintenance  %>
             <div id="aparatos-industriales" class="tab-pane fade">
                 <ul class="nav nav-tabs">
@@ -53,7 +57,6 @@
 
                 <div class="tab-content">
                     <div id="mediciones" class="tab-pane fade">
-                        <%= link_to 'Nueva medición', new_measurement_path, class: 'btn btn-success' unless current_user.admin? %>
                         <!--<div class="row">
                             <div class="col-lg-12">
                                 <%= measurements_chart %>
@@ -82,10 +85,10 @@
         <% if can? :manage, AcMaintenance %>
             <div id="aires-acondicionados" class="tab-pane fade">
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-7">
                         <%= ac_maintenance_goals_chart %>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                         <br>
                         <div class="row">
                             <div class="col-lg-12 text-center">
@@ -113,6 +116,16 @@
                                             <input type="submit" name="customer-button" id="customer-button">
                                         </span>
                                     </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <%= label_tag 'Desde' %>
+                                    <%= date_field_tag :ac_maintenances_start_at %>
+                                </div>
+                                <div class="col-xs-4">
+                                    <%= label_tag 'Hasta' %>
+                                    <%= date_field_tag :ac_maintenances_end_at %>
                                 </div>
                             </div>
                         </div>

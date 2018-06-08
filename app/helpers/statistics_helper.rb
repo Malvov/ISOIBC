@@ -1,28 +1,26 @@
 module StatisticsHelper
-    def employee_evaluations(employee)
-        pie_chart employee_performance_charts_path(employee),  library: {
-            colors: [
-                '#34fc02', #bueno                        
-                '#fc1b02', #deficiente
-                '#fca902' #regular
-                
-            ],
-            title: { text: "Rendimiento de #{employee.name}" },
-            yAxis: {
-                allowDecimals: false
-            },
-            xAxis: {
-                title: {
-                    text: 'Calificaciones obtenidas'
-                }
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer'
-                }
+    def employee_evaluations(employee_id)
+        column_chart  employee_evaluations_charts_path(employee_id),  
+        id: 'employee_evaluations_results_per_month',                                                                    
+        stacked: true, 
+        library: {
+        colors: [
+            '#34fc02', #bueno
+            '#fc1b02', #deficiente
+            '#fca902', #regular
+            
+            
+        ], title: { text: 'Resultados por mes' },
+        yAxis: {
+            allowDecimals: false,
+            title: { text: 'Cantidad' }
+        },                                                                                                                                                                                         
+        plotOptions: {
+            series: {
+                pointWidth: 15
             }
         }
+    }
     end
     
     def employees_evaluations

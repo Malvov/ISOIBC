@@ -34,7 +34,8 @@ Rails.application.routes.draw do
       post 'evaluations_results_per_month'
       get 'measurements_chart'
       get 'employees_evaluations'
-      get 'individual_evaluations/:employee_id', to: 'charts#individual_evaluations', as: :employee_performance
+      get '/individual_evaluations/:employee_id', to: 'charts#individual_evaluations', as: :employee_evaluations
+      post 'individual_evaluations'
       get 'ac_maintenance_goals'
       post 'ac_maintenance_goals'
       get 'total_minutes_per_elevator_per_month'

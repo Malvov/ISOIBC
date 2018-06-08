@@ -23,30 +23,53 @@ class ChartsController < ApplicationController
     def individual_evaluations
         employee = Employee.find(params[:employee_id])
         if employee.type.nil?
-            render json: employee.evaluations.group(:result).order(result: :asc).count.chart_json        
+            unless params[:start_at].blank? && params[:end_at].blank?
+                start_at = params[:start_at].to_date
+                end_at = params[:end_at].to_date
+                render json: employee.evaluations.group(:result).
+                group_by_month(:date, range: start_at..end_at, format: '%b %Y').
+                order(result: :asc).count.chart_json
+            else
+                render json: employee.evaluations.group(:result).group_by_month(:date, format: '%b %Y').order(result: :asc).
+                count.chart_json
+            end    
         end
     end
 
     def ac_maintenance_goals
-        #Schedule.group(:month).sum(:maintenances_quantity)
-        #AcMaintenance.where(maintenance_type: 'Programado').group_by_month(:date, format: '%b').sum(:valid_for)
-       # debugger
-        hash = Hash.new
-
-        #debugger
-
-        if params[:todos] == '1' || params[:todos].blank?
+        if params[:customer_id] == 'id' || params[:customer_id].nil?
+            unless params[:start_at].blank? && params[:end_at].blank?
+                start_at = params[:start_at].to_date
+                end_at = params[:end_at].to_date
+                valid_fors_programados = AcMaintenance.programados.
+                group_by_month(:date, range: start_at..end_at, format: '%B').
+                sum(:valid_for)
+            else
+                valid_fors_programados = AcMaintenance.programados.
+                group_by_month(:date, format: '%B').
+                sum(:valid_for)
+            end
             valid_fors_emergencias = AcMaintenance.emergencias.group_by_month(:date, format: '%B').sum(:valid_for)
             #ac_maintenance_months = AcMaintenance.group_by_month(:date, format: '%B').count
             maintenance_quantities = Schedule.where.not(customer: Customer.find_by_name('IBC')).
             group(:month).sum(:maintenances_quantity)
-            valid_fors_programados = AcMaintenance.programados.group_by_month(:date, format: '%B').sum(:valid_for)
-        elsif params[:customer_id]
+            
+        else
             customer = Customer.find(params[:customer_id])
+            unless params[:start_at].blank? && params[:end_at].blank?
+                start_at = params[:start_at].to_date
+                end_at = params[:end_at].to_date
+                valid_fors_programados = customer.ac_maintenances.programados.
+                group_by_month(:date, range: start_at..end_at, format: '%B').
+                sum(:valid_for)
+            else
+                valid_fors_programados = customer.ac_maintenances.programados.
+                group_by_month(:date, format: '%B').
+                sum(:valid_for)
+            end
             valid_fors_emergencias = customer.ac_maintenances.emergencias.group_by_month(:date, format: '%B').sum(:valid_for)
             #ac_maintenance_months = customer.ac_maintenances.group_by_month(:date, format: '%B').count
             maintenance_quantities = customer.schedules.group(:month).sum(:maintenances_quantity)
-            valid_fors_programados = customer.ac_maintenances.programados.group_by_month(:date, format: '%B').sum(:valid_for)
         end
         
         render json: scheduled_vs_completed(maintenance_quantities, valid_fors_programados, valid_fors_emergencias).chart_json
@@ -64,7 +87,6 @@ class ChartsController < ApplicationController
     end
 
     def equipments_maintenances
-        hash = Hash.new
         scheduled_maintenances = Schedule.where(customer: Customer.find_by_name('IBC')).map { |schedule| [schedule.month, schedule.maintenances_quantity] }.to_h
         maintenances_completed = Maintenance.group_by_month(:date, format: '%B').count
         render json: scheduled_vs_completed(scheduled_maintenances, maintenances_completed).chart_json
