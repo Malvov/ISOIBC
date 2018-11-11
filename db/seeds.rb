@@ -145,15 +145,15 @@
 #     print '.'
 # end
 
-# calificaciones = ['Bueno', 'Regular', 'Deficiente']
+calificaciones = ['Bueno', 'Regular', 'Deficiente']
 
-# puts 'evaluations'
-# 293.times do |n|
-#     Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
-#         calificaciones.sample, comment: Faker::Lorem.paragraph, date: (2.months.ago.to_datetime..DateTime.
-#             now.to_datetime).to_a.sample)
-#     print '.'
-# end
+puts 'evaluations'
+1500.times do |n|
+    Evaluation.create!(employee_id: Employee.all.sample.id, task_id: Task.all.sample.id, result: 
+        calificaciones.sample, comment: Faker::Lorem.paragraph, date: (4.months.ago.to_datetime..DateTime.
+            now.to_datetime).to_a.sample)
+    print '.'
+end
 
 # User.create!(username: 'prueba', email: 'pru@e.ba', admin: true, 
 #     password: 'password', password_confirmation: 'password')

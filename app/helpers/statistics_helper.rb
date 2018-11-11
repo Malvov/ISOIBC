@@ -7,7 +7,7 @@ module StatisticsHelper
         colors: [
             '#34fc02', #bueno
             '#fc1b02', #deficiente
-            '#fca902', #regular
+            '#fca902' #regular
             
             
         ], title: { text: 'Resultados por mes' },
@@ -135,6 +135,35 @@ module StatisticsHelper
             },
             xAxis: {
                 title: { text: 'Mes' }
+            },                                                                                                                                                                                                  
+            plotOptions: {
+                series: {
+                    pointWidth: 15
+                }
+            }
+          }
+    end
+
+    def evaluations_results_per_month_in_percentage_chart
+        column_chart evaluations_results_per_month_in_percentage_charts_path,
+        id: 'evaluations-results-percentage',
+
+        library: {
+            colors: [
+                '#34fc02', #bueno
+                '#fca902', #regular
+                '#fc1b02', #deficiente
+                
+            ],
+            title: { text: 'Resultados por mes' },
+            yAxis: {
+                title: { text: 'Porcentaje' },
+                min: 0,
+                max: 100,
+                allowDecimals: false
+            },
+            xAxis: {
+                title: { text: 'Operario' }
             },                                                                                                                                                                                                  
             plotOptions: {
                 series: {

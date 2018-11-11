@@ -25,20 +25,42 @@
     <div class="tab-content">
         <% if can? :manage, Evaluation %>
             <div id="limpieza-y-jardineria" class="tab-pane fade">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <%= employees_evaluations %>
+                <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab"  href="#evaluaciones-individual">Resultados individuales por mes</a></li>
+                    <li><a data-toggle="tab" href="#evaluaciones-general">Resultados individuales por mes</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="evaluaciones-individual" class="tab-pane fade">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <%= evaluations_results_per_month_in_percentage_chart %>
+                            </div>
+                            <div class="col-lg-2">
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <%= select_tag :month, options_from_collection_for_select(months, :first, :last), { prompt: 'Escoger mes', class: 'form-control form-group' } %>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                        <%= evaluations_results_per_month %>
+                    <div id="evaluaciones-general" class="tab-pane fade">
                         <div class="row">
                             <div class="col-lg-6">
-                                <%= label_tag 'Desde' %>
-                                <%= date_field_tag :start_at %>
+                                <%= employees_evaluations %>
                             </div>
                             <div class="col-lg-6">
-                                <%= label_tag 'Hasta' %>
-                                <%= date_field_tag :end_at %>
+                                <%= evaluations_results_per_month %>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <%= label_tag 'Desde' %>
+                                        <%= date_field_tag :start_at %>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <%= label_tag 'Hasta' %>
+                                        <%= date_field_tag :end_at %>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

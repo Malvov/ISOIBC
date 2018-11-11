@@ -23,6 +23,17 @@ class Employee < ApplicationRecord
     def calificacion
         @calificacion = score
     end
+
+    def scores_in_percentage(date)
+        results = evaluations.where('date between ? and ?', date.beginning_of_month, date.end_of_month).group(:result).count
+        total = results.sum { |key, value| value }
+        scores = Hash.new
+        results.each do |key, value|
+            scores[key] = ((value/total.to_f).round(2) * 100).round(2)
+            #scores.except!(key) if scores[key] == 0.0
+        end
+        scores
+    end
     
     private
     

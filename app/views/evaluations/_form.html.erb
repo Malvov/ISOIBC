@@ -25,7 +25,7 @@
     order: [:day, :month, :year],  use_month_numbers: true %>
     <%= f.label :date, label: 'Fecha' %>
     <div class="input-group form-group">
-      <%= f.text_field :date, class: 'form-control datetimepicker', value: @evaluation.persisted? ? f.object.date.strftime('%d/%m/%Y') : DateTime.now.strftime('%d/%m/%Y')  %>
+      <%= f.text_field :date, class: 'form-control datetimepicker', value: @evaluation.persisted? ? f.object.date.strftime('%d/%m/%Y') : Evaluation.last.date.strftime('%d/%m/%Y') %>
        <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
         </span>

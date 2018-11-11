@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       get 'total_minutes_per_elevator_per_month'
       post 'total_minutes_per_elevator_per_month'
       get 'equipments_maintenances'
+      get 'evaluations_results_per_month_in_percentage'
     end
   end
   get 'get_parameters', to: 'measurements#get_parameters'

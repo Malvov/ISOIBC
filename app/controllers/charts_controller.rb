@@ -92,4 +92,15 @@ class ChartsController < ApplicationController
         render json: scheduled_vs_completed(scheduled_maintenances, maintenances_completed).chart_json
     end
 
+    def evaluations_results_per_month_in_percentage
+        scores = Hash.new
+        date = params[:month].blank? ? Date.today : params[:month].to_date
+        Employee.where(type: nil).each do |employee|
+            scores[['Bueno', employee.name]] = employee.scores_in_percentage(date).slice('Bueno').values.first
+            scores[['Regular', employee.name]] = employee.scores_in_percentage(date).slice('Regular').values.first
+            scores[['Deficiente', employee.name]] = employee.scores_in_percentage(date).slice('Deficiente').values.first
+        end
+        # debugger
+        render json: scores.chart_json
+    end
 end

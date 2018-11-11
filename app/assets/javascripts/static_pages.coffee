@@ -8,6 +8,7 @@
     
 $(document).on 'turbolinks:load', ->
   evaluationsResultsPerMonth()
+  employeeEvaluationsResultsPerMonth()
   # #$(document)
   optionChanged()
   acCustomerButtonClicked()
@@ -98,6 +99,22 @@ elevatorFormsPerMonth = ->
         end_at: end_at
       success: (data) ->
         chart = Chartkick.charts['total_minutes_per_elevator_per_month']
+        chart.updateData data
+        return
+    return
+  return
+
+employeeEvaluationsResultsPerMonth = ->
+  $('#month').change (e) ->
+    month = $(e.target).val()
+    $.ajax
+      type: 'GET',
+      url: '/charts/evaluations_results_per_month_in_percentage',
+      data:
+        month: month
+      success: (data) ->
+        chart = Chartkick.charts['evaluations-results-percentage']
+        console.log data
         chart.updateData data
         return
     return
